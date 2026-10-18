@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BTC 5-minute paper bot</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<h1>BTC 5-minute paper bot</h1>
+<p class="sub">Simulated trades only. No real money, no wallet, no keys.</p>
+<div class="warn">Results here do not prove a live edge. Real trading adds fees, slippage, latency and competing bots. Judge the bot on at least a few hundred paper trades.</div>
+
+<div class="grid">
+  <div class="card"><small>BTC spot (Binance)</small><div class="big" id="spot">-</div></div>
+  <div class="card"><small>Window start price</small><div class="big" id="s0">-</div></div>
+  <div class="card"><small>Time left in window</small><div class="big" id="tleft">-</div></div>
+  <div class="card"><small>Fair chance of Up</small><div class="big" id="fair">-</div></div>
+  <div class="card"><small>Market buy price Up / Down</small><div class="big" id="ask">-</div></div>
+  <div class="card"><small>Best edge after fees</small><div class="big" id="edge">-</div></div>
+  <div class="card"><small>Paper bankroll</small><div class="big" id="bank">-</div></div>
+  <div class="card"><small>Wins / trades</small><div class="big" id="wl">0 / 0</div></div>
+</div>
+
+<div class="panel">
+  <div class="set">
+    <div><label for="mode">Market data</label>
+      <select id="mode"><option value="live">Live Polymarket</option><option value="sim">Demo (simulated lagging market)</option></select></div>
+    <div><label for="bank0">Starting bankroll ($)</label><input id="bank0" type="number" value="100" min="1"></div>
+    <div><label for="stake">Stake per trade (% of bankroll)</label><input id="stake" type="number" value="2" min="0.1" max="10" step="0.1"></div>
+    <div><label for="thr">Minimum edge to trade (%)</label><input id="thr" type="number" value="4" min="0" step="0.5"></div>
+    <div><label for="fee">Fee and slippage buffer (%)</label><input id="fee" type="number" value="2" min="0" step="0.5"></div>
+    <div><label for="mint">Stop trading when seconds left is below</label><input id="mint" type="number" value="20" min="5"></div>
+    <div><label for="cap">Daily loss limit (% of start)</label><input id="cap" type="number" value="10" min="1"></div>
+    <div><label for="lag">Demo only: market lag (ms)</label><input id="lag" type="number" value="1500" min="0" step="100"></div>
+  </div>
+  <button id="go">Start bot</button><button id="reset" class="stop">Reset results</button>
+  <span id="status" class="sub"></span>
+</div>
+
+<div class="panel tw">
+  <table><thead><tr><th>Window</th><th>Side</th><th>Buy price</th><th>Fair</th><th>Stake</th><th>Result</th><th>Profit</th></tr></thead><tbody id="trades"></tbody></table>
+</div>
+<div class="panel"><div id="log"></div></div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
