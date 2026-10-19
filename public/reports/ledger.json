@@ -1,0 +1,45 @@
+{
+  "snapshot": {
+    "mode": "paper",
+    "currency": "USD",
+    "starting_cash": 100.0,
+    "cash": 100.0,
+    "equity": 100.0,
+    "realized_pnl": 0.0,
+    "unrealized_pnl": 0,
+    "total_pnl": 0.0,
+    "return_pct": 0.0,
+    "open_count": 0,
+    "closed_count": 0,
+    "win_count": 0,
+    "loss_count": 0,
+    "win_rate": 0.0,
+    "gross_win": 0,
+    "gross_loss": 0,
+    "best_trade": 0,
+    "worst_trade": 0,
+    "max_drawdown_pct": 0.0,
+    "open_positions": [],
+    "closed_trades": [],
+    "equity_curve": [
+      {
+        "t": "2026-10-19T04:31:10Z",
+        "equity": 100.0
+      }
+    ],
+    "updated_utc": "2026-10-19T04:31:10Z",
+    "policy": "simulated fills at quoted prices; no broker, wallet or order client"
+  },
+  "starting_cash": 100.0,
+  "cash": 100.0,
+  "realized_pnl": 0.0,
+  "open_positions": [],
+  "closed_trades": [],
+  "equity_curve": [
+    {
+      "t": "2026-10-19T04:31:10Z",
+      "equity": 100.0
+    }
+  ],
+  "updated_utc": "2026-10-19T04:31:10Z"
+}
