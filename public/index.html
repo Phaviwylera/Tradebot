@@ -3,46 +3,100 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BTC 5-minute paper bot</title>
+<meta name="color-scheme" content="dark">
+<title>Opus Agent Desk — six agents, one paper decision</title>
+<meta name="description" content="A six-agent research desk for Polymarket. Scans 400+ markets, writes rule-based paper plans, and lets a risk gate veto everything. No wallet, no orders.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b141a'/%3E%3Crect x='7' y='17' width='4' height='9' rx='1' fill='%233ddbc6' opacity='.6'/%3E%3Crect x='14' y='8' width='4' height='18' rx='1' fill='%233ddbc6'/%3E%3Crect x='21' y='13' width='4' height='13' rx='1' fill='%233ddbc6' opacity='.8'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<h1>BTC 5-minute paper bot</h1>
-<p class="sub">Simulated trades only. No real money, no wallet, no keys.</p>
-<div class="warn">Results here do not prove a live edge. Real trading adds fees, slippage, latency and competing bots. Judge the bot on at least a few hundred paper trades.</div>
+<a class="skip" href="#agents">Skip to agent reports</a>
+<noscript><div class="banner error" style="margin:14px">This desk is JavaScript-only and runs entirely in your browser. Enable JavaScript to use it. No order endpoint exists either way.</div></noscript>
 
-<div class="grid">
-  <div class="card"><small>BTC spot (Binance)</small><div class="big" id="spot">-</div></div>
-  <div class="card"><small>Window start price</small><div class="big" id="s0">-</div></div>
-  <div class="card"><small>Time left in window</small><div class="big" id="tleft">-</div></div>
-  <div class="card"><small>Fair chance of Up</small><div class="big" id="fair">-</div></div>
-  <div class="card"><small>Market buy price Up / Down</small><div class="big" id="ask">-</div></div>
-  <div class="card"><small>Best edge after fees</small><div class="big" id="edge">-</div></div>
-  <div class="card"><small>Paper bankroll</small><div class="big" id="bank">-</div></div>
-  <div class="card"><small>Wins / trades</small><div class="big" id="wl">0 / 0</div></div>
-</div>
-
-<div class="panel">
-  <div class="set">
-    <div><label for="mode">Market data</label>
-      <select id="mode"><option value="live">Live Polymarket</option><option value="sim">Demo (simulated lagging market)</option></select></div>
-    <div><label for="bank0">Starting bankroll ($)</label><input id="bank0" type="number" value="100" min="1"></div>
-    <div><label for="stake">Stake per trade (% of bankroll)</label><input id="stake" type="number" value="2" min="0.1" max="10" step="0.1"></div>
-    <div><label for="thr">Minimum edge to trade (%)</label><input id="thr" type="number" value="4" min="0" step="0.5"></div>
-    <div><label for="fee">Fee and slippage buffer (%)</label><input id="fee" type="number" value="2" min="0" step="0.5"></div>
-    <div><label for="mint">Stop trading when seconds left is below</label><input id="mint" type="number" value="20" min="5"></div>
-    <div><label for="cap">Daily loss limit (% of start)</label><input id="cap" type="number" value="10" min="1"></div>
-    <div><label for="lag">Demo only: market lag (ms)</label><input id="lag" type="number" value="1500" min="0" step="100"></div>
+<header class="topbar">
+  <div class="brand">
+    <div class="mark" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="brand-text">
+      <h1>Opus Agent Desk</h1>
+      <p>Six agents. One decision. Paper only.</p>
+    </div>
   </div>
-  <button id="go">Start bot</button><button id="reset" class="stop">Reset results</button>
-  <span id="status" class="sub"></span>
-</div>
 
-<div class="panel tw">
-  <table><thead><tr><th>Window</th><th>Side</th><th>Buy price</th><th>Fair</th><th>Stake</th><th>Result</th><th>Profit</th></tr></thead><tbody id="trades"></tbody></table>
-</div>
-<div class="panel"><div id="log"></div></div>
+  <div class="topbar-actions">
+    <div class="seg" role="group" aria-label="Data source">
+      <button type="button" class="seg-btn" data-mode="test" aria-pressed="true">Test data</button>
+      <button type="button" class="seg-btn" data-mode="live" aria-pressed="false">Live</button>
+    </div>
+    <button type="button" id="run" class="btn btn-primary">
+      <span class="btn-dot" aria-hidden="true"></span><span id="run-label">Run desk</span>
+    </button>
+  </div>
+</header>
 
-<script src="assets/app.js"></script>
+<div id="banner" class="banner" role="note"></div>
+
+<main>
+  <section class="statbar" id="statbar" aria-label="Run summary"></section>
+
+  <nav class="pipeline" id="pipeline" aria-label="Agent pipeline"></nav>
+
+  <div class="layout">
+    <div class="main-col" id="agents">
+      <div class="empty" id="empty-state">
+        <p class="eyebrow">Ready</p>
+        <h2>Scan the board. Let risk say no.</h2>
+        <p class="lead">The desk pulls the most active Polymarket contracts, finds unusual moves,
+          checks dated headlines and price structure, writes one rule-based plan per candidate,
+          and refuses anything that breaks a limit. There is no order button, and never will be.</p>
+        <div class="empty-grid">
+          <div><strong>1 · Scout</strong><span>unusual price, volume and movement</span></div>
+          <div><strong>2 · News</strong><span>dated sources, facts vs speculation</span></div>
+          <div><strong>3 · Charts</strong><span>trend, momentum, support, resistance</span></div>
+          <div><strong>4 · Strategy</strong><span>entry, invalidation, target, time limit</span></div>
+          <div><strong>5 · Risk</strong><span>veto power over every plan</span></div>
+          <div><strong>6 · Boss</strong><span>approve, wait or reject</span></div>
+        </div>
+        <button type="button" class="btn btn-primary" data-action="run">Run the desk</button>
+      </div>
+    </div>
+
+    <aside class="side-col">
+      <section class="card verdict-card" id="verdict" aria-live="polite"></section>
+      <section class="card" id="config-card"></section>
+      <section class="card" id="journal-card"></section>
+      <section class="card about" id="about-card">
+        <h3>What this is not</h3>
+        <ul class="limits">
+          <li><strong>No orders.</strong> No wallet, key, signer or execution endpoint exists in this project.</li>
+          <li><strong>No model guessing.</strong> All six agents are deterministic code. There is no language model in the loop.</li>
+          <li><strong>No promised edge.</strong> A clean report means the workflow completed safely, not that the trade wins.</li>
+          <li><strong>No hidden fees.</strong> Risk charges spread and a configurable cost buffer before it approves anything.</li>
+          <li><strong>No averaging.</strong> Disagreements go to the Boss as WAIT, not into a blended score.</li>
+        </ul>
+        <details class="failure-modes">
+          <summary>Where this kind of setup usually fails</summary>
+          <ul class="limits">
+            <li><strong>Unusual ≠ tradable.</strong> A volume spike is attention, not an edge. Most spikes are already priced in.</li>
+            <li><strong>Headlines are claims.</strong> A keyword feed cannot verify a report or read the body of an article. Missing sources must stop a plan, not be filled in.</li>
+            <li><strong>Levels on thin probability books are noisy.</strong> Support and resistance are treated as context, never as a guarantee.</li>
+            <li><strong>Fees decide marginal trades.</strong> The risk gate charges spread and a cost buffer before it approves; many 1.5:1 setups die there.</li>
+            <li><strong>Synthetic trends are kind.</strong> Test-mode approval rates say nothing about live performance. Paper results do not prove an edge either.</li>
+            <li><strong>Six agents are not independent.</strong> They share inputs and one codebase. Treat the pipeline as a checklist, not a committee of experts.</li>
+          </ul>
+        </details>
+        <p class="fine">Paper-trading research, not financial advice. The full review and method notes are in <code>docs/REVIEW.md</code> and <code>docs/HOW_IT_WORKS.md</code> in the repository.</p>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <span>Opus Agent Desk v1.0 · paper-trading research only · no financial advice</span>
+  <span id="footer-mode"></span>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="assets/app.js"></script>
 </body>
 </html>

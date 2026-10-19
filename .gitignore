@@ -1,0 +1,15 @@
+# local secrets — never commit credentials
+.env
+.env.*
+!.env.example
+
+# dependencies and tooling
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+
+# local artifacts
+.DS_Store
+reports/
+.tmp-*
