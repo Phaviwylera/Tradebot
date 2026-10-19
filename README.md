@@ -4,6 +4,10 @@ A working implementation of the six-agent setup described in the
 [“Opus 6-Agent Trading System”](https://docs.google.com/document/d/109vLyKr8RFYtZuB3RiQ5PJKu0fM_DPHTwCnSIBaBTdI/edit)
 guide — turned from a prompt outline into a runnable, testable pipeline.
 
+**Live demo:** <https://opus-agent-desk.vercel.app> — static snapshots of three runs (approve,
+wait and reject), browsable from the run selector. The Run button is disabled there on purpose;
+the pipeline itself runs locally with `python3 main.py --serve`.
+
 ```text
 SCOUT ──► NEWS ──► CHARTS ──► STRATEGY ──► RISK ──► BOSS
 scan 400+  dated    trend &    one plan      veto /    approve · wait
