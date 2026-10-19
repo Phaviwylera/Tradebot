@@ -26,6 +26,10 @@
   --amber-soft: rgba(244, 193, 92, 0.1);
   --blue: #5aa7ff;
   --blue-soft: rgba(90, 167, 255, 0.1);
+  --poster-yellow: #ffd23f;
+  --poster-red: #ff4438;
+  --poster-green: #158351;
+  --poster-green-2: #0e6b41;
   --mono: ui-monospace, "SF Mono", "JetBrains Mono", "IBM Plex Mono", Menlo, Consolas, monospace;
   --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --rail-w: 232px;
@@ -283,6 +287,131 @@ code {
 .banner.live > span { border-left-color: var(--green); background: rgba(70, 221, 138, 0.05); }
 .banner.error > span { border-left-color: var(--red); background: var(--red-soft); color: #ffc2c8; }
 .banner .static-note { margin-top: 4px; border-left-color: var(--blue); }
+
+
+/* ------------------------------------------------------------------ masthead */
+
+.masthead {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  gap: 26px;
+  align-items: center;
+  padding: 30px 22px 26px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(680px 240px at 14% 6%, rgba(255, 210, 63, 0.055), transparent 62%),
+    radial-gradient(560px 260px at 6% 96%, rgba(255, 68, 56, 0.05), transparent 62%),
+    radial-gradient(700px 300px at 70% 40%, rgba(55, 224, 176, 0.045), transparent 70%),
+    linear-gradient(180deg, rgba(5, 14, 19, 0.4), rgba(3, 8, 11, 0.75));
+}
+.masthead::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(90deg, #000, transparent 78%);
+}
+.masthead::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 210, 63, 0.4) 28%, rgba(255, 68, 56, 0.4) 62%, transparent);
+}
+.masthead-copy { position: relative; z-index: 1; min-width: 0; }
+.masthead-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.masthead-kicker b { color: var(--text); font-weight: 700; letter-spacing: 0.16em; }
+.masthead-kicker .mast-sep { color: var(--line-3); }
+.mast-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 10px var(--teal); }
+.masthead h1 {
+  max-width: 19ch;
+  margin: 12px 0 12px;
+  font-size: clamp(30px, 3.5vw, 54px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+  color: #f4fbfd;
+  text-wrap: balance;
+}
+.masthead h1 em { font-style: normal; }
+.masthead h1 .hl-yellow { color: var(--poster-yellow); }
+.masthead h1 .hl-red { color: var(--poster-red); }
+.masthead-sub {
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.65;
+}
+.masthead-stages {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: var(--dim);
+}
+.masthead-stages i { width: 12px; height: 1px; background: var(--line-3); }
+.masthead-stages .stage-boss { color: var(--poster-yellow); }
+
+/* poster-style monitor wall (decorative only) */
+.masthead-wall { position: relative; height: 176px; min-width: 0; }
+.wall-monitor {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: 7px 8px 6px;
+  border: 1px solid rgba(90, 167, 255, 0.22);
+  border-radius: 7px;
+  background:
+    linear-gradient(165deg, rgba(10, 28, 38, 0.96), rgba(4, 13, 20, 0.98) 70%);
+  box-shadow:
+    0 22px 44px rgba(0, 0, 0, 0.55),
+    0 0 34px rgba(55, 224, 176, 0.07),
+    inset 0 0 32px rgba(55, 224, 176, 0.035);
+}
+.wall-monitor::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 7px;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.05), transparent 38%);
+}
+.wall-tag { font-family: var(--mono); font-size: 6.5px; letter-spacing: 0.2em; color: var(--dim); }
+.wall-monitor svg { width: 100%; flex: 1; min-height: 0; margin-top: 4px; }
+.wall-a { left: 0; top: 4px; width: 62%; height: 62%; transform: rotate(-2.2deg); }
+.wall-b { right: 0; top: 16px; width: 57%; height: 58%; transform: rotate(2deg); z-index: 2; }
+.wall-c { left: 18%; bottom: 0; width: 56%; height: 46%; transform: rotate(-1deg); z-index: 3; }
+.wm-line { fill: none; stroke: var(--teal); stroke-width: 1.6; filter: drop-shadow(0 0 4px rgba(55, 224, 176, 0.55)); }
+.wm-area { fill: rgba(55, 224, 176, 0.13); }
+.wm-rule { stroke: rgba(126, 153, 164, 0.12); stroke-width: 1; }
+.wm-wick { stroke: rgba(126, 153, 164, 0.55); stroke-width: 1; }
+.wm-up { fill: var(--green); }
+.wm-down { fill: var(--red); }
+.wm-donut-bg { fill: none; stroke: rgba(126, 153, 164, 0.16); stroke-width: 6; }
+.wm-donut { fill: none; stroke: var(--teal); stroke-width: 6; stroke-linecap: round; filter: drop-shadow(0 0 6px rgba(55, 224, 176, 0.5)); }
+.wm-bar { fill: rgba(126, 153, 164, 0.16); }
+.wm-bar.lit { fill: var(--teal); }
+.wm-bar.lit-down { fill: var(--poster-red); }
+.wm-bar.lit-soft { fill: var(--poster-yellow); }
 
 /* ------------------------------------------------------------------ grid + panels */
 
@@ -707,18 +836,33 @@ select:focus-visible, button:focus-visible, a:focus-visible { outline: 1px solid
 .limit-cell .v { font-family: var(--mono); font-size: 11px; margin-top: 1px; }
 .limit-cell .v.warn { color: var(--amber); }
 
-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  flex-wrap: wrap;
-  padding: 10px 14px 16px;
-  border-top: 1px solid var(--line);
-  color: var(--dim);
-  font-family: var(--mono);
-  font-size: 8.5px;
-  letter-spacing: 0.02em;
+footer.poster-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 35;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(180deg, var(--poster-green), var(--poster-green-2));
+  color: #eafff3;
+  box-shadow: 0 -14px 34px rgba(0, 0, 0, 0.45);
 }
+.poster-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 18px;
+  flex-wrap: wrap;
+  padding: 9px 16px;
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+.poster-bar-item { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+.poster-bar-item b { text-transform: uppercase; letter-spacing: 0.1em; font-size: 9.5px; }
+.poster-bar-item svg { width: 15px; height: 15px; flex: none; opacity: 0.92; }
+.poster-bar-links { display: flex; align-items: center; gap: 14px; margin-left: auto; }
+.poster-bar a { color: #eafff3; opacity: 0.82; text-decoration: underline; text-underline-offset: 2px; }
+.poster-bar a:hover { opacity: 1; }
+#footer-meta { font-family: var(--mono); font-size: 9px; opacity: 0.72; white-space: nowrap; }
 
 /* ------------------------------------------------------------------ empty / errors */
 
@@ -731,7 +875,7 @@ footer {
 
 .toast {
   position: fixed;
-  bottom: 18px;
+  bottom: 62px;
   left: 50%;
   transform: translate(-50%, 10px);
   z-index: 90;
@@ -762,6 +906,8 @@ footer {
   .limits-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 }
 @media (max-width: 1200px) {
+  .masthead { grid-template-columns: minmax(0, 1.4fr) minmax(240px, 1fr); gap: 16px; }
+  .masthead-wall { height: 150px; }
   .row.hero { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
   .exposure-panel { grid-column: span 2; }
   .exposure-body { flex-direction: row; align-items: center; gap: 20px; }
@@ -772,6 +918,9 @@ footer {
 }
 @media (max-width: 900px) {
   :root { --rail-w: 190px; }
+  .masthead { grid-template-columns: minmax(0, 1fr); padding: 24px 18px 20px; }
+  .masthead h1 { max-width: 24ch; }
+  .masthead-wall { display: none; }
   .row.hero { grid-template-columns: minmax(0, 1fr); }
   .exposure-panel { grid-column: auto; }
   .pipeline { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -782,6 +931,12 @@ footer {
 }
 @media (max-width: 680px) {
   .app { grid-template-columns: minmax(0, 1fr); }
+  .masthead { padding: 20px 14px 16px; }
+  .masthead h1 { font-size: clamp(28px, 8.6vw, 40px); }
+  .masthead-stages { display: none; }
+  .poster-bar-inner { padding: 8px 12px; }
+  .poster-bar-links { margin-left: 0; width: 100%; }
+
   .rail {
     position: static;
     height: auto;

@@ -76,6 +76,66 @@
 
     <div id="banner" class="banner" role="note"></div>
 
+    <!-- poster masthead -->
+    <section class="masthead" aria-labelledby="desk-headline">
+      <div class="masthead-copy">
+        <div class="masthead-kicker">
+          <span class="mast-dot" aria-hidden="true"></span>
+          <b>OPUS AGENT DESK</b><span class="mast-sep">/</span>PAPER RESEARCH TERMINAL
+        </div>
+        <h1 id="desk-headline">Six agents. One <em class="hl-yellow">AI trading</em> <em class="hl-red">desk.</em></h1>
+        <p class="masthead-sub">
+          Scout → News → Charts → Strategy → Risk → Boss. Every run is timestamped, sourced and
+          risk-checked, and nothing leaves this room without the gate signing off.
+        </p>
+        <div class="masthead-stages" aria-hidden="true">
+          <span>SCOUT</span><i></i><span>NEWS</span><i></i><span>CHARTS</span><i></i><span>STRATEGY</span><i></i><span>RISK</span><i></i><span class="stage-boss">BOSS</span>
+        </div>
+      </div>
+
+      <div class="masthead-wall" aria-hidden="true">
+        <div class="wall-monitor wall-a">
+          <span class="wall-tag">TREND · 15m</span>
+          <svg viewBox="0 0 160 64" preserveAspectRatio="none">
+            <path class="wm-area" d="M0 58 L0 44 L14 40 L28 46 L42 34 L56 37 L70 26 L84 31 L98 22 L112 27 L126 16 L140 21 L160 12 L160 58 Z"/>
+            <path class="wm-line" d="M0 44 L14 40 L28 46 L42 34 L56 37 L70 26 L84 31 L98 22 L112 27 L126 16 L140 21 L160 12"/>
+          </svg>
+        </div>
+
+        <div class="wall-monitor wall-b">
+          <span class="wall-tag">ORDER FLOW</span>
+          <svg viewBox="0 0 160 64" preserveAspectRatio="none">
+            <line class="wm-rule" x1="0" x2="160" y1="20" y2="20"/>
+            <line class="wm-rule" x1="0" x2="160" y1="42" y2="42"/>
+            <g>
+              <line class="wm-wick" x1="15" x2="15" y1="18" y2="48"/><rect class="wm-up" x="12" y="24" width="6" height="17" rx="1"/>
+              <line class="wm-wick" x1="35" x2="35" y1="26" y2="54"/><rect class="wm-down" x="32" y="31" width="6" height="16" rx="1"/>
+              <line class="wm-wick" x1="55" x2="55" y1="14" y2="45"/><rect class="wm-up" x="52" y="20" width="6" height="19" rx="1"/>
+              <line class="wm-wick" x1="75" x2="75" y1="24" y2="52"/><rect class="wm-up" x="72" y="30" width="6" height="14" rx="1"/>
+              <line class="wm-wick" x1="95" x2="95" y1="30" y2="58"/><rect class="wm-down" x="92" y="36" width="6" height="15" rx="1"/>
+              <line class="wm-wick" x1="115" x2="115" y1="16" y2="50"/><rect class="wm-up" x="112" y="23" width="6" height="18" rx="1"/>
+              <line class="wm-wick" x1="135" x2="135" y1="22" y2="46"/><rect class="wm-down" x="132" y="27" width="6" height="11" rx="1"/>
+              <line class="wm-wick" x1="155" x2="155" y1="10" y2="40"/><rect class="wm-up" x="152" y="16" width="6" height="16" rx="1"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="wall-monitor wall-c">
+          <span class="wall-tag">RISK LOAD</span>
+          <svg viewBox="0 0 120 52">
+            <circle class="wm-donut-bg" cx="32" cy="27" r="17"/>
+            <circle class="wm-donut" cx="32" cy="27" r="17" stroke-dasharray="71 107" transform="rotate(-90 32 27)"/>
+            <rect class="wm-bar" x="62" y="12" width="52" height="4" rx="2"/>
+            <rect class="wm-bar lit" x="62" y="12" width="34" height="4" rx="2"/>
+            <rect class="wm-bar" x="62" y="24" width="52" height="4" rx="2"/>
+            <rect class="wm-bar lit-down" x="62" y="24" width="18" height="4" rx="2"/>
+            <rect class="wm-bar" x="62" y="36" width="52" height="4" rx="2"/>
+            <rect class="wm-bar lit-soft" x="62" y="36" width="26" height="4" rx="2"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
     <main>
       <!-- hero -->
       <section class="row hero" id="overview">
@@ -219,10 +279,22 @@
       </section>
     </main>
 
-    <footer>
-      <span>OPUS AGENT DESK v1.0 · six agents · paper only</span>
-      <span>No financial advice. A clean run means the workflow completed safely — not that the trade wins.</span>
-      <span id="footer-meta">no run loaded</span>
+    <footer class="poster-bar">
+      <div class="poster-bar-inner">
+        <div class="poster-bar-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+          <span><b>Paper testing only</b> · no broker, no wallet, no order endpoint</span>
+        </div>
+        <div class="poster-bar-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.3-2.9 7.6-7 10-4.1-2.4-7-5.7-7-10V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.7 12.2l2.2 2.2 4.4-4.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>Synthetic fixtures · not financial advice</span>
+        </div>
+        <div class="poster-bar-links">
+          <a href="https://github.com/Phaviwylera/Tradebot" target="_blank" rel="noreferrer">Source</a>
+          <a href="https://github.com/Phaviwylera/Tradebot/issues" target="_blank" rel="noreferrer">Issues</a>
+          <span id="footer-meta">no run loaded</span>
+        </div>
+      </div>
     </footer>
   </div>
 </div>

@@ -373,6 +373,13 @@ class SafetyTests(unittest.TestCase):
         self.assertIn("/reports/latest.json", script)
         self.assertNotIn("localhost:8765", script)
         self.assertIn("Opus Agent Desk", html)
+        # Poster masthead: yellow/red headline emphasis and an always-visible disclaimer bar.
+        self.assertIn('class="masthead"', html)
+        self.assertIn("hl-yellow", html)
+        self.assertIn("hl-red", html)
+        self.assertIn('class="poster-bar"', html)
+        self.assertIn("Paper testing only", html)
+        self.assertIn("assets/style.css", html)
         for anchor in ("hero-decision", "kpis", "exposure", "pipeline", "categories",
                        "scout-table", "news-feed", "charts-grid", "strategy-list",
                        "risk-list", "journal-list", "terminal-log", "raw-json", "limits"):
