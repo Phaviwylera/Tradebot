@@ -57,7 +57,7 @@ class ConfigTests(unittest.TestCase):
         subset = safe_load(text)
         self.assertEqual(subset["mode"], "paper")
         self.assertIs(subset["allow_live_orders"], False)
-        self.assertEqual(subset["scan"]["shortlist_size"], 16)
+        self.assertEqual(subset["scan"]["shortlist_size"], 30)
         self.assertEqual(subset["risk"]["bankroll"], 100)
         self.assertEqual(subset["paper"]["starting_cash"], 100)
         self.assertEqual(subset["dashboard"]["public_copy"], True)
@@ -162,8 +162,8 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(validate_run(run), [])
 
     def test_wait_and_reject_are_reachable(self):
-        wait_run = run_pipeline(config_for(seed=2), persist=False)
-        reject_run = run_pipeline(config_for(seed=13), persist=False)
+        wait_run = run_pipeline(config_for(seed=14), persist=False)
+        reject_run = run_pipeline(config_for(seed=2), persist=False)
         self.assertEqual(wait_run["boss"]["meta"]["decision"], "WAIT")
         self.assertEqual(reject_run["boss"]["meta"]["decision"], "REJECT")
 

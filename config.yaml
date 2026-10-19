@@ -23,7 +23,7 @@ data:
   retries: 1
 
 scan:
-  shortlist_size: 16
+  shortlist_size: 30
   min_universe_size: 20
   min_liquidity: 2000
   max_spread: 0.05
@@ -34,7 +34,7 @@ news:
   require_news: true
   max_items: 8
   max_headline_age_hours: 24
-  news_freshness_minutes: 180
+  news_freshness_minutes: 360
 
 charts:
   interval: 1d
@@ -71,7 +71,7 @@ paper:
   ledger_file: data/paper-ledger.json
 
 pipeline:
-  history_limit: 16
+  history_limit: 30
   report_dir: reports
   stage_timeout_s: 120
   stop_on_needs_data: true

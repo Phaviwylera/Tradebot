@@ -53,7 +53,7 @@ dashboard banner says so.
 3. **Score (0–100).** Robust z-scores: 1h move up to 24 points, 24h move up to 20, volume up to 22;
    plus 6 for aligned 1h/24h direction, 4 for a tight spread, 3 for event comments.
 4. **Floor and shortlist.** Anything under `activity_floor` (8) is counted as `low_signal`; the
-   remainder is sorted and capped at `shortlist_size` (10).
+   remainder is sorted and capped at `shortlist_size` (30).
 
 The report records the universe size, exclusions by reason, category counts, and every excluded
 market's reason. Scout never returns a direction.
@@ -98,7 +98,8 @@ A market with no fresh, dated source is flagged `NO_SOURCES` and cannot receive 
 Pick a side only when trend and structure agree: primary up / secondary down, or a confirmed upward
 structure break on either side. If neither, WAIT with the reason.
 
-Entry rules, all conditional (never "buy now"):
+Entry rules. The paper book fills at the plan price, so only entries at the current quote are
+approved; the other setups are computed and then held as WAIT with the exact reason.
 
 | Setup | Entry | Invalidation | Notes |
 |---|---|---|---|
@@ -112,14 +113,16 @@ Target = the greater of **entry + 4 ATR** and the next strong resistance above e
 
 Rejections (each becomes a WAIT with the exact reason recorded):
 
-- no fresh source, high event risk, or low-relevance headline set;
+- no fresh source, high event risk, or low-relevance headline set; medium event risk is
+  priced by Risk, which halves the position instead of blocking it;
 - average bar range > 12% of price (too noisy for a fixed stop);
 - stop distance > `max_stop_distance` (0.12) or entry not above invalidation;
 - entry > `max_entry_distance` (0.12) away from the quote;
 - pullback/retest entry not below the quote, or a pullback > 0.05 under it;
+- entry away from the current quote (a conditional fill would be optimistic in a paper book);
 - target not above the quote + 0.005 (the move may already be priced);
 - gross reward:risk < `min_net_rr` (1.5);
-- extended price with no structure break.
+- extended price with no structure break (the retest is shown, but not filled).
 
 Confidence is a 0–100 sum of six observable conditions (trend, structure, noise, volume z-score,
 fresh sources, tone agreement). It is displayed, not used as a gate.

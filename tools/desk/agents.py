@@ -751,8 +751,6 @@ def run_strategy(scout_report: dict[str, Any], news_report: dict[str, Any],
 
         if (news or {}).get("tone") == "cautious" and view["trend"] == "up":
             disagreements.append("headline tone is cautious while the trade direction is up")
-        if (news or {}).get("event_risk") == "medium":
-            reasons.append("medium event risk")
         disagreements.extend(chart["conflicts"])
         if view["atr_pct"] > 0.12:
             reasons.append(f"average bar range {pct(view['atr_pct'], 1)} is too noisy for a fixed stop")
@@ -818,8 +816,6 @@ def run_strategy(scout_report: dict[str, Any], news_report: dict[str, Any],
                         if resistance_level is not None and resistance_level > entry + 0.008 else None)
         target = rnd(clamp(max(floor_target, level_target or 0), entry + 0.01, 0.985), 3)
 
-        if extended and structure == "up":
-            reasons.append("extended breakout: the plan waits for a retest instead of chasing")
         if entry_type == "pullback" and quote - entry > cfg.max_pullback_distance:
             reasons.append(f"pullback entry is {(quote - entry):.3f} below the quote, "
                            f"beyond the {cfg.max_pullback_distance:g} limit")
@@ -833,6 +829,9 @@ def run_strategy(scout_report: dict[str, Any], news_report: dict[str, Any],
                            f"{cfg.max_stop_distance:g} limit")
         if entry <= invalidation:
             reasons.append("entry is not above invalidation")
+        if abs(entry - quote) > 0.002:
+            reasons.append(f"entry {entry:.3f} is conditional; the paper book fills at the plan price, "
+                           f"so only entries at the current quote {quote:.3f} are marketable")
         if abs(entry - quote) > cfg.max_entry_distance:
             reasons.append(f"entry {entry:.3f} is more than {cfg.max_entry_distance:g} away from "
                            f"the quote {quote:.3f}")
@@ -913,8 +912,10 @@ def run_strategy(scout_report: dict[str, Any], news_report: dict[str, Any],
             "plans": len(candidates),
             "waits": len(plans) - len(candidates),
             "policy": ("A plan exists only when trend and structure agree, the stop is inside the max "
-                       "distance, and reward:risk clears the configured floor. Strategy never sizes a "
-                       "position and never places an order."),
+                       "distance, reward:risk clears the configured floor, and the entry is at the "
+                       "current quote so the paper book can fill it honestly. Conditional retests and "
+                       "pullbacks return WAIT until the market trades into them. Strategy never sizes "
+                       "a position and never places an order."),
         },
     )
 

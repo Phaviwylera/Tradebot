@@ -40,7 +40,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python main.py
 ```
 
-Expected first run: **520 markets scanned → 10 on the watchlist → 4 plans → risk clears 1 →
+Expected first run: **520 markets scanned → 30 on the watchlist → 5 plans → risk clears 1 →
 `APPROVE_FOR_PAPER_TEST`**, saved to `reports/`.
 
 ```bash
