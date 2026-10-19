@@ -589,9 +589,10 @@ function renderBook() {
     <div class="book-kpi"><div class="k">cash</div><div class="v">${money(paper.cash, 2)}</div><div class="s">never topped up</div></div>
     <div class="book-kpi"><div class="k">total P&amp;L</div><div class="v ${pnlUp ? 'up' : 'down'}">${signedMoney(paper.total_pnl)}</div><div class="s">${paper.return_pct >= 0 ? '+' : ''}${num(paper.return_pct, 2)}%</div></div>
     <div class="book-kpi"><div class="k">realized</div><div class="v ${Number(paper.realized_pnl) >= 0 ? 'up' : 'down'}">${signedMoney(paper.realized_pnl)}</div><div class="s">${paper.closed_count} closed</div></div>
-    <div class="book-kpi"><div class="k">open</div><div class="v">${paper.open_count}</div><div class="s">${paper.win_rate}% win rate</div></div>`;
+    <div class="book-kpi"><div class="k">open</div><div class="v">${paper.open_count}</div><div class="s">${paper.working_count ?? 0} working · ${paper.win_rate}% win rate</div></div>`;
 
   const positions = arr(paper.open_positions);
+  const orders = arr(paper.working_orders);
   body.innerHTML = positions.length ? `
     <table class="book-table">
       <thead><tr><th>position</th><th>entry → mark</th><th>shares</th><th>P&amp;L</th><th>stop / target</th><th>expires</th></tr></thead>
@@ -611,8 +612,35 @@ function renderBook() {
         </tr>`).join('')}</tbody>
     </table>
     <div class="book-note">Fills are simulated at the quoted price. No order, wallet or broker exists; the $100 starting balance is never topped up.</div>`
-    : `<div class="book-empty"><div class="eyebrow">flat</div>
-        <p>No open paper positions. The gate is waiting for a plan it can size inside 2% risk and 25% exposure.</p></div>`;
+    : `<div class="book-empty"><div class="eyebrow">${orders.length ? 'orders working' : 'flat'}</div>
+        <p>${orders.length
+          ? 'No fill yet. The resting orders below fill only when the market trades to their level.'
+          : 'No open paper positions. The gate is waiting for a plan it can size inside 2% risk and 25% exposure.'}</p></div>`;
+
+  if (orders.length) {
+    body.insertAdjacentHTML('beforeend', `
+      <div class="book-orders">
+        <div class="book-orders-head"><span>WORKING ORDERS &middot; RESTING PAPER LIMITS</span><span>${orders.length}</span></div>
+        <table class="book-table">
+          <thead><tr><th>order</th><th>trigger</th><th>entry</th><th>last</th><th>shares</th><th>expires</th></tr></thead>
+          <tbody>${orders.map(order => `
+            <tr>
+              <td>
+                <div class="bq">${order.url
+                  ? `<a href="${esc(order.url)}" target="_blank" rel="noreferrer">${esc(short(order.question, 54))}</a>`
+                  : esc(short(order.question, 54))}</div>
+                <div class="bsub">${esc(order.side || '')} · ${esc(order.entry_type || '')}</div>
+              </td>
+              <td class="mono dim">${esc(order.trigger || 'limit')}</td>
+              <td class="mono">${cents(order.entry)}</td>
+              <td class="mono dim">${cents(order.last_price ?? order.quote_at_approval)}</td>
+              <td class="mono">${esc(order.shares)}</td>
+              <td class="mono dim">${until(order.time_limit_utc)}</td>
+            </tr>`).join('')}</tbody>
+        </table>
+        <div class="book-note">Resting orders fill only when the market trades to the level. No chase, no optimistic fill.</div>
+      </div>`);
+  }
 
   const curve = arr(paper.equity_curve).map(point => Number(point.equity)).filter(Number.isFinite);
   const curveUp = curve.length > 1 && curve[curve.length - 1] >= curve[0];
@@ -1154,7 +1182,7 @@ function renderHeroStats() {
 
   put('stat-positions', run ? String(paper.open_count ?? 0) : '0');
   put('stat-positions-meta', run
-    ? `${paper.closed_count ?? 0} closed · ${num(paper.win_rate ?? 0, 0)}% win rate`
+    ? `${paper.working_count ?? 0} working · ${num(paper.win_rate ?? 0, 0)}% win rate`
     : 'one per market');
 
   const live = document.getElementById('mast-live');

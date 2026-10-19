@@ -31,7 +31,7 @@ the rules do not line up, return `WAIT`. Never force a setup.
   `max_entry_distance` from the quote, or a pullback entry is farther than
   `max_pullback_distance` below the quote.
 - The target must be above the current quote; the move must not already be priced.
-- A pullback/retest entry must sit below the quote; it is reported as WAIT unless the quote is already there, because the paper book fills at the plan price.
+- A pullback/retest entry must sit below the quote; the paper book rests it as a working limit and fills only when the price reaches it. A reversal rests a stop order above the quote.
 - Gross R:R must clear `min_net_rr` before the plan can proceed.
 - Never size a position, never place an order, never lower a limit to make a plan fit.
 

@@ -19,8 +19,10 @@ Each stage is **deterministic Python**, not a language model. Every stage writes
 report in the shared envelope from the doc; the Boss reads all five and returns exactly one of
 `APPROVE_FOR_PAPER_TEST`, `WAIT` or `REJECT`.
 
-**Paper only.** There is no wallet, key, signature, brokerage link or order endpoint anywhere in
-this repository. `config.yaml` is hard-wired to `mode: paper` and `allow_live_orders: false`, and the
+**Paper only.** The desk keeps a **$100 simulated book**: approved entries either fill at the quote
+or rest as working orders until the market reaches the level, then exit at the stop, target,
+resolution or time limit. There is no wallet, key, signature, brokerage link or order endpoint
+anywhere in this repository. `config.yaml` is hard-wired to `mode: paper` and `allow_live_orders: false`, and the
 runner refuses to start otherwise. A human is required before anything else happens.
 
 ---

@@ -486,15 +486,18 @@ def run_pipeline(cfg: Config, *, reference_ms: int | None = None,
             halted_at = "strategy"
 
     book = None
+    filled_this_run: list[dict[str, Any]] = []
     if cfg.source == "live" and cfg.paper_enabled:
         book = ledger.load_ledger(cfg, now())
         ledger.settle(book, universe, now())
+        filled_this_run = ledger.fill_orders(book, universe, now())
 
     if not halted_at:
         started = stage_start()
         risk_context = context or {
             "bankroll": cfg.bankroll,
             "open_positions": (book or {}).get("positions") or [],
+            "working_orders": (book or {}).get("orders") or [],
             "cash": (book or {}).get("cash", cfg.starting_cash),
         }
         try:
@@ -516,8 +519,23 @@ def run_pipeline(cfg: Config, *, reference_ms: int | None = None,
     paper_events: list[dict[str, Any]] = []
     if book is not None:
         opened = ledger.open_from_run(book, reports["boss"], now())
+        queued = book.get("queued_this_run") or []
         equity = ledger.record_equity(book, now())
         paper = ledger.snapshot(book, now())
+        paper["filled_this_run"] = [
+            {"trade_id": entry.get("trade_id"), "market_id": entry.get("market_id"),
+             "question": entry.get("question"), "side": entry.get("side"),
+             "shares": entry.get("shares"), "entry": entry.get("entry"),
+             "filled_order": entry.get("filled_order")}
+            for entry in filled_this_run
+        ]
+        paper["queued_this_run"] = [
+            {"order_id": order.get("order_id"), "market_id": order.get("market_id"),
+             "question": order.get("question"), "side": order.get("side"),
+             "entry": order.get("entry"), "trigger": order.get("trigger"),
+             "entry_type": order.get("entry_type"), "shares": order.get("shares")}
+            for order in queued
+        ]
         paper["opened_this_run"] = [
             {"trade_id": entry.get("trade_id"), "market_id": entry.get("market_id"),
              "question": entry.get("question"), "side": entry.get("side"),
@@ -528,6 +546,10 @@ def run_pipeline(cfg: Config, *, reference_ms: int | None = None,
         paper_files = ledger.save_ledger(cfg, book, now())
         paper_events = [{"stage": "paper", "event": "open", "trade_id": entry.get("trade_id"),
                          "market_id": entry.get("market_id")} for entry in opened]
+        paper_events += [{"stage": "paper", "event": "fill", "trade_id": entry.get("trade_id"),
+                          "market_id": entry.get("market_id")} for entry in filled_this_run]
+        paper_events += [{"stage": "paper", "event": "queue", "order_id": entry.get("order_id"),
+                          "market_id": entry.get("market_id")} for entry in queued]
         emit({"stage": "paper", "equity": equity, "cash": paper["cash"],
               "open_positions": paper["open_count"], "pnl": paper["total_pnl"]})
 

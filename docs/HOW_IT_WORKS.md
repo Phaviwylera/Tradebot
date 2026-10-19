@@ -98,8 +98,10 @@ A market with no fresh, dated source is flagged `NO_SOURCES` and cannot receive 
 Pick a side only when trend and structure agree: primary up / secondary down, or a confirmed upward
 structure break on either side. If neither, WAIT with the reason.
 
-Entry rules. The paper book fills at the plan price, so only entries at the current quote are
-approved; the other setups are computed and then held as WAIT with the exact reason.
+Entry rules. A breakout plan enters at the quote and fills in the paper book immediately. Pullbacks,
+retests and reversals are conditional: the approval becomes a **working order** (limit below the
+quote, or stop above it) that fills only when the market trades to the level, and expires at the
+plan's time limit. No fill is ever simulated at a price the market did not reach.
 
 | Setup | Entry | Invalidation | Notes |
 |---|---|---|---|
@@ -119,7 +121,7 @@ Rejections (each becomes a WAIT with the exact reason recorded):
 - stop distance > `max_stop_distance` (0.12) or entry not above invalidation;
 - entry > `max_entry_distance` (0.12) away from the quote;
 - pullback/retest entry not below the quote, or a pullback > 0.05 under it;
-- entry away from the current quote (a conditional fill would be optimistic in a paper book);
+- a working order whose level is beyond the max entry distance;
 - target not above the quote + 0.005 (the move may already be priced);
 - gross reward:risk < `min_net_rr` (1.5);
 - extended price with no structure break (the retest is shown, but not filled).
