@@ -3,48 +3,42 @@
     "mode": "paper",
     "currency": "USD",
     "starting_cash": 100.0,
-    "cash": 75.47,
+    "cash": 97.63,
     "equity": 97.63,
-    "realized_pnl": 0.0,
-    "unrealized_pnl": -2.37,
+    "realized_pnl": -2.37,
+    "unrealized_pnl": 0,
     "total_pnl": -2.37,
     "return_pct": -2.37,
-    "open_count": 1,
+    "open_count": 0,
     "working_count": 0,
-    "closed_count": 0,
+    "closed_count": 1,
     "win_count": 0,
-    "loss_count": 0,
+    "loss_count": 1,
     "win_rate": 0.0,
     "gross_win": 0,
-    "gross_loss": 0,
-    "best_trade": 0,
-    "worst_trade": 0,
+    "gross_loss": -2.37,
+    "best_trade": -2.37,
+    "worst_trade": -2.37,
     "max_drawdown_pct": -2.37,
-    "open_positions": [
+    "open_positions": [],
+    "working_orders": [],
+    "closed_trades": [
       {
         "trade_id": "P1792385133524-001",
         "market_id": "682708",
         "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
-        "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
         "side": "No",
-        "category": "politics",
         "entry": 0.522,
-        "last_price": 0.4715,
-        "stop": 0.517,
-        "target": 0.572,
+        "exit": 0.4715,
+        "exit_reason": "stop",
         "shares": 47,
         "cost_basis": 24.53,
-        "market_value": 22.16,
-        "unrealized_pnl": -2.37,
-        "unrealized_pct": -9.66,
-        "risk_dollars": 0.24,
-        "opened_utc": "2026-10-19T04:45:33Z",
-        "time_limit_utc": "2026-10-19T10:43:47Z",
-        "last_mark_utc": "2026-10-19T04:45:33Z"
+        "pnl": -2.37,
+        "return_pct": -9.66,
+        "closed_utc": "2026-10-19T04:46:32Z",
+        "held_hours": 0.02
       }
     ],
-    "working_orders": [],
-    "closed_trades": [],
     "equity_curve": [
       {
         "t": "2026-10-19T04:31:10Z",
@@ -69,15 +63,21 @@
       {
         "t": "2026-10-19T04:45:33Z",
         "equity": 97.63
+      },
+      {
+        "t": "2026-10-19T04:46:32Z",
+        "equity": 97.63
       }
     ],
-    "updated_utc": "2026-10-19T04:45:33Z",
+    "updated_utc": "2026-10-19T04:46:32Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
-  "cash": 75.47,
-  "realized_pnl": 0.0,
-  "open_positions": [
+  "cash": 97.63,
+  "realized_pnl": -2.37,
+  "open_positions": [],
+  "working_orders": [],
+  "closed_trades": [
     {
       "trade_id": "P1792385133524-001",
       "market_id": "682708",
@@ -96,13 +96,18 @@
       "opened_utc": "2026-10-19T04:45:33Z",
       "time_limit_utc": "2026-10-19T10:43:47Z",
       "last_price": 0.4715,
-      "last_mark_utc": "2026-10-19T04:45:33Z",
+      "last_mark_utc": "2026-10-19T04:46:32Z",
       "status": "OPEN",
-      "filled_order": "W1792385027179-001"
+      "filled_order": "W1792385027179-001",
+      "exit": 0.4715,
+      "exit_reason": "stop",
+      "closed_utc": "2026-10-19T04:46:32Z",
+      "proceeds": 22.16,
+      "pnl": -2.37,
+      "return_pct": -9.66,
+      "held_hours": 0.02
     }
   ],
-  "working_orders": [],
-  "closed_trades": [],
   "equity_curve": [
     {
       "t": "2026-10-19T04:31:10Z",
@@ -127,7 +132,11 @@
     {
       "t": "2026-10-19T04:45:33Z",
       "equity": 97.63
+    },
+    {
+      "t": "2026-10-19T04:46:32Z",
+      "equity": 97.63
     }
   ],
-  "updated_utc": "2026-10-19T04:45:33Z"
+  "updated_utc": "2026-10-19T04:46:32Z"
 }

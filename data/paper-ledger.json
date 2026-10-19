@@ -3,11 +3,12 @@
   "mode": "paper",
   "currency": "USD",
   "starting_cash": 100.0,
-  "cash": 75.47,
+  "cash": 97.63,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-10-19T04:45:33Z",
-  "realized_pnl": 0.0,
-  "positions": [
+  "updated_utc": "2026-10-19T04:46:32Z",
+  "realized_pnl": -2.37,
+  "positions": [],
+  "trades": [
     {
       "trade_id": "P1792385133524-001",
       "market_id": "682708",
@@ -26,12 +27,18 @@
       "opened_utc": "2026-10-19T04:45:33Z",
       "time_limit_utc": "2026-10-19T10:43:47Z",
       "last_price": 0.4715,
-      "last_mark_utc": "2026-10-19T04:45:33Z",
+      "last_mark_utc": "2026-10-19T04:46:32Z",
       "status": "OPEN",
-      "filled_order": "W1792385027179-001"
+      "filled_order": "W1792385027179-001",
+      "exit": 0.4715,
+      "exit_reason": "stop",
+      "closed_utc": "2026-10-19T04:46:32Z",
+      "proceeds": 22.16,
+      "pnl": -2.37,
+      "return_pct": -9.66,
+      "held_hours": 0.02
     }
   ],
-  "trades": [],
   "equity_curve": [
     {
       "t": "2026-10-19T04:31:10Z",
@@ -55,6 +62,10 @@
     },
     {
       "t": "2026-10-19T04:45:33Z",
+      "equity": 97.63
+    },
+    {
+      "t": "2026-10-19T04:46:32Z",
       "equity": 97.63
     }
   ],
