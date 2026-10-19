@@ -1,0 +1,7 @@
+# OPTIONAL. The desk runs on the Python standard library alone.
+# If PyYAML is installed it is used to read config.yaml; otherwise tools/desk/yamlish.py
+# parses the same file. config.yaml deliberately stays inside that subset.
+#
+#   pip install -r requirements.txt
+#
+PyYAML>=6.0

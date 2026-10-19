@@ -1,0 +1,4497 @@
+{
+  "run_id": "20261019T041022Z-test",
+  "desk_version": "1.0.0",
+  "mode": "paper",
+  "source": "test",
+  "source_label": "SYNTHETIC TEST DATA",
+  "source_detail": "seeded synthetic board (seed 2)",
+  "started_utc": "2026-10-19T04:10:22Z",
+  "finished_utc": "2026-10-19T04:10:22Z",
+  "duration_ms": 95,
+  "universe": {
+    "size": 520,
+    "fetched_at": "2026-10-19T04:10:22Z",
+    "synthetic": true
+  },
+  "config": {
+    "mode": "paper",
+    "allow_live_orders": false,
+    "source": "test",
+    "fixture_file": "data/fixtures.json",
+    "gamma_base": "https://gamma-api.polymarket.com",
+    "clob_base": "https://clob.polymarket.com",
+    "news_base": "https://news.google.com/rss/search",
+    "universe_limit": 500,
+    "page_size": 100,
+    "request_timeout_s": 15,
+    "retries": 1,
+    "test_seed": 2,
+    "shortlist_size": 10,
+    "min_universe_size": 20,
+    "min_liquidity": 2000.0,
+    "max_spread": 0.05,
+    "min_minutes_to_resolution": 10,
+    "activity_floor": 8,
+    "require_news": true,
+    "max_items": 8,
+    "max_headline_age_hours": 24.0,
+    "news_freshness_minutes": 180,
+    "interval": "1d",
+    "fidelity_minutes": 15,
+    "min_history_points": 12,
+    "chart_freshness_minutes": 60,
+    "min_net_rr": 1.5,
+    "max_stop_distance": 0.12,
+    "max_entry_distance": 0.12,
+    "max_pullback_distance": 0.05,
+    "time_limit_hours": 6,
+    "bankroll": 1000.0,
+    "max_positions": 5,
+    "max_total_exposure_pct": 25.0,
+    "max_position_risk_pct": 2.0,
+    "max_daily_risk_pct": 6.0,
+    "max_per_category": 2,
+    "max_per_event": 1,
+    "cost_buffer_pct": 2.0,
+    "min_reward_to_spread": 3.0,
+    "watchlist_freshness_minutes": 30,
+    "event_risk_high": "block",
+    "event_risk_medium": "halve",
+    "history_limit": 10,
+    "report_dir": "reports",
+    "stage_timeout_s": 120,
+    "stop_on_needs_data": true,
+    "refresh_seconds": 15,
+    "reports_endpoint": "/api/reports",
+    "public_copy": true,
+    "contracts_dir": "agents"
+  },
+  "contracts": {
+    "scout": "43f6930b4876cb76",
+    "news": "c9eae4a2dcaeb73a",
+    "charts": "ccdd520f2cc2c0e2",
+    "strategy": "28a158a0aaeb32fc",
+    "risk": "15b7375c95429162",
+    "boss": "a2aae20571b9e9fe"
+  },
+  "stage_ms": {
+    "scout": 49,
+    "news": 1,
+    "charts": 8,
+    "strategy": 0,
+    "risk": 0,
+    "boss": 0
+  },
+  "reports": {
+    "scout": {
+      "agent": "scout",
+      "label": "SCOUT",
+      "timestamp_utc": "2026-10-19T04:10:22Z",
+      "status": "complete",
+      "summary": "Scanned 520 markets, 205 passed quality filters, 10 on the watchlist.",
+      "evidence": [
+        {
+          "market_id": "test-0006",
+          "question": "Mets vs. Cubs: Mets to win",
+          "url": "https://polymarket.com/market/test-market-6",
+          "category": "sports",
+          "event_id": "test-event-sports-1",
+          "event_title": "Mets vs. Cubs",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 5.9% is 3.5\u03c3 vs its category",
+            "24h move 14.0% is 4.0\u03c3 vs its category",
+            "24h volume $139,466.71 is 52.0\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "368 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": -0.0585,
+            "move_24h": -0.1404,
+            "z_move_1h": 3.48,
+            "z_move_24h": 4.0,
+            "z_volume": 2.84,
+            "volume_ratio": 52.04,
+            "spread": 0.012499999999999983,
+            "spread_pct": 0.0561,
+            "liquidity": 114434.05,
+            "volume_24h": 139466.71,
+            "price": 0.2227
+          },
+          "price": 0.2227,
+          "ends_at": "2026-10-19T08:46:00Z",
+          "source_timestamp": "2026-10-19T04:05:53Z",
+          "synthetic": true,
+          "regime": "down"
+        },
+        {
+          "market_id": "test-0072",
+          "question": "Astros vs. Cubs: Astros to win",
+          "url": "https://polymarket.com/market/test-market-72",
+          "category": "sports",
+          "event_id": "test-event-sports-23",
+          "event_title": "Astros vs. Cubs",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 6.5% is 4.0\u03c3 vs its category",
+            "24h move 10.2% is 2.8\u03c3 vs its category",
+            "24h volume $663,218.96 is 247.5\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "tight spread relative to price"
+          ],
+          "metrics": {
+            "move_1h": -0.0651,
+            "move_24h": -0.1017,
+            "z_move_1h": 4.0,
+            "z_move_24h": 2.85,
+            "z_volume": 3.96,
+            "volume_ratio": 247.49,
+            "spread": 0.0025000000000000022,
+            "spread_pct": 0.0054,
+            "liquidity": 513384.43,
+            "volume_24h": 663218.96,
+            "price": 0.4673
+          },
+          "price": 0.4673,
+          "ends_at": "2026-10-20T08:38:48Z",
+          "source_timestamp": "2026-10-19T04:08:11Z",
+          "synthetic": true,
+          "regime": "breakout"
+        },
+        {
+          "market_id": "test-0116",
+          "question": "City vs. United: City to win",
+          "url": "https://polymarket.com/market/test-market-116",
+          "category": "sports",
+          "event_id": "test-event-sports-38",
+          "event_title": "City vs. United",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 11.9% is 4.0\u03c3 vs its category",
+            "24h move 13.3% is 4.0\u03c3 vs its category",
+            "24h volume $547,164.38 is 204.2\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "240 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": 0.1187,
+            "move_24h": 0.1328,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": 3.82,
+            "volume_ratio": 204.19,
+            "spread": 0.013899999999999968,
+            "spread_pct": 0.0298,
+            "liquidity": 602522.15,
+            "volume_24h": 547164.38,
+            "price": 0.466
+          },
+          "price": 0.466,
+          "ends_at": "2026-10-21T08:18:39Z",
+          "source_timestamp": "2026-10-19T04:07:40Z",
+          "synthetic": true,
+          "regime": "breakout"
+        },
+        {
+          "market_id": "test-0138",
+          "question": "Lions vs. Eagles: Lions to win",
+          "url": "https://polymarket.com/market/test-market-138",
+          "category": "sports",
+          "event_id": "test-event-sports-45",
+          "event_title": "Lions vs. Eagles",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 5.1% is 2.9\u03c3 vs its category",
+            "24h move 24.4% is 4.0\u03c3 vs its category",
+            "24h volume $318,148.52 is 118.7\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "400 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": -0.051,
+            "move_24h": -0.2445,
+            "z_move_1h": 2.88,
+            "z_move_24h": 4.0,
+            "z_volume": 3.43,
+            "volume_ratio": 118.72,
+            "spread": 0.011399999999999966,
+            "spread_pct": 0.0276,
+            "liquidity": 259011.24,
+            "volume_24h": 318148.52,
+            "price": 0.4123
+          },
+          "price": 0.4123,
+          "ends_at": "2026-10-20T19:45:03Z",
+          "source_timestamp": "2026-10-19T04:06:14Z",
+          "synthetic": true,
+          "regime": "down"
+        },
+        {
+          "market_id": "test-0182",
+          "question": "Will the coalition win the election by Nov 13?",
+          "url": "https://polymarket.com/market/test-market-182",
+          "category": "politics",
+          "event_id": "test-event-politics-60",
+          "event_title": "Politics",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 8.3% is 4.0\u03c3 vs its category",
+            "24h move 24.5% is 4.0\u03c3 vs its category",
+            "24h volume $526,382.19 is 175.9\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "267 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": 0.0832,
+            "move_24h": 0.2446,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": 3.67,
+            "volume_ratio": 175.86,
+            "spread": 0.003200000000000036,
+            "spread_pct": 0.0113,
+            "liquidity": 538388.7,
+            "volume_24h": 526382.19,
+            "price": 0.2825
+          },
+          "price": 0.2825,
+          "ends_at": "2026-10-19T22:41:59Z",
+          "source_timestamp": "2026-10-19T04:06:59Z",
+          "synthetic": true,
+          "regime": "up"
+        },
+        {
+          "market_id": "test-0204",
+          "question": "Will the government shut down by Oct 28?",
+          "url": "https://polymarket.com/market/test-market-204",
+          "category": "politics",
+          "event_id": "test-event-politics-67",
+          "event_title": "Politics",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 6.1% is 4.0\u03c3 vs its category",
+            "24h move 11.8% is 4.0\u03c3 vs its category",
+            "24h volume $836,772.05 is 279.6\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "110 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": 0.0606,
+            "move_24h": 0.118,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": 4.0,
+            "volume_ratio": 279.55,
+            "spread": 0.011199999999999988,
+            "spread_pct": 0.0193,
+            "liquidity": 554251.99,
+            "volume_24h": 836772.05,
+            "price": 0.5803
+          },
+          "price": 0.5803,
+          "ends_at": "2026-10-21T00:58:54Z",
+          "source_timestamp": "2026-10-19T04:07:12Z",
+          "synthetic": true,
+          "regime": "up"
+        },
+        {
+          "market_id": "test-0226",
+          "question": "Will the incumbent lead the next poll by Nov 25?",
+          "url": "https://polymarket.com/market/test-market-226",
+          "category": "politics",
+          "event_id": "test-event-politics-75",
+          "event_title": "Politics",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 7.9% is 4.0\u03c3 vs its category",
+            "24h move 23.8% is 4.0\u03c3 vs its category",
+            "24h volume $186,023.43 is 62.1\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "103 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": 0.0786,
+            "move_24h": 0.2385,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": 2.93,
+            "volume_ratio": 62.15,
+            "spread": 0.003500000000000003,
+            "spread_pct": 0.016,
+            "liquidity": 276396.91,
+            "volume_24h": 186023.43,
+            "price": 0.2185
+          },
+          "price": 0.2185,
+          "ends_at": "2026-10-21T11:51:06Z",
+          "source_timestamp": "2026-10-19T04:05:09Z",
+          "synthetic": true,
+          "regime": "breakout"
+        },
+        {
+          "market_id": "test-0248",
+          "question": "Will the recount be certified by Nov 9?",
+          "url": "https://polymarket.com/market/test-market-248",
+          "category": "politics",
+          "event_id": "test-event-politics-82",
+          "event_title": "Politics",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 5.7% is 4.0\u03c3 vs its category",
+            "24h move 17.6% is 4.0\u03c3 vs its category",
+            "24h volume $220,313.78 is 73.6\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "114 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": 0.0567,
+            "move_24h": 0.1758,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": 3.05,
+            "volume_ratio": 73.6,
+            "spread": 0.006699999999999984,
+            "spread_pct": 0.0177,
+            "liquidity": 349960.87,
+            "volume_24h": 220313.78,
+            "price": 0.3777
+          },
+          "price": 0.3777,
+          "ends_at": "2026-10-19T19:27:46Z",
+          "source_timestamp": "2026-10-19T04:07:21Z",
+          "synthetic": true,
+          "regime": "breakout"
+        },
+        {
+          "market_id": "test-0270",
+          "question": "Will the Senate pass the budget bill by Nov 22?",
+          "url": "https://polymarket.com/market/test-market-270",
+          "category": "politics",
+          "event_id": "test-event-politics-89",
+          "event_title": "Politics",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 3.5% is 2.2\u03c3 vs its category",
+            "24h move 13.1% is 4.0\u03c3 vs its category",
+            "24h volume $889,815.11 is 297.3\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "tight spread relative to price",
+            "396 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": -0.0347,
+            "move_24h": -0.1308,
+            "z_move_1h": 2.23,
+            "z_move_24h": 4.0,
+            "z_volume": 4.0,
+            "volume_ratio": 297.27,
+            "spread": 0.003200000000000036,
+            "spread_pct": 0.0091,
+            "liquidity": 641076.64,
+            "volume_24h": 889815.11,
+            "price": 0.3515
+          },
+          "price": 0.3515,
+          "ends_at": "2026-10-20T12:04:44Z",
+          "source_timestamp": "2026-10-19T04:05:35Z",
+          "synthetic": true,
+          "regime": "breakout"
+        },
+        {
+          "market_id": "test-0292",
+          "question": "Will ETH close below $2,500 on Nov 16?",
+          "url": "https://polymarket.com/market/test-market-292",
+          "category": "crypto",
+          "event_id": "test-event-crypto-97",
+          "event_title": "ETH price on Nov 16",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 10.6% is 4.0\u03c3 vs its category",
+            "24h move 19.7% is 4.0\u03c3 vs its category",
+            "24h volume $548,625.60 is 235.6\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "347 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": -0.1057,
+            "move_24h": -0.1967,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": 4.0,
+            "volume_ratio": 235.64,
+            "spread": 0.008599999999999997,
+            "spread_pct": 0.0276,
+            "liquidity": 380158.84,
+            "volume_24h": 548625.6,
+            "price": 0.3113
+          },
+          "price": 0.3113,
+          "ends_at": "2026-10-20T14:35:41Z",
+          "source_timestamp": "2026-10-19T04:07:59Z",
+          "synthetic": true,
+          "regime": "breakout"
+        }
+      ],
+      "risks": [
+        "Universe is SYNTHETIC TEST DATA. Scores describe generated numbers, not a real market."
+      ],
+      "next_step": "News agent: attach dated sources to each watchlist item.",
+      "meta": {
+        "universe_size": 520,
+        "universe_source": "test",
+        "universe_label": "SYNTHETIC TEST DATA",
+        "fetched_at": "2026-10-19T04:10:22Z",
+        "source_note": "seeded synthetic board (seed 2)",
+        "scored_count": 205,
+        "shortlist": [
+          {
+            "market_id": "test-0006",
+            "category": "sports",
+            "score": 75
+          },
+          {
+            "market_id": "test-0072",
+            "category": "sports",
+            "score": 75
+          },
+          {
+            "market_id": "test-0116",
+            "category": "sports",
+            "score": 75
+          },
+          {
+            "market_id": "test-0138",
+            "category": "sports",
+            "score": 75
+          },
+          {
+            "market_id": "test-0182",
+            "category": "politics",
+            "score": 75
+          },
+          {
+            "market_id": "test-0204",
+            "category": "politics",
+            "score": 75
+          },
+          {
+            "market_id": "test-0226",
+            "category": "politics",
+            "score": 75
+          },
+          {
+            "market_id": "test-0248",
+            "category": "politics",
+            "score": 75
+          },
+          {
+            "market_id": "test-0270",
+            "category": "politics",
+            "score": 75
+          },
+          {
+            "market_id": "test-0292",
+            "category": "crypto",
+            "score": 75
+          }
+        ],
+        "excluded": {
+          "quality": 226,
+          "data": 0,
+          "low_signal": 89,
+          "invalid": 0
+        },
+        "data_gaps": {
+          "missing_price": 0,
+          "missing_volume": 0
+        },
+        "categories": {
+          "sports": 175,
+          "politics": 115,
+          "crypto": 95,
+          "econ": 65,
+          "culture": 40,
+          "weather": 20,
+          "other": 10
+        },
+        "methodology": "Robust z-scores (median/MAD) of |1h move|, |24h move| and log 24h volume against the same category. No forecast is produced; the list is an attention filter only."
+      }
+    },
+    "news": {
+      "agent": "news",
+      "label": "NEWS",
+      "timestamp_utc": "2026-10-19T04:10:22Z",
+      "status": "complete",
+      "summary": "Checked sources for 10 watchlist markets; 10 have at least one usable headline.",
+      "evidence": [
+        {
+          "market_id": "test-0006",
+          "question": "Mets vs. Cubs: Mets to win",
+          "query": "Mets vs. Cubs win",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 3,
+          "fresh_count": 3,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "constructive",
+          "tone_counts": {
+            "constructive": 1,
+            "cautious": 0,
+            "neutral": 2
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "low",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Mets vs. Cubs: Starting lineup confirmed after a limited practice week",
+              "link": "https://example.com/test-data/test-0006/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:56:00Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Mets vs. Cubs: Weather forecast shifts wind direction for kickoff",
+              "link": "https://example.com/test-data/test-0006/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:36:51Z",
+              "age_hours": 0.6,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Mets vs. Cubs: Coach says the game plan is unchanged",
+              "link": "https://example.com/test-data/test-0006/2",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:46:47Z",
+              "age_hours": 0.4,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0072",
+          "question": "Astros vs. Cubs: Astros to win",
+          "query": "Astros vs. Cubs win",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 3,
+          "fresh_count": 3,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "constructive",
+          "tone_counts": {
+            "constructive": 1,
+            "cautious": 0,
+            "neutral": 2
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "low",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Astros vs. Cubs: Starting lineup confirmed after a limited practice week",
+              "link": "https://example.com/test-data/test-0072/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:55:48Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Astros vs. Cubs: Weather forecast shifts wind direction for kickoff",
+              "link": "https://example.com/test-data/test-0072/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:46:53Z",
+              "age_hours": 0.4,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Astros vs. Cubs: Coach says the game plan is unchanged",
+              "link": "https://example.com/test-data/test-0072/2",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:18:45Z",
+              "age_hours": 0.9,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0116",
+          "question": "City vs. United: City to win",
+          "query": "City vs. United win",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 3,
+          "fresh_count": 3,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "constructive",
+          "tone_counts": {
+            "constructive": 1,
+            "cautious": 0,
+            "neutral": 2
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "low",
+          "flags": [
+            "DUPLICATES_REMOVED",
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "City vs. United: Starting lineup confirmed after a limited practice week",
+              "link": "https://example.com/test-data/test-0116/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:56:51Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "City vs. United: Weather forecast shifts wind direction for kickoff",
+              "link": "https://example.com/test-data/test-0116/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:57:16Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "City vs. United: Coach says the game plan is unchanged",
+              "link": "https://example.com/test-data/test-0116/2",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:32:48Z",
+              "age_hours": 0.6,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "City vs. United: Starting lineup confirmed after a limited practice week",
+              "link": "https://example.com/test-data/test-0116/3",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:42:02Z",
+              "age_hours": 0.5,
+              "stale": false,
+              "speculative": false,
+              "duplicate": true,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0138",
+          "question": "Lions vs. Eagles: Lions to win",
+          "query": "Lions vs. Eagles win",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 2,
+          "fresh_count": 2,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "constructive",
+          "tone_counts": {
+            "constructive": 1,
+            "cautious": 0,
+            "neutral": 1
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "low",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Lions vs. Eagles: Starting lineup confirmed after a limited practice week",
+              "link": "https://example.com/test-data/test-0138/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T04:01:39Z",
+              "age_hours": 0.1,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Lions vs. Eagles: Weather forecast shifts wind direction for kickoff",
+              "link": "https://example.com/test-data/test-0138/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:55:40Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0182",
+          "question": "Will the coalition win the election by Nov 13?",
+          "query": "Politics coalition win election Nov 13",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 3,
+          "fresh_count": 3,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "neutral",
+          "tone_counts": {
+            "constructive": 0,
+            "cautious": 0,
+            "neutral": 3
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "high",
+          "flags": [
+            "DUPLICATES_REMOVED",
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Politics: Committee vote scheduled for later this week",
+              "link": "https://example.com/test-data/test-0182/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T04:00:23Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Politics: New polling shows the gap narrowing",
+              "link": "https://example.com/test-data/test-0182/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:59:19Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Politics: Leadership signals the timeline may slip",
+              "link": "https://example.com/test-data/test-0182/2",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:49:26Z",
+              "age_hours": 0.3,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Politics: Committee vote scheduled for later this week",
+              "link": "https://example.com/test-data/test-0182/3",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:07:12Z",
+              "age_hours": 1.1,
+              "stale": false,
+              "speculative": false,
+              "duplicate": true,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0204",
+          "question": "Will the government shut down by Oct 28?",
+          "query": "Politics government shut down Oct 28",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 3,
+          "fresh_count": 3,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "neutral",
+          "tone_counts": {
+            "constructive": 0,
+            "cautious": 0,
+            "neutral": 3
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "medium",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Politics: Committee vote scheduled for later this week",
+              "link": "https://example.com/test-data/test-0204/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:56:00Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Politics: New polling shows the gap narrowing",
+              "link": "https://example.com/test-data/test-0204/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:36:51Z",
+              "age_hours": 0.6,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Politics: Leadership signals the timeline may slip",
+              "link": "https://example.com/test-data/test-0204/2",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:46:47Z",
+              "age_hours": 0.4,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0226",
+          "question": "Will the incumbent lead the next poll by Nov 25?",
+          "query": "Politics incumbent lead poll Nov 25",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 3,
+          "fresh_count": 3,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "neutral",
+          "tone_counts": {
+            "constructive": 0,
+            "cautious": 0,
+            "neutral": 3
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "high",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Politics: Committee vote scheduled for later this week",
+              "link": "https://example.com/test-data/test-0226/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:52:36Z",
+              "age_hours": 0.3,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Politics: New polling shows the gap narrowing",
+              "link": "https://example.com/test-data/test-0226/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:33:07Z",
+              "age_hours": 0.6,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Politics: Leadership signals the timeline may slip",
+              "link": "https://example.com/test-data/test-0226/2",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:31:51Z",
+              "age_hours": 0.6,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0248",
+          "question": "Will the recount be certified by Nov 9?",
+          "query": "Politics recount certified Nov",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 2,
+          "fresh_count": 2,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "neutral",
+          "tone_counts": {
+            "constructive": 0,
+            "cautious": 0,
+            "neutral": 2
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "medium",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Politics: Committee vote scheduled for later this week",
+              "link": "https://example.com/test-data/test-0248/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T04:01:29Z",
+              "age_hours": 0.1,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Politics: New polling shows the gap narrowing",
+              "link": "https://example.com/test-data/test-0248/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:39:58Z",
+              "age_hours": 0.5,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0270",
+          "question": "Will the Senate pass the budget bill by Nov 22?",
+          "query": "Politics Senate pass budget bill Nov 22",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 3,
+          "fresh_count": 3,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "neutral",
+          "tone_counts": {
+            "constructive": 0,
+            "cautious": 0,
+            "neutral": 3
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "high",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Politics: Committee vote scheduled for later this week",
+              "link": "https://example.com/test-data/test-0270/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:55:48Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Politics: New polling shows the gap narrowing",
+              "link": "https://example.com/test-data/test-0270/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:46:53Z",
+              "age_hours": 0.4,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Politics: Leadership signals the timeline may slip",
+              "link": "https://example.com/test-data/test-0270/2",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:18:45Z",
+              "age_hours": 0.9,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0292",
+          "question": "Will ETH close below $2,500 on Nov 16?",
+          "query": "ETH price Nov 16 $2 500",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 2,
+          "fresh_count": 2,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "neutral",
+          "tone_counts": {
+            "constructive": 0,
+            "cautious": 0,
+            "neutral": 2
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "low",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "ETH price on Nov 16: Spot flows turn positive as large wallets add exposure",
+              "link": "https://example.com/test-data/test-0292/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:57:18Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 4,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "ETH price on Nov 16: Exchange reserves slip to a fresh monthly low",
+              "link": "https://example.com/test-data/test-0292/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:54:20Z",
+              "age_hours": 0.3,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 4,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        }
+      ],
+      "risks": [
+        "Desk rule: a trade plan requires at least one fresh source. Markets with NO_SOURCES are dropped by Strategy."
+      ],
+      "next_step": "Charts agent: review the price series for the markets that carry sources.",
+      "meta": {
+        "fetched": 10,
+        "failed": 0,
+        "markets_with_sources": 10,
+        "covered_market_ids": [
+          "test-0006",
+          "test-0072",
+          "test-0116",
+          "test-0138",
+          "test-0182",
+          "test-0204",
+          "test-0226",
+          "test-0248",
+          "test-0270",
+          "test-0292"
+        ],
+        "headline_policy": "Headlines are claims, not verified facts. Items are flagged speculative when they use words like may, reportedly or analysts expect. No article is summarised beyond its title, so no detail is invented.",
+        "require_news": true
+      }
+    },
+    "charts": {
+      "agent": "charts",
+      "label": "CHARTS",
+      "timestamp_utc": "2026-10-19T04:10:22Z",
+      "status": "complete",
+      "summary": "Reviewed 10 price series. 8 show a directional trend; 4 carry conflicting signals.",
+      "evidence": [
+        {
+          "market_id": "test-0006",
+          "question": "Mets vs. Cubs: Mets to win",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.2227,
+          "primary_outcome": "Mets",
+          "secondary_outcome": "Cubs",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.2227,
+              "change_pct": -0.4144,
+              "slope_per_hour": -0.0068,
+              "slope_3h": -0.0099,
+              "momentum_1h": 0.0043,
+              "atr": 0.0038,
+              "atr_pct": 0.017,
+              "window_min": 0.2184,
+              "window_max": 0.388,
+              "prior_high": 0.388,
+              "prior_low": 0.2231,
+              "range_position": 0.025,
+              "structure_break": null,
+              "trend": "down",
+              "activity": 1.0,
+              "recent_low": 0.2184,
+              "recent_high": 0.2313,
+              "stretch": -0.54,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.2484,
+                  0.2903
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.2484,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.2484,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.2903,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.2954,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.3135,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.354,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.3589,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [
+                "daily trend down but last hour rising"
+              ],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.7773,
+              "change_pct": 0.2543,
+              "slope_per_hour": 0.0068,
+              "slope_3h": 0.0099,
+              "momentum_1h": -0.0043,
+              "atr": 0.0038,
+              "atr_pct": 0.0049,
+              "window_min": 0.612,
+              "window_max": 0.7816,
+              "prior_high": 0.7769,
+              "prior_low": 0.612,
+              "range_position": 0.975,
+              "structure_break": null,
+              "trend": "up",
+              "activity": 1.0,
+              "recent_low": 0.7687,
+              "recent_high": 0.7816,
+              "stretch": 0.54,
+              "extended_up": false,
+              "levels": {
+                "support": [
+                  0.7516,
+                  0.7097
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.7516,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.6411,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.646,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.6865,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.7012,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.7052,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.7097,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [
+                "daily trend up but last hour falling"
+              ],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.3803,
+            0.388,
+            0.3828,
+            0.3633,
+            0.3636,
+            0.3569,
+            0.3562,
+            0.3408,
+            0.3501,
+            0.3509,
+            0.3527,
+            0.338,
+            0.3292,
+            0.3257,
+            0.3233,
+            0.3163,
+            0.3167,
+            0.2996,
+            0.3,
+            0.295,
+            0.29,
+            0.295,
+            0.2906,
+            0.278,
+            0.2776,
+            0.2724,
+            0.2496,
+            0.2475,
+            0.2445,
+            0.24,
+            0.2232,
+            0.2244
+          ],
+          "conflicts": [
+            "daily trend down but last hour rising"
+          ],
+          "warnings": [
+            "downtrend is extended at the bottom of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:10:22Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0072",
+          "question": "Astros vs. Cubs: Astros to win",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.4673,
+          "primary_outcome": "Astros",
+          "secondary_outcome": "Cubs",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.4673,
+              "change_pct": 7.0708,
+              "slope_per_hour": 0.01503,
+              "slope_3h": 0.03874,
+              "momentum_1h": 0.0343,
+              "atr": 0.0058,
+              "atr_pct": 0.0123,
+              "window_min": 0.0545,
+              "window_max": 0.4673,
+              "prior_high": 0.4188,
+              "prior_low": 0.0545,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "up",
+              "activity": 0.989,
+              "recent_low": 0.4012,
+              "recent_high": 0.4673,
+              "stretch": 6.42,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.1298,
+                  0.0993
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.1298,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.0857,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.0993,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.1298,
+                    "touches": 3,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.5327,
+              "change_pct": -0.4346,
+              "slope_per_hour": -0.01503,
+              "slope_3h": -0.03874,
+              "momentum_1h": -0.0343,
+              "atr": 0.0058,
+              "atr_pct": 0.0108,
+              "window_min": 0.5327,
+              "window_max": 0.9455,
+              "prior_high": 0.9455,
+              "prior_low": 0.5812,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "down",
+              "activity": 0.989,
+              "recent_low": 0.5327,
+              "recent_high": 0.5988,
+              "stretch": -6.42,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.8702,
+                  0.9007
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.8702,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.8702,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.9007,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9143,
+                    "touches": 2,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.0579,
+            0.0553,
+            0.0613,
+            0.0652,
+            0.073,
+            0.0939,
+            0.0977,
+            0.0876,
+            0.0862,
+            0.0944,
+            0.0962,
+            0.1029,
+            0.113,
+            0.1087,
+            0.1197,
+            0.1217,
+            0.1278,
+            0.1376,
+            0.1356,
+            0.1343,
+            0.1276,
+            0.1612,
+            0.1915,
+            0.2233,
+            0.2607,
+            0.2739,
+            0.3002,
+            0.3327,
+            0.3513,
+            0.3933,
+            0.4144,
+            0.4439
+          ],
+          "conflicts": [],
+          "warnings": [
+            "uptrend is extended at the top of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:10:22Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0116",
+          "question": "City vs. United: City to win",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.466,
+          "primary_outcome": "City",
+          "secondary_outcome": "United",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.466,
+              "change_pct": 7.7925,
+              "slope_per_hour": 0.01622,
+              "slope_3h": 0.03849,
+              "momentum_1h": 0.0352,
+              "atr": 0.0059,
+              "atr_pct": 0.0127,
+              "window_min": 0.038,
+              "window_max": 0.466,
+              "prior_high": 0.429,
+              "prior_low": 0.038,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "up",
+              "activity": 0.989,
+              "recent_low": 0.4026,
+              "recent_high": 0.466,
+              "stretch": 5.62,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.0557,
+                  0.05
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.0557,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.0432,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.05,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.0557,
+                    "touches": 3,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.534,
+              "change_pct": -0.4361,
+              "slope_per_hour": -0.01622,
+              "slope_3h": -0.03849,
+              "momentum_1h": -0.0352,
+              "atr": 0.0059,
+              "atr_pct": 0.0111,
+              "window_min": 0.534,
+              "window_max": 0.962,
+              "prior_high": 0.962,
+              "prior_low": 0.571,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "down",
+              "activity": 0.989,
+              "recent_low": 0.534,
+              "recent_high": 0.5974,
+              "stretch": -5.62,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.9443,
+                  0.9501
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.9443,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.9443,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.9501,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9568,
+                    "touches": 2,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.053,
+            0.0561,
+            0.0427,
+            0.0538,
+            0.0558,
+            0.059,
+            0.043,
+            0.0468,
+            0.0496,
+            0.0487,
+            0.0567,
+            0.0642,
+            0.0543,
+            0.0739,
+            0.0793,
+            0.0893,
+            0.1055,
+            0.106,
+            0.1159,
+            0.1125,
+            0.1243,
+            0.1446,
+            0.1722,
+            0.1998,
+            0.2326,
+            0.2587,
+            0.2959,
+            0.3279,
+            0.3581,
+            0.3859,
+            0.4235,
+            0.4451
+          ],
+          "conflicts": [],
+          "warnings": [
+            "uptrend is extended at the top of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:10:22Z"
+          },
+          "news_flags": [
+            "DUPLICATES_REMOVED",
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0138",
+          "question": "Lions vs. Eagles: Lions to win",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.4123,
+          "primary_outcome": "Lions",
+          "secondary_outcome": "Eagles",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.4123,
+              "change_pct": -0.2607,
+              "slope_per_hour": -0.00491,
+              "slope_3h": -0.00597,
+              "momentum_1h": -0.0007,
+              "atr": 0.0037,
+              "atr_pct": 0.009,
+              "window_min": 0.4123,
+              "window_max": 0.5577,
+              "prior_high": 0.5577,
+              "prior_low": 0.4233,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "down",
+              "activity": 0.979,
+              "recent_low": 0.4123,
+              "recent_high": 0.4283,
+              "stretch": -1.95,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.4802,
+                  0.4847
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.4802,
+                  "touches": 4,
+                  "kind": "support"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.4802,
+                    "touches": 4,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.4847,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.4884,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5249,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5287,
+                    "touches": 2,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.5877,
+              "change_pct": 0.3287,
+              "slope_per_hour": 0.00491,
+              "slope_3h": 0.00597,
+              "momentum_1h": 0.0007,
+              "atr": 0.0037,
+              "atr_pct": 0.0063,
+              "window_min": 0.4423,
+              "window_max": 0.5877,
+              "prior_high": 0.5767,
+              "prior_low": 0.4423,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "up",
+              "activity": 0.979,
+              "recent_low": 0.5717,
+              "recent_high": 0.5877,
+              "stretch": 1.95,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.5198,
+                  0.5153
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.5198,
+                  "touches": 4,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.4713,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.4752,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5116,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5153,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5198,
+                    "touches": 4,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.5577,
+            0.5438,
+            0.5365,
+            0.5252,
+            0.5288,
+            0.5183,
+            0.5207,
+            0.5247,
+            0.5189,
+            0.5128,
+            0.5046,
+            0.4882,
+            0.4877,
+            0.481,
+            0.4833,
+            0.4819,
+            0.488,
+            0.4812,
+            0.4789,
+            0.4856,
+            0.4924,
+            0.5003,
+            0.4867,
+            0.4828,
+            0.4695,
+            0.4582,
+            0.4465,
+            0.4372,
+            0.4283,
+            0.4254,
+            0.4254,
+            0.4172
+          ],
+          "conflicts": [],
+          "warnings": [
+            "downtrend is extended at the bottom of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:10:22Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0182",
+          "question": "Will the coalition win the election by Nov 13?",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.2825,
+          "primary_outcome": "Yes",
+          "secondary_outcome": "No",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.2825,
+              "change_pct": 0.5345,
+              "slope_per_hour": 0.00376,
+              "slope_3h": 0.00177,
+              "momentum_1h": -0.0008,
+              "atr": 0.0036,
+              "atr_pct": 0.0127,
+              "window_min": 0.1836,
+              "window_max": 0.2969,
+              "prior_high": 0.2969,
+              "prior_low": 0.1836,
+              "range_position": 0.873,
+              "structure_break": null,
+              "trend": "range",
+              "activity": 0.989,
+              "recent_low": 0.2713,
+              "recent_high": 0.2879,
+              "stretch": 0.77,
+              "extended_up": false,
+              "levels": {
+                "support": [
+                  0.2603,
+                  0.2554
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.2603,
+                  "touches": 3,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.1998,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.2303,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.2333,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.2459,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.2554,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.2603,
+                    "touches": 3,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": []
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.7175,
+              "change_pct": -0.1206,
+              "slope_per_hour": -0.00376,
+              "slope_3h": -0.00177,
+              "momentum_1h": 0.0008,
+              "atr": 0.0036,
+              "atr_pct": 0.005,
+              "window_min": 0.7031,
+              "window_max": 0.8164,
+              "prior_high": 0.8164,
+              "prior_low": 0.7031,
+              "range_position": 0.127,
+              "structure_break": null,
+              "trend": "range",
+              "activity": 0.989,
+              "recent_low": 0.7121,
+              "recent_high": 0.7287,
+              "stretch": -0.77,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.7397,
+                  0.7446
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.7397,
+                  "touches": 3,
+                  "kind": "support"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.7397,
+                    "touches": 3,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.7446,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.7541,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.7668,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.7696,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.8002,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": []
+            }
+          },
+          "sparkline": [
+            0.1841,
+            0.1892,
+            0.1985,
+            0.21,
+            0.217,
+            0.2236,
+            0.2366,
+            0.2449,
+            0.2337,
+            0.2338,
+            0.2339,
+            0.2404,
+            0.2467,
+            0.2337,
+            0.239,
+            0.2421,
+            0.2566,
+            0.2611,
+            0.246,
+            0.2587,
+            0.2635,
+            0.2556,
+            0.2562,
+            0.2687,
+            0.2705,
+            0.2879,
+            0.2969,
+            0.2949,
+            0.2854,
+            0.2789,
+            0.2787,
+            0.2879
+          ],
+          "conflicts": [
+            "high event risk on the calendar"
+          ],
+          "warnings": [],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:10:22Z"
+          },
+          "news_flags": [
+            "DUPLICATES_REMOVED",
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0204",
+          "question": "Will the government shut down by Oct 28?",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.5803,
+          "primary_outcome": "Yes",
+          "secondary_outcome": "No",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.5803,
+              "change_pct": 0.4658,
+              "slope_per_hour": 0.0076,
+              "slope_3h": 0.00451,
+              "momentum_1h": 0.015,
+              "atr": 0.0037,
+              "atr_pct": 0.0064,
+              "window_min": 0.3959,
+              "window_max": 0.5803,
+              "prior_high": 0.5708,
+              "prior_low": 0.3959,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "up",
+              "activity": 0.989,
+              "recent_low": 0.5624,
+              "recent_high": 0.5803,
+              "stretch": 2.8,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.5602,
+                  0.5442
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.5602,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.4206,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.476,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5442,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5602,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.4197,
+              "change_pct": -0.3052,
+              "slope_per_hour": -0.0076,
+              "slope_3h": -0.00451,
+              "momentum_1h": -0.015,
+              "atr": 0.0037,
+              "atr_pct": 0.0089,
+              "window_min": 0.4197,
+              "window_max": 0.6041,
+              "prior_high": 0.6041,
+              "prior_low": 0.4292,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "down",
+              "activity": 0.989,
+              "recent_low": 0.4197,
+              "recent_high": 0.4376,
+              "stretch": -2.8,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.4398,
+                  0.4557
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.4398,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.4398,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.4557,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.524,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5794,
+                    "touches": 3,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.3959,
+            0.4145,
+            0.4201,
+            0.4114,
+            0.4225,
+            0.4265,
+            0.4366,
+            0.432,
+            0.4522,
+            0.4637,
+            0.4763,
+            0.4724,
+            0.4744,
+            0.4818,
+            0.4902,
+            0.4939,
+            0.5051,
+            0.4989,
+            0.5101,
+            0.5158,
+            0.5216,
+            0.5375,
+            0.5438,
+            0.542,
+            0.5525,
+            0.558,
+            0.5461,
+            0.5548,
+            0.5626,
+            0.5688,
+            0.5629,
+            0.5749
+          ],
+          "conflicts": [],
+          "warnings": [
+            "uptrend is extended at the top of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:10:22Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0226",
+          "question": "Will the incumbent lead the next poll by Nov 25?",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.2185,
+          "primary_outcome": "Yes",
+          "secondary_outcome": "No",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.2185,
+              "change_pct": 3.6588,
+              "slope_per_hour": 0.00239,
+              "slope_3h": 0.04889,
+              "momentum_1h": 0.0516,
+              "atr": 0.0036,
+              "atr_pct": 0.0165,
+              "window_min": 0.02,
+              "window_max": 0.2185,
+              "prior_high": 0.1525,
+              "prior_low": 0.02,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "range",
+              "activity": 0.758,
+              "recent_low": 0.1155,
+              "recent_high": 0.2185,
+              "stretch": 15.59,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.0539,
+                  0.0491
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.0539,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.02,
+                    "touches": 26,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.0256,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.0285,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.0333,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.0491,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.0539,
+                    "touches": 2,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [
+                "range-bound series with a up structure break"
+              ],
+              "warnings": []
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.7815,
+              "change_pct": -0.18,
+              "slope_per_hour": -0.00239,
+              "slope_3h": -0.04889,
+              "momentum_1h": -0.0516,
+              "atr": 0.0036,
+              "atr_pct": 0.0046,
+              "window_min": 0.7815,
+              "window_max": 0.98,
+              "prior_high": 0.98,
+              "prior_low": 0.8475,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "range",
+              "activity": 0.758,
+              "recent_low": 0.7815,
+              "recent_high": 0.8845,
+              "stretch": -15.59,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.9461,
+                  0.9508
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.9461,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.9461,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9508,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.9667,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9715,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9744,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.98,
+                    "touches": 26,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [
+                "range-bound series with a down structure break"
+              ],
+              "warnings": []
+            }
+          },
+          "sparkline": [
+            0.0469,
+            0.0539,
+            0.051,
+            0.0523,
+            0.0539,
+            0.0426,
+            0.0413,
+            0.0337,
+            0.02,
+            0.02,
+            0.0276,
+            0.031,
+            0.0245,
+            0.0299,
+            0.0261,
+            0.02,
+            0.0275,
+            0.0216,
+            0.0206,
+            0.025,
+            0.02,
+            0.02,
+            0.02,
+            0.02,
+            0.02,
+            0.02,
+            0.0263,
+            0.0623,
+            0.0807,
+            0.1137,
+            0.1373,
+            0.1829
+          ],
+          "conflicts": [
+            "range-bound series with a up structure break",
+            "high event risk on the calendar"
+          ],
+          "warnings": [],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:10:22Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0248",
+          "question": "Will the recount be certified by Nov 9?",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.3777,
+          "primary_outcome": "Yes",
+          "secondary_outcome": "No",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.3777,
+              "change_pct": 10.5152,
+              "slope_per_hour": 0.01199,
+              "slope_3h": 0.04085,
+              "momentum_1h": 0.0261,
+              "atr": 0.0055,
+              "atr_pct": 0.0145,
+              "window_min": 0.02,
+              "window_max": 0.3777,
+              "prior_high": 0.346,
+              "prior_low": 0.02,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "up",
+              "activity": 1.0,
+              "recent_low": 0.3094,
+              "recent_high": 0.3777,
+              "stretch": 5.84,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.0439,
+                  0.0303
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.0439,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.02,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.0253,
+                    "touches": 5,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.0303,
+                    "touches": 5,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.0439,
+                    "touches": 2,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.6223,
+              "change_pct": -0.3566,
+              "slope_per_hour": -0.01199,
+              "slope_3h": -0.04085,
+              "momentum_1h": -0.0261,
+              "atr": 0.0055,
+              "atr_pct": 0.0088,
+              "window_min": 0.6223,
+              "window_max": 0.98,
+              "prior_high": 0.98,
+              "prior_low": 0.654,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "down",
+              "activity": 1.0,
+              "recent_low": 0.6223,
+              "recent_high": 0.6906,
+              "stretch": -5.84,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.9561,
+                  0.9697
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.9561,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.9561,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9697,
+                    "touches": 5,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.9747,
+                    "touches": 5,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.98,
+                    "touches": 2,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.0328,
+            0.0347,
+            0.045,
+            0.0389,
+            0.0258,
+            0.0315,
+            0.0423,
+            0.0405,
+            0.0282,
+            0.033,
+            0.0282,
+            0.0232,
+            0.0322,
+            0.0325,
+            0.0294,
+            0.0246,
+            0.02,
+            0.02,
+            0.0242,
+            0.023,
+            0.0323,
+            0.0688,
+            0.078,
+            0.1116,
+            0.1403,
+            0.1831,
+            0.2003,
+            0.2312,
+            0.2639,
+            0.296,
+            0.3335,
+            0.3558
+          ],
+          "conflicts": [],
+          "warnings": [
+            "uptrend is extended at the top of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:10:22Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0270",
+          "question": "Will the Senate pass the budget bill by Nov 22?",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.3515,
+          "primary_outcome": "Yes",
+          "secondary_outcome": "No",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.3515,
+              "change_pct": 14.0214,
+              "slope_per_hour": 0.01145,
+              "slope_3h": 0.03873,
+              "momentum_1h": 0.0342,
+              "atr": 0.0049,
+              "atr_pct": 0.0139,
+              "window_min": 0.02,
+              "window_max": 0.3515,
+              "prior_high": 0.3031,
+              "prior_low": 0.02,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "up",
+              "activity": 0.842,
+              "recent_low": 0.2854,
+              "recent_high": 0.3515,
+              "stretch": 7.54,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.0287,
+                  0.0246
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.0287,
+                  "touches": 3,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.0202,
+                    "touches": 29,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.0246,
+                    "touches": 4,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.0287,
+                    "touches": 3,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.6485,
+              "change_pct": -0.336,
+              "slope_per_hour": -0.01145,
+              "slope_3h": -0.03873,
+              "momentum_1h": -0.0342,
+              "atr": 0.0049,
+              "atr_pct": 0.0076,
+              "window_min": 0.6485,
+              "window_max": 0.98,
+              "prior_high": 0.98,
+              "prior_low": 0.6969,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "down",
+              "activity": 0.842,
+              "recent_low": 0.6485,
+              "recent_high": 0.7146,
+              "stretch": -7.54,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.9713,
+                  0.9753
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.9713,
+                  "touches": 3,
+                  "kind": "support"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.9713,
+                    "touches": 3,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9753,
+                    "touches": 4,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9798,
+                    "touches": 29,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.0234,
+            0.02,
+            0.02,
+            0.02,
+            0.02,
+            0.0286,
+            0.0323,
+            0.0214,
+            0.02,
+            0.02,
+            0.02,
+            0.02,
+            0.0248,
+            0.02,
+            0.0208,
+            0.02,
+            0.0218,
+            0.0301,
+            0.028,
+            0.0267,
+            0.02,
+            0.0454,
+            0.0757,
+            0.1076,
+            0.145,
+            0.1582,
+            0.1844,
+            0.217,
+            0.2356,
+            0.2775,
+            0.2986,
+            0.3282
+          ],
+          "conflicts": [
+            "high event risk on the calendar"
+          ],
+          "warnings": [
+            "uptrend is extended at the top of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:10:22Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0292",
+          "question": "Will ETH close below $2,500 on Nov 16?",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.3113,
+          "primary_outcome": "Yes",
+          "secondary_outcome": "No",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.3113,
+              "change_pct": 9.5884,
+              "slope_per_hour": 0.00879,
+              "slope_3h": 0.03637,
+              "momentum_1h": 0.0255,
+              "atr": 0.0049,
+              "atr_pct": 0.0159,
+              "window_min": 0.02,
+              "window_max": 0.3113,
+              "prior_high": 0.2759,
+              "prior_low": 0.02,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "up",
+              "activity": 0.947,
+              "recent_low": 0.2433,
+              "recent_high": 0.3113,
+              "stretch": 6.97,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.0492,
+                  0.0453
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.0492,
+                  "touches": 3,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.02,
+                    "touches": 7,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.0345,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.0398,
+                    "touches": 4,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.0453,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.0492,
+                    "touches": 3,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.6887,
+              "change_pct": -0.2904,
+              "slope_per_hour": -0.00879,
+              "slope_3h": -0.03637,
+              "momentum_1h": -0.0255,
+              "atr": 0.0049,
+              "atr_pct": 0.0072,
+              "window_min": 0.6887,
+              "window_max": 0.98,
+              "prior_high": 0.98,
+              "prior_low": 0.7241,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "down",
+              "activity": 0.947,
+              "recent_low": 0.6887,
+              "recent_high": 0.7567,
+              "stretch": -6.97,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.9508,
+                  0.9547
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.9508,
+                  "touches": 3,
+                  "kind": "support"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.9508,
+                    "touches": 3,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9547,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.9602,
+                    "touches": 4,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9655,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.98,
+                    "touches": 7,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.0294,
+            0.032,
+            0.0345,
+            0.0358,
+            0.0353,
+            0.0358,
+            0.0487,
+            0.0478,
+            0.0471,
+            0.0446,
+            0.0394,
+            0.0351,
+            0.0316,
+            0.02,
+            0.0268,
+            0.0304,
+            0.035,
+            0.0343,
+            0.0305,
+            0.0252,
+            0.02,
+            0.0249,
+            0.0515,
+            0.0765,
+            0.1219,
+            0.1353,
+            0.162,
+            0.1886,
+            0.2109,
+            0.2397,
+            0.2631,
+            0.2885
+          ],
+          "conflicts": [],
+          "warnings": [
+            "uptrend is extended at the top of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:10:22Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        }
+      ],
+      "risks": [],
+      "next_step": "Strategy agent: build one rule-based plan per market, or return WAIT.",
+      "meta": {
+        "reviewed": 10,
+        "needs_data": 0,
+        "methodology": "24h of 15-minute closes. Trend from a linear fit in probability points per hour vs average bar range. Support/resistance are clustered swing pivots with at least two touches. The secondary view is the exact inverse of the primary series, so both outcomes are analysed the same way.",
+        "conflicts_total": 5,
+        "warnings_total": 8
+      }
+    },
+    "strategy": {
+      "agent": "strategy",
+      "label": "STRATEGY",
+      "timestamp_utc": "2026-10-19T04:10:22Z",
+      "status": "complete",
+      "summary": "Wrote 0 rule-based plan(s) from 10 reviewed markets; 10 returned WAIT.",
+      "evidence": [
+        {
+          "market_id": "test-0006",
+          "question": "Mets vs. Cubs: Mets to win",
+          "url": "https://polymarket.com/market/test-market-6",
+          "status": "WAIT",
+          "reason": "pullback entry is 0.073 below the quote, beyond the 0.05 limit; target 0.761 is not above the current quote 0.784; the move may already be priced",
+          "side_key": "secondary",
+          "side": "Cubs",
+          "side_index": 1,
+          "entry_type": "pullback",
+          "entry": null,
+          "quote": 0.784,
+          "entry_distance": 0.073,
+          "entry_zone": [
+            0.71,
+            0.714
+          ],
+          "entry_trigger": "price pulls back into 0.710-0.714 and holds",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 6.25,
+          "time_limit_utc": "2026-10-19T08:36:00Z",
+          "confidence": 80,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 5.9% is 3.5\u03c3 vs its category",
+              "24h move 14.0% is 4.0\u03c3 vs its category",
+              "24h volume $139,466.71 is 52.0\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "368 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.7516,
+                0.7097
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.7516,
+                "touches": 2,
+                "kind": "support"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.6411,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.646,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.6865,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.7012,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.7052,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.7097,
+                  "touches": 2,
+                  "kind": "either"
+                }
+              ]
+            },
+            "chart_conflicts": [
+              "daily trend down but last hour rising"
+            ],
+            "chart_warnings": [
+              "downtrend is extended at the bottom of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 3,
+            "event_risk": "low"
+          },
+          "disagreements": [
+            "daily trend down but last hour rising"
+          ]
+        },
+        {
+          "market_id": "test-0072",
+          "question": "Astros vs. Cubs: Astros to win",
+          "url": "https://polymarket.com/market/test-market-72",
+          "status": "WAIT",
+          "reason": "extended breakout: the plan waits for a retest instead of chasing; target 0.470 is not above the current quote 0.469; the move may already be priced",
+          "side_key": "primary",
+          "side": "Astros",
+          "side_index": 0,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.469,
+          "entry_distance": 0.049,
+          "entry_zone": [
+            0.417,
+            0.422
+          ],
+          "entry_trigger": "retest of 0.419 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 8.33,
+          "time_limit_utc": "2026-10-19T10:10:22Z",
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 6.5% is 4.0\u03c3 vs its category",
+              "24h move 10.2% is 2.8\u03c3 vs its category",
+              "24h volume $663,218.96 is 247.5\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "tight spread relative to price"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.1298,
+                0.0993
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.1298,
+                "touches": 3,
+                "kind": "either"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.0857,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.0993,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.1298,
+                  "touches": 3,
+                  "kind": "either"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 3,
+            "event_risk": "low"
+          },
+          "disagreements": []
+        },
+        {
+          "market_id": "test-0116",
+          "question": "City vs. United: City to win",
+          "url": "https://polymarket.com/market/test-market-116",
+          "status": "WAIT",
+          "reason": "extended breakout: the plan waits for a retest instead of chasing",
+          "side_key": "primary",
+          "side": "City",
+          "side_index": 0,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.473,
+          "entry_distance": 0.043,
+          "entry_zone": [
+            0.428,
+            0.432
+          ],
+          "entry_trigger": "retest of 0.429 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 10.0,
+          "time_limit_utc": "2026-10-19T10:10:22Z",
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 11.9% is 4.0\u03c3 vs its category",
+              "24h move 13.3% is 4.0\u03c3 vs its category",
+              "24h volume $547,164.38 is 204.2\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "240 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.0557,
+                0.05
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.0557,
+                "touches": 3,
+                "kind": "either"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.0432,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.05,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.0557,
+                  "touches": 3,
+                  "kind": "either"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 3,
+            "event_risk": "low"
+          },
+          "disagreements": []
+        },
+        {
+          "market_id": "test-0138",
+          "question": "Lions vs. Eagles: Lions to win",
+          "url": "https://polymarket.com/market/test-market-138",
+          "status": "WAIT",
+          "reason": "extended breakout: the plan waits for a retest instead of chasing",
+          "side_key": "secondary",
+          "side": "Eagles",
+          "side_index": 1,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.593,
+          "entry_distance": 0.015,
+          "entry_zone": [
+            0.576,
+            0.579
+          ],
+          "entry_trigger": "retest of 0.577 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 10.0,
+          "time_limit_utc": "2026-10-19T10:10:22Z",
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 5.1% is 2.9\u03c3 vs its category",
+              "24h move 24.4% is 4.0\u03c3 vs its category",
+              "24h volume $318,148.52 is 118.7\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "400 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.5198,
+                0.5153
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.5198,
+                "touches": 4,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.4713,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.4752,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5116,
+                  "touches": 4,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5153,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5198,
+                  "touches": 4,
+                  "kind": "resistance"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "downtrend is extended at the bottom of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 2,
+            "event_risk": "low"
+          },
+          "disagreements": []
+        },
+        {
+          "market_id": "test-0182",
+          "question": "Will the coalition win the election by Nov 13?",
+          "status": "WAIT",
+          "reason": "high event risk",
+          "trend": "range",
+          "disagreements": []
+        },
+        {
+          "market_id": "test-0204",
+          "question": "Will the government shut down by Oct 28?",
+          "url": "https://polymarket.com/market/test-market-204",
+          "status": "WAIT",
+          "reason": "medium event risk; extended breakout: the plan waits for a retest instead of chasing",
+          "side_key": "primary",
+          "side": "Yes",
+          "side_index": 0,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.586,
+          "entry_distance": 0.014,
+          "entry_zone": [
+            0.57,
+            0.573
+          ],
+          "entry_trigger": "retest of 0.571 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 10.0,
+          "time_limit_utc": "2026-10-19T10:10:22Z",
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 6.1% is 4.0\u03c3 vs its category",
+              "24h move 11.8% is 4.0\u03c3 vs its category",
+              "24h volume $836,772.05 is 279.6\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "110 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.5602,
+                0.5442
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.5602,
+                "touches": 2,
+                "kind": "either"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.4206,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.476,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5442,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5602,
+                  "touches": 2,
+                  "kind": "either"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 3,
+            "event_risk": "medium"
+          },
+          "disagreements": []
+        },
+        {
+          "market_id": "test-0226",
+          "question": "Will the incumbent lead the next poll by Nov 25?",
+          "url": "https://polymarket.com/market/test-market-226",
+          "status": "WAIT",
+          "reason": "high event risk; extended breakout: the plan waits for a retest instead of chasing; target 0.203 is not above the current quote 0.220; the move may already be priced",
+          "side_key": "primary",
+          "side": "Yes",
+          "side_index": 0,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.22,
+          "entry_distance": 0.067,
+          "entry_zone": [
+            0.152,
+            0.154
+          ],
+          "entry_trigger": "retest of 0.152 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 10.0,
+          "time_limit_utc": "2026-10-19T10:10:22Z",
+          "confidence": 75,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 7.9% is 4.0\u03c3 vs its category",
+              "24h move 23.8% is 4.0\u03c3 vs its category",
+              "24h volume $186,023.43 is 62.1\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "103 comments on the event"
+            ],
+            "chart_trend": "range",
+            "chart_levels": {
+              "support": [
+                0.0539,
+                0.0491
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.0539,
+                "touches": 2,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.02,
+                  "touches": 26,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.0256,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.0285,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.0333,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.0491,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.0539,
+                  "touches": 2,
+                  "kind": "resistance"
+                }
+              ]
+            },
+            "chart_conflicts": [
+              "range-bound series with a up structure break",
+              "high event risk on the calendar"
+            ],
+            "chart_warnings": [],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 3,
+            "event_risk": "high"
+          },
+          "disagreements": [
+            "range-bound series with a up structure break",
+            "high event risk on the calendar"
+          ]
+        },
+        {
+          "market_id": "test-0248",
+          "question": "Will the recount be certified by Nov 9?",
+          "url": "https://polymarket.com/market/test-market-248",
+          "status": "WAIT",
+          "reason": "medium event risk; extended breakout: the plan waits for a retest instead of chasing",
+          "side_key": "primary",
+          "side": "Yes",
+          "side_index": 0,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.381,
+          "entry_distance": 0.034,
+          "entry_zone": [
+            0.345,
+            0.349
+          ],
+          "entry_trigger": "retest of 0.346 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 10.0,
+          "time_limit_utc": "2026-10-19T10:10:22Z",
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 5.7% is 4.0\u03c3 vs its category",
+              "24h move 17.6% is 4.0\u03c3 vs its category",
+              "24h volume $220,313.78 is 73.6\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "114 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.0439,
+                0.0303
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.0439,
+                "touches": 2,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.02,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.0253,
+                  "touches": 5,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.0303,
+                  "touches": 5,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.0439,
+                  "touches": 2,
+                  "kind": "resistance"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 2,
+            "event_risk": "medium"
+          },
+          "disagreements": []
+        },
+        {
+          "market_id": "test-0270",
+          "question": "Will the Senate pass the budget bill by Nov 22?",
+          "url": "https://polymarket.com/market/test-market-270",
+          "status": "WAIT",
+          "reason": "high event risk; extended breakout: the plan waits for a retest instead of chasing; target 0.354 is not above the current quote 0.353; the move may already be priced",
+          "side_key": "primary",
+          "side": "Yes",
+          "side_index": 0,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.353,
+          "entry_distance": 0.049,
+          "entry_zone": [
+            0.302,
+            0.306
+          ],
+          "entry_trigger": "retest of 0.303 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 10.0,
+          "time_limit_utc": "2026-10-19T10:10:22Z",
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 3.5% is 2.2\u03c3 vs its category",
+              "24h move 13.1% is 4.0\u03c3 vs its category",
+              "24h volume $889,815.11 is 297.3\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "tight spread relative to price",
+              "396 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.0287,
+                0.0246
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.0287,
+                "touches": 3,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.0202,
+                  "touches": 29,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.0246,
+                  "touches": 4,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.0287,
+                  "touches": 3,
+                  "kind": "resistance"
+                }
+              ]
+            },
+            "chart_conflicts": [
+              "high event risk on the calendar"
+            ],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 3,
+            "event_risk": "high"
+          },
+          "disagreements": [
+            "high event risk on the calendar"
+          ]
+        },
+        {
+          "market_id": "test-0292",
+          "question": "Will ETH close below $2,500 on Nov 16?",
+          "url": "https://polymarket.com/market/test-market-292",
+          "status": "WAIT",
+          "reason": "extended breakout: the plan waits for a retest instead of chasing",
+          "side_key": "primary",
+          "side": "Yes",
+          "side_index": 0,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.316,
+          "entry_distance": 0.039,
+          "entry_zone": [
+            0.275,
+            0.278
+          ],
+          "entry_trigger": "retest of 0.276 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 10.0,
+          "time_limit_utc": "2026-10-19T10:10:22Z",
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 10.6% is 4.0\u03c3 vs its category",
+              "24h move 19.7% is 4.0\u03c3 vs its category",
+              "24h volume $548,625.60 is 235.6\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "347 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.0492,
+                0.0453
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.0492,
+                "touches": 3,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.02,
+                  "touches": 7,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.0345,
+                  "touches": 4,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.0398,
+                  "touches": 4,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.0453,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.0492,
+                  "touches": 3,
+                  "kind": "resistance"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 2,
+            "event_risk": "low"
+          },
+          "disagreements": []
+        }
+      ],
+      "risks": [
+        "Every candidate returned WAIT; no plan was forced."
+      ],
+      "next_step": "Risk agent: size or veto each plan.",
+      "meta": {
+        "reviewed": 10,
+        "plans": 0,
+        "waits": 10,
+        "policy": "A plan exists only when trend and structure agree, the stop is inside the max distance, and reward:risk clears the configured floor. Strategy never sizes a position and never places an order."
+      }
+    },
+    "risk": {
+      "agent": "risk",
+      "label": "RISK",
+      "timestamp_utc": "2026-10-19T04:10:22Z",
+      "status": "complete",
+      "summary": "0 plan(s) cleared the risk gate, 0 rejected, 10 never reached it.",
+      "evidence": [
+        {
+          "market_id": "test-0006",
+          "question": "Mets vs. Cubs: Mets to win",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: pullback entry is 0.073 below the quote, beyond the 0.05 limit; target 0.761 is not above the current quote 0.784; the move may already be priced"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: pullback entry is 0.073 below the quote, beyond the 0.05 limit; target 0.761 is not above the current quote 0.784; the move may already be priced"
+          ]
+        },
+        {
+          "market_id": "test-0072",
+          "question": "Astros vs. Cubs: Astros to win",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing; target 0.470 is not above the current quote 0.469; the move may already be priced"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing; target 0.470 is not above the current quote 0.469; the move may already be priced"
+          ]
+        },
+        {
+          "market_id": "test-0116",
+          "question": "City vs. United: City to win",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing"
+          ]
+        },
+        {
+          "market_id": "test-0138",
+          "question": "Lions vs. Eagles: Lions to win",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing"
+          ]
+        },
+        {
+          "market_id": "test-0182",
+          "question": "Will the coalition win the election by Nov 13?",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: high event risk"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: high event risk"
+          ]
+        },
+        {
+          "market_id": "test-0204",
+          "question": "Will the government shut down by Oct 28?",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: medium event risk; extended breakout: the plan waits for a retest instead of chasing"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: medium event risk; extended breakout: the plan waits for a retest instead of chasing"
+          ]
+        },
+        {
+          "market_id": "test-0226",
+          "question": "Will the incumbent lead the next poll by Nov 25?",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: high event risk; extended breakout: the plan waits for a retest instead of chasing; target 0.203 is not above the current quote 0.220; the move may already be priced"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: high event risk; extended breakout: the plan waits for a retest instead of chasing; target 0.203 is not above the current quote 0.220; the move may already be priced"
+          ]
+        },
+        {
+          "market_id": "test-0248",
+          "question": "Will the recount be certified by Nov 9?",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: medium event risk; extended breakout: the plan waits for a retest instead of chasing"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: medium event risk; extended breakout: the plan waits for a retest instead of chasing"
+          ]
+        },
+        {
+          "market_id": "test-0270",
+          "question": "Will the Senate pass the budget bill by Nov 22?",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: high event risk; extended breakout: the plan waits for a retest instead of chasing; target 0.354 is not above the current quote 0.353; the move may already be priced"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: high event risk; extended breakout: the plan waits for a retest instead of chasing; target 0.354 is not above the current quote 0.353; the move may already be priced"
+          ]
+        },
+        {
+          "market_id": "test-0292",
+          "question": "Will ETH close below $2,500 on Nov 16?",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing"
+          ]
+        }
+      ],
+      "risks": [
+        "Risk vetoed the whole board: nothing is cleared for a paper entry."
+      ],
+      "next_step": "Boss agent: confirm every stage, then approve, wait or reject.",
+      "meta": {
+        "bankroll": 1000.0,
+        "exposure_limit": 250.0,
+        "exposure_used": 0.0,
+        "risk_committed": 0.0,
+        "open_positions": 0,
+        "passed": 0,
+        "rejected": 0,
+        "common_checks": [
+          {
+            "name": "input_freshness",
+            "pass": true,
+            "detail": "oldest upstream report is 0.0 min old (limit 30)"
+          },
+          {
+            "name": "paper_mode",
+            "pass": true,
+            "detail": "mode=paper, allow_live_orders=False"
+          }
+        ],
+        "limits": {
+          "max_positions": 5,
+          "max_total_exposure_pct": 25.0,
+          "max_position_risk_pct": 2.0,
+          "max_daily_risk_pct": 6.0,
+          "max_per_category": 2,
+          "max_per_event": 1,
+          "min_net_rr": 1.5
+        },
+        "policy": "The gate never relaxes a rule to make a plan pass. Sizes are the smaller of the risk budget, the remaining exposure cap and 1% of quoted liquidity. A failed check is a veto."
+      }
+    },
+    "boss": {
+      "agent": "boss",
+      "label": "BOSS",
+      "timestamp_utc": "2026-10-19T04:10:22Z",
+      "status": "complete",
+      "summary": "Strategy returned WAIT on all 10 reviewed market(s). No setup met the rules.",
+      "evidence": [],
+      "risks": [],
+      "next_step": "Re-run when the next data refresh lands, or when the conflicting evidence resolves.",
+      "meta": {
+        "decision": "WAIT",
+        "approved": [],
+        "held": [],
+        "integrity": [
+          {
+            "name": "pipeline_present",
+            "pass": true,
+            "detail": "5 report(s) present through boss"
+          },
+          {
+            "name": "stages_complete",
+            "pass": true,
+            "detail": "every stage returned complete"
+          },
+          {
+            "name": "paper_only",
+            "pass": true,
+            "detail": "mode=paper, live orders=False"
+          },
+          {
+            "name": "timestamps",
+            "pass": true,
+            "detail": "every report carries an ISO timestamp"
+          },
+          {
+            "name": "risk_gate_exists",
+            "pass": true,
+            "detail": "10 plan(s) reviewed by risk"
+          },
+          {
+            "name": "risk_not_blanket_veto",
+            "pass": false,
+            "detail": "risk cleared nothing"
+          }
+        ],
+        "disagreements": [],
+        "counts": {
+          "plans": 0,
+          "waits": 10,
+          "risk_passed": 0,
+          "risk_rejected": 0,
+          "missing_reports": [],
+          "incomplete_reports": []
+        },
+        "data_source": "SYNTHETIC TEST DATA",
+        "final_word": "Paper only. No order endpoint exists in this project. Manual human approval is required before any action."
+      }
+    }
+  },
+  "halted_at": null,
+  "boss": {
+    "agent": "boss",
+    "label": "BOSS",
+    "timestamp_utc": "2026-10-19T04:10:22Z",
+    "status": "complete",
+    "summary": "Strategy returned WAIT on all 10 reviewed market(s). No setup met the rules.",
+    "evidence": [],
+    "risks": [],
+    "next_step": "Re-run when the next data refresh lands, or when the conflicting evidence resolves.",
+    "meta": {
+      "decision": "WAIT",
+      "approved": [],
+      "held": [],
+      "integrity": [
+        {
+          "name": "pipeline_present",
+          "pass": true,
+          "detail": "5 report(s) present through boss"
+        },
+        {
+          "name": "stages_complete",
+          "pass": true,
+          "detail": "every stage returned complete"
+        },
+        {
+          "name": "paper_only",
+          "pass": true,
+          "detail": "mode=paper, live orders=False"
+        },
+        {
+          "name": "timestamps",
+          "pass": true,
+          "detail": "every report carries an ISO timestamp"
+        },
+        {
+          "name": "risk_gate_exists",
+          "pass": true,
+          "detail": "10 plan(s) reviewed by risk"
+        },
+        {
+          "name": "risk_not_blanket_veto",
+          "pass": false,
+          "detail": "risk cleared nothing"
+        }
+      ],
+      "disagreements": [],
+      "counts": {
+        "plans": 0,
+        "waits": 10,
+        "risk_passed": 0,
+        "risk_rejected": 0,
+        "missing_reports": [],
+        "incomplete_reports": []
+      },
+      "data_source": "SYNTHETIC TEST DATA",
+      "final_word": "Paper only. No order endpoint exists in this project. Manual human approval is required before any action."
+    }
+  },
+  "validation": {
+    "ok": true,
+    "errors": []
+  }
+}

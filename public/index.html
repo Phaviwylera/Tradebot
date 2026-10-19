@@ -3,46 +3,401 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BTC 5-minute paper bot</title>
+<meta name="color-scheme" content="dark">
+<title>Opus Agent Desk — AI trading research terminal</title>
+<meta name="description" content="Six-stage paper-trading research terminal for Polymarket. Scout, News, Charts, Strategy, Risk and Boss. Timestamped reports. No wallet, no order execution.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23050b0f'/%3E%3Cpath d='M7 22l5-7 4 3 4-6 5 4' stroke='%2337e0b0' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='25' cy='16' r='1.6' fill='%2337e0b0'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<h1>BTC 5-minute paper bot</h1>
-<p class="sub">Simulated trades only. No real money, no wallet, no keys.</p>
-<div class="warn">Results here do not prove a live edge. Real trading adds fees, slippage, latency and competing bots. Judge the bot on at least a few hundred paper trades.</div>
+<a class="skip" href="#terminal">Skip to the report terminal</a>
+<noscript><div class="banner error" style="margin:14px">This terminal needs JavaScript. The pipeline itself runs without a browser: <code>python3 main.py</code>. No order endpoint exists either way.</div></noscript>
 
-<div class="grid">
-  <div class="card"><small>BTC spot (Binance)</small><div class="big" id="spot">-</div></div>
-  <div class="card"><small>Window start price</small><div class="big" id="s0">-</div></div>
-  <div class="card"><small>Time left in window</small><div class="big" id="tleft">-</div></div>
-  <div class="card"><small>Fair chance of Up</small><div class="big" id="fair">-</div></div>
-  <div class="card"><small>Market buy price Up / Down</small><div class="big" id="ask">-</div></div>
-  <div class="card"><small>Best edge after fees</small><div class="big" id="edge">-</div></div>
-  <div class="card"><small>Paper bankroll</small><div class="big" id="bank">-</div></div>
-  <div class="card"><small>Wins / trades</small><div class="big" id="wl">0 / 0</div></div>
-</div>
+<div class="app">
+  <!-- ------------------------------------------------------------ rail -->
+  <aside class="rail">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><path d="M6 30l8-11 6 5 6-10 8 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="34" cy="21" r="2.4" fill="currentColor"/></svg>
+      </div>
+      <div class="brand-text">
+        <strong>OPUS</strong>
+        <span>AGENT DESK</span>
+      </div>
+    </div>
 
-<div class="panel">
-  <div class="set">
-    <div><label for="mode">Market data</label>
-      <select id="mode"><option value="live">Live Polymarket</option><option value="sim">Demo (simulated lagging market)</option></select></div>
-    <div><label for="bank0">Starting bankroll ($)</label><input id="bank0" type="number" value="100" min="1"></div>
-    <div><label for="stake">Stake per trade (% of bankroll)</label><input id="stake" type="number" value="2" min="0.1" max="10" step="0.1"></div>
-    <div><label for="thr">Minimum edge to trade (%)</label><input id="thr" type="number" value="4" min="0" step="0.5"></div>
-    <div><label for="fee">Fee and slippage buffer (%)</label><input id="fee" type="number" value="2" min="0" step="0.5"></div>
-    <div><label for="mint">Stop trading when seconds left is below</label><input id="mint" type="number" value="20" min="5"></div>
-    <div><label for="cap">Daily loss limit (% of start)</label><input id="cap" type="number" value="10" min="1"></div>
-    <div><label for="lag">Demo only: market lag (ms)</label><input id="lag" type="number" value="1500" min="0" step="100"></div>
+    <nav class="rail-nav" aria-label="Desk sections">
+      <a href="#overview" class="active"><span class="dot"></span>Overview</a>
+      <a href="#scanner"><span class="dot"></span>Scanner</a>
+      <a href="#newswire"><span class="dot"></span>Newswire</a>
+      <a href="#charts"><span class="dot"></span>Charts</a>
+      <a href="#book"><span class="dot"></span>Paper book</a>
+      <a href="#strategy"><span class="dot"></span>Strategy</a>
+      <a href="#risk"><span class="dot"></span>Risk gate</a>
+      <a href="#terminal"><span class="dot"></span>Reports</a>
+    </nav>
+
+    <div class="rail-block">
+      <div class="rail-label">Data source</div>
+      <div class="seg" role="group" aria-label="Data source for the next run">
+        <button type="button" class="seg-btn" data-source="fixture" aria-pressed="true">Fixture</button>
+        <button type="button" class="seg-btn" data-source="live" aria-pressed="false">Live</button>
+      </div>
+      <button type="button" id="run" class="btn btn-primary run-btn">
+        <span class="btn-dot" aria-hidden="true"></span><span id="run-label">Run desk</span>
+      </button>
+      <div class="rail-note" id="rail-status">paper mode · no orders</div>
+    </div>
+
+    <div class="rail-block">
+      <div class="rail-label">Saved runs</div>
+      <select id="run-select" aria-label="Saved run"><option>no runs</option></select>
+      <div class="rail-note" id="history-note">latest snapshot</div>
+    </div>
+
+    <div class="rail-foot">
+      <div class="badge-lock"><span class="lock-dot"></span>Paper only</div>
+      <p>No wallet, key or order endpoint exists in this project.</p>
+    </div>
+  </aside>
+
+  <!-- ------------------------------------------------------- workspace -->
+  <div class="workspace">
+    <header class="topbar">
+      <div class="crumb">
+        <span class="crumb-root">DESK</span><span class="sep">/</span><span id="crumb">OVERVIEW</span>
+      </div>
+      <div class="tape" aria-label="Watchlist ticker"><div class="tape-track" id="ticker"></div></div>
+      <div class="top-meta">
+        <div class="clock" id="clock">--:--:-- UTC</div>
+        <div class="mode-chip" id="mode-chip">PAPER</div>
+        <div class="run-chip" id="run-chip">no run</div>
+      </div>
+    </header>
+
+    <div id="banner" class="banner" role="note"></div>
+
+    <!-- poster masthead -->
+    <section class="masthead" aria-labelledby="desk-headline">
+      <div class="masthead-copy">
+        <div class="masthead-kicker">
+          <span class="mast-dot" aria-hidden="true"></span>
+          <b>OPUS AGENT DESK</b><span class="mast-sep">/</span>
+          <span class="mast-live" id="mast-live">PAPER RESEARCH TERMINAL</span>
+        </div>
+
+        <h1 id="desk-headline">
+          <span class="mast-line">Six agents.</span>
+          <span class="mast-line"><em class="hl-yellow">Live markets.</em></span>
+          <span class="mast-line"><em class="hl-red">Paper money.</em></span>
+        </h1>
+
+        <p class="masthead-sub">
+          Scout &rarr; News &rarr; Charts &rarr; Strategy &rarr; Risk &rarr; Boss. Six deterministic agents read
+          public Polymarket prices and dated headlines, veto what the rules do not allow, and mark a
+          <b>$100 paper book</b>. No wallet, no broker, no order endpoint.
+        </p>
+
+        <div class="masthead-cta">
+          <a class="hero-btn" href="#book">Open the $100 paper book</a>
+          <a class="hero-btn ghost" href="#terminal">Read the run report</a>
+          <span class="hero-updated" id="hero-updated">awaiting the next live run</span>
+        </div>
+
+        <div class="masthead-stages" aria-hidden="true">
+          <span><b>01</b>SCOUT</span><i>&rsaquo;</i><span><b>02</b>NEWS</span><i>&rsaquo;</i><span><b>03</b>CHARTS</span><i>&rsaquo;</i><span><b>04</b>STRATEGY</span><i>&rsaquo;</i><span><b>05</b>RISK</span><i>&rsaquo;</i><span class="stage-boss"><b>06</b>BOSS</span>
+        </div>
+      </div>
+
+      <div class="masthead-wall" aria-hidden="true">
+        <div class="wall-monitor wall-a">
+          <div class="wall-bar"><span class="wall-tag">LIVE FEED &middot; 15M</span><span class="wall-live"><i></i>GAMMA</span></div>
+          <svg viewBox="0 0 320 150" preserveAspectRatio="none">
+            <line class="wm-rule" x1="0" x2="320" y1="38" y2="38"/>
+            <line class="wm-rule" x1="0" x2="320" y1="86" y2="86"/>
+            <line class="wm-rule" x1="0" x2="320" y1="126" y2="126"/>
+            <path class="wm-guide" d="M0 30 L320 22"/>
+            <line class="wm-wick" x1="16" x2="16" y1="70" y2="82"/><rect class="wm-down" x="12" y="75" width="9" height="5" rx="1"/>
+          <line class="wm-wick" x1="33" x2="33" y1="75" y2="92"/><rect class="wm-up" x="29" y="78" width="9" height="9" rx="1"/>
+          <line class="wm-wick" x1="50" x2="50" y1="84" y2="95"/><rect class="wm-up" x="46" y="86" width="9" height="7" rx="1"/>
+          <line class="wm-wick" x1="67" x2="67" y1="79" y2="90"/><rect class="wm-up" x="63" y="81" width="9" height="7" rx="1"/>
+          <line class="wm-wick" x1="84" x2="84" y1="72" y2="86"/><rect class="wm-up" x="80" y="77" width="9" height="7" rx="1"/>
+          <line class="wm-wick" x1="101" x2="101" y1="76" y2="95"/><rect class="wm-up" x="97" y="81" width="9" height="9" rx="1"/>
+          <line class="wm-wick" x1="118" x2="118" y1="77" y2="85"/><rect class="wm-down" x="114" y="79" width="9" height="4" rx="1"/>
+          <line class="wm-wick" x1="135" x2="135" y1="71" y2="78"/><rect class="wm-down" x="131" y="74" width="9" height="4" rx="1"/>
+          <line class="wm-wick" x1="152" x2="152" y1="65" y2="82"/><rect class="wm-down" x="148" y="68" width="9" height="9" rx="1"/>
+          <line class="wm-wick" x1="169" x2="169" y1="55" y2="68"/><rect class="wm-up" x="165" y="60" width="9" height="4" rx="1"/>
+          <line class="wm-wick" x1="186" x2="186" y1="56" y2="65"/><rect class="wm-down" x="182" y="58" width="9" height="4" rx="1"/>
+          <line class="wm-wick" x1="203" x2="203" y1="49" y2="65"/><rect class="wm-down" x="199" y="51" width="9" height="9" rx="1"/>
+          <line class="wm-wick" x1="220" x2="220" y1="58" y2="67"/><rect class="wm-down" x="216" y="61" width="9" height="4" rx="1"/>
+          <line class="wm-wick" x1="237" x2="237" y1="56" y2="63"/><rect class="wm-up" x="233" y="59" width="9" height="4" rx="1"/>
+          <line class="wm-wick" x1="254" x2="254" y1="55" y2="63"/><rect class="wm-up" x="250" y="57" width="9" height="4" rx="1"/>
+          <line class="wm-wick" x1="271" x2="271" y1="63" y2="72"/><rect class="wm-up" x="267" y="66" width="9" height="4" rx="1"/>
+          <line class="wm-wick" x1="288" x2="288" y1="58" y2="67"/><rect class="wm-down" x="284" y="60" width="9" height="5" rx="1"/>
+          <line class="wm-wick" x1="305" x2="305" y1="50" y2="60"/><rect class="wm-up" x="301" y="53" width="9" height="5" rx="1"/>
+          </svg>
+        </div>
+
+        <div class="wall-monitor wall-b">
+          <div class="wall-bar"><span class="wall-tag">PAPER EQUITY</span><span class="wall-live"><i></i>SIM</span></div>
+          <div class="wall-values">
+            <span><em>equity</em><b id="wall-equity-value">$100.00</b></span>
+            <span><em>total p&amp;l</em><b id="wall-pnl-value">$0.00</b></span>
+          </div>
+          <svg viewBox="0 0 260 96" preserveAspectRatio="none">
+            <path class="wm-area" d="M0 84 L0 72 L18 70 L36 74 L54 62 L72 66 L90 55 L108 58 L126 47 L144 51 L162 40 L180 43 L198 33 L216 36 L234 26 L260 21 L260 84 Z"/>
+            <path class="wm-line" d="M0 72 L18 70 L36 74 L54 62 L72 66 L90 55 L108 58 L126 47 L144 51 L162 40 L180 43 L198 33 L216 36 L234 26 L260 21"/>
+            <path class="wm-line-2" d="M0 60 L26 62 L52 55 L78 58 L104 49 L130 52 L156 45 L182 47 L208 39 L234 41 L260 33"/>
+          </svg>
+        </div>
+
+        <div class="wall-monitor wall-c">
+          <div class="wall-bar"><span class="wall-tag">RISK LOAD</span><span class="wall-live"><i></i>25% CAP</span></div>
+          <svg viewBox="0 0 230 108">
+            <circle class="wm-donut-bg" cx="46" cy="54" r="27"/>
+            <circle class="wm-donut" cx="46" cy="54" r="27" stroke-dasharray="97 170" transform="rotate(-90 46 54)"/>
+            <text class="wm-donut-label" x="46" y="58" text-anchor="middle">25%</text>
+            <rect class="wm-bar" x="94" y="26" width="126" height="5" rx="2.5"/>
+            <rect class="wm-bar lit" x="94" y="26" width="82" height="5" rx="2.5"/>
+            <rect class="wm-bar" x="94" y="48" width="126" height="5" rx="2.5"/>
+            <rect class="wm-bar lit-down" x="94" y="48" width="44" height="5" rx="2.5"/>
+            <rect class="wm-bar" x="94" y="70" width="126" height="5" rx="2.5"/>
+            <rect class="wm-bar lit-soft" x="94" y="70" width="63" height="5" rx="2.5"/>
+            <text class="wm-mini" x="94" y="94">EXPOSURE</text>
+            <text class="wm-mini" x="172" y="94">RISK</text>
+          </svg>
+        </div>
+
+        <div class="wall-monitor wall-d">
+          <div class="wall-bar"><span class="wall-tag">AGENT PIPELINE</span><span class="wall-live"><i></i>6 STAGES</span></div>
+          <div class="wall-rows">
+            <span><i class="ok"></i>SCOUT<b>scan</b></span>
+            <span><i class="ok"></i>NEWS<b>verify</b></span>
+            <span><i class="ok"></i>CHARTS<b>read</b></span>
+            <span><i class="ok"></i>STRATEGY<b>plan</b></span>
+            <span><i class="gate"></i>RISK<b>veto</b></span>
+            <span><i class="boss"></i>BOSS<b>decide</b></span>
+          </div>
+        </div>
+
+        <span class="wall-note note-a">$100 BOOK</span>
+        <span class="wall-note note-b">RISK GATE</span>
+        <span class="wall-caption">SCHEMATIC &middot; NOT A FORECAST</span>
+      </div>
+
+      <div class="masthead-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-k">Boss decision</span>
+          <strong class="hero-stat-v" id="stat-decision">&mdash;</strong>
+          <span class="hero-stat-m" id="stat-decision-meta">six stages &middot; one gate</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-k">Paper equity</span>
+          <strong class="hero-stat-v yellow" id="stat-equity">$100.00</strong>
+          <span class="hero-stat-m" id="stat-equity-meta">simulated &middot; never topped up</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-k">Universe scanned</span>
+          <strong class="hero-stat-v" id="stat-universe">&mdash;</strong>
+          <span class="hero-stat-m" id="stat-universe-meta">Gamma &middot; 24h volume</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-k">Open positions</span>
+          <strong class="hero-stat-v" id="stat-positions">0</strong>
+          <span class="hero-stat-m" id="stat-positions-meta">one per market</span>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <!-- hero -->
+      <section class="row hero" id="overview">
+        <article class="panel decision-panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>BOSS · FINAL DECISION</div>
+            <div class="panel-tools"><span class="chip" id="decision-run">no run</span></div>
+          </div>
+          <div class="decision-body" id="hero-decision"></div>
+        </article>
+
+        <article class="panel kpi-panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>RUN METRICS</div>
+            <div class="panel-tools"><span class="chip">stage pipeline</span></div>
+          </div>
+          <div class="kpi-grid" id="kpis"></div>
+          <div class="kpi-foot" id="kpi-foot"></div>
+        </article>
+
+        <article class="panel exposure-panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>RISK UTILISATION</div>
+            <div class="panel-tools"><span class="chip" id="exposure-chip">—</span></div>
+          </div>
+          <div class="exposure-body" id="exposure"></div>
+        </article>
+      </section>
+
+      <!-- paper book -->
+      <section class="row book" id="book">
+        <article class="panel book-panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>PAPER BOOK · SIMULATED $100</div>
+            <div class="panel-tools">
+              <span class="chip" id="book-chip">no live run</span>
+              <span class="chip ghost" id="book-source">—</span>
+            </div>
+          </div>
+          <div class="book-summary" id="book-summary"></div>
+          <div class="book-body" id="book-body"></div>
+        </article>
+
+        <article class="panel book-equity-panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>EQUITY · SIMULATED</div>
+            <div class="panel-tools"><span class="chip ghost" id="book-mode">paper</span></div>
+          </div>
+          <div class="equity-host" id="equity-chart"></div>
+          <div class="book-stats" id="book-stats"></div>
+          <div class="book-closed" id="book-closed"></div>
+        </article>
+      </section>
+
+      <!-- pipeline + categories -->
+      <section class="row mid">
+        <article class="panel pipeline-panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>AGENT PIPELINE</div>
+            <div class="panel-tools"><span class="chip" id="pipeline-chip">queued</span></div>
+          </div>
+          <div class="pipeline" id="pipeline"></div>
+        </article>
+
+        <article class="panel category-panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>UNIVERSE MIX</div>
+            <div class="panel-tools"><span class="chip" id="mix-chip">520 markets</span></div>
+          </div>
+          <div class="category-body" id="categories"></div>
+        </article>
+      </section>
+
+      <!-- scanner + news -->
+      <section class="row split">
+        <article class="panel scanner-panel" id="scanner">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>SCOUT · MARKET SCANNER</div>
+            <div class="panel-tools">
+              <span class="chip" id="scout-count">—</span>
+              <span class="chip ghost" id="scout-source">—</span>
+            </div>
+          </div>
+          <div class="panel-sub" id="scout-sub">Unusual movement normalised inside each category.</div>
+          <div id="scout-table" class="table-host"></div>
+        </article>
+
+        <article class="panel news-panel" id="newswire">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>NEWS · SOURCED HEADLINES</div>
+            <div class="panel-tools"><span class="chip" id="news-chip">—</span></div>
+          </div>
+          <div class="panel-sub" id="news-sub">Claims, not facts. Every item carries a source and a timestamp.</div>
+          <div id="news-feed" class="news-host"></div>
+        </article>
+      </section>
+
+      <!-- charts -->
+      <section class="panel charts-panel" id="charts">
+        <div class="panel-head">
+          <div class="panel-title"><span class="led"></span>CHARTS · TREND &amp; STRUCTURE</div>
+          <div class="panel-tools">
+            <span class="chip" id="charts-count">—</span>
+            <span class="chip ghost" id="charts-conflicts">—</span>
+          </div>
+        </div>
+        <div id="charts-grid" class="charts-grid"></div>
+      </section>
+
+      <!-- strategy + risk -->
+      <section class="row split2">
+        <article class="panel strategy-panel" id="strategy">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>STRATEGY · PLAN TICKETS</div>
+            <div class="panel-tools"><span class="chip" id="strategy-chip">—</span></div>
+          </div>
+          <div class="panel-sub" id="strategy-sub">One conditional plan per market, or WAIT with the reason.</div>
+          <div id="strategy-list" class="ticket-host"></div>
+        </article>
+
+        <article class="panel risk-panel" id="risk">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>RISK · GATEKEEPER</div>
+            <div class="panel-tools"><span class="chip" id="risk-chip">—</span></div>
+          </div>
+          <div class="panel-sub" id="risk-sub">Any failed check is a veto. Risk is never overruled.</div>
+          <div id="risk-list" class="risk-host"></div>
+        </article>
+      </section>
+
+      <!-- journal + terminal -->
+      <section class="row split2">
+        <article class="panel journal-panel" id="journal">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>PAPER JOURNAL</div>
+            <div class="panel-tools">
+              <span class="chip" id="journal-chip">0 pending</span>
+              <button class="btn btn-small btn-ghost" data-action="download-journal">Export</button>
+            </div>
+          </div>
+          <div class="panel-sub">Log the plan before the outcome is known. Outcomes are entered by hand.</div>
+          <div id="journal-list" class="journal-host"></div>
+        </article>
+
+        <article class="panel terminal-panel" id="terminal">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>REPORT TERMINAL</div>
+            <div class="panel-tools">
+              <select id="raw-select" aria-label="Raw report">
+                <option value="boss">boss.json</option>
+              </select>
+              <button class="btn btn-small btn-ghost" data-action="download-report">Download</button>
+            </div>
+          </div>
+          <div id="terminal-log" class="terminal-log"></div>
+          <pre id="raw-json" class="raw-json" aria-label="Raw report JSON"></pre>
+        </article>
+      </section>
+
+      <section class="panel limits-panel">
+        <div class="panel-head">
+          <div class="panel-title"><span class="led"></span>DESK LIMITS · CONFIG</div>
+          <div class="panel-tools"><span class="chip">read from the saved run</span></div>
+        </div>
+        <div id="limits" class="limits-grid"></div>
+      </section>
+    </main>
+
+    <footer class="poster-bar">
+      <div class="poster-bar-inner">
+        <div class="poster-bar-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+          <a class="poster-domain" href="https://opus-agent-desk.vercel.app" target="_blank" rel="noreferrer">opus-agent-desk.vercel.app</a>
+        </div>
+        <div class="poster-bar-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.3-2.9 7.6-7 10-4.1-2.4-7-5.7-7-10V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.7 12.2l2.2 2.2 4.4-4.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span><b>Paper testing only</b> &middot; live public data &middot; no wallet, no broker, no order endpoint</span>
+        </div>
+        <div class="poster-bar-links">
+          <span id="footer-meta">no run loaded</span>
+          <a href="https://github.com/Phaviwylera/Tradebot" target="_blank" rel="noreferrer">Source</a>
+          <a href="https://github.com/Phaviwylera/Tradebot/issues" target="_blank" rel="noreferrer">Issues</a>
+        </div>
+      </div>
+    </footer>
   </div>
-  <button id="go">Start bot</button><button id="reset" class="stop">Reset results</button>
-  <span id="status" class="sub"></span>
 </div>
 
-<div class="panel tw">
-  <table><thead><tr><th>Window</th><th>Side</th><th>Buy price</th><th>Fair</th><th>Stake</th><th>Result</th><th>Profit</th></tr></thead><tbody id="trades"></tbody></table>
-</div>
-<div class="panel"><div id="log"></div></div>
-
-<script src="assets/app.js"></script>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/app.js" defer></script>
 </body>
 </html>

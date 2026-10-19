@@ -1,7 +1,16 @@
 {
-  "outputDirectory": "public",
-  "rewrites": [
-    { "source": "/gamma/:path*", "destination": "https://gamma-api.polymarket.com/:path*" },
-    { "source": "/clob/:path*", "destination": "https://clob.polymarket.com/:path*" }
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "rm -rf dist && mkdir -p dist && cp -r public/. dist/",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    { "source": "/reports/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=60" }] }
   ]
 }

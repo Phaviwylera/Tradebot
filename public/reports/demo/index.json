@@ -1,0 +1,26 @@
+{
+  "note": "Three published fixture snapshots kept for offline demos and schema coverage. The live desk publishes beside this folder.",
+  "runs": [
+    {
+      "run_id": "20261019T041022Z-fixture",
+      "finished_utc": "2026-10-19T04:10:23Z",
+      "decision": "APPROVE_FOR_PAPER_TEST",
+      "source": "fixture",
+      "file": "20261019T041022Z-fixture.json"
+    },
+    {
+      "run_id": "20261019T041022Z-test-2",
+      "finished_utc": "2026-10-19T04:10:22Z",
+      "decision": "REJECT",
+      "source": "test",
+      "file": "20261019T041022Z-test-2.json"
+    },
+    {
+      "run_id": "20261019T041022Z-test",
+      "finished_utc": "2026-10-19T04:10:22Z",
+      "decision": "WAIT",
+      "source": "test",
+      "file": "20261019T041022Z-test.json"
+    }
+  ]
+}

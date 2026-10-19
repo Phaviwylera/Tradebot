@@ -1,0 +1,83 @@
+# Opus Agent Desk configuration.
+#
+# The runner refuses to start if `mode` is not "paper" or if `allow_live_orders` is not false.
+# There is no order endpoint in this project, so both settings exist as an explicit promise,
+# not as a switch that enables trading.
+
+mode: paper
+allow_live_orders: false
+
+data:
+  # fixture | test | live
+  #   fixture : data/fixtures.json, shipped with the repo, clearly labelled TEST DATA
+  #   test    : deterministic synthetic board generated in the browser / fixture generator
+  #   live    : public read-only Polymarket Gamma + CLOB endpoints
+  source: fixture
+  fixture_file: data/fixtures.json
+  gamma_base: https://gamma-api.polymarket.com
+  clob_base: https://clob.polymarket.com
+  news_base: https://news.google.com/rss/search
+  universe_limit: 800
+  page_size: 100
+  request_timeout_s: 15
+  retries: 1
+
+scan:
+  shortlist_size: 16
+  min_universe_size: 20
+  min_liquidity: 2000
+  max_spread: 0.05
+  min_minutes_to_resolution: 10
+  activity_floor: 8
+
+news:
+  require_news: true
+  max_items: 8
+  max_headline_age_hours: 24
+  news_freshness_minutes: 180
+
+charts:
+  interval: 1d
+  fidelity_minutes: 15
+  min_history_points: 12
+  chart_freshness_minutes: 60
+
+strategy:
+  min_net_rr: 1.5
+  max_stop_distance: 0.12
+  max_entry_distance: 0.12
+  max_pullback_distance: 0.05
+  time_limit_hours: 6
+
+risk:
+  # Simulated bankroll. Every fill is paper; no brokerage or wallet exists.
+  bankroll: 100
+  max_positions: 5
+  max_total_exposure_pct: 25
+  max_position_risk_pct: 2
+  max_daily_risk_pct: 6
+  max_per_category: 2
+  max_per_event: 1
+  cost_buffer_pct: 2
+  min_reward_to_spread: 3
+  watchlist_freshness_minutes: 30
+  event_risk_high: block
+  event_risk_medium: halve
+
+paper:
+  # The live desk keeps a simulated book. Starting cash is never topped up.
+  enabled: true
+  starting_cash: 100
+  ledger_file: data/paper-ledger.json
+
+pipeline:
+  history_limit: 16
+  report_dir: reports
+  stage_timeout_s: 120
+  stop_on_needs_data: true
+
+dashboard:
+  refresh_seconds: 15
+  reports_endpoint: /api/reports
+  # copy the newest run into public/reports/ for static hosting (no API)
+  public_copy: true

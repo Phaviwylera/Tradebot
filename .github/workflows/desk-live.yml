@@ -1,0 +1,74 @@
+name: Live paper desk
+
+# Runs the six agents against public Polymarket data, marks the $100 paper book and commits
+# the report + ledger. There is no order, wallet or brokerage step anywhere in this workflow.
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - arena/332e5730-tradebot
+    paths:
+      - ".github/workflows/desk-live.yml"
+      - "agents/**"
+      - "config.yaml"
+      - "main.py"
+      - "tools/desk/**"
+      - "tests/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: live-paper-desk
+  cancel-in-progress: false
+
+jobs:
+  run:
+    name: run six agents on live markets
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Verify the desk
+        run: python -m unittest discover -s tests
+
+      - name: Restore the published archive into the local run directory
+        run: |
+          mkdir -p reports
+          cp public/reports/*.json reports/ 2>/dev/null || true
+          rm -f reports/ledger.json reports/demo 2>/dev/null || true
+
+      - name: Run the six agents on live Polymarket data
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: python main.py --source live
+
+      - name: Commit the live snapshot and the $100 paper book
+        run: |
+          git config user.name "opus-desk-bot"
+          git config user.email "opus-desk-bot@users.noreply.github.com"
+          git add public/reports data/paper-ledger.json
+          if git diff --cached --quiet; then
+            echo "Nothing new to publish."
+            exit 0
+          fi
+          git commit -m "chore(live): paper run $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"

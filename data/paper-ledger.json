@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "mode": "paper",
+  "currency": "USD",
+  "starting_cash": 100.0,
+  "cash": 100.0,
+  "created_utc": "2026-10-19T04:31:10Z",
+  "updated_utc": "2026-10-19T04:32:19Z",
+  "realized_pnl": 0.0,
+  "positions": [],
+  "trades": [],
+  "equity_curve": [
+    {
+      "t": "2026-10-19T04:31:10Z",
+      "equity": 100.0
+    },
+    {
+      "t": "2026-10-19T04:32:19Z",
+      "equity": 100.0
+    }
+  ],
+  "counters": {
+    "next_trade": 1
+  },
+  "policy": "simulated fills at quoted prices; no broker, wallet or order client"
+}

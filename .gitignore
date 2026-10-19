@@ -1,0 +1,19 @@
+# local secrets — never commit credentials
+.env
+.env.*
+!.env.example
+
+# dependencies and tooling
+node_modules/
+.venv/
+dist/
+__pycache__/
+*.pyc
+
+# local artifacts
+.DS_Store
+reports/
+# the published snapshot is committed, even though local runs are not
+!public/reports/
+!public/reports/**
+.tmp-*
