@@ -3,14 +3,14 @@
     "mode": "paper",
     "currency": "USD",
     "starting_cash": 100.0,
-    "cash": 100.0,
-    "equity": 100.0,
+    "cash": 75.47,
+    "equity": 97.63,
     "realized_pnl": 0.0,
-    "unrealized_pnl": 0,
-    "total_pnl": 0.0,
-    "return_pct": 0.0,
-    "open_count": 0,
-    "working_count": 1,
+    "unrealized_pnl": -2.37,
+    "total_pnl": -2.37,
+    "return_pct": -2.37,
+    "open_count": 1,
+    "working_count": 0,
     "closed_count": 0,
     "win_count": 0,
     "loss_count": 0,
@@ -19,28 +19,31 @@
     "gross_loss": 0,
     "best_trade": 0,
     "worst_trade": 0,
-    "max_drawdown_pct": 0.0,
-    "open_positions": [],
-    "working_orders": [
+    "max_drawdown_pct": -2.37,
+    "open_positions": [
       {
-        "order_id": "W1792385027179-001",
+        "trade_id": "P1792385071507-001",
         "market_id": "682708",
         "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
         "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
         "side": "No",
-        "entry_type": "pullback",
-        "trigger": "limit",
+        "category": "politics",
         "entry": 0.522,
-        "quote_at_approval": 0.529,
-        "last_price": 0.529,
+        "last_price": 0.4715,
         "stop": 0.517,
         "target": 0.572,
         "shares": 47,
+        "cost_basis": 24.53,
+        "market_value": 22.16,
+        "unrealized_pnl": -2.37,
+        "unrealized_pct": -9.66,
         "risk_dollars": 0.24,
+        "opened_utc": "2026-10-19T04:44:31Z",
         "time_limit_utc": "2026-10-19T10:43:47Z",
-        "created_utc": "2026-10-19T04:43:47Z"
+        "last_mark_utc": "2026-10-19T04:44:31Z"
       }
     ],
+    "working_orders": [],
     "closed_trades": [],
     "equity_curve": [
       {
@@ -62,38 +65,42 @@
       {
         "t": "2026-10-19T04:43:47Z",
         "equity": 100.0
+      },
+      {
+        "t": "2026-10-19T04:44:31Z",
+        "equity": 97.63
       }
     ],
-    "updated_utc": "2026-10-19T04:43:47Z",
+    "updated_utc": "2026-10-19T04:44:31Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
-  "cash": 100.0,
+  "cash": 75.47,
   "realized_pnl": 0.0,
-  "open_positions": [],
-  "working_orders": [
+  "open_positions": [
     {
-      "order_id": "W1792385027179-001",
+      "trade_id": "P1792385071507-001",
       "market_id": "682708",
       "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
       "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
       "side": "No",
       "category": "politics",
       "event_id": "81557",
-      "entry_type": "pullback",
-      "trigger": "limit",
       "entry": 0.522,
-      "quote_at_approval": 0.529,
+      "shares": 47,
+      "cost_basis": 24.53,
+      "risk_dollars": 0.24,
       "stop": 0.517,
       "target": 0.572,
-      "shares": 47,
-      "risk_dollars": 0.24,
+      "opened_utc": "2026-10-19T04:44:31Z",
       "time_limit_utc": "2026-10-19T10:43:47Z",
-      "created_utc": "2026-10-19T04:43:47Z",
-      "last_mark_utc": "2026-10-19T04:43:47Z",
-      "status": "WORKING"
+      "last_price": 0.4715,
+      "last_mark_utc": "2026-10-19T04:44:31Z",
+      "status": "OPEN",
+      "filled_order": "W1792385027179-001"
     }
   ],
+  "working_orders": [],
   "closed_trades": [],
   "equity_curve": [
     {
@@ -115,7 +122,11 @@
     {
       "t": "2026-10-19T04:43:47Z",
       "equity": 100.0
+    },
+    {
+      "t": "2026-10-19T04:44:31Z",
+      "equity": 97.63
     }
   ],
-  "updated_utc": "2026-10-19T04:43:47Z"
+  "updated_utc": "2026-10-19T04:44:31Z"
 }

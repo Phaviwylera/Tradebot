@@ -1,16 +1,16 @@
 {
-  "run_id": "20261019T044335Z-live",
+  "run_id": "20261019T044417Z-live",
   "desk_version": "1.0.0",
   "mode": "paper",
   "source": "live",
   "source_label": "LIVE PUBLIC DATA",
   "source_detail": "Gamma /markets ordered by 24h volume, 9 page(s)",
-  "started_utc": "2026-10-19T04:43:35Z",
-  "finished_utc": "2026-10-19T04:43:47Z",
-  "duration_ms": 12122,
+  "started_utc": "2026-10-19T04:44:17Z",
+  "finished_utc": "2026-10-19T04:44:31Z",
+  "duration_ms": 13597,
   "universe": {
     "size": 800,
-    "fetched_at": "2026-10-19T04:43:35Z",
+    "fetched_at": "2026-10-19T04:44:17Z",
     "synthetic": false
   },
   "config": {
@@ -79,8 +79,8 @@
   },
   "stage_ms": {
     "scout": 147,
-    "news": 9951,
-    "charts": 1395,
+    "news": 11426,
+    "charts": 1068,
     "strategy": 0,
     "risk": 0,
     "boss": 0
@@ -89,9 +89,9 @@
     "scout": {
       "agent": "scout",
       "label": "SCOUT",
-      "timestamp_utc": "2026-10-19T04:43:35Z",
+      "timestamp_utc": "2026-10-19T04:44:18Z",
       "status": "complete",
-      "summary": "Scanned 800 markets, 199 passed quality filters, 30 on the watchlist.",
+      "summary": "Scanned 800 markets, 200 passed quality filters, 30 on the watchlist.",
       "evidence": [
         {
           "market_id": "5610598",
@@ -363,6 +363,105 @@
           "regime": null
         },
         {
+          "market_id": "5653789",
+          "question": "Will the price of Bitcoin be above $80,000 on October 20?",
+          "url": "https://polymarket.com/market/bitcoin-above-80k-on-october-20-2026",
+          "category": "crypto",
+          "event_id": "1183354",
+          "event_title": "Bitcoin above ___ on October 20?",
+          "order_min_size": 5.0,
+          "score": 50,
+          "reasons": [
+            "1h move 1.0% is 3.8\u03c3 vs its category",
+            "24h move 11.0% is 4.0\u03c3 vs its category",
+            "1h and 24h moves point the same way"
+          ],
+          "metrics": {
+            "move_1h": 0.01,
+            "move_24h": 0.11,
+            "z_move_1h": 3.82,
+            "z_move_24h": 4.0,
+            "z_volume": 0.44,
+            "volume_ratio": 1.38,
+            "spread": 0.009999999999999898,
+            "spread_pct": 0.0107,
+            "liquidity": 44968.622,
+            "volume_24h": 13840.21664,
+            "price": 0.935
+          },
+          "price": 0.935,
+          "ends_at": "2026-10-20T16:00:00Z",
+          "source_timestamp": "2026-10-19T04:43:12Z",
+          "synthetic": false,
+          "regime": null
+        },
+        {
+          "market_id": "5610574",
+          "question": "Will the price of Ethereum be above $2,400 on October 19?",
+          "url": "https://polymarket.com/market/ethereum-above-2400-on-october-19-2026",
+          "category": "crypto",
+          "event_id": "1177743",
+          "event_title": "Ethereum above ___ on October 19?",
+          "order_min_size": 5.0,
+          "score": 50,
+          "reasons": [
+            "1h move 3.0% is 4.0\u03c3 vs its category",
+            "24h move 11.0% is 4.0\u03c3 vs its category",
+            "1h and 24h moves point the same way"
+          ],
+          "metrics": {
+            "move_1h": 0.03,
+            "move_24h": 0.11,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": 0.33,
+            "volume_ratio": 1.27,
+            "spread": 0.010000000000000009,
+            "spread_pct": 0.0132,
+            "liquidity": 33357.8122,
+            "volume_24h": 12734.720157999998,
+            "price": 0.755
+          },
+          "price": 0.755,
+          "ends_at": "2026-10-19T16:00:00Z",
+          "source_timestamp": "2026-10-19T04:43:12Z",
+          "synthetic": false,
+          "regime": null
+        },
+        {
+          "market_id": "5742250",
+          "question": "Will Bitcoin dip to $80,000 in October?",
+          "url": "https://polymarket.com/market/will-bitcoin-dip-to-80k-in-october-2026-from-october-15",
+          "category": "crypto",
+          "event_id": "1112205",
+          "event_title": "What price will Bitcoin hit in October?",
+          "order_min_size": 5.0,
+          "score": 50,
+          "reasons": [
+            "1h move 1.0% is 3.8\u03c3 vs its category",
+            "24h move 12.5% is 4.0\u03c3 vs its category",
+            "1h and 24h moves point the same way"
+          ],
+          "metrics": {
+            "move_1h": -0.01,
+            "move_24h": -0.125,
+            "z_move_1h": 3.82,
+            "z_move_24h": 4.0,
+            "z_volume": 0.17,
+            "volume_ratio": 1.14,
+            "spread": 0.010000000000000009,
+            "spread_pct": 0.0168,
+            "liquidity": 53210.9389,
+            "volume_24h": 11379.494892,
+            "price": 0.595
+          },
+          "price": 0.595,
+          "ends_at": "2026-11-01T04:00:00Z",
+          "source_timestamp": "2026-10-19T04:43:12Z",
+          "synthetic": false,
+          "regime": null
+        },
+        {
           "market_id": "5610600",
           "question": "Will the price of Bitcoin be above $82,000 on October 19?",
           "url": "https://polymarket.com/market/bitcoin-above-82k-on-october-19-2026",
@@ -372,26 +471,59 @@
           "order_min_size": 5.0,
           "score": 50,
           "reasons": [
-            "1h move 2.0% is 4.0\u03c3 vs its category",
-            "24h move 32.0% is 4.0\u03c3 vs its category",
+            "1h move 7.0% is 4.0\u03c3 vs its category",
+            "24h move 34.0% is 4.0\u03c3 vs its category",
             "1h and 24h moves point the same way"
           ],
           "metrics": {
-            "move_1h": 0.02,
-            "move_24h": 0.32,
+            "move_1h": 0.07,
+            "move_24h": 0.34,
             "z_move_1h": 4.0,
             "z_move_24h": 4.0,
             "z_volume": 0.11,
             "volume_ratio": 1.09,
             "spread": 0.010000000000000009,
-            "spread_pct": 0.0131,
-            "liquidity": 40717.5774,
+            "spread_pct": 0.0127,
+            "liquidity": 39896.8833,
             "volume_24h": 10880.215512,
-            "price": 0.765
+            "price": 0.785
           },
-          "price": 0.765,
+          "price": 0.785,
           "ends_at": "2026-10-19T16:00:00Z",
-          "source_timestamp": "2026-10-19T04:37:11Z",
+          "source_timestamp": "2026-10-19T04:43:12Z",
+          "synthetic": false,
+          "regime": null
+        },
+        {
+          "market_id": "5653795",
+          "question": "Will the price of Bitcoin be above $84,000 on October 20?",
+          "url": "https://polymarket.com/market/bitcoin-above-84k-on-october-20-2026",
+          "category": "crypto",
+          "event_id": "1183354",
+          "event_title": "Bitcoin above ___ on October 20?",
+          "order_min_size": 5.0,
+          "score": 50,
+          "reasons": [
+            "1h move 2.0% is 4.0\u03c3 vs its category",
+            "24h move 8.0% is 4.0\u03c3 vs its category",
+            "1h and 24h moves point the same way"
+          ],
+          "metrics": {
+            "move_1h": 0.02,
+            "move_24h": 0.08,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": -0.35,
+            "volume_ratio": 0.78,
+            "spread": 0.010000000000000009,
+            "spread_pct": 0.0465,
+            "liquidity": 39265.5971,
+            "volume_24h": 7774.270482,
+            "price": 0.215
+          },
+          "price": 0.215,
+          "ends_at": "2026-10-20T16:00:00Z",
+          "source_timestamp": "2026-10-19T04:43:12Z",
           "synthetic": false,
           "regime": null
         },
@@ -547,8 +679,8 @@
             "move_24h": -0.13,
             "z_move_1h": 0.0,
             "z_move_24h": 4.0,
-            "z_volume": 2.23,
-            "volume_ratio": 8.25,
+            "z_volume": 2.25,
+            "volume_ratio": 8.31,
             "spread": 0.010000000000000009,
             "spread_pct": 0.0328,
             "liquidity": 13900.5269,
@@ -558,38 +690,6 @@
           "price": 0.305,
           "ends_at": "2026-10-23T03:59:00Z",
           "source_timestamp": "2026-10-19T04:41:13Z",
-          "synthetic": false,
-          "regime": null
-        },
-        {
-          "market_id": "5653795",
-          "question": "Will the price of Bitcoin be above $84,000 on October 20?",
-          "url": "https://polymarket.com/market/bitcoin-above-84k-on-october-20-2026",
-          "category": "crypto",
-          "event_id": "1183354",
-          "event_title": "Bitcoin above ___ on October 20?",
-          "order_min_size": 5.0,
-          "score": 44,
-          "reasons": [
-            "1h move 1.0% is 3.8\u03c3 vs its category",
-            "24h move 7.0% is 4.0\u03c3 vs its category"
-          ],
-          "metrics": {
-            "move_1h": -0.01,
-            "move_24h": 0.07,
-            "z_move_1h": 3.82,
-            "z_move_24h": 4.0,
-            "z_volume": -0.35,
-            "volume_ratio": 0.78,
-            "spread": 0.009999999999999981,
-            "spread_pct": 0.0488,
-            "liquidity": 39234.1941,
-            "volume_24h": 7774.270482,
-            "price": 0.205
-          },
-          "price": 0.205,
-          "ends_at": "2026-10-20T16:00:00Z",
-          "source_timestamp": "2026-10-19T04:37:11Z",
           "synthetic": false,
           "regime": null
         },
@@ -613,8 +713,8 @@
             "move_24h": 0.172,
             "z_move_1h": 0.0,
             "z_move_24h": 4.0,
-            "z_volume": 1.76,
-            "volume_ratio": 5.31,
+            "z_volume": 1.78,
+            "volume_ratio": 5.34,
             "spread": 0.007000000000000006,
             "spread_pct": 0.0101,
             "liquidity": 10119.60831,
@@ -647,8 +747,8 @@
             "move_24h": -0.125,
             "z_move_1h": 0.0,
             "z_move_24h": 4.0,
-            "z_volume": 1.18,
-            "volume_ratio": 3.07,
+            "z_volume": 1.2,
+            "volume_ratio": 3.09,
             "spread": 0.009999999999999953,
             "spread_pct": 0.029,
             "liquidity": 34562.7071,
@@ -658,39 +758,6 @@
           "price": 0.345,
           "ends_at": "2026-11-01T03:59:59Z",
           "source_timestamp": "2026-10-19T04:41:13Z",
-          "synthetic": false,
-          "regime": null
-        },
-        {
-          "market_id": "5610576",
-          "question": "Will the price of Ethereum be above $2,500 on October 19?",
-          "url": "https://polymarket.com/market/ethereum-above-2500-on-october-19-2026",
-          "category": "crypto",
-          "event_id": "1177743",
-          "event_title": "Ethereum above ___ on October 19?",
-          "order_min_size": 5.0,
-          "score": 42,
-          "reasons": [
-            "1h move 0.7% is 2.2\u03c3 vs its category",
-            "24h move 4.1% is 2.3\u03c3 vs its category",
-            "1h and 24h moves point the same way"
-          ],
-          "metrics": {
-            "move_1h": -0.0065,
-            "move_24h": -0.041,
-            "z_move_1h": 2.25,
-            "z_move_24h": 2.32,
-            "z_volume": 0.55,
-            "volume_ratio": 1.49,
-            "spread": 0.005999999999999998,
-            "spread_pct": 0.1224,
-            "liquidity": 35206.22719,
-            "volume_24h": 14973.915761,
-            "price": 0.049
-          },
-          "price": 0.049,
-          "ends_at": "2026-10-19T16:00:00Z",
-          "source_timestamp": "2026-10-19T04:37:11Z",
           "synthetic": false,
           "regime": null
         },
@@ -714,8 +781,8 @@
             "move_24h": -0.075,
             "z_move_1h": 0.0,
             "z_move_24h": 4.0,
-            "z_volume": 1.93,
-            "volume_ratio": 6.2,
+            "z_volume": 1.94,
+            "volume_ratio": 6.24,
             "spread": 0.01999999999999999,
             "spread_pct": 0.1176,
             "liquidity": 112664.1566,
@@ -748,8 +815,8 @@
             "move_24h": -0.072,
             "z_move_1h": 0.0,
             "z_move_24h": 4.0,
-            "z_volume": 1.52,
-            "volume_ratio": 6.21,
+            "z_volume": 1.56,
+            "volume_ratio": 6.23,
             "spread": 0.0010000000000000009,
             "spread_pct": 0.0021,
             "liquidity": 259515.82971,
@@ -813,8 +880,8 @@
             "move_24h": 0.11,
             "z_move_1h": 0.0,
             "z_move_24h": 4.0,
-            "z_volume": 1.77,
-            "volume_ratio": 5.37,
+            "z_volume": 1.79,
+            "volume_ratio": 5.41,
             "spread": 0.010000000000000009,
             "spread_pct": 0.015,
             "liquidity": 17872.2983,
@@ -846,8 +913,8 @@
             "move_24h": 0.17,
             "z_move_1h": 0.0,
             "z_move_24h": 4.0,
-            "z_volume": 1.41,
-            "volume_ratio": 3.79,
+            "z_volume": 1.42,
+            "volume_ratio": 3.81,
             "spread": 0.010000000000000009,
             "spread_pct": 0.023,
             "liquidity": 4681.4734,
@@ -903,17 +970,17 @@
           "order_min_size": 5.0,
           "score": 33,
           "reasons": [
-            "24h move 2.0% is 2.9\u03c3 vs its category",
-            "24h volume 5.9\u00d7 the category median",
+            "24h move 2.0% is 3.2\u03c3 vs its category",
+            "24h volume 6.0\u00d7 the category median",
             "870 comments on the event"
           ],
           "metrics": {
             "move_1h": 0.0,
             "move_24h": -0.02,
             "z_move_1h": 0.0,
-            "z_move_24h": 2.92,
-            "z_volume": 1.48,
-            "volume_ratio": 5.93,
+            "z_move_24h": 3.18,
+            "z_volume": 1.52,
+            "volume_ratio": 5.95,
             "spread": 0.009999999999999995,
             "spread_pct": 0.087,
             "liquidity": 149732.7639,
@@ -936,7 +1003,7 @@
           "order_min_size": 5.0,
           "score": 33,
           "reasons": [
-            "24h move 2.0% is 2.9\u03c3 vs its category",
+            "24h move 2.0% is 3.2\u03c3 vs its category",
             "24h volume 5.8\u00d7 the category median",
             "988 comments on the event"
           ],
@@ -944,9 +1011,9 @@
             "move_1h": 0.0,
             "move_24h": 0.02,
             "z_move_1h": 0.0,
-            "z_move_24h": 2.92,
-            "z_volume": 1.47,
-            "volume_ratio": 5.82,
+            "z_move_24h": 3.18,
+            "z_volume": 1.51,
+            "volume_ratio": 5.84,
             "spread": 0.010000000000000009,
             "spread_pct": 0.0513,
             "liquidity": 368680.1177,
@@ -969,7 +1036,7 @@
           "order_min_size": 5.0,
           "score": 33,
           "reasons": [
-            "24h move 2.0% is 2.9\u03c3 vs its category",
+            "24h move 2.0% is 3.2\u03c3 vs its category",
             "24h volume 5.0\u00d7 the category median",
             "207 comments on the event"
           ],
@@ -977,9 +1044,9 @@
             "move_1h": 0.0,
             "move_24h": 0.02,
             "z_move_1h": 0.0,
-            "z_move_24h": 2.92,
-            "z_volume": 1.35,
-            "volume_ratio": 5.02,
+            "z_move_24h": 3.18,
+            "z_volume": 1.38,
+            "volume_ratio": 5.04,
             "spread": 0.010000000000000009,
             "spread_pct": 0.015,
             "liquidity": 301944.2636,
@@ -989,39 +1056,6 @@
           "price": 0.665,
           "ends_at": "2026-10-25T23:59:00Z",
           "source_timestamp": "2026-10-19T04:41:13Z",
-          "synthetic": false,
-          "regime": null
-        },
-        {
-          "market_id": "4319441",
-          "question": "Will Anthropic IPO by December 15, 2026?",
-          "url": "https://polymarket.com/market/will-anthropic-ipo-by-december-15-2026",
-          "category": "other",
-          "event_id": "549019",
-          "event_title": "Anthropic IPO by __?",
-          "order_min_size": 5.0,
-          "score": 32,
-          "reasons": [
-            "1h move 5.0% above the 5% activity band",
-            "24h move 10.5% is 4.0\u03c3 vs its category",
-            "1h and 24h moves point the same way"
-          ],
-          "metrics": {
-            "move_1h": 0.05,
-            "move_24h": 0.105,
-            "z_move_1h": 0.0,
-            "z_move_24h": 4.0,
-            "z_volume": -0.15,
-            "volume_ratio": 0.87,
-            "spread": 0.010000000000000009,
-            "spread_pct": 0.0132,
-            "liquidity": 13898.2443,
-            "volume_24h": 9496.204063,
-            "price": 0.755
-          },
-          "price": 0.755,
-          "ends_at": "2026-12-16T04:59:00Z",
-          "source_timestamp": "2026-10-19T04:37:11Z",
           "synthetic": false,
           "regime": null
         },
@@ -1044,49 +1078,17 @@
             "move_24h": 0.085,
             "z_move_1h": 0.0,
             "z_move_24h": 4.0,
-            "z_volume": -0.3,
-            "volume_ratio": 0.75,
+            "z_volume": -0.29,
+            "volume_ratio": 0.76,
             "spread": 0.01999999999999999,
             "spread_pct": 0.087,
-            "liquidity": 21173.3909,
+            "liquidity": 21392.6147,
             "volume_24h": 8230.616887000002,
             "price": 0.23
           },
           "price": 0.23,
           "ends_at": "2027-01-01T04:59:00Z",
-          "source_timestamp": "2026-10-19T04:37:11Z",
-          "synthetic": false,
-          "regime": null
-        },
-        {
-          "market_id": "2589812",
-          "question": "Will there be no change in Fed interest rates after the October 2026 meeting?",
-          "url": "https://polymarket.com/market/will-there-be-no-change-in-fed-interest-rates-after-the-october-2026-meeting-20260617190324031",
-          "category": "econ",
-          "event_id": "606422",
-          "event_title": "Fed Decision in October?",
-          "order_min_size": 5.0,
-          "score": 30,
-          "reasons": [
-            "24h move 1.0% is 4.0\u03c3 vs its category",
-            "24h volume 8.7\u00d7 the category median"
-          ],
-          "metrics": {
-            "move_1h": 0.0,
-            "move_24h": 0.01,
-            "z_move_1h": 0.0,
-            "z_move_24h": 4.0,
-            "z_volume": 1.16,
-            "volume_ratio": 8.72,
-            "spread": 0.010000000000000009,
-            "spread_pct": 0.0114,
-            "liquidity": 1043347.546,
-            "volume_24h": 304259.44351700007,
-            "price": 0.875
-          },
-          "price": 0.875,
-          "ends_at": "2026-10-29T03:59:00Z",
-          "source_timestamp": "2026-10-19T04:41:13Z",
+          "source_timestamp": "2026-10-19T04:43:12Z",
           "synthetic": false,
           "regime": null
         }
@@ -1097,9 +1099,9 @@
         "universe_size": 800,
         "universe_source": "live",
         "universe_label": "LIVE PUBLIC DATA",
-        "fetched_at": "2026-10-19T04:43:35Z",
+        "fetched_at": "2026-10-19T04:44:17Z",
         "source_note": "Gamma /markets ordered by 24h volume, 9 page(s)",
-        "scored_count": 199,
+        "scored_count": 200,
         "shortlist": [
           {
             "market_id": "5610598",
@@ -1142,7 +1144,27 @@
             "score": 50
           },
           {
+            "market_id": "5653789",
+            "category": "crypto",
+            "score": 50
+          },
+          {
+            "market_id": "5610574",
+            "category": "crypto",
+            "score": 50
+          },
+          {
+            "market_id": "5742250",
+            "category": "crypto",
+            "score": 50
+          },
+          {
             "market_id": "5610600",
+            "category": "crypto",
+            "score": 50
+          },
+          {
+            "market_id": "5653795",
             "category": "crypto",
             "score": 50
           },
@@ -1172,11 +1194,6 @@
             "score": 49
           },
           {
-            "market_id": "5653795",
-            "category": "crypto",
-            "score": 44
-          },
-          {
             "market_id": "5732710",
             "category": "other",
             "score": 42
@@ -1184,11 +1201,6 @@
           {
             "market_id": "4951227",
             "category": "other",
-            "score": 42
-          },
-          {
-            "market_id": "5610576",
-            "category": "crypto",
             "score": 42
           },
           {
@@ -1237,25 +1249,15 @@
             "score": 33
           },
           {
-            "market_id": "4319441",
-            "category": "other",
-            "score": 32
-          },
-          {
             "market_id": "5676703",
             "category": "other",
             "score": 32
-          },
-          {
-            "market_id": "2589812",
-            "category": "econ",
-            "score": 30
           }
         ],
         "excluded": {
-          "quality": 293,
+          "quality": 290,
           "data": 0,
-          "low_signal": 308,
+          "low_signal": 310,
           "invalid": 0
         },
         "data_gaps": {
@@ -1264,8 +1266,8 @@
         },
         "categories": {
           "econ": 12,
-          "other": 254,
-          "politics": 158,
+          "other": 253,
+          "politics": 159,
           "sports": 189,
           "crypto": 99,
           "weather": 81,
@@ -1277,7 +1279,7 @@
     "news": {
       "agent": "news",
       "label": "NEWS",
-      "timestamp_utc": "2026-10-19T04:43:35Z",
+      "timestamp_utc": "2026-10-19T04:44:19Z",
       "status": "complete",
       "summary": "Checked sources for 30 watchlist markets; 30 have at least one usable headline.",
       "evidence": [
@@ -1489,7 +1491,7 @@
               "source": "24/7 Wall St.",
               "source_url": "https://247wallst.com",
               "published_at": "2026-10-18T12:41:00Z",
-              "age_hours": 16.0,
+              "age_hours": 16.1,
               "stale": false,
               "speculative": false,
               "duplicate": false,
@@ -1850,7 +1852,7 @@
               "source": "The New York Times",
               "source_url": "https://www.nytimes.com",
               "published_at": "2026-10-18T20:47:07Z",
-              "age_hours": 7.9,
+              "age_hours": 8.0,
               "stale": false,
               "speculative": false,
               "duplicate": false,
@@ -1881,12 +1883,12 @@
               ]
             },
             {
-              "title": "October 19, 2026: Elise Mertens vs Leylah Annie Fernandez: Set 2 Winner Tennis Prediction Market - Robinhood",
-              "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQb2t2OTZXV3pPSEhPTG1zSDV5Z3ZLckwxakt5bTFBeEhmZmZRSUh3a1ZTNi1sblFoRWtjSDVSMGxrY2QwZUtvTGY3VW4yR0FpRHhGeVlXZ0lYaHkyTFo2ZDFHUDBnbG0wRDhvVXBIaXhqNlFrWUxpVWh1eXJqVnpQQW56R0g0YVMzZDJLT01DbjNYSmVmbmpVV3dDcHJITmVwX0JZcWlBMmh4TldzQktJamRWWU9iTjdNX2JJcE80Y0dHTDh2?oc=5",
+              "title": "October 19, 2026: Elise Mertens vs Leylah Annie Fernandez: Set 1 Winner Tennis Prediction Market - Robinhood",
+              "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOUFBsMzloSVZIdktTWThBZS12dWhCbHVib2stSnRqRTJzM205QjFuZ3RZTXdNVHhaeDVSZU9zYkViRHpIeVkzRThkLW1HcklCazNwcGV0SmxCaFpyN1ZjTjlMT2RPSFZfT1lzQ3NSQ09SbFZxN1o3a19ackNnSnF5YWZQc2gyV0plWEhfZ2xkSlUwU3QwVnhHMWJJNmV4cjVyWDZPYjFXZFkwSFF2VGlTeVloSzd5TDViU3FCZUZQdUdXZWFs?oc=5",
               "source": "Robinhood",
               "source_url": "https://robinhood.com",
-              "published_at": "2026-10-18T06:49:48Z",
-              "age_hours": 21.9,
+              "published_at": "2026-10-19T01:41:45Z",
+              "age_hours": 3.0,
               "stale": false,
               "speculative": false,
               "duplicate": false,
@@ -2172,7 +2174,7 @@
               "source": "24/7 Wall St.",
               "source_url": "https://247wallst.com",
               "published_at": "2026-10-18T12:41:00Z",
-              "age_hours": 16.0,
+              "age_hours": 16.1,
               "stale": false,
               "speculative": false,
               "duplicate": false,
@@ -2344,7 +2346,7 @@
               "source": "24/7 Wall St.",
               "source_url": "https://247wallst.com",
               "published_at": "2026-10-18T12:41:00Z",
-              "age_hours": 16.0,
+              "age_hours": 16.1,
               "stale": false,
               "speculative": false,
               "duplicate": false,
@@ -2653,6 +2655,392 @@
           ]
         },
         {
+          "market_id": "5653789",
+          "question": "Will the price of Bitcoin be above $80,000 on October 20?",
+          "query": "Bitcoin October 20 price $80 000",
+          "source_count": 0,
+          "sources": [],
+          "headline_count": 0,
+          "fresh_count": 0,
+          "direct_count": 0,
+          "tone": "unknown",
+          "keyword_tone": "cautious",
+          "tone_counts": {
+            "constructive": 1,
+            "cautious": 4,
+            "neutral": 3
+          },
+          "direction_basis": "keyword polarity applied to the first outcome label; may not fit inverted questions",
+          "event_risk": "unknown",
+          "flags": [
+            "STALE_ONLY"
+          ],
+          "items": [
+            {
+              "title": "Bitcoin Price Prediction Oct 2026: BTC Defends $80K Support - CoinDCX",
+              "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8xaXZpbkxPQXhBY09rRnZEUnBocEJVQWNPTHhQQlJLaTVJWFVZSTdOMmwtbjR3WEo0OU5kQm1xSzFpUmdLdmY0YlpkZTR4TFBiOWVIVmQ0UjkwWmFjakJWRWJMeHdNZ1lVVzl1aWZBM3c?oc=5",
+              "source": "CoinDCX",
+              "source_url": "https://coindcx.com",
+              "published_at": "2026-10-16T12:02:46Z",
+              "age_hours": 64.7,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "direct",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Bitcoin Briefly Dips Below $80,000 on U.S. Producer Prices - www.trendingtopics.eu",
+              "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNcVYzSTVkYlNvenhYVE9MSExYelJJMUhwU19KRlR5UjhWYnJHSklwNFl6LUg1N1pGQVJMaXNvQUg1bjNsV0h5V2FkN1JOQWhqMTVGNHZTTUJrTnBCRGJpWDNiLWtIb2NERDh0dExTSXFhV0o1dk5nT2c3bjhsN0RsOTdBNA?oc=5",
+              "source": "www.trendingtopics.eu",
+              "source_url": "https://www.trendingtopics.eu",
+              "published_at": "2026-10-15T18:02:33Z",
+              "age_hours": 82.7,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "direct",
+              "tone": "cautious",
+              "tone_counts": [
+                0,
+                1
+              ]
+            },
+            {
+              "title": "Bitcoin Price Forecast: BTC Rebounds After Falling Below $80,000, Can Price Break $87,000? - TradingKey",
+              "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPWGtwcFZaWmZnRUM0a2dMSUtjX3hpeUlPbk1nS0haa2dWaFNXQUt3NDAwT0szQUtnNTY0dGJvUldzR3Vvcm4wRkJiVFpRZGxZbmtpZW1hY3lCdnNGY2dadXptR0QxbVNsUmRDM3NsSGpwUFRVRlNyazhhRTROX1paWUJZc1JvamhqY3hyODkwZUtUUmE5LXk1ZWZ0VXBEQ0VDZGpMX2t5dGppMTg4VjRNUmRLdkd2V0xPcWc?oc=5",
+              "source": "TradingKey",
+              "source_url": "https://www.tradingkey.com",
+              "published_at": "2026-10-17T02:02:55Z",
+              "age_hours": 50.7,
+              "stale": true,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 3,
+              "relevance": "direct",
+              "tone": "cautious",
+              "tone_counts": [
+                0,
+                1
+              ]
+            },
+            {
+              "title": "Will Bitcoin Price Rebound to $85K or Drop Below $80K Next? - TradingView",
+              "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQN0JfU2ZPY3FDc3JVMWpvWFpoVS1fdzRkVElEdG4weFNwSjZzNnhHSlJoMlFVUXFGY3hZLUtCeGdYaWNMVzQ4Sk9PcnA5cTFsQUFDaUFSQTlScFlGb3kxMElDNXM4TWMtNFlkQnlUS2thQ1Nka1M0REZ0S3o1UXVOVnhyM0Z6eUcwMmlOejZSS1pldWNRN0dvekIxWDdFZFByTjdJNFNKTFI1dzEtRnNpOHk1aEl5eWs?oc=5",
+              "source": "TradingView",
+              "source_url": "https://www.tradingview.com",
+              "published_at": "2026-10-15T10:04:39Z",
+              "age_hours": 90.7,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "direct",
+              "tone": "cautious",
+              "tone_counts": [
+                0,
+                2
+              ]
+            },
+            {
+              "title": "Bitcoin\u2019s $80,000 buy wall hides a liquidation trap that could send prices toward $78,000 - CryptoSlate",
+              "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPN05UX09ORjRhLXZmZDNPNzNmWFZTLTBoeGtsSEZfcDhIUE95LTJCLVVNSkxRS2VZQXQ5NWRucEpDaWlkeWxEQVc3RXJwYWdrNVF0YjFaSXItZTZ0N3k1Wmd0cEdKREotT0xHTTRUMVBmaGZyWmlTUzdrai04czdjeDk4QzU2TU41d213QkJnVU5GYUI4U1RJTFcxS01sS1daZ3UwNFJsMXZGVnVVREE?oc=5",
+              "source": "CryptoSlate",
+              "source_url": "https://cryptoslate.com",
+              "published_at": "2026-10-15T09:40:18Z",
+              "age_hours": 91.1,
+              "stale": true,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "direct",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Bitcoin price news: BTC falls to $80,000 nearly one year after October 2025 crash - CoinDesk",
+              "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNdmdaN3dFcExWR0wzbjlEbFhKU3lyNVVFb0dpSW9EY1hLTDZKRE9VR0ZpVlF4MXJaYnhrWmdnVnNHbWtUTVJqenpoSHhZbi1HR05hNGtySXQ5YVk5MjRvQXJBNi03blZBenEweVJWazVtN1JpWkEzSWh1RnoyNV9STjZQZXVzREJJVXNBb192NDNFXy1JblQtVDM0TQ?oc=5",
+              "source": "CoinDesk",
+              "source_url": "https://www.coindesk.com",
+              "published_at": "2026-10-08T07:00:00Z",
+              "age_hours": 261.7,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 4,
+              "relevance": "direct",
+              "tone": "cautious",
+              "tone_counts": [
+                0,
+                2
+              ]
+            },
+            {
+              "title": "Bitcoin Prediction Markets Put October Odds of Touching $80,000 Above $92,500 - tokenpost.com",
+              "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5KQXQwckpiSmtiNkRPOWFUYl92SHVoQl9nSmhoandkQU5VVVp4Nkd5RjFlQXZzSkVUM3pJME5SdGVWWDZleXlERG43VFpMeDR6OFhYaV83ZU9jZw?oc=5",
+              "source": "tokenpost.com",
+              "source_url": "https://www.tokenpost.com",
+              "published_at": "2026-10-13T22:43:22Z",
+              "age_hours": 126.0,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 3,
+              "relevance": "direct",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ]
+            },
+            {
+              "title": "Bitcoin Price Prediction: Options Expiry October 30 - CryptoTicker",
+              "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNQWk1aTM0M25TUmtrQUpiTER1ZWJmTHpWTVNkcVdwdi1XSDFjdThVUXk3VWZOb3FkWVd6RlhDRmM2dEdSNzhMMFNxSS1RV0FXdHRHMF91UXN0RWZwSExSblZncFdwRjBCU3gwZENSdUhEdnotZUlIbDVrREplVERORDQ4U0Y?oc=5",
+              "source": "CryptoTicker",
+              "source_url": "https://cryptoticker.io",
+              "published_at": "2026-10-10T18:30:20Z",
+              "age_hours": 202.2,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 3,
+              "relevance": "direct",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "market_id": "5610574",
+          "question": "Will the price of Ethereum be above $2,400 on October 19?",
+          "query": "Ethereum October 19 price $2 400",
+          "source_count": 0,
+          "sources": [],
+          "headline_count": 0,
+          "fresh_count": 0,
+          "direct_count": 0,
+          "tone": "unknown",
+          "keyword_tone": "neutral",
+          "tone_counts": {
+            "constructive": 0,
+            "cautious": 0,
+            "neutral": 1
+          },
+          "direction_basis": "keyword polarity applied to the first outcome label; may not fit inverted questions",
+          "event_risk": "unknown",
+          "flags": [
+            "STALE_ONLY",
+            "LOW_RELEVANCE"
+          ],
+          "items": [
+            {
+              "title": "Solana (SOL) Price Prediction 2026 2027 2028 \u2013 2040 - Changelly",
+              "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE51bFR0MnN1Y2tpSlNTeTgtdmpNcFVLUWFJcm9BbFJhZTgwc1o3X3JSbERrVkJ0YXRITXlIM2JjVC1MemxVWlhKS3k0U0FDaHhRQzdUbUN1aWxOR05Ed0lPdQ?oc=5",
+              "source": "Changelly",
+              "source_url": "https://changelly.com",
+              "published_at": "2021-09-17T13:53:38Z",
+              "age_hours": 44582.8,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "partial",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "market_id": "5742250",
+          "question": "Will Bitcoin dip to $80,000 in October?",
+          "query": "What price Bitcoin hit October dip $80",
+          "source_count": 8,
+          "sources": [
+            "24/7 Wall St.",
+            "Altcoin Buzz",
+            "CoinDCX",
+            "CryptoTicker",
+            "Decrypt",
+            "Pluang",
+            "TechBullion",
+            "TradingView"
+          ],
+          "headline_count": 8,
+          "fresh_count": 1,
+          "direct_count": 4,
+          "tone": "cautious",
+          "keyword_tone": "cautious",
+          "tone_counts": {
+            "constructive": 0,
+            "cautious": 3,
+            "neutral": 5
+          },
+          "direction_basis": "keyword polarity applied to the first outcome label; may not fit inverted questions",
+          "event_risk": "medium",
+          "flags": [],
+          "items": [
+            {
+              "title": "Bitcoin Price Prediction Oct 2026: BTC Defends $80K Support - CoinDCX",
+              "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8xaXZpbkxPQXhBY09rRnZEUnBocEJVQWNPTHhQQlJLaTVJWFVZSTdOMmwtbjR3WEo0OU5kQm1xSzFpUmdLdmY0YlpkZTR4TFBiOWVIVmQ0UjkwWmFjakJWRWJMeHdNZ1lVVzl1aWZBM3c?oc=5",
+              "source": "CoinDCX",
+              "source_url": "https://coindcx.com",
+              "published_at": "2026-10-16T12:02:46Z",
+              "age_hours": 64.7,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "direct",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Hyperliquid, Monero or Bitcoin: Which Could Hit a New All Time High First? - 24/7 Wall St.",
+              "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPU0hmOHZCT1EwVkFYei1yWDJZaVhMMGxmWkFQLV9zMEhoVEtHRzZzLUdVS3g3UV9PNVFRR24xeWk2YmEwVGdBTl9IM19lMENVMlVueVFvU3RGcGpxN1N1VXNYb01fNGo2eXdfMUhOZWIyYlc5YlBxOGlMMENVbWg3c2loY2xmUVRuWUlCUlY3SVhFaDVwaW9hVXNmalFGZFpRX0JGVXFwalp0TGRua1dPdHVaT0hwdzBUU0JFVkRaN0ZNUFM5YTQ4UUV3?oc=5",
+              "source": "24/7 Wall St.",
+              "source_url": "https://247wallst.com",
+              "published_at": "2026-10-17T14:00:00Z",
+              "age_hours": 38.7,
+              "stale": true,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "direct",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Bitcoin price prediction: $12.2 billion in options expire on October 30, and what you can do now - CryptoTicker",
+              "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNTHRTTmhTTmozSVQxc2ZwbTZ5NjJ3SUZrNDl0cmhkOG5fOFZobGlFX2h4WGZ2VVI1dW9FU1dJN0NRRTF5cFBxdS0ybVhnTUdoYVRrUUtTeEFXTzZQckJ0OE04TkdfZHRqUGpCckU0bExrcE9lSmUwR3lEcFdXeFdyRQ?oc=5",
+              "source": "CryptoTicker",
+              "source_url": "https://cryptoticker.io",
+              "published_at": "2026-10-17T15:17:05Z",
+              "age_hours": 37.5,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 4,
+              "relevance": "direct",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Bitcoin Price News: BTC Dips Below $80K as Korean Shoppers Earn Bitcoin and Pepeto Targets 100x - TechBullion",
+              "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQcVQwUkVFMV95WEkwdlVoVGZmbTU3WDNHUXdXVV8tYk11bG9zWmlicjdPVWVjeEJNTXBwd3g4MmVHN0VKcjNrVDZHWFRjcTduMzJzaGxfT3BqbnJrQnIxYk44REl6RXlTR3VRelFOS0E0dnBEbGxoc3RtcEt4RFdZVkwtQmZPTENZOE0tcllEQ0E1SnZIVGZ1UXRjRG04ZFlxamVqZWJodFpIam12WEtjdVlLb0NzVVBYZ1E?oc=5",
+              "source": "TechBullion",
+              "source_url": "https://techbullion.com",
+              "published_at": "2026-10-18T09:00:02Z",
+              "age_hours": 19.7,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "direct",
+              "tone": "cautious",
+              "tone_counts": [
+                0,
+                1
+              ]
+            },
+            {
+              "title": "Bitcoin's loss-selling spike near $80K may mark a local bottom, Glassnode says - TradingView",
+              "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNS3hHTTJJTF9jZ0FfTE1LVklqWktxTUlKRERkZFBNbmVzTTJwUFFJeWpLV1FJQ0oyWUJEa09oY0IwZV91bFNjcmY0Z3pwc25xakxBeTdUN2ZRUkU0akhTNDJaUWE2VkJaWENBZlB1ZHpGQXYwU0xwZV9kcWhOa0NjOVJyS1dPX2dHeVRocjc4emVseE02Q3NhVWVTRUlhVnBOVlJ1SnBGRUQxVnltVW1lUFNGa3R4elQ5VDhBdXQ4Z3MyLUhJLUtNSGljQW51bjhFbnB2Q0tsTQ?oc=5",
+              "source": "TradingView",
+              "source_url": "https://fr.tradingview.com",
+              "published_at": "2026-10-16T12:37:19Z",
+              "age_hours": 64.1,
+              "stale": true,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "partial",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Bitcoin briefly dipped below $80K but quickly r... - Pluang",
+              "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOZ3ptYnUtRVN6TWtwT3M1bnVGUS12QWxUc3RvTWFnTVdRNmFHLVlPYmxPV0p4ZkFMa3BPZk9xWHU5VGZOMFhCajkwMXNZV2JJZU45b2V3ZGtYN3BmTnhtVkNRSHZ2NFl3ZXNfM215T1M0S1B4NXpDcktxVnU0djY3cmFrUGREdWwxRjJJQldPeEl3S1B2cUFfTHFhbVpwRHJ3LTZxbC1Ibmw?oc=5",
+              "source": "Pluang",
+              "source_url": "https://pluang.com",
+              "published_at": "2026-10-16T08:45:31Z",
+              "age_hours": 68.0,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "partial",
+              "tone": "cautious",
+              "tone_counts": [
+                0,
+                1
+              ]
+            },
+            {
+              "title": "Bitcoin Below ETF Cost Basis After 3.7% CPI: $80K Test Ahead - Altcoin Buzz",
+              "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPMEVwTmw5bXFqRjBOUC1iQVdHbjFXd1NNbzRWTlRvTENCc21xT1IydzBkUWdIXzQzM2kxa1ZOVFZUT251dFl1Uzh6N3dsREoyaE5FbFc3aXB6V0RPMUlHdkFjUkRXSnd3RGhNVndlbldBVXI5Z181ZkUwV0NwOUFGbndBQ29DOXBz?oc=5",
+              "source": "Altcoin Buzz",
+              "source_url": "https://www.altcoinbuzz.io",
+              "published_at": "2026-10-15T10:21:11Z",
+              "age_hours": 90.4,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "partial",
+              "tone": "cautious",
+              "tone_counts": [
+                0,
+                1
+              ]
+            },
+            {
+              "title": "Morning Minute: Bitcoin Gets Spooked as \u2018Uptober\u2019 Lets Down - Decrypt",
+              "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOWHZKTFBwZm9ac21aM25qVHdkMDByNjlzeWhDRF9fS1cxQThGVXRIWHgtc1lFVjZ1TmlEb2hWazFmdS12cU1TUFNVeTFKTEhyZ3NnUW1xUU5ZSy1aYWF4WU10QW5RT3Y4dmN4VnRHWHdiLWtvMzlIUEE3Q0JYOGx4Mm9oWk5FYV9ZQ1E?oc=5",
+              "source": "Decrypt",
+              "source_url": "https://decrypt.co",
+              "published_at": "2026-10-13T11:40:51Z",
+              "age_hours": 137.1,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "partial",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
           "market_id": "5610600",
           "question": "Will the price of Bitcoin be above $82,000 on October 19?",
           "query": "Bitcoin October 19 price $82 000",
@@ -2828,6 +3216,174 @@
           ]
         },
         {
+          "market_id": "5653795",
+          "question": "Will the price of Bitcoin be above $84,000 on October 20?",
+          "query": "Bitcoin October 20 price $84 000",
+          "source_count": 0,
+          "sources": [],
+          "headline_count": 0,
+          "fresh_count": 0,
+          "direct_count": 0,
+          "tone": "unknown",
+          "keyword_tone": "neutral",
+          "tone_counts": {
+            "constructive": 1,
+            "cautious": 1,
+            "neutral": 6
+          },
+          "direction_basis": "keyword polarity applied to the first outcome label; may not fit inverted questions",
+          "event_risk": "unknown",
+          "flags": [
+            "STALE_ONLY"
+          ],
+          "items": [
+            {
+              "title": "Bitcoin price stalls below $84K as analysts split over $90K target - Crypto News",
+              "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBwQmZVMVV2dnZ2V19iMlJHck1sYmpHTTFIdjVGSTFKbVYzOVVTNEl2TmswcHdBRTFxRTVUVklnSVZoWEhNOF9wblVlRUstQkpYeGFmcGNvbi1LUVpkSndJOUlmTEJlSzFpdlJKUzZxaUE?oc=5",
+              "source": "Crypto News",
+              "source_url": "https://crypto.news",
+              "published_at": "2026-10-17T08:36:11Z",
+              "age_hours": 44.1,
+              "stale": true,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "direct",
+              "tone": "cautious",
+              "tone_counts": [
+                0,
+                1
+              ]
+            },
+            {
+              "title": "Bitcoin Price Caught Between Bullish Averages and $84K Resistance - Cryptonews.net",
+              "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1XWlRwOXpyeHVkbnBrQ1I0TGNnVDU2RC1yNWNXNkYyaDJ1cEgwbDdoMERVLWJYNkl4RTFkZzJ5Yl9UdXFjUU92eWlMbFdxU3JJVExKTlN1QmI?oc=5",
+              "source": "Cryptonews.net",
+              "source_url": "https://cryptonews.net",
+              "published_at": "2026-10-14T16:07:32Z",
+              "age_hours": 108.6,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "direct",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Key facts: BTCUSD: 250 BTC Buy; Q3 42.3% Rally; 4,500 BTC Moved - TradingView",
+              "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQR0RJQ0o1ZXhWSEFHTFdfa3AzU1FKVktuZEJod2FJTzF0SjVxM2ljRGpNUjdONE96VFg3V01SWHhtQUJ2OTdBeUZkR1pTbWc4dmRuYWR6ZzV6UkZWZnprUmNPa3hrYk01ZFdWM0hrVUc0cnF6cWhWTzBYOVp4T1NzM290SDNGVW9ERUhuUFBfbXhLV2JKQ3FTamlEd2c0Q2M3b0w3ZE1sdkEzeFk0czVXRzlqYVJRaFFnWHpWVQ?oc=5",
+              "source": "TradingView",
+              "source_url": "https://www.tradingview.com",
+              "published_at": "2026-10-14T12:00:00Z",
+              "age_hours": 112.7,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 0,
+              "relevance": "unclear",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ]
+            },
+            {
+              "title": "Bitcoin Briefly Tops $84,000 Amid Asian Stock Market Bloodbath: What\u2019s Next? - BeInCrypto",
+              "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE52Y1JGUXg0NTVDWFVtbUx6RDlEQlVvSk44MGhfU3JxX2pOU0N4cGNmdVlZa2VXellyckYwM2IzeFk2aHZyNk5rYk5jMUxxS1JuMDB4RkRnelBMU2prdDNRd1phdVVSTVRNRVo1VUlHX09HX0s0ZUxQUQ?oc=5",
+              "source": "BeInCrypto",
+              "source_url": "https://beincrypto.com",
+              "published_at": "2026-10-13T09:53:00Z",
+              "age_hours": 138.9,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "direct",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Bitcoin hits $84K resistance as Korean tech rout deepens KOSPI losses - TradingView",
+              "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQT3RlOEp3MnZUU09saVhSVnRFTU1vZkRKSUZ3QUhtR0ZtNWRVQmRsVVBwQW9FV1ZZYUEtdFBNVnQtcmxhUlV3X243VlJUVVB6RkxrLXVyV2Z3NGcwbTkyMFl5c0JsUjhudVVZM0RkaDdneV9vcnNid3FFLTRlR2F4Z3hPVXFNV2NqbFh1NHp6SXZSUmVFb2ZyMDg2eF9nYjRXNmZXQlB5WVpXakRTclVOZ3lzc19wTDZTd0VLdm5uUTFGSVFYU0dDM2dUU1Q?oc=5",
+              "source": "TradingView",
+              "source_url": "https://www.tradingview.com",
+              "published_at": "2026-10-13T09:42:00Z",
+              "age_hours": 139.0,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "partial",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Bitcoin Price Explodes Past $84,000: Here Is What Is Driving BTC - CryptoTicker",
+              "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE04ZHFxS3o4aWJTUlIzN2h6bS1qUHAzVHN0VURiOGxNVERQZVE5TGQtQ051MkxmaHhpcG5CYkFYSGl4Q0xMYXJWWEo3b3lGWGFyd21lNkh6TDUtTUU2ZjhEdndHUHRDc1JBcjhRd3FaYmVDeVEzUkxLVl9UOC0?oc=5",
+              "source": "CryptoTicker",
+              "source_url": "https://cryptoticker.io",
+              "published_at": "2026-09-21T07:00:00Z",
+              "age_hours": 669.7,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 3,
+              "relevance": "direct",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Bitcoin Price Gets Squeezed at $84K as $85K Becomes the Next Test - Cryptonews.net",
+              "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9uOTlDRnFQbkszWEthbjdybGxaREdhRDhmYlhiWXhMUTZIRXBXejFENmtQLWhZaHN0Zkw3QmIzazR2V2EyMzV0WHZiNHZkeDRmbWNJZDQ3MjU?oc=5",
+              "source": "Cryptonews.net",
+              "source_url": "https://cryptonews.net",
+              "published_at": "2026-10-03T22:58:16Z",
+              "age_hours": 365.8,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "direct",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Bitcoin Price Jumps to $84K as U.S. ETF Demand Returns to Market - CryptoRank",
+              "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPdks4b09XNS1YczJEQ0NKY0RRZlQ2cm02dV9fVHhYeDFEVDFvR0JHT1BacjF3Y0dPYjdHSGJlNThPcTNRWWt2VV9iMlBBZDV0SVhaRGZZcXk3Z3ZiSk5ueERrZ0ZvTjAya2MyTm9xdE51UEV3TkhkajZMMXBETjY4djVZM2xNcHBHRENwY2xYS29FZUV1NXNhVm9rRzdhcVR0WEE?oc=5",
+              "source": "CryptoRank",
+              "source_url": "https://cryptorank.io",
+              "published_at": "2026-09-21T07:00:00Z",
+              "age_hours": 669.7,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "direct",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
           "market_id": "5170805",
           "question": "Will Solana dip to $100 in October?",
           "query": "What price Solana hit October dip $100",
@@ -2909,7 +3465,7 @@
               "source": "Yahoo Finance Australia",
               "source_url": "https://au.finance.yahoo.com",
               "published_at": "2026-10-09T13:41:12Z",
-              "age_hours": 231.0,
+              "age_hours": 231.1,
               "stale": true,
               "speculative": true,
               "duplicate": false,
@@ -2928,6 +3484,24 @@
               "source_url": "https://cryptonews.net",
               "published_at": "2026-10-02T18:50:28Z",
               "age_hours": 393.9,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 3,
+              "relevance": "direct",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Crypto Price Prediction: Can the Solana Price Hit $120 by the End of September? - 24/7 Wall St.",
+              "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQZXNORm9IY0FFamNQa1dsdnhRZEJ1MHcwUUpJYmp2M1J6cTdWLVo2XzNWT08xeHRkQ25BT2FGYjQwS3ZrNWk2ME5ia1pDVUhrVlZQSDRuZVpUT3lRS01JRllFdm9sQnBRcy1EVzJ0WHhIYmE5bGlkTXhHWFJJNDVIdDhyaWlXWmRwSlpVZDRBNEI1MXcwd2RoYmpJS2RNZWdMYURYcUtHMVZFZWFhSjAwTW9lSU5Rc1NscFFqekg1UTZhM3pZN1k0blVOY3hiVjBq?oc=5",
+              "source": "24/7 Wall St.",
+              "source_url": "https://247wallst.com",
+              "published_at": "2026-09-15T07:00:00Z",
+              "age_hours": 813.7,
               "stale": true,
               "speculative": false,
               "duplicate": false,
@@ -2968,24 +3542,6 @@
               "speculative": false,
               "duplicate": false,
               "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Crypto Price Prediction: Can the Solana Price Hit $120 by the End of September? - Yahoo Finance",
-              "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNeXlBeFZIeVd0M05td3l6ejZNbVlOcWZqVHZsNW94SUdPSE1VY2VRSEgwellheEIwX3I0WW9HRzhDU0lwN05RcHZsR1I5aURwUzBsNEkwZWRDcFJaOWlndllVN19EZnJZTXpWckhCVFZKcVJVNlZwNVhlRkhuUlI3Z1h3LV9GQmlSUlEwSHRrMF9tVXZqZGhULXFqbFZJOFRhcUs0?oc=5",
-              "source": "Yahoo Finance",
-              "source_url": "https://finance.yahoo.com",
-              "published_at": "2026-09-15T07:00:00Z",
-              "age_hours": 813.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 3,
               "relevance": "direct",
               "tone": "neutral",
               "tone_counts": [
@@ -3155,7 +3711,7 @@
               "source": "TradingView",
               "source_url": "https://www.tradingview.com",
               "published_at": "2026-10-15T10:04:39Z",
-              "age_hours": 90.6,
+              "age_hours": 90.7,
               "stale": true,
               "speculative": false,
               "duplicate": false,
@@ -3610,174 +4166,6 @@
           ]
         },
         {
-          "market_id": "5653795",
-          "question": "Will the price of Bitcoin be above $84,000 on October 20?",
-          "query": "Bitcoin October 20 price $84 000",
-          "source_count": 0,
-          "sources": [],
-          "headline_count": 0,
-          "fresh_count": 0,
-          "direct_count": 0,
-          "tone": "unknown",
-          "keyword_tone": "neutral",
-          "tone_counts": {
-            "constructive": 1,
-            "cautious": 1,
-            "neutral": 6
-          },
-          "direction_basis": "keyword polarity applied to the first outcome label; may not fit inverted questions",
-          "event_risk": "unknown",
-          "flags": [
-            "STALE_ONLY"
-          ],
-          "items": [
-            {
-              "title": "Bitcoin price stalls below $84K as analysts split over $90K target - Crypto News",
-              "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBwQmZVMVV2dnZ2V19iMlJHck1sYmpHTTFIdjVGSTFKbVYzOVVTNEl2TmswcHdBRTFxRTVUVklnSVZoWEhNOF9wblVlRUstQkpYeGFmcGNvbi1LUVpkSndJOUlmTEJlSzFpdlJKUzZxaUE?oc=5",
-              "source": "Crypto News",
-              "source_url": "https://crypto.news",
-              "published_at": "2026-10-17T08:36:11Z",
-              "age_hours": 44.1,
-              "stale": true,
-              "speculative": true,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "cautious",
-              "tone_counts": [
-                0,
-                1
-              ]
-            },
-            {
-              "title": "Bitcoin Price Caught Between Bullish Averages and $84K Resistance - Cryptonews.net",
-              "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1XWlRwOXpyeHVkbnBrQ1I0TGNnVDU2RC1yNWNXNkYyaDJ1cEgwbDdoMERVLWJYNkl4RTFkZzJ5Yl9UdXFjUU92eWlMbFdxU3JJVExKTlN1QmI?oc=5",
-              "source": "Cryptonews.net",
-              "source_url": "https://cryptonews.net",
-              "published_at": "2026-10-14T16:07:32Z",
-              "age_hours": 108.6,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Key facts: BTCUSD: 250 BTC Buy; Q3 42.3% Rally; 4,500 BTC Moved - TradingView",
-              "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQR0RJQ0o1ZXhWSEFHTFdfa3AzU1FKVktuZEJod2FJTzF0SjVxM2ljRGpNUjdONE96VFg3V01SWHhtQUJ2OTdBeUZkR1pTbWc4dmRuYWR6ZzV6UkZWZnprUmNPa3hrYk01ZFdWM0hrVUc0cnF6cWhWTzBYOVp4T1NzM290SDNGVW9ERUhuUFBfbXhLV2JKQ3FTamlEd2c0Q2M3b0w3ZE1sdkEzeFk0czVXRzlqYVJRaFFnWHpWVQ?oc=5",
-              "source": "TradingView",
-              "source_url": "https://www.tradingview.com",
-              "published_at": "2026-10-14T12:00:00Z",
-              "age_hours": 112.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 0,
-              "relevance": "unclear",
-              "tone": "constructive",
-              "tone_counts": [
-                1,
-                0
-              ]
-            },
-            {
-              "title": "Bitcoin Briefly Tops $84,000 Amid Asian Stock Market Bloodbath: What\u2019s Next? - BeInCrypto",
-              "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE52Y1JGUXg0NTVDWFVtbUx6RDlEQlVvSk44MGhfU3JxX2pOU0N4cGNmdVlZa2VXellyckYwM2IzeFk2aHZyNk5rYk5jMUxxS1JuMDB4RkRnelBMU2prdDNRd1phdVVSTVRNRVo1VUlHX09HX0s0ZUxQUQ?oc=5",
-              "source": "BeInCrypto",
-              "source_url": "https://beincrypto.com",
-              "published_at": "2026-10-13T09:53:00Z",
-              "age_hours": 138.8,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Bitcoin hits $84K resistance as Korean tech rout deepens KOSPI losses - TradingView",
-              "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQT3RlOEp3MnZUU09saVhSVnRFTU1vZkRKSUZ3QUhtR0ZtNWRVQmRsVVBwQW9FV1ZZYUEtdFBNVnQtcmxhUlV3X243VlJUVVB6RkxrLXVyV2Z3NGcwbTkyMFl5c0JsUjhudVVZM0RkaDdneV9vcnNid3FFLTRlR2F4Z3hPVXFNV2NqbFh1NHp6SXZSUmVFb2ZyMDg2eF9nYjRXNmZXQlB5WVpXakRTclVOZ3lzc19wTDZTd0VLdm5uUTFGSVFYU0dDM2dUU1Q?oc=5",
-              "source": "TradingView",
-              "source_url": "https://www.tradingview.com",
-              "published_at": "2026-10-13T09:42:00Z",
-              "age_hours": 139.0,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 1,
-              "relevance": "partial",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Bitcoin Price Explodes Past $84,000: Here Is What Is Driving BTC - CryptoTicker",
-              "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE04ZHFxS3o4aWJTUlIzN2h6bS1qUHAzVHN0VURiOGxNVERQZVE5TGQtQ051MkxmaHhpcG5CYkFYSGl4Q0xMYXJWWEo3b3lGWGFyd21lNkh6TDUtTUU2ZjhEdndHUHRDc1JBcjhRd3FaYmVDeVEzUkxLVl9UOC0?oc=5",
-              "source": "CryptoTicker",
-              "source_url": "https://cryptoticker.io",
-              "published_at": "2026-09-21T07:00:00Z",
-              "age_hours": 669.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 3,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Bitcoin Price Gets Squeezed at $84K as $85K Becomes the Next Test - Cryptonews.net",
-              "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9uOTlDRnFQbkszWEthbjdybGxaREdhRDhmYlhiWXhMUTZIRXBXejFENmtQLWhZaHN0Zkw3QmIzazR2V2EyMzV0WHZiNHZkeDRmbWNJZDQ3MjU?oc=5",
-              "source": "Cryptonews.net",
-              "source_url": "https://cryptonews.net",
-              "published_at": "2026-10-03T22:58:16Z",
-              "age_hours": 365.8,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Bitcoin Price Jumps to $84K as U.S. ETF Demand Returns to Market - CryptoRank",
-              "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPdks4b09XNS1YczJEQ0NKY0RRZlQ2cm02dV9fVHhYeDFEVDFvR0JHT1BacjF3Y0dPYjdHSGJlNThPcTNRWWt2VV9iMlBBZDV0SVhaRGZZcXk3Z3ZiSk5ueERrZ0ZvTjAya2MyTm9xdE51UEV3TkhkajZMMXBETjY4djVZM2xNcHBHRENwY2xYS29FZUV1NXNhVm9rRzdhcVR0WEE?oc=5",
-              "source": "CryptoRank",
-              "source_url": "https://cryptorank.io",
-              "published_at": "2026-09-21T07:00:00Z",
-              "age_hours": 669.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            }
-          ]
-        },
-        {
           "market_id": "5732710",
           "question": "Will \"Grand Theft Auto VI Launch Trailer\" get between 60 and 80 million views on week 1?",
           "query": "views Grand Theft Auto VI Launch Trailer",
@@ -4070,7 +4458,7 @@
               "source": "Nation Thailand",
               "source_url": "https://www.nationthailand.com",
               "published_at": "2026-10-17T00:41:00Z",
-              "age_hours": 52.0,
+              "age_hours": 52.1,
               "stale": true,
               "speculative": false,
               "duplicate": false,
@@ -4116,174 +4504,6 @@
               "tone_counts": [
                 0,
                 0
-              ]
-            }
-          ]
-        },
-        {
-          "market_id": "5610576",
-          "question": "Will the price of Ethereum be above $2,500 on October 19?",
-          "query": "Ethereum October 19 price $2 500",
-          "source_count": 0,
-          "sources": [],
-          "headline_count": 0,
-          "fresh_count": 0,
-          "direct_count": 0,
-          "tone": "unknown",
-          "keyword_tone": "cautious",
-          "tone_counts": {
-            "constructive": 0,
-            "cautious": 2,
-            "neutral": 6
-          },
-          "direction_basis": "keyword polarity applied to the first outcome label; may not fit inverted questions",
-          "event_risk": "medium",
-          "flags": [
-            "STALE_ONLY"
-          ],
-          "items": [
-            {
-              "title": "Ethereum Price Forecast: ETH falls below $2,500 as hot CPI raises Fed hike odds - FXStreet",
-              "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNZHU0dVBjblEtMnVpMF93emxlU2tuV09TWUVYd3RXMF9ZOEVUVGJUWEhJOTExclhlVzJyd2E4OHJKdE9Uc3lJMFVCcy11WkQ4YWFTQktwTjR6d2V4MFJqRjAyTjd6ZDZuQkhFNFE0VmlGMHBvTHZjaWIteTUzNmMxT0o1TTRGaGdWNzY1VFE3aFNjOUlLWVBZQnpmWDVfREdUWi1OS05TeVN4SkZsWDM2aU13eTBST3dWaGtHT1NEUkozRjdpOWZXWEpzT2xZaE8teFVZ?oc=5",
-              "source": "FXStreet",
-              "source_url": "https://www.fxstreet.com",
-              "published_at": "2026-10-14T19:57:44Z",
-              "age_hours": 104.8,
-              "stale": true,
-              "speculative": true,
-              "duplicate": false,
-              "query_overlap": 3,
-              "relevance": "direct",
-              "tone": "cautious",
-              "tone_counts": [
-                0,
-                2
-              ]
-            },
-            {
-              "title": "Ethereum (ETH) Price Prediction October 2026, 2030 & 2040 - CoinDCX",
-              "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFAwSGllSGt4a2dNRjhraUZ0cnVmZEQ0ZXBwbU84dndlMUFlLTR6YVFBZVlZVEx5d1lSaElPUVBWQTVhU3h0RVItX3JEaTVxSExhV0Y3MWFxd09kUUpYdXpDU3FUdjRKOFFHUF9ySlBjU0tqOGxEc3ZJ?oc=5",
-              "source": "CoinDCX",
-              "source_url": "https://coindcx.com",
-              "published_at": "2026-10-16T12:19:37Z",
-              "age_hours": 64.4,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 3,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Crypto News: AlphaPepe Closes In On Binance Listing While Ethereum Price Prediction Eyes $2,500 - GlobeNewswire",
-              "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxNMDFVcnRtVThqTzB1V3poMDVzQW9zRUdjY0Ixejg1eUlGWmhlRFRRaDFtWk44Wm1PVGZvSXk1TzgyLUkycUZsS3F2Y2ZQSUpDZ2JWZ3oyc3NYdm9MUTdMeTZ1em42LWljQ2xhLUFURkpkdnVEZ1BtTDEtWnY4NTdEM2VWamd0c0hZeGlUSDQzN1V0aFlzS1lCdGJFNHJkSHh5cjBEMk5hUnRmM0E4THFueXZka0t0TWxIT1djWi1URThnLUFuZEs0Q0hodElDWWx3X2ltTWFtVFdfM21UcW4teFJMOUNEN002UHJlbUFaamlfQjVCbG9ZcQ?oc=5",
-              "source": "GlobeNewswire",
-              "source_url": "https://www.globenewswire.com",
-              "published_at": "2026-10-13T01:56:00Z",
-              "age_hours": 146.8,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 3,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "ETH price range on Oct 11, 2026 at 1am EDT Crypto Prediction Market - Robinhood",
-              "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOeXFodF93aUxtUzVlaDJaR014aXpNcEtnZDVUV04yNUpxZ2RJMDF0WWdNMV9vVnRGcURpYnhyM3lMczB4TDVHNlMwMmtvc1Zkejc5R082YlBydkRJUUdFR2s5cmstTDd6V3lrYVY4TEFRalhWR1FkS21nSFRxdDNCWUtJMFM0eWZrek43UWFhb3NIeVJxTUg1OUk4cG9vSDZKYVlYNVZHZVAyRzNYMG8zcnNpT3ozQQ?oc=5",
-              "source": "Robinhood",
-              "source_url": "https://robinhood.com",
-              "published_at": "2026-10-11T04:06:33Z",
-              "age_hours": 192.6,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 1,
-              "relevance": "partial",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Why Are Ethereum and XRP Prices Falling While ETF Investors Treat Them Differently? - Bitcoin Foundation",
-              "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOMHZESTZnWmpKZGktTFNxWHQ2VXFJVFU0MXg1dU1HYjNHME1Dd3huOUNpUElWbm9meTM1WXNuT1UtYktSQmZHQW9wNFpYeHE1SU1EZDZaUDd1UDdGekZlWkI3SzFmMTBkcmFjYmJDdG5UdE1Gb0ZpV0cxSVJiY2lSWUpYNDFMYTQzY2xWV0tmNXR6SW5wLUJwR05ma3o1Sm5pQlJYdUU1Q2U0WThsMW9mX2l4elV2QjBQRmJ0c2hDRzFKN05adHc?oc=5",
-              "source": "Bitcoin Foundation",
-              "source_url": "https://bitcoinfoundation.org",
-              "published_at": "2026-10-12T13:04:45Z",
-              "age_hours": 159.6,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 1,
-              "relevance": "partial",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Ethereum price plunges toward $2,500: Could this support trigger a $3,000 comeback? - Crypto News",
-              "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE11VGd5S1FwV2IyUFFmbkgxRVNWRTZFeTlEY0puU3ZUTmtEOU1zYWVocWMyT05OaFMzTHJyZzFZbGIydF9pd0NLMnlzNHN4RWZLb21YbkNBWGJWNHlDTHFCS180NFhaQXBEN09JMWtDMG9rMWljOHI1MHpGaGhLYXc?oc=5",
-              "source": "Crypto News",
-              "source_url": "https://crypto.news",
-              "published_at": "2026-10-07T14:46:28Z",
-              "age_hours": 278.0,
-              "stale": true,
-              "speculative": true,
-              "duplicate": false,
-              "query_overlap": 3,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Ethereum Whale Lands 17,786% Gains in Nine Years - Bitget",
-              "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE44aTJEd3h6WUNKOUZLWjVfblZFb3NGU0c1bTVHaHZQZWM3NzdqNmcyNEZwU0xJOVBKWV9DdERSNlpWVHZkV092MDB5TjNIeVFLckJteXItWUJzMmY5ZkdCUTJpY9IBY0FVX3lxTE44aTJEd3h6WUNKOUZLWjVfblZFb3NGU0c1bTVHaHZQZWM3NzdqNmcyNEZwU0xJOVBKWV9DdERSNlpWVHZkV092MDB5TjNIeVFLckJteXItWUJzMmY5ZkdCUTJpYw?oc=5",
-              "source": "Bitget",
-              "source_url": "https://www.bitget.com",
-              "published_at": "2026-10-15T16:59:20Z",
-              "age_hours": 83.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 1,
-              "relevance": "partial",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "ETH Drops Below $2,500 Amid $759M in Global Liquidations - Cryptonews.net",
-              "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1JcE00X2hzSHF4Ymp4VlVaa2lLQkEtQkZhSVBfTDZzS0xPeWtiNVVIYkRseWgxNTNYclcwcVBjTFJPcTFIX3pXWmppcnZuTFdDaVdScE9kY29rZw?oc=5",
-              "source": "Cryptonews.net",
-              "source_url": "https://cryptonews.net",
-              "published_at": "2026-10-08T07:00:00Z",
-              "age_hours": 261.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 1,
-              "relevance": "partial",
-              "tone": "cautious",
-              "tone_counts": [
-                0,
-                2
               ]
             }
           ]
@@ -4463,35 +4683,35 @@
           "source_count": 8,
           "sources": [
             "Al Jazeera",
-            "DW.com",
             "Haaretz",
-            "Sky News",
+            "Responsible Statecraft",
+            "The Atlantic",
+            "The Free Press",
+            "The Guardian",
             "The Jerusalem Post",
-            "The Times of Israel",
-            "Yahoo",
-            "Ynetnews"
+            "The Times of Israel"
           ],
           "headline_count": 8,
-          "fresh_count": 4,
+          "fresh_count": 1,
           "direct_count": 1,
-          "tone": "constructive",
-          "keyword_tone": "constructive",
+          "tone": "neutral",
+          "keyword_tone": "neutral",
           "tone_counts": {
-            "constructive": 1,
+            "constructive": 0,
             "cautious": 0,
-            "neutral": 7
+            "neutral": 8
           },
           "direction_basis": "keyword polarity applied to the first outcome label; may not fit inverted questions",
           "event_risk": "medium",
           "flags": [],
           "items": [
             {
-              "title": "Blocs struggle to reach Knesset majority in polls, as Gadi Eisenkot leads Benjamin Netanyahu - The Jerusalem Post",
-              "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1MWXJ3LUNieDgxS1E2dGRsUUs0cXNqMTY4OHdzREJYdEFBNUswV0IzaGozeFFESkhUaTdtMmUwUlJvVGhoXy1EcHJoTzN4cTRRYVFTenVYZXgzVktWOFlzbFBKRHVlN1hM?oc=5",
+              "title": "Polymarket bets favor Eisenkot over Netanyahu ahead of Israeli election - The Jerusalem Post",
+              "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBYYUx1VG1ScHdJTzN0TVNPT1pzVlh3M21ZZDNYcjZIZ1VUdkQ0ajk3M1pFVVdZRVAxajA3b0lsekEzbGw5aVJJU3hYeHZjTmtLanRQSlEwZ2wxUUtqcU5LUDlZdlNmM3l2?oc=5",
               "source": "The Jerusalem Post",
               "source_url": "https://www.jpost.com",
-              "published_at": "2026-10-18T10:18:27Z",
-              "age_hours": 18.4,
+              "published_at": "2026-10-19T00:26:44Z",
+              "age_hours": 4.3,
               "stale": false,
               "speculative": false,
               "duplicate": false,
@@ -4504,13 +4724,13 @@
               ]
             },
             {
-              "title": "Who is Gadi Eisenkot? - DW.com",
-              "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1GdlYtTTdOb3IwbjYzNjlFUzk5RHlIaXRINDNBOHVINTZWZFZhVmxQODlwejQ3NHljQ1JKWXNpZ1dReWlVN3pEcWtXdTY1QmRJazd5dk5qVzZZc2xBcDVtYmN5aThfN2p4dDNTTmlmbER1cHdBekVsOFhUM0M?oc=5",
-              "source": "DW.com",
-              "source_url": "https://www.dw.com",
-              "published_at": "2026-10-18T18:01:32Z",
-              "age_hours": 10.7,
-              "stale": false,
+              "title": "Unpolished, anti-Bibi, but evasive on peace: who is the Israeli opposition candidate Gadi Eisenkot? - The Guardian",
+              "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQX2xmdXdCdXoxVlR3REFQRDJQVVV3LUl3MmFweE9jajVRYlZDRkxzTHpLdkdiWDRHOVJ2alNncWZJWEVlcHR0aHdXRVpQX2JQTk0wU09RYWZTR1hRc3dFMHhORzE5Tkp0N3J2WU9UTW9hSU85dUVSLUpFVERmNWJuWUdzSEpEc3g2TTJtTGYwRWVHNDBFbk1vZg?oc=5",
+              "source": "The Guardian",
+              "source_url": "https://www.theguardian.com",
+              "published_at": "2026-10-15T04:00:00Z",
+              "age_hours": 96.7,
+              "stale": true,
               "speculative": false,
               "duplicate": false,
               "query_overlap": 1,
@@ -4522,12 +4742,30 @@
               ]
             },
             {
-              "title": "The Israeli politicians seeking to replace Netanyahu - Al Jazeera",
-              "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOS1FLWkFRTVJSWk1oMkluNk55X2gzcHJrcU50eWhHb3l2QTIxRVM0LWoydG5Ec045REozQWdHc09nTGg2cTIycHJ5S3dwNDRtMFpNeWhEYVVDcXpzWE40RDVJTkJsT2FqTFotYmVBbjJyaUNydTJfc1hpNmZEbmQ5bDNaaHNqLVdabEszWEc5Nlh0Mkhhb0YySFFR0gGfAUFVX3lxTE5VZ2NDb1ZVR3JsNzZrQ1NHeWJyQVVqM3NwVWRGT3BaTzRnLTVGRlloUFZEdk9ITU5TdGdTRlo1Q2N6QTJVNDhmenkzWnYxNVpCdTVJWm5sVk5SZ05CVWJUUXhISXR6SlVMdUJ0RW9nY290ZkZFMEpRSzZrMVF1R1RWb0RjNHMxOGh4T21WNTlVUGEtZ1FUQ29yS3ZwR3N1Yw?oc=5",
-              "source": "Al Jazeera",
-              "source_url": "https://www.aljazeera.com",
-              "published_at": "2026-10-17T05:17:45Z",
-              "age_hours": 47.4,
+              "title": "The Future of Israel May Belong to This Man - The Free Press",
+              "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE0tcjNycEh5dS1DbnVKUGNhSmJoMWZOZnNwN3dmZkNpNXh2VG1FMHNnVzFyVy0yWTVjbExtb0xXQm1PaDhDd3R1UG8zY0pxejlMUjhpVjFTQjYySFMtRG5LNk54bkROTlk3MzVoYVNR?oc=5",
+              "source": "The Free Press",
+              "source_url": "https://www.thefp.com",
+              "published_at": "2026-10-14T01:10:43Z",
+              "age_hours": 123.6,
+              "stale": true,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "partial",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Defeating Netanyahu Means Solving a Math Problem - The Atlantic",
+              "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQZ3dHaU1tVThlZ1IxQlJGUzFSUDRLVWpseGt6UlY1aUkxTE84ZGJDYmRmZXhCaGZHM240MWN5MVFUTUxLaDVKb09NNmw2c25qbXRCWGxkdEloR21RcnJzNGw5SUxtWWxOOThacWFqT3FvTXZya2p3dTZYdGtwek9xMWZjRzZRUlFiNURCc3E4TWhXTWZXSnNV?oc=5",
+              "source": "The Atlantic",
+              "source_url": "https://www.theatlantic.com",
+              "published_at": "2026-10-15T11:00:00Z",
+              "age_hours": 89.7,
               "stale": true,
               "speculative": false,
               "duplicate": false,
@@ -4540,48 +4778,12 @@
               ]
             },
             {
-              "title": "Trump endorses Netanyahu ahead of Israeli elections, calling him 'great warrior prime minister' - Sky News",
-              "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNQWVrZWYwVE5QX3cxdEUzVTBjUEFxdzI3dkVCUzJ4MzQzNms4TWxtNk56cWYtbXdlV3J6VERTbjRCU1lXQjZ3aTNCc3hKMGZxYzlSV2NJbmRoWlhZRkRJWGlkRnFuX0NTSnBULWwxNlgyb0F2ekZ6enhPSTV0RHVzVjlsV3dMNXNReGZWT2FnNGNMcWZ1aE5YYmxRM1hlYlVTU2R1OXlPSTZTMmZNdnZpTEZNekxIR0JrVGVtLVlVQlZvMmNDVkFz?oc=5",
-              "source": "Sky News",
-              "source_url": "https://news.sky.com",
-              "published_at": "2026-10-18T16:23:45Z",
-              "age_hours": 12.3,
-              "stale": false,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Analysis \u2022 Trump just handed Netanyahu his October surprise. Will it pay off? - Haaretz",
-              "link": "https://news.google.com/rss/articles/CBMikgJBVV95cUxNM0hyLTVGU0tEcVZBWmNwaUxOM2kybHZHYWtZTHFhb2VNa2YxVkU3Vm5lM1d5UU02T0V2NlN5RnY5ZTFyeU1aTEdpLTBXUWtnMS1GTlpGQkpwamdJUnhjdG04T3FxUWZBbUJQTTZhR29xV29FWEZmWF9sZ2ZCZ2tKRld0SnNlR3BFbkxxN3ZDb2UxQmZYYUMwV2MxcTZRZDNaY2dBa0daZktrV1Z3aWN4X2NOakNDdEtCTUVYUFBON1Fsa2tqamdIZTIwQzdpME1FS0tROF9qa3pUSjdFbV85dXFOZ2FOaGkxbk8tTzhZWVZkLU81NkhfSEIxaEdKdkRrN0otdFFwZDZNcUFHZWJ1NnV3?oc=5",
-              "source": "Haaretz",
-              "source_url": "https://www.haaretz.com",
-              "published_at": "2026-10-18T22:32:00Z",
-              "age_hours": 6.2,
-              "stale": false,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 0,
-              "relevance": "unclear",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "In shadow of war, Israelis to decide if hard-right turn is permanent - Yahoo",
-              "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQQ3VRclN6dlAyRmlDVEhaMS16cS0wWFFSdVBkWmRwZmtXZmtOcGRsd2U0UnU2UVdrckVjWG9lNTV5WjdnZjh3OFR2NEQzU0RXTXNONUg5TnhIMDdoWUMzbER2TllxX2Z4S2dTNFJ6dW9fTmx3TS1XaWE1dUg4YTdEMUc0cWI2eFBfWlR5dFk4dG1SUHl0VEE?oc=5",
-              "source": "Yahoo",
-              "source_url": "https://www.yahoo.com",
-              "published_at": "2026-10-18T01:02:00Z",
-              "age_hours": 27.7,
+              "title": "Eisenkot aims to out-hawk Netanyahu ahead of elections - Responsible Statecraft",
+              "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1iZUotb0tDN0xkbVA5M0loSG5DTkxnUURsVU9UWE9heHNQcjBrajlOSm9KTTNGZnpWanRHRG5RbEhjcS1Ic0hEWEU2YUpXTE5HV0JNdGZfNERReXpGa09pMQ?oc=5",
+              "source": "Responsible Statecraft",
+              "source_url": "https://responsiblestatecraft.org",
+              "published_at": "2026-10-16T04:09:30Z",
+              "age_hours": 72.6,
               "stale": true,
               "speculative": false,
               "duplicate": false,
@@ -4612,20 +4814,38 @@
               ]
             },
             {
-              "title": "Lieberman eyes new elections without Netanyahu, vows to pass law barring indicted PMs - Ynetnews",
-              "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1LVzVOSFgtV2dFRzNMRmZkLVllekZVOUFrYmZVU2c0Q1hYUllLYnRNN3V1Nnd2TjZFYm4xRGx0OXB4d2VtckU2UlF6N3NCMEtIbXEtV1NR?oc=5",
-              "source": "Ynetnews",
-              "source_url": "https://www.ynetnews.com",
-              "published_at": "2026-10-17T16:41:37Z",
-              "age_hours": 36.0,
+              "title": "From Morocco to South Africa, Israel election watched closely across Africa - Al Jazeera",
+              "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOSEtka21fTTRybzh0UFRuWVJPRmZLLU9oWkExdWw5bU44OXFnSzNBSUl1RWlhZTBtaEwwZUkwMUI5MVVOeUJfYmFUOE9JZExaSW0tYmdSQmJaWl9WWGJnaGRhZS1wbnEwTmI4Qk5zUXdaZS1GZGp4MW5YUU4xUDNJRENzem9fckhwQW41VldTWlpweEN2cHZzNXVDMkYtVnFqRWMyZHIzUWVvZkdZNnQ0R25GRmJlMXfSAbwBQVVfeXFMT1FxcVRCQUYzd0ZNblY0MFdiODhSOThSRWRKcFBaMXpZdTc3enZVWkVtaWJqRW5tMmJDV2U2VHEwR3FiWW9la3ItckttZHZ0VVBNdWNNVHByS1lXVFBmUTZBcklVbEpwUEtkT295ZVlzejVnOXN5bFlVZTBXUFJMSmRndjFGOTZfOUZTT21BdjRtWEJDa3pZQW9GcmVTQ0FFaEVkRHpuYmg4MUNDT1VXUUtydGZhajRzWFRQbEU?oc=5",
+              "source": "Al Jazeera",
+              "source_url": "https://www.aljazeera.com",
+              "published_at": "2026-10-15T06:53:01Z",
+              "age_hours": 93.9,
+              "stale": true,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "direct",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ]
+            },
+            {
+              "title": "Israeli Opposition Party Leader on Eisenkot: 'Seeks Government With Netanyahu' - Haaretz",
+              "link": "https://news.google.com/rss/articles/CBMimAJBVV95cUxOUUw5S2ZOcE9mOWVIRkx4RjlaVlBIeV9uU3ltZ0dEa1VYZWVsYUpEenZ6R1dQekFWeXZBZ0tuOElCdWUxblB5UnFfeEVlem5LeHNSenRXaFFCN0Z6MnZPSkI3OGk5SDhGbjNaaXlRX01BME5HLVc1cnZ2STBvMWM5QnRjNS05bEpNQUUtQm1TWVZvRjBlLVktOVdSYVZyUlRlSGR3TUZKNGNhU1NjX0RQRlVIRFYwSm82alpfbHV4UmN2dWNtMWd3YlBmTkZlcnJwVmdxMEgxRjVXX1MzX1VtalBPd01xaVFZbkFvNTJadkhYYkY2RFRfQnBEWEN2Y2hkWnhSMm0wOVFtWXFrRFNHRnFISjFENExi?oc=5",
+              "source": "Haaretz",
+              "source_url": "https://www.haaretz.com",
+              "published_at": "2026-10-16T09:19:00Z",
+              "age_hours": 67.4,
               "stale": true,
               "speculative": false,
               "duplicate": false,
               "query_overlap": 0,
               "relevance": "unclear",
-              "tone": "constructive",
+              "tone": "neutral",
               "tone_counts": [
-                1,
+                0,
                 0
               ]
             }
@@ -4666,7 +4886,7 @@
               "source": "The New York Times",
               "source_url": "https://www.nytimes.com",
               "published_at": "2026-10-18T21:47:00Z",
-              "age_hours": 6.9,
+              "age_hours": 7.0,
               "stale": false,
               "speculative": false,
               "duplicate": false,
@@ -4720,7 +4940,7 @@
               "source": "tenniswatcher.com",
               "source_url": "https://www.tenniswatcher.com",
               "published_at": "2026-10-17T08:05:00Z",
-              "age_hours": 44.6,
+              "age_hours": 44.7,
               "stale": true,
               "speculative": false,
               "duplicate": false,
@@ -4756,7 +4976,7 @@
               "source": "FreeTips",
               "source_url": "https://www.freetips.com",
               "published_at": "2026-10-18T17:23:00Z",
-              "age_hours": 11.3,
+              "age_hours": 11.4,
               "stale": false,
               "speculative": false,
               "duplicate": false,
@@ -5458,7 +5678,7 @@
               "source": "Haaretz",
               "source_url": "https://www.haaretz.com",
               "published_at": "2026-10-11T22:11:00Z",
-              "age_hours": 174.5,
+              "age_hours": 174.6,
               "stale": true,
               "speculative": false,
               "duplicate": false,
@@ -5536,7 +5756,7 @@
               "source": "POLITICO.eu",
               "source_url": "https://www.politico.eu",
               "published_at": "2026-10-12T13:53:00Z",
-              "age_hours": 158.8,
+              "age_hours": 158.9,
               "stale": true,
               "speculative": false,
               "duplicate": false,
@@ -5827,174 +6047,6 @@
           ]
         },
         {
-          "market_id": "4319441",
-          "question": "Will Anthropic IPO by December 15, 2026?",
-          "query": "Anthropic IPO December 15 2026",
-          "source_count": 0,
-          "sources": [],
-          "headline_count": 0,
-          "fresh_count": 0,
-          "direct_count": 0,
-          "tone": "unknown",
-          "keyword_tone": "neutral",
-          "tone_counts": {
-            "constructive": 0,
-            "cautious": 0,
-            "neutral": 8
-          },
-          "direction_basis": "keyword polarity applied to the first outcome label; may not fit inverted questions",
-          "event_risk": "unknown",
-          "flags": [
-            "STALE_ONLY"
-          ],
-          "items": [
-            {
-              "title": "Investors temper Anthropic IPO valuation expectations over revenue growth slowdown, sources say - Reuters",
-              "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQRW4tSGppV2U0ZWtvaXBsQmlyaDVVLVFCSmJNMWdmMHpod0FWd25kUXRNQzFvZXJPTmhoQUNvMlFrQzI3NjBQVG9McWFPRHdUODhMbVItOGg4S0N3ZmJ4R2psZVd1aWFZM2M0aEY4R3VaYnFZWUxhOFZiRXAxTnc5UG9hMm1ERGpKbURkX3BWYzQ5UWl3THBFTDhWUWR0SVhUSWJsekpMZjM4OUZRQl9BVmY2djVKRENDSldCSUpOWmdvbHVK?oc=5",
-              "source": "Reuters",
-              "source_url": "https://www.reuters.com",
-              "published_at": "2026-10-15T21:04:11Z",
-              "age_hours": 79.7,
-              "stale": true,
-              "speculative": true,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Anthropic\u2019s IPO could be the biggest ever. Your AI budget helps explain why - Fortune",
-              "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPREswWlFfMTFPZDUySWNKdjlNaXhkTE9WNF9IRXdoZWhNTVJOZXd2dDlpLXk1cXNLZE9ZUXJmeVdwU1NPanR3WUtFRmh4MUZLMENJZ0JkSzJJV1oyeUlnSzVyU19vNG5ONER1UTZLV0FZQThUWVhrMDlORHFxT2RNdnVJTlBvWHZhREo1VGtrQy1LSkJpanR5aGZWT1FZV0xpOFR6OVZQWQ?oc=5",
-              "source": "Fortune",
-              "source_url": "http://fortune.com",
-              "published_at": "2026-10-16T12:16:00Z",
-              "age_hours": 64.5,
-              "stale": true,
-              "speculative": true,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Anthropic Q3 revenue rises to $16.8B, but growth rate slows: report (ANTHRO:Private) - Seeking Alpha",
-              "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRWxXWkZjQVF4VGJ1dVRIR3g4RjlxZG1BX1d6VDVsMTJST0N6Y2ZPS3Y1NndqeVF5dlUzbk10Qmhhc2hiQTl4Qm56RFB5MndTVzMwRGhpSzVJNEFMZ3NfUTlhZVo4QktUb3k0T1BlNm16Y0VUWVFSa1VDdzlsT01BZEFMUGoxLW1fVldwSG5nWWIyLVZvYnd6bDQ4aV9mbEhMb29PWGJYN3k?oc=5",
-              "source": "Seeking Alpha",
-              "source_url": "https://seekingalpha.com",
-              "published_at": "2026-10-15T04:06:54Z",
-              "age_hours": 96.6,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 1,
-              "relevance": "partial",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Anthropic Q3 2026 revenue jumps 45% to $16.8B, reports first adjusted profit ahead of IPO - Exchange4Media",
-              "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNRGd6bWEzeEsyaTlFbkIyS09hQ0tzWnJUNTlRazUzVDBZS2wzRTdzREJxVVlvRFJJQmtXNVpPTHN4QVR4Wm1WaHktV0NWemUtQVl3WnpjVUowWndlekZ1V0NyOTBTYTV3R2hFYVRzd2hXWjYwT3U3NlIzYXF5LTI1SXQtRlA2NjdpQ1huWm9iclJYQklLdWRFOUdmTHpoc0hqc2wxM0stYmtNSVRXV3BZbEM4cFFySEJ0TmZRRU1rQlNuOGRERGM1aTZxaGVwZTdORXJibm1lQmo?oc=5",
-              "source": "Exchange4Media",
-              "source_url": "https://www.exchange4media.com",
-              "published_at": "2026-10-15T02:42:57Z",
-              "age_hours": 98.0,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 3,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Here's who stands to make money from the Anthropic IPO - Yahoo Finance",
-              "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOeVpmU0JnRFZzaXNNSXlMZzQtVkwyNHB6dzc0bldFRldIRFpYdGRVNm1zRTFhWUVRNkZmR3ZJcnVTc1RLS0k5dHpmaEdYZ0tWTHFPUkhnMzdJb014a1paR1NBalljbE1vOUNMTlhhc0hXQ2J5Yms5NmVVZm1XS0NlV1BWYmo4X3BSMmh0R3ZzVk53UTVQbHlSX21La0ZOd0NMVmNvYV9kZ3lNQVk0a2tj?oc=5",
-              "source": "Yahoo Finance",
-              "source_url": "https://finance.yahoo.com",
-              "published_at": "2026-09-12T07:00:00Z",
-              "age_hours": 885.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Anthropic IPO date Odds & Prediction Market Analysis - CryptoSlate",
-              "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5aU3JHdGtMMEtLWUFjRC0zbGVOX3NXeF8zRzQ2a3V2MUpsYmZ4S3pRa2E5ektnLWNTMFpyc29FcmRQRE9fZVNnTUFGdVFTRFVHZlVtQ3VNLUxxTGJMQkhBQm0xM2RlSm9RbWFKcmltbw?oc=5",
-              "source": "CryptoSlate",
-              "source_url": "https://cryptoslate.com",
-              "published_at": "2026-07-17T18:03:53Z",
-              "age_hours": 2242.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "7 Best Recent and Upcoming IPOs in 2026 | Investing - U.S. News - Money",
-              "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1YQV9Fd3dKUmVFZlZHTmJIaWx5VFdUbWhSaVBsWDl6cWp0ZUhvNS1jVFcwbW44Nm92dDlBQkVxa1NCbmZ2MUFlTVVFcDl6RElHX3d6eTdWTk5wbHIzankzRGZBd0hOeTByRmpLSWFVdkJvNlZ4R3ZVczVyWUFYQQ?oc=5",
-              "source": "U.S. News - Money",
-              "source_url": "https://money.usnews.com",
-              "published_at": "2026-09-22T07:00:00Z",
-              "age_hours": 645.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 1,
-              "relevance": "partial",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Anthropic moves closer to mega-IPO as bankers line up investor meetings - CNBC",
-              "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBoMmdQUDFHY0FnQXJQclVJNHdFbmt1M25LREN2dXB0VjF6Nmt6RHV3YVVvb2dTZzhqYWtSd0JDZ0M5ejEwbXZYUHphWEJPaWdERG80WTh5d1hkbFZIazlmdENjZmhQSF95cS1tS1N6XzB4ekRhb2FfSXZ1eWx5RmPSAYQBQVVfeXFMT2FQMi0zc0hGQjJ4Vk9QYUxCZWRvWW1xUXJEM3NwejVWUjAtRXBkN3g2ZnhIMGkxY0dLRFV3bjk2akg2VEJycV9vQk5Vdmx0OHpJanJrUHFDb0RPNlVKSEptSVRZQW8zbkkta3E3Ty16OXV2X205dEM0bm1VclJ0aUg1RHJV?oc=5",
-              "source": "CNBC",
-              "source_url": "https://www.cnbc.com",
-              "published_at": "2026-07-15T07:00:00Z",
-              "age_hours": 2301.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            }
-          ]
-        },
-        {
           "market_id": "5676703",
           "question": "Will the OpenAI spy be accused of working for Saudi Arabia by December 31?",
           "query": "Who OpenAI spy accused working 2026 Saudi",
@@ -6058,7 +6110,7 @@
               "source": "The San Francisco Standard",
               "source_url": "https://sfstandard.com",
               "published_at": "2026-10-13T20:17:02Z",
-              "age_hours": 128.4,
+              "age_hours": 128.5,
               "stale": true,
               "speculative": false,
               "duplicate": false,
@@ -6161,194 +6213,25 @@
               ]
             }
           ]
-        },
-        {
-          "market_id": "2589812",
-          "question": "Will there be no change in Fed interest rates after the October 2026 meeting?",
-          "query": "Fed Decision October there change interest rates",
-          "source_count": 0,
-          "sources": [],
-          "headline_count": 0,
-          "fresh_count": 0,
-          "direct_count": 0,
-          "tone": "unknown",
-          "keyword_tone": "neutral",
-          "tone_counts": {
-            "constructive": 0,
-            "cautious": 0,
-            "neutral": 8
-          },
-          "direction_basis": "keyword polarity applied to the first outcome label; may not fit inverted questions",
-          "event_risk": "medium",
-          "flags": [
-            "STALE_ONLY"
-          ],
-          "items": [
-            {
-              "title": "Analysis: Everyone expects the Fed to hold rates in October. Kevin Warsh could surprise us all - CNBC",
-              "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZFl6VlNnRU5TX2V4NEx3eEEwWDhfZGMxS3FsUVd2Z0FMZzJLcnNfOEQ1Z2xxYmc5Nk1SYVNFQkhQeFZiX21fdFJTOWZ4aEhvTU1mQTRIdEFYMms2Q093RS0xMURjb3RwTVNfQXp0cVhjTHpGUEdENzBHeERCYW84dnRkRE1DVjRuTXo5c3M5aEkzOXNkMnlFX9IBngFBVV95cUxQUjQ0SjZBMDNsSDI4cDdJVTgtUFlVdnlhQXN4ZjViU2R2bWdobHQ4RDM2cDVIc1J5RGJwOXZsNnRUQTh6QkFyVEFjbUc0blFvNUE4M2tZN1NnRTJhbnVLa1AxYkk3R0xCTUpQN1dRV0dNckx2NzFXZktaLW1QOXlCMVJmN1FfWjJNZmJma3hQcGZvQUF6NkNaZGwySWtmQQ?oc=5",
-              "source": "CNBC",
-              "source_url": "https://www.cnbc.com",
-              "published_at": "2026-10-16T15:38:44Z",
-              "age_hours": 61.1,
-              "stale": true,
-              "speculative": true,
-              "duplicate": false,
-              "query_overlap": 3,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "The Fed faces a politically fraught rate decision on the eve of an election for the third time in a row - Yahoo Finance",
-              "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxQNkZ6SmdKZEkzMUI5c0J4TVJUQ3Q3Ry1UQjdOVTVGc0E5UDhpaDNtZUlraUlZTWQ1bWpLb2tYSzM4b2ZKQkkzYk02bDFrYnZIUExYN0tlMjFxcGM2TmlYOUpPSmFNbVJJLV9uU1VHRmtYUHVxTE5yUG95UEsxU2V6MmEtNWpsRENfWVhmM2xfdV8wNHh2MGQybkpuNXBKT0JpUmhNRlpjelE5Z0ZUNlM5QkIwQW5VQ18tbG5oM0l3OEdSZTZ6eVcxaEUxZHJnTVVUbE5fZWFrOEE4T2FOUVR0WEpZMTlET3VfVTZySkhTVzJzZGFsWjRmT1V4VQ?oc=5",
-              "source": "Yahoo Finance",
-              "source_url": "https://finance.yahoo.com",
-              "published_at": "2026-10-14T16:44:56Z",
-              "age_hours": 108.0,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Will the Fed hike rates in October? 50 basis points in total hikes expected, but Fed officials say there's 'no need for urgency' - Chase Bank",
-              "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNVjZzbXEwdE1HWHlZdlJsckVxdFhvQ2pyMjVQdTYzd0VQUWV6QmNZY2E3V29aa0x4MUVRWU1uSExZRTZfZjg2RzRKOGlkWTlObnVqUFcxVWxUazVOSW83NjF5eUNjdHRNc1J5WmU3d3NPclB4eE5QVlc3aE0zMXR1TUo2YWlWc2ctek1ReHd4cDRkTUZPT0VmNzh1dW1DZ3Y5aU9nUHhKU25kZXZsblRpZk01UDQtVE1HQjF5RWpjX21jcHlFcmVCVzBHcUxjR2E5R2VF?oc=5",
-              "source": "Chase Bank",
-              "source_url": "https://www.chase.com",
-              "published_at": "2026-10-14T18:55:53Z",
-              "age_hours": 105.8,
-              "stale": true,
-              "speculative": true,
-              "duplicate": false,
-              "query_overlap": 4,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Fed policymakers lean against October rate hike - Reuters",
-              "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQcEdmemN4NUZ5RjRobklFbGFkcWZ0NENTRmZfU2hmNnFuZ1ZkRzJKY09hV3VLcjllT2V3VEVHdGg1NTFBbU1BVUJycDV1ODc5cTRxM1hCWlk5aW1RY3c0RzQ2bTNMcmsybi1VdDdoMG9RdUFrakRXSnFfb2trYmpOQzU5RmNmMXpqZlpJNUY1OEtEOGxnNXhlUjkzdmpnaWZVSVcwX1MyTHl1UQ?oc=5",
-              "source": "Reuters",
-              "source_url": "https://www.reuters.com",
-              "published_at": "2026-10-01T07:00:00Z",
-              "age_hours": 429.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Fed Minutes Signal Further Rate Increase This Year, but No Urgency for October Hike - WSJ",
-              "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOR2tScE5NcWVPRHZQczVlWmRZalNkYW5pT0VLYWxPT2JJZS0yTHN0NWZhM2dmSlIxRVBNbjZyRnJRcXJXYk9ycFlZX0EwQWF2OWFzNG5TQ0FvblZRQ0djbFE2QWJVT0RzUExlZGx6VTF3YTZsdDBuVGFDRDZrVzZuMnZkZ25RZnhLb2JsVnFEZHRjRGp6YVhQVE9xXzZjWXZDbTNfNlpPV19nWkxLY09NanZQM2hlNXdpR0w4OXZCNi03Z0I2bmdnenk3WDNpY2lM?oc=5",
-              "source": "WSJ",
-              "source_url": "https://www.wsj.com",
-              "published_at": "2026-10-07T07:00:00Z",
-              "age_hours": 285.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 2,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Fed Confronts the Prospect of Another Rate Increase Ahead of Midterms - The New York Times",
-              "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOMGdRWGMwS19RQ1QwQVhydF9udFh2SkVwN2RYaXZMZGd6UzdGdXJOQ1JUMlFuLUw3VExKTm5XbldCLVBWVHpWSmNSWlQyN0tYUzVtRTg5Rlk3SnMxRklVWHVzbWJ4RFgtajBvVGM1cEhJcVZnTkhVNXNmWFVvZXZiRmt3?oc=5",
-              "source": "The New York Times",
-              "source_url": "https://www.nytimes.com",
-              "published_at": "2026-09-25T07:00:00Z",
-              "age_hours": 573.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 1,
-              "relevance": "partial",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "Prediction markets make major U-turn on Fed\u2019s October rate decision - Finbold",
-              "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNEpBQlJmMjJpMnlsQkpQUU5JVXhabnhwdm1GeFFBV28ySTJUNU1rMlFzZEd4cGE5NElHay1kYXpuWF9Rd3lBdzZvY0ZjYmo4bUlqYnFxUWhKR3dZU09zdkNjV2lPZmRYY3hrM2Jodm52aEluLXJIeVVoLUlzNFhrQXV5Ulc0SGI3ek4yMzdDRTk?oc=5",
-              "source": "Finbold",
-              "source_url": "https://finbold.com",
-              "published_at": "2026-10-16T16:58:49Z",
-              "age_hours": 59.7,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 3,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            },
-            {
-              "title": "US Market: Fed Chair Warsh offers no signal on October interest-rate decision - The Economic Times",
-              "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNN2NNczdiRFBOZnAzRXkyVDlPeGlmd0NmWHI1eXRFbzE5OUZkMzFUZnQ3cDBxVWFvaHcydmx3WWRGaml1VDNoT0UzQ18zVmtrWXVyaTlLakdWd0tEeFNYV0xVbEY5ZHp5NnRWUHpQbXVQRHJ5bDRab2RDNEEyQ2N2REdBUW43RFZTS0NzYXNWME4yQ2R1X1NwbzJNZUNLQ3dRcDAwNm91dlpNU3Vfdkc0NnBUUk1QU2xFazUySjRBc1dEZ2czU1BQYjUyM1oxcURFZWxFczBKSmx4U2J3Mk5BRjBuVHRjZ0ZhUXRiWkFqNUdhaXA1eGZ6WGFB0gH_AUFVX3lxTFBsUE1fREJENFU2VUJ5ZS1xX0E0TXVQNUtiTmozSTVlVEFnRm4wbkZaWTlOTkhJUEZHNmpEWXVKR2YybTdJbnpIUVBQZGJIeERLb0ZEZ0VWVnZPRWk5X2JfVy14RDBGZDA3Z0ZRWjR1T0hfd0Y3WmFrZU9CZ2NZWmVxOVFfeVZNRzVVaV84QkI5dmJUcXJlRXNGVzRyQTBFeUp1Um94UW01S0dqeWk3MTg3WGRiSXJGT0RmZksxYnVHZlhWcVd2WGFnYXFDVTB1MWY2TUhfd25xdEVUN1JlUWpaeFk2cVNzcU9VTkdXMGlubWQ5Z1BDNmlRaHNtRGV6aw?oc=5",
-              "source": "The Economic Times",
-              "source_url": "https://m.economictimes.com",
-              "published_at": "2026-10-16T05:54:41Z",
-              "age_hours": 70.8,
-              "stale": true,
-              "speculative": false,
-              "duplicate": false,
-              "query_overlap": 4,
-              "relevance": "direct",
-              "tone": "neutral",
-              "tone_counts": [
-                0,
-                0
-              ]
-            }
-          ]
         }
       ],
       "risks": [
         "No usable dated sources for \"Will Bitcoin dip to $77,500 in October?\".",
         "No usable dated sources for \"Will Bitcoin reach $85,000 in October?\".",
         "No usable dated sources for \"Will Bitcoin dip to $75,000 in October?\".",
+        "No usable dated sources for \"Will the price of Bitcoin be above $80,000 on October 20?\".",
+        "No usable dated sources for \"Will the price of Ethereum be above $2,400 on October 19?\".",
+        "No usable dated sources for \"Will the price of Bitcoin be above $84,000 on October 20?\".",
         "No usable dated sources for \"Will Solana dip to $100 in October?\".",
         "No usable dated sources for \"Will the price of Ethereum be between $2,300 and $2,400 on October 19?\".",
         "No usable dated sources for \"Will the price of Bitcoin be between $80,000 and $82,000 on October 20?\".",
-        "No usable dated sources for \"Will the price of Bitcoin be above $84,000 on October 20?\".",
         "No usable dated sources for \"Will WTI Crude Oil (WTI) hit (HIGH) $105 in October?\".",
-        "No usable dated sources for \"Will the price of Ethereum be above $2,500 on October 19?\".",
         "No usable dated sources for \"Will Delcy Rodr\u00edguez be the leader of Venezuela end of 2026?\".",
         "No usable dated sources for \"Will Anthropic IPO by November 30, 2026?\".",
         "No usable dated sources for \"Will Elon Musk post 40-64 tweets from October 17 to October 19, 2026?\".",
         "No usable dated sources for \"Will \u00c9douard Philippe win the 2027 French presidential election?\".",
         "No usable dated sources for \"Will Aleksandar Vu\u010di\u0107 \u2013 United Serbia win the most seats in the 2026 Serbian parliamentary election?\".",
-        "No usable dated sources for \"Will Anthropic IPO by December 15, 2026?\".",
         "No usable dated sources for \"Will the OpenAI spy be accused of working for Saudi Arabia by December 31?\".",
-        "No usable dated sources for \"Will there be no change in Fed interest rates after the October 2026 meeting?\".",
         "Desk rule: a trade plan requires at least one fresh source. Markets with NO_SOURCES are dropped by Strategy."
       ],
       "next_step": "Charts agent: review the price series for the markets that carry sources.",
@@ -6362,6 +6245,7 @@
           "5839896",
           "5824127",
           "5794185",
+          "5742250",
           "5610600",
           "5610575",
           "5732709",
@@ -6378,9 +6262,9 @@
     "charts": {
       "agent": "charts",
       "label": "CHARTS",
-      "timestamp_utc": "2026-10-19T04:43:47Z",
+      "timestamp_utc": "2026-10-19T04:44:31Z",
       "status": "complete",
-      "summary": "Reviewed 13 price series. 4 show a directional trend; 7 carry conflicting signals.",
+      "summary": "Reviewed 14 price series. 4 show a directional trend; 8 carry conflicting signals.",
       "evidence": [
         {
           "market_id": "5610598",
@@ -6578,7 +6462,7 @@
           "data_quality": {
             "points": 90,
             "span_hours": 23.9,
-            "fetched_at": "2026-10-19T04:43:45Z"
+            "fetched_at": "2026-10-19T04:44:30Z"
           },
           "news_flags": []
         },
@@ -6778,7 +6662,7 @@
           "data_quality": {
             "points": 91,
             "span_hours": 24.0,
-            "fetched_at": "2026-10-19T04:43:45Z"
+            "fetched_at": "2026-10-19T04:44:30Z"
           },
           "news_flags": []
         },
@@ -6984,7 +6868,7 @@
           "data_quality": {
             "points": 91,
             "span_hours": 23.9,
-            "fetched_at": "2026-10-19T04:43:46Z"
+            "fetched_at": "2026-10-19T04:44:30Z"
           },
           "news_flags": []
         },
@@ -7172,7 +7056,7 @@
           "data_quality": {
             "points": 91,
             "span_hours": 24.0,
-            "fetched_at": "2026-10-19T04:43:46Z"
+            "fetched_at": "2026-10-19T04:44:30Z"
           },
           "news_flags": []
         },
@@ -7331,7 +7215,7 @@
           "data_quality": {
             "points": 92,
             "span_hours": 24.0,
-            "fetched_at": "2026-10-19T04:43:46Z"
+            "fetched_at": "2026-10-19T04:44:30Z"
           },
           "news_flags": []
         },
@@ -7343,12 +7227,225 @@
           "timeframe": "15m bars, 24h window"
         },
         {
+          "market_id": "5653789",
+          "question": "Will the price of Bitcoin be above $80,000 on October 20?",
+          "status": "needs_data",
+          "reason": "no price history returned for the primary token",
+          "timeframe": "15m bars, 24h window"
+        },
+        {
+          "market_id": "5610574",
+          "question": "Will the price of Ethereum be above $2,400 on October 19?",
+          "status": "needs_data",
+          "reason": "no price history returned for the primary token",
+          "timeframe": "15m bars, 24h window"
+        },
+        {
+          "market_id": "5742250",
+          "question": "Will Bitcoin dip to $80,000 in October?",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "Polymarket CLOB /prices-history (1d)",
+          "last_quote": 0.595,
+          "primary_outcome": "Yes",
+          "secondary_outcome": "No",
+          "views": {
+            "primary": {
+              "points": 91,
+              "span_hours": 24.0,
+              "last": 0.595,
+              "change_pct": -0.1678,
+              "slope_per_hour": -0.00298,
+              "slope_3h": -0.00689,
+              "momentum_1h": -0.02,
+              "atr": 0.0109,
+              "atr_pct": 0.0183,
+              "window_min": 0.595,
+              "window_max": 0.85,
+              "prior_high": 0.85,
+              "prior_low": 0.605,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "range",
+              "activity": 0.678,
+              "recent_low": 0.595,
+              "recent_high": 0.615,
+              "stretch": -1.15,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.605,
+                  0.615
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.605,
+                  "touches": 4,
+                  "kind": "support"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.605,
+                    "touches": 4,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.615,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.655,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.665,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.685,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.715,
+                    "touches": 2,
+                    "kind": "support"
+                  }
+                ]
+              },
+              "conflicts": [
+                "range-bound series with a down structure break"
+              ],
+              "warnings": []
+            },
+            "secondary": {
+              "points": 91,
+              "span_hours": 24.0,
+              "last": 0.405,
+              "change_pct": 0.4211,
+              "slope_per_hour": 0.00298,
+              "slope_3h": 0.00689,
+              "momentum_1h": 0.02,
+              "atr": 0.0109,
+              "atr_pct": 0.0269,
+              "window_min": 0.15,
+              "window_max": 0.405,
+              "prior_high": 0.395,
+              "prior_low": 0.15,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "range",
+              "activity": 0.678,
+              "recent_low": 0.385,
+              "recent_high": 0.405,
+              "stretch": 1.15,
+              "extended_up": false,
+              "levels": {
+                "support": [
+                  0.395,
+                  0.385
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.395,
+                  "touches": 4,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.185,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.205,
+                    "touches": 3,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.265,
+                    "touches": 12,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.285,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.315,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.335,
+                    "touches": 2,
+                    "kind": "support"
+                  }
+                ]
+              },
+              "conflicts": [
+                "range-bound series with a up structure break"
+              ],
+              "warnings": []
+            }
+          },
+          "sparkline": [
+            0.715,
+            0.725,
+            0.725,
+            0.735,
+            0.735,
+            0.735,
+            0.695,
+            0.665,
+            0.66,
+            0.675,
+            0.685,
+            0.69,
+            0.755,
+            0.795,
+            0.815,
+            0.815,
+            0.8,
+            0.805,
+            0.815,
+            0.83,
+            0.815,
+            0.79,
+            0.715,
+            0.67,
+            0.665,
+            0.645,
+            0.625,
+            0.635,
+            0.605,
+            0.615,
+            0.595
+          ],
+          "conflicts": [
+            "range-bound series with a down structure break"
+          ],
+          "warnings": [],
+          "data_quality": {
+            "points": 91,
+            "span_hours": 24.0,
+            "fetched_at": "2026-10-19T04:44:30Z"
+          },
+          "news_flags": []
+        },
+        {
           "market_id": "5610600",
           "question": "Will the price of Bitcoin be above $82,000 on October 19?",
           "status": "complete",
           "timeframe": "15m bars, 24h window",
           "series_source": "Polymarket CLOB /prices-history (1d)",
-          "last_quote": 0.765,
+          "last_quote": 0.785,
           "primary_outcome": "Yes",
           "secondary_outcome": "No",
           "views": {
@@ -7536,9 +7633,16 @@
           "data_quality": {
             "points": 90,
             "span_hours": 24.0,
-            "fetched_at": "2026-10-19T04:43:46Z"
+            "fetched_at": "2026-10-19T04:44:30Z"
           },
           "news_flags": []
+        },
+        {
+          "market_id": "5653795",
+          "question": "Will the price of Bitcoin be above $84,000 on October 20?",
+          "status": "needs_data",
+          "reason": "no price history returned for the primary token",
+          "timeframe": "15m bars, 24h window"
         },
         {
           "market_id": "5170805",
@@ -7746,7 +7850,7 @@
           "data_quality": {
             "points": 91,
             "span_hours": 23.9,
-            "fetched_at": "2026-10-19T04:43:47Z"
+            "fetched_at": "2026-10-19T04:44:31Z"
           },
           "news_flags": []
         },
@@ -7952,16 +8056,9 @@
           "data_quality": {
             "points": 90,
             "span_hours": 23.9,
-            "fetched_at": "2026-10-19T04:43:47Z"
+            "fetched_at": "2026-10-19T04:44:31Z"
           },
           "news_flags": []
-        },
-        {
-          "market_id": "5653795",
-          "question": "Will the price of Bitcoin be above $84,000 on October 20?",
-          "status": "needs_data",
-          "reason": "no price history returned for the primary token",
-          "timeframe": "15m bars, 24h window"
         },
         {
           "market_id": "5732710",
@@ -8134,20 +8231,13 @@
           "data_quality": {
             "points": 92,
             "span_hours": 23.9,
-            "fetched_at": "2026-10-19T04:43:47Z"
+            "fetched_at": "2026-10-19T04:44:31Z"
           },
           "news_flags": []
         },
         {
           "market_id": "4951227",
           "question": "Will WTI Crude Oil (WTI) hit (HIGH) $105 in October?",
-          "status": "needs_data",
-          "reason": "no price history returned for the primary token",
-          "timeframe": "15m bars, 24h window"
-        },
-        {
-          "market_id": "5610576",
-          "question": "Will the price of Ethereum be above $2,500 on October 19?",
           "status": "needs_data",
           "reason": "no price history returned for the primary token",
           "timeframe": "15m bars, 24h window"
@@ -8362,7 +8452,7 @@
           "data_quality": {
             "points": 92,
             "span_hours": 23.9,
-            "fetched_at": "2026-10-19T04:43:47Z"
+            "fetched_at": "2026-10-19T04:44:31Z"
           },
           "news_flags": []
         },
@@ -8567,7 +8657,7 @@
           "data_quality": {
             "points": 91,
             "span_hours": 23.9,
-            "fetched_at": "2026-10-19T04:43:47Z"
+            "fetched_at": "2026-10-19T04:44:31Z"
           },
           "news_flags": []
         },
@@ -8764,7 +8854,7 @@
           "data_quality": {
             "points": 91,
             "span_hours": 23.9,
-            "fetched_at": "2026-10-19T04:43:47Z"
+            "fetched_at": "2026-10-19T04:44:31Z"
           },
           "news_flags": []
         },
@@ -8956,7 +9046,7 @@
           "data_quality": {
             "points": 90,
             "span_hours": 23.9,
-            "fetched_at": "2026-10-19T04:43:47Z"
+            "fetched_at": "2026-10-19T04:44:31Z"
           },
           "news_flags": []
         },
@@ -8975,22 +9065,8 @@
           "timeframe": "15m bars, 24h window"
         },
         {
-          "market_id": "4319441",
-          "question": "Will Anthropic IPO by December 15, 2026?",
-          "status": "needs_data",
-          "reason": "no price history returned for the primary token",
-          "timeframe": "15m bars, 24h window"
-        },
-        {
           "market_id": "5676703",
           "question": "Will the OpenAI spy be accused of working for Saudi Arabia by December 31?",
-          "status": "needs_data",
-          "reason": "no price history returned for the primary token",
-          "timeframe": "15m bars, 24h window"
-        },
-        {
-          "market_id": "2589812",
-          "question": "Will there be no change in Fed interest rates after the October 2026 meeting?",
           "status": "needs_data",
           "reason": "no price history returned for the primary token",
           "timeframe": "15m bars, 24h window"
@@ -9000,36 +9076,35 @@
         "No price history for \"Will Bitcoin dip to $77,500 in October?\".",
         "No price history for \"Will Bitcoin reach $85,000 in October?\".",
         "No price history for \"Will Bitcoin dip to $75,000 in October?\".",
+        "No price history for \"Will the price of Bitcoin be above $80,000 on October 20?\".",
+        "No price history for \"Will the price of Ethereum be above $2,400 on October 19?\".",
+        "No price history for \"Will the price of Bitcoin be above $84,000 on October 20?\".",
         "No price history for \"Will Solana dip to $100 in October?\".",
         "No price history for \"Will the price of Ethereum be between $2,300 and $2,400 on October 19?\".",
         "No price history for \"Will the price of Bitcoin be between $80,000 and $82,000 on October 20?\".",
-        "No price history for \"Will the price of Bitcoin be above $84,000 on October 20?\".",
         "No price history for \"Will WTI Crude Oil (WTI) hit (HIGH) $105 in October?\".",
-        "No price history for \"Will the price of Ethereum be above $2,500 on October 19?\".",
         "No price history for \"Will Delcy Rodr\u00edguez be the leader of Venezuela end of 2026?\".",
         "No price history for \"Will Anthropic IPO by November 30, 2026?\".",
         "No price history for \"Will Elon Musk post 40-64 tweets from October 17 to October 19, 2026?\".",
         "No price history for \"Will \u00c9douard Philippe win the 2027 French presidential election?\".",
         "No price history for \"Will Aleksandar Vu\u010di\u0107 \u2013 United Serbia win the most seats in the 2026 Serbian parliamentary election?\".",
-        "No price history for \"Will Anthropic IPO by December 15, 2026?\".",
-        "No price history for \"Will the OpenAI spy be accused of working for Saudi Arabia by December 31?\".",
-        "No price history for \"Will there be no change in Fed interest rates after the October 2026 meeting?\"."
+        "No price history for \"Will the OpenAI spy be accused of working for Saudi Arabia by December 31?\"."
       ],
       "next_step": "Strategy agent: build one rule-based plan per market, or return WAIT.",
       "meta": {
-        "reviewed": 13,
-        "needs_data": 17,
+        "reviewed": 14,
+        "needs_data": 16,
         "methodology": "24h of 15-minute closes. Trend from a linear fit in probability points per hour vs average bar range. Support/resistance are clustered swing pivots with at least two touches. The secondary view is the exact inverse of the primary series, so both outcomes are analysed the same way.",
-        "conflicts_total": 7,
+        "conflicts_total": 8,
         "warnings_total": 2
       }
     },
     "strategy": {
       "agent": "strategy",
       "label": "STRATEGY",
-      "timestamp_utc": "2026-10-19T04:43:47Z",
+      "timestamp_utc": "2026-10-19T04:44:31Z",
       "status": "complete",
-      "summary": "Wrote 7 rule-based plan(s) from 13 reviewed markets; 6 returned WAIT.",
+      "summary": "Wrote 8 rule-based plan(s) from 14 reviewed markets; 6 returned WAIT.",
       "evidence": [
         {
           "market_id": "5610598",
@@ -9054,7 +9129,7 @@
           "risk_per_share": null,
           "reward_per_share": null,
           "gross_rr": 1.29,
-          "time_limit_utc": "2026-10-19T10:43:47Z",
+          "time_limit_utc": "2026-10-19T10:44:31Z",
           "confidence": 75,
           "evidence_used": {
             "scout_score": 76,
@@ -9157,7 +9232,7 @@
           "risk_per_share": 0.009,
           "reward_per_share": 0.05,
           "gross_rr": 5.56,
-          "time_limit_utc": "2026-10-19T10:43:47Z",
+          "time_limit_utc": "2026-10-19T10:44:31Z",
           "confidence": 100,
           "evidence_used": {
             "scout_score": 60,
@@ -9255,7 +9330,7 @@
           "risk_per_share": null,
           "reward_per_share": null,
           "gross_rr": 10.0,
-          "time_limit_utc": "2026-10-19T10:43:47Z",
+          "time_limit_utc": "2026-10-19T10:44:31Z",
           "confidence": 75,
           "evidence_used": {
             "scout_score": 54,
@@ -9357,7 +9432,7 @@
           "risk_per_share": 0.029,
           "reward_per_share": 0.064,
           "gross_rr": 2.21,
-          "time_limit_utc": "2026-10-19T10:43:47Z",
+          "time_limit_utc": "2026-10-19T10:44:31Z",
           "confidence": 75,
           "evidence_used": {
             "scout_score": 50,
@@ -9501,6 +9576,107 @@
           ]
         },
         {
+          "market_id": "5742250",
+          "question": "Will Bitcoin dip to $80,000 in October?",
+          "url": "https://polymarket.com/market/will-bitcoin-dip-to-80k-in-october-2026-from-october-15",
+          "status": "plan",
+          "reason": null,
+          "side_key": "secondary",
+          "side": "No",
+          "side_index": 1,
+          "entry_type": "breakout",
+          "entry": 0.41,
+          "quote": 0.41,
+          "entry_distance": 0.0,
+          "entry_zone": [
+            0.395,
+            0.415
+          ],
+          "entry_trigger": "quote holds above 0.395 with the break intact",
+          "invalidation": 0.388,
+          "target": 0.46,
+          "risk_per_share": 0.022,
+          "reward_per_share": 0.05,
+          "gross_rr": 2.27,
+          "time_limit_utc": "2026-10-19T10:44:31Z",
+          "confidence": 65,
+          "evidence_used": {
+            "scout_score": 50,
+            "scout_reasons": [
+              "1h move 1.0% is 3.8\u03c3 vs its category",
+              "24h move 12.5% is 4.0\u03c3 vs its category",
+              "1h and 24h moves point the same way"
+            ],
+            "chart_trend": "range",
+            "chart_levels": {
+              "support": [
+                0.395,
+                0.385
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.395,
+                "touches": 4,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.185,
+                  "touches": 4,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.205,
+                  "touches": 3,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.265,
+                  "touches": 12,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.285,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.315,
+                  "touches": 4,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.335,
+                  "touches": 2,
+                  "kind": "support"
+                }
+              ]
+            },
+            "chart_conflicts": [
+              "range-bound series with a down structure break"
+            ],
+            "chart_warnings": [],
+            "news_sources": [
+              "24/7 Wall St.",
+              "Altcoin Buzz",
+              "CoinDCX",
+              "CryptoTicker",
+              "Decrypt",
+              "Pluang",
+              "TechBullion",
+              "TradingView"
+            ],
+            "news_direct_count": 4,
+            "news_tone": "cautious",
+            "news_count": 1,
+            "event_risk": "medium"
+          },
+          "disagreements": [
+            "range-bound series with a down structure break"
+          ]
+        },
+        {
           "market_id": "5610600",
           "question": "Will the price of Bitcoin be above $82,000 on October 19?",
           "url": "https://polymarket.com/market/bitcoin-above-82k-on-october-19-2026",
@@ -9511,8 +9687,8 @@
           "side_index": 0,
           "entry_type": "breakout_retest",
           "entry": 0.76,
-          "quote": 0.77,
-          "entry_distance": 0.01,
+          "quote": 0.79,
+          "entry_distance": 0.03,
           "entry_zone": [
             0.75,
             0.766
@@ -9523,13 +9699,13 @@
           "risk_per_share": 0.021,
           "reward_per_share": 0.086,
           "gross_rr": 4.1,
-          "time_limit_utc": "2026-10-19T10:43:47Z",
+          "time_limit_utc": "2026-10-19T10:44:31Z",
           "confidence": 55,
           "evidence_used": {
             "scout_score": 50,
             "scout_reasons": [
-              "1h move 2.0% is 4.0\u03c3 vs its category",
-              "24h move 32.0% is 4.0\u03c3 vs its category",
+              "1h move 7.0% is 4.0\u03c3 vs its category",
+              "24h move 34.0% is 4.0\u03c3 vs its category",
               "1h and 24h moves point the same way"
             ],
             "chart_trend": "range",
@@ -9624,7 +9800,7 @@
           "risk_per_share": 0.013,
           "reward_per_share": 0.051,
           "gross_rr": 3.92,
-          "time_limit_utc": "2026-10-19T10:43:47Z",
+          "time_limit_utc": "2026-10-19T10:44:31Z",
           "confidence": 65,
           "evidence_used": {
             "scout_score": 50,
@@ -9736,7 +9912,7 @@
           "risk_per_share": 0.005,
           "reward_per_share": 0.05,
           "gross_rr": 10.0,
-          "time_limit_utc": "2026-10-19T10:43:47Z",
+          "time_limit_utc": "2026-10-19T10:44:31Z",
           "confidence": 80,
           "evidence_used": {
             "scout_score": 37,
@@ -9803,17 +9979,17 @@
             "chart_warnings": [],
             "news_sources": [
               "Al Jazeera",
-              "DW.com",
               "Haaretz",
-              "Sky News",
+              "Responsible Statecraft",
+              "The Atlantic",
+              "The Free Press",
+              "The Guardian",
               "The Jerusalem Post",
-              "The Times of Israel",
-              "Yahoo",
-              "Ynetnews"
+              "The Times of Israel"
             ],
             "news_direct_count": 1,
-            "news_tone": "constructive",
-            "news_count": 4,
+            "news_tone": "neutral",
+            "news_count": 1,
             "event_risk": "medium"
           },
           "disagreements": []
@@ -9849,7 +10025,7 @@
           "risk_per_share": 0.007,
           "reward_per_share": 0.05,
           "gross_rr": 7.14,
-          "time_limit_utc": "2026-10-19T10:43:47Z",
+          "time_limit_utc": "2026-10-19T10:44:31Z",
           "confidence": 80,
           "evidence_used": {
             "scout_score": 36,
@@ -9940,13 +10116,13 @@
           "risk_per_share": 0.005,
           "reward_per_share": 0.05,
           "gross_rr": 10.0,
-          "time_limit_utc": "2026-10-19T10:43:47Z",
+          "time_limit_utc": "2026-10-19T10:44:31Z",
           "confidence": 80,
           "evidence_used": {
             "scout_score": 33,
             "scout_reasons": [
-              "24h move 2.0% is 2.9\u03c3 vs its category",
-              "24h volume 5.9\u00d7 the category median",
+              "24h move 2.0% is 3.2\u03c3 vs its category",
+              "24h volume 6.0\u00d7 the category median",
               "870 comments on the event"
             ],
             "chart_trend": "up",
@@ -10019,8 +10195,8 @@
       "risks": [],
       "next_step": "Risk agent: size or veto each plan.",
       "meta": {
-        "reviewed": 13,
-        "plans": 7,
+        "reviewed": 14,
+        "plans": 8,
         "waits": 6,
         "policy": "A plan exists only when trend and structure agree, the stop is inside the max distance, and reward:risk clears the configured floor. Entries at the quote fill immediately in the paper book; pullbacks, retests and reversals rest as working orders until the market trades to the level. Strategy never sizes a position and never places an order."
       }
@@ -10028,9 +10204,9 @@
     "risk": {
       "agent": "risk",
       "label": "RISK",
-      "timestamp_utc": "2026-10-19T04:43:47Z",
+      "timestamp_utc": "2026-10-19T04:44:31Z",
       "status": "complete",
-      "summary": "1 plan(s) cleared the risk gate, 6 rejected, 6 never reached it.",
+      "summary": "0 plan(s) cleared the risk gate, 8 rejected, 6 never reached it.",
       "evidence": [
         {
           "market_id": "5610598",
@@ -10164,7 +10340,7 @@
             {
               "name": "position_cap",
               "pass": true,
-              "detail": "0 of 5 position slots used (0 working)"
+              "detail": "1 of 5 position slots used (0 working)"
             },
             {
               "name": "category_concentration",
@@ -10213,7 +10389,7 @@
             "risk_per_share": 0.009,
             "reward_per_share": 0.05,
             "gross_rr": 5.56,
-            "time_limit_utc": "2026-10-19T10:43:47Z",
+            "time_limit_utc": "2026-10-19T10:44:31Z",
             "confidence": 100,
             "evidence_used": {
               "scout_score": 60,
@@ -10421,7 +10597,7 @@
             {
               "name": "position_cap",
               "pass": true,
-              "detail": "0 of 5 position slots used (0 working)"
+              "detail": "1 of 5 position slots used (0 working)"
             },
             {
               "name": "category_concentration",
@@ -10472,7 +10648,7 @@
             "risk_per_share": 0.029,
             "reward_per_share": 0.064,
             "gross_rr": 2.21,
-            "time_limit_utc": "2026-10-19T10:43:47Z",
+            "time_limit_utc": "2026-10-19T10:44:31Z",
             "confidence": 75,
             "evidence_used": {
               "scout_score": 50,
@@ -10564,6 +10740,243 @@
           ]
         },
         {
+          "market_id": "5742250",
+          "question": "Will Bitcoin dip to $80,000 in October?",
+          "url": "https://polymarket.com/market/will-bitcoin-dip-to-80k-in-october-2026-from-october-15",
+          "side": "No",
+          "category": "crypto",
+          "event_id": "1112205",
+          "verdict": "REJECTED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.2 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": true,
+              "detail": "strategy returned a complete plan"
+            },
+            {
+              "name": "fresh_quote",
+              "pass": true,
+              "detail": "quote snapshot is 1 min old (limit 60)"
+            },
+            {
+              "name": "fresh_news",
+              "pass": true,
+              "detail": "1 fresh headline(s)"
+            },
+            {
+              "name": "news_required",
+              "pass": true,
+              "detail": "desk requires dated news before a plan"
+            },
+            {
+              "name": "event_risk",
+              "pass": true,
+              "detail": "event risk: medium"
+            },
+            {
+              "name": "liquidity",
+              "pass": true,
+              "detail": "liquidity $53,210.94 vs floor $2,000.00"
+            },
+            {
+              "name": "spread",
+              "pass": true,
+              "detail": "spread 0.010 vs limit 0.05"
+            },
+            {
+              "name": "history",
+              "pass": true,
+              "detail": "91 bars, 24.0h span"
+            },
+            {
+              "name": "chart_conflicts",
+              "pass": false,
+              "detail": "charts flagged: range-bound series with a down structure break"
+            },
+            {
+              "name": "rr_after_costs",
+              "pass": true,
+              "detail": "gross R:R 2.27 vs floor 1.5"
+            },
+            {
+              "name": "stop_vs_spread",
+              "pass": true,
+              "detail": "stop distance 0.022 vs spread 0.010; a stop inside the spread is noise"
+            },
+            {
+              "name": "entry_within_band",
+              "pass": true,
+              "detail": "planned entry is 0.0 from the quote (limit 0.12)"
+            },
+            {
+              "name": "unresolved_disagreements",
+              "pass": false,
+              "detail": "range-bound series with a down structure break"
+            },
+            {
+              "name": "net_reward_to_spread",
+              "pass": true,
+              "detail": "reward 0.050 is 5.0\u00d7 the spread"
+            },
+            {
+              "name": "net_rr",
+              "pass": false,
+              "detail": "net R:R 1.05 after 0.0132/share of costs vs floor 1.5"
+            },
+            {
+              "name": "size",
+              "pass": true,
+              "detail": "28 share(s)"
+            },
+            {
+              "name": "order_minimum",
+              "pass": true,
+              "detail": "28 share(s) vs exchange minimum 5"
+            },
+            {
+              "name": "position_cap",
+              "pass": true,
+              "detail": "1 of 5 position slots used (0 working)"
+            },
+            {
+              "name": "category_concentration",
+              "pass": true,
+              "detail": "0 of 2 allowed crypto positions"
+            },
+            {
+              "name": "event_concentration",
+              "pass": true,
+              "detail": "0 of 1 allowed positions on this event"
+            },
+            {
+              "name": "duplicate_question",
+              "pass": true,
+              "detail": "same question is already in the book or approved in this run"
+            }
+          ],
+          "reasons": [
+            "charts flagged: range-bound series with a down structure break",
+            "range-bound series with a down structure break",
+            "net R:R 1.05 after 0.0132/share of costs vs floor 1.5"
+          ],
+          "failed_checks": [
+            "chart_conflicts",
+            "unresolved_disagreements",
+            "net_rr"
+          ],
+          "plan": {
+            "market_id": "5742250",
+            "question": "Will Bitcoin dip to $80,000 in October?",
+            "url": "https://polymarket.com/market/will-bitcoin-dip-to-80k-in-october-2026-from-october-15",
+            "status": "plan",
+            "reason": null,
+            "side_key": "secondary",
+            "side": "No",
+            "side_index": 1,
+            "entry_type": "breakout",
+            "entry": 0.41,
+            "quote": 0.41,
+            "entry_distance": 0.0,
+            "entry_zone": [
+              0.395,
+              0.415
+            ],
+            "entry_trigger": "quote holds above 0.395 with the break intact",
+            "invalidation": 0.388,
+            "target": 0.46,
+            "risk_per_share": 0.022,
+            "reward_per_share": 0.05,
+            "gross_rr": 2.27,
+            "time_limit_utc": "2026-10-19T10:44:31Z",
+            "confidence": 65,
+            "evidence_used": {
+              "scout_score": 50,
+              "scout_reasons": [
+                "1h move 1.0% is 3.8\u03c3 vs its category",
+                "24h move 12.5% is 4.0\u03c3 vs its category",
+                "1h and 24h moves point the same way"
+              ],
+              "chart_trend": "range",
+              "chart_levels": {
+                "support": [
+                  0.395,
+                  0.385
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.395,
+                  "touches": 4,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.185,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.205,
+                    "touches": 3,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.265,
+                    "touches": 12,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.285,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.315,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.335,
+                    "touches": 2,
+                    "kind": "support"
+                  }
+                ]
+              },
+              "chart_conflicts": [
+                "range-bound series with a down structure break"
+              ],
+              "chart_warnings": [],
+              "news_sources": [
+                "24/7 Wall St.",
+                "Altcoin Buzz",
+                "CoinDCX",
+                "CryptoTicker",
+                "Decrypt",
+                "Pluang",
+                "TechBullion",
+                "TradingView"
+              ],
+              "news_direct_count": 4,
+              "news_tone": "cautious",
+              "news_count": 1,
+              "event_risk": "medium"
+            },
+            "disagreements": [
+              "range-bound series with a down structure break"
+            ]
+          }
+        },
+        {
           "market_id": "5610600",
           "question": "Will the price of Bitcoin be above $82,000 on October 19?",
           "url": "https://polymarket.com/market/bitcoin-above-82k-on-october-19-2026",
@@ -10590,7 +11003,7 @@
             {
               "name": "fresh_quote",
               "pass": true,
-              "detail": "quote snapshot is 7 min old (limit 60)"
+              "detail": "quote snapshot is 1 min old (limit 60)"
             },
             {
               "name": "fresh_news",
@@ -10610,7 +11023,7 @@
             {
               "name": "liquidity",
               "pass": true,
-              "detail": "liquidity $40,717.58 vs floor $2,000.00"
+              "detail": "liquidity $39,896.88 vs floor $2,000.00"
             },
             {
               "name": "spread",
@@ -10640,7 +11053,7 @@
             {
               "name": "entry_within_band",
               "pass": true,
-              "detail": "planned entry is 0.01 from the quote (limit 0.12)"
+              "detail": "planned entry is 0.03 from the quote (limit 0.12)"
             },
             {
               "name": "unresolved_disagreements",
@@ -10670,7 +11083,7 @@
             {
               "name": "position_cap",
               "pass": true,
-              "detail": "0 of 5 position slots used (0 working)"
+              "detail": "1 of 5 position slots used (0 working)"
             },
             {
               "name": "category_concentration",
@@ -10707,8 +11120,8 @@
             "side_index": 0,
             "entry_type": "breakout_retest",
             "entry": 0.76,
-            "quote": 0.77,
-            "entry_distance": 0.01,
+            "quote": 0.79,
+            "entry_distance": 0.03,
             "entry_zone": [
               0.75,
               0.766
@@ -10719,13 +11132,13 @@
             "risk_per_share": 0.021,
             "reward_per_share": 0.086,
             "gross_rr": 4.1,
-            "time_limit_utc": "2026-10-19T10:43:47Z",
+            "time_limit_utc": "2026-10-19T10:44:31Z",
             "confidence": 55,
             "evidence_used": {
               "scout_score": 50,
               "scout_reasons": [
-                "1h move 2.0% is 4.0\u03c3 vs its category",
-                "24h move 32.0% is 4.0\u03c3 vs its category",
+                "1h move 7.0% is 4.0\u03c3 vs its category",
+                "24h move 34.0% is 4.0\u03c3 vs its category",
                 "1h and 24h moves point the same way"
               ],
               "chart_trend": "range",
@@ -10905,7 +11318,7 @@
             {
               "name": "position_cap",
               "pass": true,
-              "detail": "0 of 5 position slots used (0 working)"
+              "detail": "1 of 5 position slots used (0 working)"
             },
             {
               "name": "category_concentration",
@@ -10960,7 +11373,7 @@
             "risk_per_share": 0.013,
             "reward_per_share": 0.051,
             "gross_rr": 3.92,
-            "time_limit_utc": "2026-10-19T10:43:47Z",
+            "time_limit_utc": "2026-10-19T10:44:31Z",
             "confidence": 65,
             "evidence_used": {
               "scout_score": 50,
@@ -11091,7 +11504,7 @@
           "side": "No",
           "category": "politics",
           "event_id": "81557",
-          "verdict": "REDUCED",
+          "verdict": "REJECTED",
           "checks": [
             {
               "name": "input_freshness",
@@ -11116,7 +11529,7 @@
             {
               "name": "fresh_news",
               "pass": true,
-              "detail": "4 fresh headline(s)"
+              "detail": "1 fresh headline(s)"
             },
             {
               "name": "news_required",
@@ -11191,39 +11604,32 @@
             {
               "name": "position_cap",
               "pass": true,
-              "detail": "0 of 5 position slots used (0 working)"
+              "detail": "1 of 5 position slots used (0 working)"
             },
             {
               "name": "category_concentration",
               "pass": true,
-              "detail": "0 of 2 allowed politics positions"
+              "detail": "1 of 2 allowed politics positions"
             },
             {
               "name": "event_concentration",
-              "pass": true,
-              "detail": "0 of 1 allowed positions on this event"
+              "pass": false,
+              "detail": "1 of 1 allowed positions on this event"
             },
             {
               "name": "duplicate_question",
-              "pass": true,
+              "pass": false,
               "detail": "same question is already in the book or approved in this run"
             }
           ],
-          "reasons": [],
-          "risk_notes": [
-            "size halved for medium event risk"
+          "reasons": [
+            "1 of 1 allowed positions on this event",
+            "same question is already in the book or approved in this run"
           ],
-          "size": {
-            "shares": 47,
-            "entry": 0.522,
-            "notional": 24.53,
-            "risk_dollars": 0.24,
-            "max_loss_pct_of_bankroll": 0.24,
-            "net_rr": 2.35,
-            "cost_per_share": 0.0114,
-            "exposure_after": 24.53,
-            "exposure_limit": 25.0
-          },
+          "failed_checks": [
+            "event_concentration",
+            "duplicate_question"
+          ],
           "plan": {
             "market_id": "682708",
             "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
@@ -11247,7 +11653,7 @@
             "risk_per_share": 0.005,
             "reward_per_share": 0.05,
             "gross_rr": 10.0,
-            "time_limit_utc": "2026-10-19T10:43:47Z",
+            "time_limit_utc": "2026-10-19T10:44:31Z",
             "confidence": 80,
             "evidence_used": {
               "scout_score": 37,
@@ -11314,17 +11720,17 @@
               "chart_warnings": [],
               "news_sources": [
                 "Al Jazeera",
-                "DW.com",
                 "Haaretz",
-                "Sky News",
+                "Responsible Statecraft",
+                "The Atlantic",
+                "The Free Press",
+                "The Guardian",
                 "The Jerusalem Post",
-                "The Times of Israel",
-                "Yahoo",
-                "Ynetnews"
+                "The Times of Israel"
               ],
               "news_direct_count": 1,
-              "news_tone": "constructive",
-              "news_count": 4,
+              "news_tone": "neutral",
+              "news_count": 1,
               "event_risk": "medium"
             },
             "disagreements": []
@@ -11452,12 +11858,12 @@
             {
               "name": "size",
               "pass": true,
-              "detail": "1 share(s)"
+              "detail": "77 share(s)"
             },
             {
               "name": "order_minimum",
-              "pass": false,
-              "detail": "1 share(s) vs exchange minimum 5"
+              "pass": true,
+              "detail": "77 share(s) vs exchange minimum 5"
             },
             {
               "name": "position_cap",
@@ -11481,12 +11887,10 @@
             }
           ],
           "reasons": [
-            "stop distance 0.007 vs spread 0.015; a stop inside the spread is noise",
-            "1 share(s) vs exchange minimum 5"
+            "stop distance 0.007 vs spread 0.015; a stop inside the spread is noise"
           ],
           "failed_checks": [
-            "stop_vs_spread",
-            "order_minimum"
+            "stop_vs_spread"
           ],
           "plan": {
             "market_id": "1235549",
@@ -11511,7 +11915,7 @@
             "risk_per_share": 0.007,
             "reward_per_share": 0.05,
             "gross_rr": 7.14,
-            "time_limit_utc": "2026-10-19T10:43:47Z",
+            "time_limit_utc": "2026-10-19T10:44:31Z",
             "confidence": 80,
             "evidence_used": {
               "scout_score": 36,
@@ -11676,13 +12080,13 @@
             },
             {
               "name": "size",
-              "pass": false,
-              "detail": "size rounds to zero (risk budget $1.00, exposure left $0.47, cash $100.00)"
+              "pass": true,
+              "detail": "28 share(s)"
             },
             {
               "name": "order_minimum",
-              "pass": false,
-              "detail": "0 share(s) vs exchange minimum 5"
+              "pass": true,
+              "detail": "28 share(s) vs exchange minimum 5"
             },
             {
               "name": "position_cap",
@@ -11710,8 +12114,6 @@
             "stop distance 0.005 vs spread 0.010; a stop inside the spread is noise",
             "chart trend is down while two or more direct headlines read constructive",
             "net R:R 1.00 after 0.0225/share of costs vs floor 1.5",
-            "size rounds to zero (risk budget $1.00, exposure left $0.47, cash $100.00)",
-            "0 share(s) vs exchange minimum 5",
             "1 of 1 allowed positions on this event"
           ],
           "failed_checks": [
@@ -11719,8 +12121,6 @@
             "stop_vs_spread",
             "unresolved_disagreements",
             "net_rr",
-            "size",
-            "order_minimum",
             "event_concentration"
           ],
           "plan": {
@@ -11746,13 +12146,13 @@
             "risk_per_share": 0.005,
             "reward_per_share": 0.05,
             "gross_rr": 10.0,
-            "time_limit_utc": "2026-10-19T10:43:47Z",
+            "time_limit_utc": "2026-10-19T10:44:31Z",
             "confidence": 80,
             "evidence_used": {
               "scout_score": 33,
               "scout_reasons": [
-                "24h move 2.0% is 2.9\u03c3 vs its category",
-                "24h volume 5.9\u00d7 the category median",
+                "24h move 2.0% is 3.2\u03c3 vs its category",
+                "24h volume 6.0\u00d7 the category median",
                 "870 comments on the event"
               ],
               "chart_trend": "up",
@@ -11824,10 +12224,13 @@
         }
       ],
       "risks": [
+        "Risk vetoed the whole board: nothing is cleared for a paper entry.",
         "Rejected Up on \"Bitcoin Up or Down on October 19?\": stop distance 0.009 vs spread 0.010; a stop inside the spread is noise",
         "Rejected Up on \"Ethereum Up or Down on October 19?\": charts flagged: range-bound series with a up structure break",
+        "Rejected No on \"Will Bitcoin dip to $80,000 in October?\": charts flagged: range-bound series with a down structure break",
         "Rejected Yes on \"Will the price of Bitcoin be above $82,000 on October 19?\": charts flagged: range-bound series with a up structure break",
         "Rejected No on \"Will the price of Bitcoin be between $80,000 and $82,000 on October 19?\": charts flagged: range-bound series with a down structure break",
+        "Rejected No on \"Will Gadi Eizenkot be the next Prime Minister of Israel?\": 1 of 1 allowed positions on this event",
         "Rejected Yes on \"Will the Tampa Bay Rays win the 2026 World Series?\": stop distance 0.007 vs spread 0.015; a stop inside the spread is noise",
         "Rejected No on \"Will Naftali Bennett be the next Prime Minister of Israel?\": charts flagged: chart trend is down while two or more direct headlines read constructive"
       ],
@@ -11835,12 +12238,12 @@
       "meta": {
         "bankroll": 100.0,
         "exposure_limit": 25.0,
-        "exposure_used": 24.53,
+        "exposure_used": 0.0,
         "risk_committed": 0.24,
-        "open_positions": 0,
-        "cash": 100.0,
-        "passed": 1,
-        "rejected": 6,
+        "open_positions": 1,
+        "cash": 75.47,
+        "passed": 0,
+        "rejected": 8,
         "common_checks": [
           {
             "name": "input_freshness",
@@ -11868,211 +12271,15 @@
     "boss": {
       "agent": "boss",
       "label": "BOSS",
-      "timestamp_utc": "2026-10-19T04:43:47Z",
+      "timestamp_utc": "2026-10-19T04:44:31Z",
       "status": "complete",
-      "summary": "1 plan(s) passed every stage with no unresolved disagreement. Approved for paper testing only.",
-      "evidence": [
-        {
-          "market_id": "682708",
-          "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
-          "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
-          "side": "No",
-          "category": "politics",
-          "event_id": "81557",
-          "entry": 0.522,
-          "entry_type": "pullback",
-          "quote": 0.529,
-          "invalidation": 0.517,
-          "target": 0.572,
-          "time_limit_utc": "2026-10-19T10:43:47Z",
-          "shares": 47,
-          "notional": 24.53,
-          "risk_dollars": 0.24,
-          "net_rr": 2.35,
-          "confidence": 80,
-          "evidence_used": {
-            "scout_score": 37,
-            "scout_reasons": [
-              "24h move 7.2% is 4.0\u03c3 vs its category",
-              "24h volume 6.2\u00d7 the category median",
-              "tight spread relative to price",
-              "870 comments on the event"
-            ],
-            "chart_trend": "up",
-            "chart_levels": {
-              "support": [
-                0.53,
-                0.5215
-              ],
-              "resistance": [
-                0.53,
-                0.5398
-              ],
-              "strong_support": {
-                "level": 0.53,
-                "touches": 4,
-                "kind": "either"
-              },
-              "strong_resistance": {
-                "level": 0.53,
-                "touches": 4,
-                "kind": "either"
-              },
-              "all_strong": [
-                {
-                  "level": 0.4565,
-                  "touches": 4,
-                  "kind": "either"
-                },
-                {
-                  "level": 0.465,
-                  "touches": 3,
-                  "kind": "either"
-                },
-                {
-                  "level": 0.4695,
-                  "touches": 13,
-                  "kind": "either"
-                },
-                {
-                  "level": 0.473,
-                  "touches": 4,
-                  "kind": "resistance"
-                },
-                {
-                  "level": 0.5215,
-                  "touches": 2,
-                  "kind": "support"
-                },
-                {
-                  "level": 0.53,
-                  "touches": 4,
-                  "kind": "either"
-                }
-              ]
-            },
-            "chart_conflicts": [],
-            "chart_warnings": [],
-            "news_sources": [
-              "Al Jazeera",
-              "DW.com",
-              "Haaretz",
-              "Sky News",
-              "The Jerusalem Post",
-              "The Times of Israel",
-              "Yahoo",
-              "Ynetnews"
-            ],
-            "news_direct_count": 1,
-            "news_tone": "constructive",
-            "news_count": 4,
-            "event_risk": "medium"
-          }
-        }
-      ],
+      "summary": "Risk rejected every plan (8). No paper entry is authorised.",
+      "evidence": [],
       "risks": [],
-      "next_step": "Log the entry, invalidation, target and time limit in the paper journal before the result is known.",
+      "next_step": "Review the failed check names, not the price. Do not loosen limits to force a trade.",
       "meta": {
-        "decision": "APPROVE_FOR_PAPER_TEST",
-        "approved": [
-          {
-            "market_id": "682708",
-            "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
-            "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
-            "side": "No",
-            "category": "politics",
-            "event_id": "81557",
-            "entry": 0.522,
-            "entry_type": "pullback",
-            "quote": 0.529,
-            "invalidation": 0.517,
-            "target": 0.572,
-            "time_limit_utc": "2026-10-19T10:43:47Z",
-            "shares": 47,
-            "notional": 24.53,
-            "risk_dollars": 0.24,
-            "net_rr": 2.35,
-            "confidence": 80,
-            "evidence_used": {
-              "scout_score": 37,
-              "scout_reasons": [
-                "24h move 7.2% is 4.0\u03c3 vs its category",
-                "24h volume 6.2\u00d7 the category median",
-                "tight spread relative to price",
-                "870 comments on the event"
-              ],
-              "chart_trend": "up",
-              "chart_levels": {
-                "support": [
-                  0.53,
-                  0.5215
-                ],
-                "resistance": [
-                  0.53,
-                  0.5398
-                ],
-                "strong_support": {
-                  "level": 0.53,
-                  "touches": 4,
-                  "kind": "either"
-                },
-                "strong_resistance": {
-                  "level": 0.53,
-                  "touches": 4,
-                  "kind": "either"
-                },
-                "all_strong": [
-                  {
-                    "level": 0.4565,
-                    "touches": 4,
-                    "kind": "either"
-                  },
-                  {
-                    "level": 0.465,
-                    "touches": 3,
-                    "kind": "either"
-                  },
-                  {
-                    "level": 0.4695,
-                    "touches": 13,
-                    "kind": "either"
-                  },
-                  {
-                    "level": 0.473,
-                    "touches": 4,
-                    "kind": "resistance"
-                  },
-                  {
-                    "level": 0.5215,
-                    "touches": 2,
-                    "kind": "support"
-                  },
-                  {
-                    "level": 0.53,
-                    "touches": 4,
-                    "kind": "either"
-                  }
-                ]
-              },
-              "chart_conflicts": [],
-              "chart_warnings": [],
-              "news_sources": [
-                "Al Jazeera",
-                "DW.com",
-                "Haaretz",
-                "Sky News",
-                "The Jerusalem Post",
-                "The Times of Israel",
-                "Yahoo",
-                "Ynetnews"
-              ],
-              "news_direct_count": 1,
-              "news_tone": "constructive",
-              "news_count": 4,
-              "event_risk": "medium"
-            }
-          }
-        ],
+        "decision": "REJECT",
+        "approved": [],
         "held": [],
         "integrity": [
           {
@@ -12098,25 +12305,26 @@
           {
             "name": "risk_gate_exists",
             "pass": true,
-            "detail": "13 plan(s) reviewed by risk"
+            "detail": "14 plan(s) reviewed by risk"
           },
           {
             "name": "risk_not_blanket_veto",
-            "pass": true,
-            "detail": "1 plan(s) cleared"
+            "pass": false,
+            "detail": "risk cleared nothing"
           }
         ],
         "disagreements": [
           "Ethereum Up or Down on October 19?: range-bound series with a up structure break",
+          "Will Bitcoin dip to $80,000 in October?: range-bound series with a down structure break",
           "Will the price of Bitcoin be above $82,000 on October 19?: range-bound series with a up structure break",
           "Will the price of Bitcoin be between $80,000 and $82,000 on October 19?: range-bound series with a down structure break",
           "Will Naftali Bennett be the next Prime Minister of Israel?: chart trend is down while two or more direct headlines read constructive"
         ],
         "counts": {
-          "plans": 7,
+          "plans": 8,
           "waits": 6,
-          "risk_passed": 1,
-          "risk_rejected": 6,
+          "risk_passed": 0,
+          "risk_rejected": 8,
           "missing_reports": [],
           "incomplete_reports": []
         },
@@ -12129,211 +12337,15 @@
   "boss": {
     "agent": "boss",
     "label": "BOSS",
-    "timestamp_utc": "2026-10-19T04:43:47Z",
+    "timestamp_utc": "2026-10-19T04:44:31Z",
     "status": "complete",
-    "summary": "1 plan(s) passed every stage with no unresolved disagreement. Approved for paper testing only.",
-    "evidence": [
-      {
-        "market_id": "682708",
-        "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
-        "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
-        "side": "No",
-        "category": "politics",
-        "event_id": "81557",
-        "entry": 0.522,
-        "entry_type": "pullback",
-        "quote": 0.529,
-        "invalidation": 0.517,
-        "target": 0.572,
-        "time_limit_utc": "2026-10-19T10:43:47Z",
-        "shares": 47,
-        "notional": 24.53,
-        "risk_dollars": 0.24,
-        "net_rr": 2.35,
-        "confidence": 80,
-        "evidence_used": {
-          "scout_score": 37,
-          "scout_reasons": [
-            "24h move 7.2% is 4.0\u03c3 vs its category",
-            "24h volume 6.2\u00d7 the category median",
-            "tight spread relative to price",
-            "870 comments on the event"
-          ],
-          "chart_trend": "up",
-          "chart_levels": {
-            "support": [
-              0.53,
-              0.5215
-            ],
-            "resistance": [
-              0.53,
-              0.5398
-            ],
-            "strong_support": {
-              "level": 0.53,
-              "touches": 4,
-              "kind": "either"
-            },
-            "strong_resistance": {
-              "level": 0.53,
-              "touches": 4,
-              "kind": "either"
-            },
-            "all_strong": [
-              {
-                "level": 0.4565,
-                "touches": 4,
-                "kind": "either"
-              },
-              {
-                "level": 0.465,
-                "touches": 3,
-                "kind": "either"
-              },
-              {
-                "level": 0.4695,
-                "touches": 13,
-                "kind": "either"
-              },
-              {
-                "level": 0.473,
-                "touches": 4,
-                "kind": "resistance"
-              },
-              {
-                "level": 0.5215,
-                "touches": 2,
-                "kind": "support"
-              },
-              {
-                "level": 0.53,
-                "touches": 4,
-                "kind": "either"
-              }
-            ]
-          },
-          "chart_conflicts": [],
-          "chart_warnings": [],
-          "news_sources": [
-            "Al Jazeera",
-            "DW.com",
-            "Haaretz",
-            "Sky News",
-            "The Jerusalem Post",
-            "The Times of Israel",
-            "Yahoo",
-            "Ynetnews"
-          ],
-          "news_direct_count": 1,
-          "news_tone": "constructive",
-          "news_count": 4,
-          "event_risk": "medium"
-        }
-      }
-    ],
+    "summary": "Risk rejected every plan (8). No paper entry is authorised.",
+    "evidence": [],
     "risks": [],
-    "next_step": "Log the entry, invalidation, target and time limit in the paper journal before the result is known.",
+    "next_step": "Review the failed check names, not the price. Do not loosen limits to force a trade.",
     "meta": {
-      "decision": "APPROVE_FOR_PAPER_TEST",
-      "approved": [
-        {
-          "market_id": "682708",
-          "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
-          "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
-          "side": "No",
-          "category": "politics",
-          "event_id": "81557",
-          "entry": 0.522,
-          "entry_type": "pullback",
-          "quote": 0.529,
-          "invalidation": 0.517,
-          "target": 0.572,
-          "time_limit_utc": "2026-10-19T10:43:47Z",
-          "shares": 47,
-          "notional": 24.53,
-          "risk_dollars": 0.24,
-          "net_rr": 2.35,
-          "confidence": 80,
-          "evidence_used": {
-            "scout_score": 37,
-            "scout_reasons": [
-              "24h move 7.2% is 4.0\u03c3 vs its category",
-              "24h volume 6.2\u00d7 the category median",
-              "tight spread relative to price",
-              "870 comments on the event"
-            ],
-            "chart_trend": "up",
-            "chart_levels": {
-              "support": [
-                0.53,
-                0.5215
-              ],
-              "resistance": [
-                0.53,
-                0.5398
-              ],
-              "strong_support": {
-                "level": 0.53,
-                "touches": 4,
-                "kind": "either"
-              },
-              "strong_resistance": {
-                "level": 0.53,
-                "touches": 4,
-                "kind": "either"
-              },
-              "all_strong": [
-                {
-                  "level": 0.4565,
-                  "touches": 4,
-                  "kind": "either"
-                },
-                {
-                  "level": 0.465,
-                  "touches": 3,
-                  "kind": "either"
-                },
-                {
-                  "level": 0.4695,
-                  "touches": 13,
-                  "kind": "either"
-                },
-                {
-                  "level": 0.473,
-                  "touches": 4,
-                  "kind": "resistance"
-                },
-                {
-                  "level": 0.5215,
-                  "touches": 2,
-                  "kind": "support"
-                },
-                {
-                  "level": 0.53,
-                  "touches": 4,
-                  "kind": "either"
-                }
-              ]
-            },
-            "chart_conflicts": [],
-            "chart_warnings": [],
-            "news_sources": [
-              "Al Jazeera",
-              "DW.com",
-              "Haaretz",
-              "Sky News",
-              "The Jerusalem Post",
-              "The Times of Israel",
-              "Yahoo",
-              "Ynetnews"
-            ],
-            "news_direct_count": 1,
-            "news_tone": "constructive",
-            "news_count": 4,
-            "event_risk": "medium"
-          }
-        }
-      ],
+      "decision": "REJECT",
+      "approved": [],
       "held": [],
       "integrity": [
         {
@@ -12359,25 +12371,26 @@
         {
           "name": "risk_gate_exists",
           "pass": true,
-          "detail": "13 plan(s) reviewed by risk"
+          "detail": "14 plan(s) reviewed by risk"
         },
         {
           "name": "risk_not_blanket_veto",
-          "pass": true,
-          "detail": "1 plan(s) cleared"
+          "pass": false,
+          "detail": "risk cleared nothing"
         }
       ],
       "disagreements": [
         "Ethereum Up or Down on October 19?: range-bound series with a up structure break",
+        "Will Bitcoin dip to $80,000 in October?: range-bound series with a down structure break",
         "Will the price of Bitcoin be above $82,000 on October 19?: range-bound series with a up structure break",
         "Will the price of Bitcoin be between $80,000 and $82,000 on October 19?: range-bound series with a down structure break",
         "Will Naftali Bennett be the next Prime Minister of Israel?: chart trend is down while two or more direct headlines read constructive"
       ],
       "counts": {
-        "plans": 7,
+        "plans": 8,
         "waits": 6,
-        "risk_passed": 1,
-        "risk_rejected": 6,
+        "risk_passed": 0,
+        "risk_rejected": 8,
         "missing_reports": [],
         "incomplete_reports": []
       },
@@ -12389,14 +12402,14 @@
     "mode": "paper",
     "currency": "USD",
     "starting_cash": 100.0,
-    "cash": 100.0,
-    "equity": 100.0,
+    "cash": 75.47,
+    "equity": 97.63,
     "realized_pnl": 0.0,
-    "unrealized_pnl": 0,
-    "total_pnl": 0.0,
-    "return_pct": 0.0,
-    "open_count": 0,
-    "working_count": 1,
+    "unrealized_pnl": -2.37,
+    "total_pnl": -2.37,
+    "return_pct": -2.37,
+    "open_count": 1,
+    "working_count": 0,
     "closed_count": 0,
     "win_count": 0,
     "loss_count": 0,
@@ -12405,28 +12418,31 @@
     "gross_loss": 0,
     "best_trade": 0,
     "worst_trade": 0,
-    "max_drawdown_pct": 0.0,
-    "open_positions": [],
-    "working_orders": [
+    "max_drawdown_pct": -2.37,
+    "open_positions": [
       {
-        "order_id": "W1792385027179-001",
+        "trade_id": "P1792385071507-001",
         "market_id": "682708",
         "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
         "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
         "side": "No",
-        "entry_type": "pullback",
-        "trigger": "limit",
+        "category": "politics",
         "entry": 0.522,
-        "quote_at_approval": 0.529,
-        "last_price": 0.529,
+        "last_price": 0.4715,
         "stop": 0.517,
         "target": 0.572,
         "shares": 47,
+        "cost_basis": 24.53,
+        "market_value": 22.16,
+        "unrealized_pnl": -2.37,
+        "unrealized_pct": -9.66,
         "risk_dollars": 0.24,
+        "opened_utc": "2026-10-19T04:44:31Z",
         "time_limit_utc": "2026-10-19T10:43:47Z",
-        "created_utc": "2026-10-19T04:43:47Z"
+        "last_mark_utc": "2026-10-19T04:44:31Z"
       }
     ],
+    "working_orders": [],
     "closed_trades": [],
     "equity_curve": [
       {
@@ -12448,23 +12464,26 @@
       {
         "t": "2026-10-19T04:43:47Z",
         "equity": 100.0
+      },
+      {
+        "t": "2026-10-19T04:44:31Z",
+        "equity": 97.63
       }
     ],
-    "updated_utc": "2026-10-19T04:43:47Z",
+    "updated_utc": "2026-10-19T04:44:31Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-    "filled_this_run": [],
-    "queued_this_run": [
+    "filled_this_run": [
       {
-        "order_id": "W1792385027179-001",
+        "trade_id": "P1792385071507-001",
         "market_id": "682708",
         "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
         "side": "No",
+        "shares": 47,
         "entry": 0.522,
-        "trigger": "limit",
-        "entry_type": "pullback",
-        "shares": 47
+        "filled_order": "W1792385027179-001"
       }
     ],
+    "queued_this_run": [],
     "opened_this_run": []
   },
   "validation": {
