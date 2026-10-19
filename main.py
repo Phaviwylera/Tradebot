@@ -96,8 +96,12 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     try:
-        overrides = {"source": args.source} if args.source else None
-        cfg = load_config(args.config, overrides)
+        overrides: dict[str, object] = {}
+        if args.source:
+            overrides["source"] = args.source
+        if args.seed:
+            overrides["test_seed"] = args.seed
+        cfg = load_config(args.config, overrides or None)
     except ConfigError as exc:
         print(f"Configuration error: {exc}", file=sys.stderr)
         return 2

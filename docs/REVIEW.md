@@ -94,7 +94,7 @@ Implementation: no performance claim is made anywhere. Test mode is labelled `SY
 | Risk veto | `run_risk()`; every plan gets named checks and a verdict |
 | Boss restricted | Three statuses only; cannot approve with a missing stage; cannot change limits |
 | Paper workflow | Saved run reports, JSON download, manual paper journal with outcomes, CSV/JSON export |
-| Tests | 32 tests covering config enforcement, schema, missing stages, staleness, missing sources, veto, concentration, sizing, determinism, persistence and absence of order code |
+| Tests | 33 tests covering config enforcement, schema, missing stages, staleness, missing sources, veto, concentration, sizing, determinism, persistence and absence of order code |
 
 The desk also adds things the document does not specify: cost-aware net R:R, conditional limit entries (pullback / breakout retest), a maximum stop distance, a maximum distance between the planned entry and the quote, duplicate-question rejection, event/category concentration, and an explicit audit trail of every check.
 

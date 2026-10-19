@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import tempfile
 import time
 import traceback
@@ -133,6 +134,10 @@ def _run_id(started_ms: int, source: str, directory: Path) -> str:
     return candidate
 
 
+PUBLIC_RUN_LIMIT = 5
+_RUN_FILE = re.compile(r"^\d{8}T\d{6}Z-(fixture|test|live)(-\d+)?\.json$")
+
+
 def save_run(run: dict[str, Any], cfg: Config) -> dict[str, str]:
     directory = _report_dir(cfg)
     directory.mkdir(parents=True, exist_ok=True)
@@ -155,9 +160,36 @@ def save_run(run: dict[str, Any], cfg: Config) -> dict[str, str]:
     if cfg.public_copy:
         public_reports = _public_dir() / "reports"
         public_run = {key: value for key, value in run.items() if key != "files"}
-        # A static copy can only serve the newest snapshot, so its index lists exactly that run.
-        public_index = {"updated_at": run["finished_utc"], "runs": [run_index_entry(run)]}
         _atomic_write(public_reports / "latest.json", json.dumps(public_run, indent=2) + "\n")
+
+        # Publish the newest runs so the static dashboard can browse history too.
+        published: list[dict[str, Any]] = []
+        names: set[str] = set()
+        candidates = sorted(
+            (path for path in directory.glob("*.json")
+             if path.name not in ("index.json", "latest.json")),
+            key=lambda path: path.stat().st_mtime, reverse=True)
+        for path in candidates[:PUBLIC_RUN_LIMIT]:
+            try:
+                payload = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                continue
+            if not isinstance(payload, dict) or "reports" not in payload:
+                continue
+            _atomic_write(public_reports / path.name,
+                          json.dumps({k: v for k, v in payload.items() if k != "files"},
+                                     indent=2) + "\n")
+            names.add(path.name)
+            published.append(run_index_entry(payload))
+
+        # Remove snapshots that have aged out, so the folder does not grow without bound.
+        for stale in public_reports.glob("*.json"):
+            if stale.name in ("index.json", "latest.json") or stale.name in names:
+                continue
+            if _RUN_FILE.match(stale.name):
+                stale.unlink(missing_ok=True)
+
+        public_index = {"updated_at": run["finished_utc"], "runs": published}
         _atomic_write(public_reports / "index.json", json.dumps(public_index, indent=2) + "\n")
     return {"json": str(json_path), "markdown": str(directory / f"{run_id}.md")}
 

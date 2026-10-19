@@ -373,6 +373,21 @@ class SafetyTests(unittest.TestCase):
         self.assertIn("/reports/latest.json", script)
         self.assertNotIn("localhost:8765", script)
         self.assertIn("Opus Agent Desk", html)
+        for anchor in ("hero-decision", "kpis", "exposure", "pipeline", "categories",
+                       "scout-table", "news-feed", "charts-grid", "strategy-list",
+                       "risk-list", "journal-list", "terminal-log", "raw-json", "limits"):
+            self.assertIn(f'id="{anchor}"', html, f"dashboard anchor missing: {anchor}")
+
+    def test_published_snapshots_are_static_browsable(self):
+        directory = ROOT / "public" / "reports"
+        index = json.loads((directory / "index.json").read_text(encoding="utf-8"))
+        self.assertGreaterEqual(len(index["runs"]), 1)
+        decisions = set()
+        for entry in index["runs"]:
+            self.assertEqual(validate_run(json.loads((directory / f"{entry['run_id']}.json").read_text())), [])
+            decisions.add(entry["decision"])
+        # The shipped snapshots demonstrate all three reachable Boss statuses.
+        self.assertEqual(decisions, {"APPROVE_FOR_PAPER_TEST", "WAIT", "REJECT"})
 
     def test_contract_files_exist(self):
         for name in ("scout", "news", "charts", "strategy", "risk", "boss"):

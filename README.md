@@ -96,10 +96,26 @@ reports/latest.json                     pointer copy of the newest run
 public/reports/latest.json              committed snapshot for static hosting
 ```
 
-The dashboard reads `latest.json` (or `/api/latest` when the Python server is running) and renders
-the six reports: the Scout table, News sources, Chart sparklines, Strategy plans and WAIT reasons,
-the Risk checks and sizes, and the Boss decision with integrity checks. It also has a paper journal
-that you update by hand after a result is known.
+## The dashboard
+
+`public/` is a command-centre style terminal: a dark panel wall with a decision panel, run KPIs,
+risk-utilisation gauges, the six-stage pipeline, a market scanner, a sourced newswire, a chart grid,
+plan tickets, the risk check list, the paper journal and a raw-report terminal.
+
+It reads `latest.json` (or `/api/latest` when the Python server is running) and, when a history
+index exists, lets you switch between published runs. Three snapshots ship in `public/reports/` so
+the static deployment demonstrates every reachable outcome: an approve run, a WAIT run and a REJECT
+run.
+
+The page is plain HTML/CSS/JS with **no build step** and no external requests. It can be served by
+the Python server, any static host, or Vercel:
+
+```bash
+npx vercel --prod        # or connect the repo; output directory is public/
+```
+
+On a static host the Run button is disabled on purpose: running the pipeline needs the Python
+server, and there is deliberately no server-side order route to expose.
 
 ## Data sources
 
@@ -138,7 +154,7 @@ tools/desk/pipeline.py   runner, schema validation, persistence, Markdown summar
 tools/desk/server.py     static dashboard + read-only JSON API
 public/                  dashboard (HTML/CSS/JS), no build step
 reports/                 local run output (git-ignored)
-public/reports/          committed newest snapshot for static hosting
+public/reports/          published snapshots (latest + browsable history) for static hosting
 tests/test_desk.py       32 tests
 docs/HOW_IT_WORKS.md     method, formulas and limits
 docs/REVIEW.md           what the guide gets right and where it breaks

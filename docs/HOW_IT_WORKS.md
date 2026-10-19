@@ -174,8 +174,9 @@ requires all six reports, a valid Boss decision, and `mode: paper` with `allow_l
 A validation failure raises `PipelineError` and **does not save**.
 
 Saved runs: `reports/<YYYYMMDDTHHMMSSZ>-<source>.json`, a matching `.md`, `latest.json` and
-`index.json` (30 runs). Writes are atomic (temp file, fsync, replace). The newest run is also copied
-to `public/reports/` for static hosting.
+`index.json` (30 runs). Writes are atomic (temp file, fsync, replace). The newest five runs are also
+copied to `public/reports/` (without local file paths) so the static dashboard can browse history;
+older published snapshots are pruned automatically.
 
 ## Determinism and testing
 

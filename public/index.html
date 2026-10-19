@@ -4,100 +4,230 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>Opus Agent Desk — six agents, one paper decision</title>
-<meta name="description" content="A six-stage paper-trading research desk for Polymarket. Scout, News, Charts, Strategy, Risk and Boss. Reports are saved with timestamps. No wallet, no orders.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b141a'/%3E%3Crect x='7' y='17' width='4' height='9' rx='1' fill='%233ddbc6' opacity='.6'/%3E%3Crect x='14' y='8' width='4' height='18' rx='1' fill='%233ddbc6'/%3E%3Crect x='21' y='13' width='4' height='13' rx='1' fill='%233ddbc6' opacity='.8'/%3E%3C/svg%3E">
+<title>Opus Agent Desk — AI trading research terminal</title>
+<meta name="description" content="Six-stage paper-trading research terminal for Polymarket. Scout, News, Charts, Strategy, Risk and Boss. Timestamped reports. No wallet, no order execution.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23050b0f'/%3E%3Cpath d='M7 22l5-7 4 3 4-6 5 4' stroke='%2337e0b0' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='25' cy='16' r='1.6' fill='%2337e0b0'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<a class="skip" href="#agents">Skip to agent reports</a>
-<noscript><div class="banner error" style="margin:14px">This dashboard needs JavaScript. The pipeline itself runs without a browser: <code>python main.py</code>. No order endpoint exists either way.</div></noscript>
+<a class="skip" href="#terminal">Skip to the report terminal</a>
+<noscript><div class="banner error" style="margin:14px">This terminal needs JavaScript. The pipeline itself runs without a browser: <code>python3 main.py</code>. No order endpoint exists either way.</div></noscript>
 
-<header class="topbar">
-  <div class="brand">
-    <div class="mark" aria-hidden="true"><span></span><span></span><span></span></div>
-    <div class="brand-text">
-      <h1>Opus Agent Desk</h1>
-      <p>Six stages. One decision. Paper only.</p>
-    </div>
-  </div>
-
-  <div class="topbar-actions">
-    <div class="seg" role="group" aria-label="Data source for the next run">
-      <button type="button" class="seg-btn" data-source="fixture" aria-pressed="true">Fixture</button>
-      <button type="button" class="seg-btn" data-source="live" aria-pressed="false">Live</button>
-    </div>
-    <button type="button" id="run" class="btn btn-primary">
-      <span class="btn-dot" aria-hidden="true"></span><span id="run-label">Run desk</span>
-    </button>
-  </div>
-</header>
-
-<div id="banner" class="banner" role="note"></div>
-
-<main>
-  <section class="statbar" id="statbar" aria-label="Run summary"></section>
-  <nav class="pipeline" id="pipeline" aria-label="Agent pipeline"></nav>
-
-  <div class="layout">
-    <div class="main-col" id="agents">
-      <div class="empty" id="empty-state">
-        <p class="eyebrow">Ready</p>
-        <h2>Scan the board. Let risk say no.</h2>
-        <p class="lead">Scout ranks unusual activity across the market universe. News attaches dated sources.
-          Charts describes trend and structure. Strategy writes one conditional plan per candidate. Risk can veto
-          any plan. Boss returns one status: approve for paper test, wait, or reject.</p>
-        <div class="empty-grid">
-          <div><strong>1 · Scout</strong><span>unusual price, volume and movement</span></div>
-          <div><strong>2 · News</strong><span>dated sources, claims vs speculation</span></div>
-          <div><strong>3 · Charts</strong><span>trend, momentum, support, resistance</span></div>
-          <div><strong>4 · Strategy</strong><span>entry, invalidation, target, time limit</span></div>
-          <div><strong>5 · Risk</strong><span>sizing and veto power</span></div>
-          <div><strong>6 · Boss</strong><span>approve, wait or reject</span></div>
-        </div>
-        <button type="button" class="btn btn-primary" data-action="run">Run the desk</button>
-        <p class="fine" id="empty-hint">No saved runs yet. Run the desk to produce six timestamped reports.</p>
+<div class="app">
+  <!-- ------------------------------------------------------------ rail -->
+  <aside class="rail">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><path d="M6 30l8-11 6 5 6-10 8 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="34" cy="21" r="2.4" fill="currentColor"/></svg>
+      </div>
+      <div class="brand-text">
+        <strong>OPUS</strong>
+        <span>AGENT DESK</span>
       </div>
     </div>
 
-    <aside class="side-col">
-      <section class="card verdict-card" id="verdict" aria-live="polite"></section>
-      <section class="card" id="limits-card"></section>
-      <section class="card" id="history-card"></section>
-      <section class="card" id="journal-card"></section>
-      <section class="card about" id="about-card">
-        <h3>Hard rules</h3>
-        <ul class="limits">
-          <li><strong>No orders.</strong> No wallet, key, signer or execution endpoint exists in this project.</li>
-          <li><strong>Paper only.</strong> <code>config.yaml</code> sets <code>mode: paper</code> and <code>allow_live_orders: false</code>; the runner refuses anything else.</li>
-          <li><strong>No model guessing.</strong> All six stages are deterministic code, not prompts to a language model.</li>
-          <li><strong>No promised edge.</strong> A clean report means the workflow completed safely, not that the trade wins.</li>
-          <li><strong>Manual approval.</strong> Nothing acts on a plan without a human.</li>
-        </ul>
-        <details class="failure-modes">
-          <summary>Where this kind of setup usually fails</summary>
-          <ul class="limits">
-            <li><strong>Unusual ≠ tradable.</strong> Most volume spikes are already priced in.</li>
-            <li><strong>Headlines are claims.</strong> The News stage reads titles and timestamps, not article bodies.</li>
-            <li><strong>Levels are noisy.</strong> Support and resistance are context, never a guarantee.</li>
-            <li><strong>Fees decide marginal trades.</strong> The gate charges spread and a cost buffer before approval.</li>
-            <li><strong>Synthetic trends are kind.</strong> Fixture approval rates say nothing about live performance.</li>
-            <li><strong>Six stages are not independent.</strong> They share inputs; treat the pipeline as a checklist.</li>
-          </ul>
-        </details>
-        <p class="fine">Method and limits: <code>docs/HOW_IT_WORKS.md</code>. Setup review: <code>docs/REVIEW.md</code>. Paper-trading research, not financial advice.</p>
-      </section>
-    </aside>
-  </div>
-</main>
+    <nav class="rail-nav" aria-label="Desk sections">
+      <a href="#overview" class="active"><span class="dot"></span>Overview</a>
+      <a href="#scanner"><span class="dot"></span>Scanner</a>
+      <a href="#newswire"><span class="dot"></span>Newswire</a>
+      <a href="#charts"><span class="dot"></span>Charts</a>
+      <a href="#strategy"><span class="dot"></span>Strategy</a>
+      <a href="#risk"><span class="dot"></span>Risk gate</a>
+      <a href="#terminal"><span class="dot"></span>Reports</a>
+    </nav>
 
-<footer>
-  <span>Opus Agent Desk v1.0 · paper-trading research only · no financial advice</span>
-  <span id="footer-meta"></span>
-</footer>
+    <div class="rail-block">
+      <div class="rail-label">Data source</div>
+      <div class="seg" role="group" aria-label="Data source for the next run">
+        <button type="button" class="seg-btn" data-source="fixture" aria-pressed="true">Fixture</button>
+        <button type="button" class="seg-btn" data-source="live" aria-pressed="false">Live</button>
+      </div>
+      <button type="button" id="run" class="btn btn-primary run-btn">
+        <span class="btn-dot" aria-hidden="true"></span><span id="run-label">Run desk</span>
+      </button>
+      <div class="rail-note" id="rail-status">paper mode · no orders</div>
+    </div>
+
+    <div class="rail-block">
+      <div class="rail-label">Saved runs</div>
+      <select id="run-select" aria-label="Saved run"><option>no runs</option></select>
+      <div class="rail-note" id="history-note">latest snapshot</div>
+    </div>
+
+    <div class="rail-foot">
+      <div class="badge-lock"><span class="lock-dot"></span>Paper only</div>
+      <p>No wallet, key or order endpoint exists in this project.</p>
+    </div>
+  </aside>
+
+  <!-- ------------------------------------------------------- workspace -->
+  <div class="workspace">
+    <header class="topbar">
+      <div class="crumb">
+        <span class="crumb-root">DESK</span><span class="sep">/</span><span id="crumb">OVERVIEW</span>
+      </div>
+      <div class="tape" aria-label="Watchlist ticker"><div class="tape-track" id="ticker"></div></div>
+      <div class="top-meta">
+        <div class="clock" id="clock">--:--:-- UTC</div>
+        <div class="mode-chip" id="mode-chip">PAPER</div>
+        <div class="run-chip" id="run-chip">no run</div>
+      </div>
+    </header>
+
+    <div id="banner" class="banner" role="note"></div>
+
+    <main>
+      <!-- hero -->
+      <section class="row hero" id="overview">
+        <article class="panel decision-panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>BOSS · FINAL DECISION</div>
+            <div class="panel-tools"><span class="chip" id="decision-run">no run</span></div>
+          </div>
+          <div class="decision-body" id="hero-decision"></div>
+        </article>
+
+        <article class="panel kpi-panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>RUN METRICS</div>
+            <div class="panel-tools"><span class="chip">stage pipeline</span></div>
+          </div>
+          <div class="kpi-grid" id="kpis"></div>
+          <div class="kpi-foot" id="kpi-foot"></div>
+        </article>
+
+        <article class="panel exposure-panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>RISK UTILISATION</div>
+            <div class="panel-tools"><span class="chip" id="exposure-chip">—</span></div>
+          </div>
+          <div class="exposure-body" id="exposure"></div>
+        </article>
+      </section>
+
+      <!-- pipeline + categories -->
+      <section class="row mid">
+        <article class="panel pipeline-panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>AGENT PIPELINE</div>
+            <div class="panel-tools"><span class="chip" id="pipeline-chip">queued</span></div>
+          </div>
+          <div class="pipeline" id="pipeline"></div>
+        </article>
+
+        <article class="panel category-panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>UNIVERSE MIX</div>
+            <div class="panel-tools"><span class="chip" id="mix-chip">520 markets</span></div>
+          </div>
+          <div class="category-body" id="categories"></div>
+        </article>
+      </section>
+
+      <!-- scanner + news -->
+      <section class="row split">
+        <article class="panel scanner-panel" id="scanner">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>SCOUT · MARKET SCANNER</div>
+            <div class="panel-tools">
+              <span class="chip" id="scout-count">—</span>
+              <span class="chip ghost" id="scout-source">—</span>
+            </div>
+          </div>
+          <div class="panel-sub" id="scout-sub">Unusual movement normalised inside each category.</div>
+          <div id="scout-table" class="table-host"></div>
+        </article>
+
+        <article class="panel news-panel" id="newswire">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>NEWS · SOURCED HEADLINES</div>
+            <div class="panel-tools"><span class="chip" id="news-chip">—</span></div>
+          </div>
+          <div class="panel-sub" id="news-sub">Claims, not facts. Every item carries a source and a timestamp.</div>
+          <div id="news-feed" class="news-host"></div>
+        </article>
+      </section>
+
+      <!-- charts -->
+      <section class="panel charts-panel" id="charts">
+        <div class="panel-head">
+          <div class="panel-title"><span class="led"></span>CHARTS · TREND &amp; STRUCTURE</div>
+          <div class="panel-tools">
+            <span class="chip" id="charts-count">—</span>
+            <span class="chip ghost" id="charts-conflicts">—</span>
+          </div>
+        </div>
+        <div id="charts-grid" class="charts-grid"></div>
+      </section>
+
+      <!-- strategy + risk -->
+      <section class="row split2">
+        <article class="panel strategy-panel" id="strategy">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>STRATEGY · PLAN TICKETS</div>
+            <div class="panel-tools"><span class="chip" id="strategy-chip">—</span></div>
+          </div>
+          <div class="panel-sub" id="strategy-sub">One conditional plan per market, or WAIT with the reason.</div>
+          <div id="strategy-list" class="ticket-host"></div>
+        </article>
+
+        <article class="panel risk-panel" id="risk">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>RISK · GATEKEEPER</div>
+            <div class="panel-tools"><span class="chip" id="risk-chip">—</span></div>
+          </div>
+          <div class="panel-sub" id="risk-sub">Any failed check is a veto. Risk is never overruled.</div>
+          <div id="risk-list" class="risk-host"></div>
+        </article>
+      </section>
+
+      <!-- journal + terminal -->
+      <section class="row split2">
+        <article class="panel journal-panel" id="journal">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>PAPER JOURNAL</div>
+            <div class="panel-tools">
+              <span class="chip" id="journal-chip">0 pending</span>
+              <button class="btn btn-small btn-ghost" data-action="download-journal">Export</button>
+            </div>
+          </div>
+          <div class="panel-sub">Log the plan before the outcome is known. Outcomes are entered by hand.</div>
+          <div id="journal-list" class="journal-host"></div>
+        </article>
+
+        <article class="panel terminal-panel" id="terminal">
+          <div class="panel-head">
+            <div class="panel-title"><span class="led"></span>REPORT TERMINAL</div>
+            <div class="panel-tools">
+              <select id="raw-select" aria-label="Raw report">
+                <option value="boss">boss.json</option>
+              </select>
+              <button class="btn btn-small btn-ghost" data-action="download-report">Download</button>
+            </div>
+          </div>
+          <div id="terminal-log" class="terminal-log"></div>
+          <pre id="raw-json" class="raw-json" aria-label="Raw report JSON"></pre>
+        </article>
+      </section>
+
+      <section class="panel limits-panel">
+        <div class="panel-head">
+          <div class="panel-title"><span class="led"></span>DESK LIMITS · CONFIG</div>
+          <div class="panel-tools"><span class="chip">read from the saved run</span></div>
+        </div>
+        <div id="limits" class="limits-grid"></div>
+      </section>
+    </main>
+
+    <footer>
+      <span>OPUS AGENT DESK v1.0 · six agents · paper only</span>
+      <span>No financial advice. A clean run means the workflow completed safely — not that the trade wins.</span>
+      <span id="footer-meta">no run loaded</span>
+    </footer>
+  </div>
+</div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<script type="module" src="assets/app.js"></script>
+<script src="assets/app.js" defer></script>
 </body>
 </html>
