@@ -1117,11 +1117,65 @@ function journalCsv(entries) {
 /* render + events                                                     */
 /* ------------------------------------------------------------------ */
 
+function renderHeroStats() {
+  const run = state.run;
+  const paper = run?.paper || {};
+  const meta = run?.reports?.boss?.meta || {};
+  const counts = meta.counts || {};
+  const decision = meta.decision || '';
+  const kind = decision === 'APPROVE_FOR_PAPER_TEST' ? 'good'
+    : decision === 'REJECT' ? 'bad' : decision === 'WAIT' ? 'wait' : '';
+  const label = decision === 'APPROVE_FOR_PAPER_TEST' ? 'APPROVE' : decision || '—';
+
+  const put = (id, text, className) => {
+    const node = document.getElementById(id);
+    if (!node) return;
+    node.textContent = text;
+    if (className !== undefined) node.className = className;
+  };
+
+  put('stat-decision', label, `hero-stat-v ${kind}`.trim());
+  put('stat-decision-meta', run
+    ? `${arr(meta.approved).length} approved · ${num(counts.waits ?? 0, 0)} on wait`
+    : 'six stages · one gate');
+
+  const equity = Number(paper.equity);
+  const bankroll = Number(run?.config?.bankroll ?? 100);
+  put('stat-equity', money(Number.isFinite(equity) ? equity : bankroll, 2), 'hero-stat-v yellow');
+  put('stat-equity-meta', run
+    ? `${signedMoney(paper.total_pnl)} total P&L · ${Number(paper.return_pct) >= 0 ? '+' : ''}${num(paper.return_pct ?? 0, 2)}%`
+    : 'simulated · never topped up');
+
+  put('stat-universe', run?.universe?.size != null ? String(run.universe.size) : '—');
+  put('stat-universe-meta', !run ? 'Gamma · 24h volume'
+    : run.universe?.synthetic ? 'synthetic fixtures · labeled'
+    : run.source === 'live' ? 'live Polymarket · 24h volume' : 'fixtures · read-only');
+
+  put('stat-positions', run ? String(paper.open_count ?? 0) : '0');
+  put('stat-positions-meta', run
+    ? `${paper.closed_count ?? 0} closed · ${num(paper.win_rate ?? 0, 0)}% win rate`
+    : 'one per market');
+
+  const live = document.getElementById('mast-live');
+  if (live) {
+    live.textContent = !run ? 'PAPER RESEARCH TERMINAL'
+      : run.source === 'live' ? 'LIVE · POLYMARKET' : 'FIXTURE BOARD · TEST DATA';
+    live.className = `mast-live${run ? (run.source === 'live' ? ' is-live' : ' is-fixture') : ''}`;
+  }
+  put('hero-updated', run
+    ? `last run ${String(run.run_id).slice(11, 19)}Z · ${run.source}`
+    : 'awaiting the next live run');
+
+  put('wall-equity-value', Number.isFinite(equity) ? money(equity, 2) : money(bankroll, 2));
+  put('wall-pnl-value', run ? signedMoney(paper.total_pnl) : '$0.00');
+}
+
 function renderAll() {
   renderChrome();
   renderBanner();
   renderTicker();
   renderHero();
+  renderHeroStats();
   renderKpis();
   renderExposure();
   renderBook();
