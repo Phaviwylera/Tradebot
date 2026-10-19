@@ -973,7 +973,8 @@ def run_risk(strategy_report: dict[str, Any], news_report: dict[str, Any],
         for order in working_orders
     ]
     book_items = list(open_positions) + reserved
-    exposure = sum(num(position.get("notional"), 0) for position in book_items)
+    exposure = sum(num(position.get("notional") or position.get("cost_basis"), 0)
+                   for position in book_items)
     risk_committed = sum(num(position.get("risk_dollars"), 0) for position in book_items)
     category_counts: dict[str, int] = {}
     event_counts: dict[str, int] = {}
