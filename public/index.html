@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#04070e">
 <title>Opus Agent Desk — AI trading research terminal</title>
 <meta name="description" content="Six-stage paper-trading research terminal for Polymarket. Scout, News, Charts, Strategy, Risk and Boss. Timestamped reports. No wallet, no order execution.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23050b0f'/%3E%3Cpath d='M7 22l5-7 4 3 4-6 5 4' stroke='%2337e0b0' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='25' cy='16' r='1.6' fill='%2337e0b0'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff4438'/%3E%3Cpath d='M6 23l6-8 4 3 5-7 5 4' stroke='%23ffd23f' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -93,9 +94,9 @@
         </h1>
 
         <p class="masthead-sub">
-          Scout &rarr; News &rarr; Charts &rarr; Strategy &rarr; Risk &rarr; Boss. Six deterministic agents read
-          public Polymarket prices and dated headlines, veto what the rules do not allow, and mark a
-          <b>$100 paper book</b>. No wallet, no broker, no order endpoint.
+          Six autonomous research agents read real Polymarket prices, real dated headlines and real
+          price history every 15 minutes. Scout &rarr; News &rarr; Charts &rarr; Strategy &rarr; Risk &rarr; Boss
+          size, veto and mark a <b>$100 paper book</b>. No wallet, no broker, no order endpoint.
         </p>
 
         <div class="masthead-cta">
@@ -110,6 +111,8 @@
       </div>
 
       <div class="masthead-wall" aria-hidden="true">
+        <span class="wall-ghost ghost-a"></span>
+        <span class="wall-ghost ghost-b"></span>
         <div class="wall-monitor wall-a">
           <div class="wall-bar"><span class="wall-tag">LIVE FEED &middot; 15M</span><span class="wall-live"><i></i>GAMMA</span></div>
           <svg viewBox="0 0 320 150" preserveAspectRatio="none">
@@ -180,8 +183,9 @@
           </div>
         </div>
 
-        <span class="wall-note note-a">$100 BOOK</span>
+        <span class="wall-note note-a">$100 PAPER BOOK</span>
         <span class="wall-note note-b">RISK GATE</span>
+        <span class="wall-note note-c">LIVE DATA</span>
         <span class="wall-caption">SCHEMATIC &middot; NOT A FORECAST</span>
       </div>
 
