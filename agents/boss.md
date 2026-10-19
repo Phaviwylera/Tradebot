@@ -1,7 +1,6 @@
 # BOSS — final coordinator
 
-> Stage 6 of the Opus Agent Desk. This file is the role contract the runner reads before the
-> stage executes. The implementation is deterministic code, not a language model.
+> Stage 6 of the Opus Agent Desk. This file is the role contract the runner hashes into every saved run. The implementation is deterministic code, not a language model.
 
 ## Mission
 
@@ -33,4 +32,4 @@ one final status.
 
 ## Implementation
 
-`runBoss()` in `public/assets/agents.js`.
+`run_boss()` in `tools/desk/agents.py`; integrity checks in `tools/desk/pipeline.py`.

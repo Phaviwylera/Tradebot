@@ -1,7 +1,6 @@
 # STRATEGY — plan builder
 
-> Stage 4 of the Opus Agent Desk. This file is the role contract the runner reads before the
-> stage executes. The implementation is deterministic code, not a language model.
+> Stage 4 of the Opus Agent Desk. This file is the role contract the runner hashes into every saved run. The implementation is deterministic code, not a language model.
 
 ## Mission
 
@@ -38,4 +37,4 @@ the rules do not line up, return `WAIT`. Never force a setup.
 
 ## Implementation
 
-`runStrategy()` in `public/assets/agents.js`.
+`run_strategy()` in `tools/desk/agents.py`.

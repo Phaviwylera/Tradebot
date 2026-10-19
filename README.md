@@ -139,7 +139,7 @@ tools/desk/server.py     static dashboard + read-only JSON API
 public/                  dashboard (HTML/CSS/JS), no build step
 reports/                 local run output (git-ignored)
 public/reports/          committed newest snapshot for static hosting
-tests/test_desk.py       30 tests
+tests/test_desk.py       32 tests
 docs/HOW_IT_WORKS.md     method, formulas and limits
 docs/REVIEW.md           what the guide gets right and where it breaks
 ```

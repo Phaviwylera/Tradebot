@@ -1,7 +1,6 @@
 # CHARTS — technical review
 
-> Stage 3 of the Opus Agent Desk. This file is the role contract the runner reads before the
-> stage executes. The implementation is deterministic code, not a language model.
+> Stage 3 of the Opus Agent Desk. This file is the role contract the runner hashes into every saved run. The implementation is deterministic code, not a language model.
 
 ## Mission
 
@@ -35,4 +34,4 @@ never predict a guaranteed outcome.
 
 ## Implementation
 
-`analyseSeries()` and `runCharts()` in `public/assets/agents.js`.
+`analyse_series()` and `run_charts()` in `tools/desk/agents.py`.

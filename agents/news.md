@@ -1,7 +1,6 @@
 # NEWS — context and sourcing
 
-> Stage 2 of the Opus Agent Desk. This file is the role contract the runner reads before the
-> stage executes. The implementation is deterministic code, not a language model.
+> Stage 2 of the Opus Agent Desk. This file is the role contract the runner hashes into every saved run. The implementation is deterministic code, not a language model.
 
 ## Mission
 
@@ -36,4 +35,4 @@ signal.
 
 ## Implementation
 
-`runNews()` in `public/assets/agents.js`.
+`run_news()` in `tools/desk/agents.py`; feeds from `tools/desk/data.py`.

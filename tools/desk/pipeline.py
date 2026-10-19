@@ -226,6 +226,10 @@ def load_run(cfg: Config, run_id: str) -> dict[str, Any] | None:
 # markdown report
 # --------------------------------------------------------------------------- #
 
+def _cell(value: Any) -> str:
+    return str(value if value is not None else "—").replace("|", "\\|").replace("\n", " ")
+
+
 def render_markdown(run: dict[str, Any]) -> str:
     reports = run["reports"]
     boss = reports.get("boss") or {}
@@ -256,7 +260,7 @@ def render_markdown(run: dict[str, Any]) -> str:
         ]
         for trade in approved:
             lines.append(
-                f"| {trade['question']} | {trade['side']} | {trade['entry']:.3f} | "
+                f"| {_cell(trade['question'])} | {_cell(trade['side'])} | {trade['entry']:.3f} | "
                 f"{trade['invalidation']:.3f} | {trade['target']:.3f} | {trade['shares']} | "
                 f"${trade['risk_dollars']:.2f} | {trade['net_rr']:.2f} | {trade['time_limit_utc']} |"
             )

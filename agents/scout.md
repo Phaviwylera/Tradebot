@@ -1,7 +1,6 @@
 # SCOUT — market discovery
 
-> Stage 1 of the Opus Agent Desk. This file is the role contract the runner reads before the
-> stage executes. The implementation is deterministic code, not a language model.
+> Stage 1 of the Opus Agent Desk. This file is the role contract the runner hashes into every saved run. The implementation is deterministic code, not a language model.
 
 ## Mission
 
@@ -40,4 +39,4 @@ in the report.
 
 ## Implementation
 
-`runScout()` in `public/assets/agents.js`.
+`run_scout()` in `tools/desk/agents.py`; data from `tools/desk/data.py`.

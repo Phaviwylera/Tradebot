@@ -1,7 +1,6 @@
 # RISK — gatekeeper with veto power
 
-> Stage 5 of the Opus Agent Desk. This file is the role contract the runner reads before the
-> stage executes. The implementation is deterministic code, not a language model.
+> Stage 5 of the Opus Agent Desk. This file is the role contract the runner hashes into every saved run. The implementation is deterministic code, not a language model.
 
 ## Mission
 
@@ -38,4 +37,4 @@ concentration. **Any failed check is a veto.** Never relax a rule to make a plan
 
 ## Implementation
 
-`runRisk()` in `public/assets/agents.js`.
+`run_risk()` in `tools/desk/agents.py`; limits in `config.yaml`.

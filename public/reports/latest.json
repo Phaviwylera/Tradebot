@@ -1,16 +1,16 @@
 {
-  "run_id": "20261019T040519Z-fixture",
+  "run_id": "20261019T040540Z-fixture",
   "desk_version": "1.0.0",
   "mode": "paper",
   "source": "fixture",
   "source_label": "SYNTHETIC TEST DATA",
   "source_detail": "data/fixtures.json \u00b7 520 synthetic markets \u00b7 TEST DATA",
-  "started_utc": "2026-10-19T04:05:19Z",
-  "finished_utc": "2026-10-19T04:05:19Z",
-  "duration_ms": 76,
+  "started_utc": "2026-10-19T04:05:40Z",
+  "finished_utc": "2026-10-19T04:05:40Z",
+  "duration_ms": 77,
   "universe": {
     "size": 520,
-    "fetched_at": "2026-10-19T04:05:19Z",
+    "fetched_at": "2026-10-19T04:05:40Z",
     "synthetic": true
   },
   "config": {
@@ -67,15 +67,15 @@
     "contracts_dir": "agents"
   },
   "contracts": {
-    "scout": "b54760b8b64471af",
-    "news": "a3d6be74913f3f41",
-    "charts": "1f2c3ce031521576",
-    "strategy": "49ca4ef8f584bba1",
-    "risk": "d3d8861ef3b69bfe",
-    "boss": "33071461e0c65779"
+    "scout": "43f6930b4876cb76",
+    "news": "c9eae4a2dcaeb73a",
+    "charts": "ccdd520f2cc2c0e2",
+    "strategy": "28a158a0aaeb32fc",
+    "risk": "15b7375c95429162",
+    "boss": "a2aae20571b9e9fe"
   },
   "stage_ms": {
-    "scout": 48,
+    "scout": 49,
     "news": 1,
     "charts": 8,
     "strategy": 0,
@@ -86,7 +86,7 @@
     "scout": {
       "agent": "scout",
       "label": "SCOUT",
-      "timestamp_utc": "2026-10-19T04:05:19Z",
+      "timestamp_utc": "2026-10-19T04:05:40Z",
       "status": "complete",
       "summary": "Scanned 520 markets, 187 passed quality filters, 10 on the watchlist.",
       "evidence": [
@@ -121,8 +121,8 @@
             "price": 0.6287
           },
           "price": 0.6287,
-          "ends_at": "2026-10-19T17:33:53Z",
-          "source_timestamp": "2026-10-19T04:00:39Z",
+          "ends_at": "2026-10-19T17:34:13Z",
+          "source_timestamp": "2026-10-19T04:00:59Z",
           "synthetic": true,
           "regime": "up"
         },
@@ -157,8 +157,8 @@
             "price": 0.7693
           },
           "price": 0.7693,
-          "ends_at": "2026-10-20T21:50:55Z",
-          "source_timestamp": "2026-10-19T04:02:41Z",
+          "ends_at": "2026-10-20T21:51:16Z",
+          "source_timestamp": "2026-10-19T04:03:01Z",
           "synthetic": true,
           "regime": "down"
         },
@@ -193,8 +193,8 @@
             "price": 0.6917
           },
           "price": 0.6917,
-          "ends_at": "2026-10-20T07:32:12Z",
-          "source_timestamp": "2026-10-19T03:59:47Z",
+          "ends_at": "2026-10-20T07:32:32Z",
+          "source_timestamp": "2026-10-19T04:00:07Z",
           "synthetic": true,
           "regime": "down"
         },
@@ -229,8 +229,8 @@
             "price": 0.6976
           },
           "price": 0.6976,
-          "ends_at": "2026-10-21T10:59:01Z",
-          "source_timestamp": "2026-10-19T04:01:42Z",
+          "ends_at": "2026-10-21T10:59:22Z",
+          "source_timestamp": "2026-10-19T04:02:03Z",
           "synthetic": true,
           "regime": "up"
         },
@@ -264,8 +264,8 @@
             "price": 0.7499
           },
           "price": 0.7499,
-          "ends_at": "2026-10-20T06:37:14Z",
-          "source_timestamp": "2026-10-19T04:02:09Z",
+          "ends_at": "2026-10-20T06:37:35Z",
+          "source_timestamp": "2026-10-19T04:02:29Z",
           "synthetic": true,
           "regime": "up"
         },
@@ -299,8 +299,8 @@
             "price": 0.2167
           },
           "price": 0.2167,
-          "ends_at": "2026-10-21T02:13:54Z",
-          "source_timestamp": "2026-10-19T04:00:42Z",
+          "ends_at": "2026-10-21T02:14:14Z",
+          "source_timestamp": "2026-10-19T04:01:03Z",
           "synthetic": true,
           "regime": "breakout"
         },
@@ -334,8 +334,8 @@
             "price": 0.6013
           },
           "price": 0.6013,
-          "ends_at": "2026-10-21T02:59:37Z",
-          "source_timestamp": "2026-10-19T04:02:34Z",
+          "ends_at": "2026-10-21T02:59:58Z",
+          "source_timestamp": "2026-10-19T04:02:55Z",
           "synthetic": true,
           "regime": "up"
         },
@@ -369,8 +369,8 @@
             "price": 0.4354
           },
           "price": 0.4354,
-          "ends_at": "2026-10-20T10:36:02Z",
-          "source_timestamp": "2026-10-19T04:02:42Z",
+          "ends_at": "2026-10-20T10:36:23Z",
+          "source_timestamp": "2026-10-19T04:03:02Z",
           "synthetic": true,
           "regime": "breakout"
         },
@@ -404,8 +404,8 @@
             "price": 0.3999
           },
           "price": 0.3999,
-          "ends_at": "2026-10-20T12:58:50Z",
-          "source_timestamp": "2026-10-19T04:03:35Z",
+          "ends_at": "2026-10-20T12:59:11Z",
+          "source_timestamp": "2026-10-19T04:03:55Z",
           "synthetic": true,
           "regime": "down"
         },
@@ -439,8 +439,8 @@
             "price": 0.3922
           },
           "price": 0.3922,
-          "ends_at": "2026-10-20T15:41:33Z",
-          "source_timestamp": "2026-10-19T04:01:43Z",
+          "ends_at": "2026-10-20T15:41:54Z",
+          "source_timestamp": "2026-10-19T04:02:04Z",
           "synthetic": true,
           "regime": "breakout"
         }
@@ -453,7 +453,7 @@
         "universe_size": 520,
         "universe_source": "fixture",
         "universe_label": "SYNTHETIC TEST DATA",
-        "fetched_at": "2026-10-19T04:05:19Z",
+        "fetched_at": "2026-10-19T04:05:40Z",
         "source_note": "data/fixtures.json \u00b7 520 synthetic markets \u00b7 TEST DATA",
         "scored_count": 187,
         "shortlist": [
@@ -533,7 +533,7 @@
     "news": {
       "agent": "news",
       "label": "NEWS",
-      "timestamp_utc": "2026-10-19T04:05:19Z",
+      "timestamp_utc": "2026-10-19T04:05:40Z",
       "status": "complete",
       "summary": "Checked sources for 10 watchlist markets; 10 have at least one usable headline.",
       "evidence": [
@@ -566,7 +566,7 @@
               "link": "https://example.com/test-data/test-0050/0",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:45:23Z",
+              "published_at": "2026-10-19T03:45:44Z",
               "age_hours": 0.3,
               "stale": false,
               "speculative": false,
@@ -585,7 +585,7 @@
               "link": "https://example.com/test-data/test-0050/1",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:28:44Z",
+              "published_at": "2026-10-19T03:29:04Z",
               "age_hours": 0.6,
               "stale": false,
               "speculative": true,
@@ -630,7 +630,7 @@
               "link": "https://example.com/test-data/test-0314/0",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:51:48Z",
+              "published_at": "2026-10-19T03:52:08Z",
               "age_hours": 0.2,
               "stale": false,
               "speculative": false,
@@ -649,7 +649,7 @@
               "link": "https://example.com/test-data/test-0314/1",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:52:13Z",
+              "published_at": "2026-10-19T03:52:34Z",
               "age_hours": 0.2,
               "stale": false,
               "speculative": false,
@@ -695,7 +695,7 @@
               "link": "https://example.com/test-data/test-0358/0",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:49:38Z",
+              "published_at": "2026-10-19T03:49:58Z",
               "age_hours": 0.3,
               "stale": false,
               "speculative": false,
@@ -714,7 +714,7 @@
               "link": "https://example.com/test-data/test-0358/1",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:34:38Z",
+              "published_at": "2026-10-19T03:34:59Z",
               "age_hours": 0.5,
               "stale": false,
               "speculative": false,
@@ -733,7 +733,7 @@
               "link": "https://example.com/test-data/test-0358/2",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:23:33Z",
+              "published_at": "2026-10-19T03:23:54Z",
               "age_hours": 0.7,
               "stale": false,
               "speculative": true,
@@ -752,7 +752,7 @@
               "link": "https://example.com/test-data/test-0358/3",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:11:36Z",
+              "published_at": "2026-10-19T03:11:57Z",
               "age_hours": 0.9,
               "stale": false,
               "speculative": false,
@@ -797,7 +797,7 @@
               "link": "https://example.com/test-data/test-0336/0",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:56:36Z",
+              "published_at": "2026-10-19T03:56:57Z",
               "age_hours": 0.1,
               "stale": false,
               "speculative": false,
@@ -816,7 +816,7 @@
               "link": "https://example.com/test-data/test-0336/1",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:50:36Z",
+              "published_at": "2026-10-19T03:50:57Z",
               "age_hours": 0.2,
               "stale": false,
               "speculative": false,
@@ -862,7 +862,7 @@
               "link": "https://example.com/test-data/test-0248/0",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:56:26Z",
+              "published_at": "2026-10-19T03:56:46Z",
               "age_hours": 0.1,
               "stale": false,
               "speculative": false,
@@ -881,7 +881,7 @@
               "link": "https://example.com/test-data/test-0248/1",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:34:55Z",
+              "published_at": "2026-10-19T03:35:15Z",
               "age_hours": 0.5,
               "stale": false,
               "speculative": false,
@@ -900,7 +900,7 @@
               "link": "https://example.com/test-data/test-0248/2",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:16:46Z",
+              "published_at": "2026-10-19T03:17:06Z",
               "age_hours": 0.8,
               "stale": false,
               "speculative": true,
@@ -919,7 +919,7 @@
               "link": "https://example.com/test-data/test-0248/3",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:11:40Z",
+              "published_at": "2026-10-19T03:12:01Z",
               "age_hours": 0.9,
               "stale": false,
               "speculative": false,
@@ -964,7 +964,7 @@
               "link": "https://example.com/test-data/test-0028/0",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:47:33Z",
+              "published_at": "2026-10-19T03:47:54Z",
               "age_hours": 0.3,
               "stale": false,
               "speculative": false,
@@ -983,7 +983,7 @@
               "link": "https://example.com/test-data/test-0028/1",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:28:04Z",
+              "published_at": "2026-10-19T03:28:25Z",
               "age_hours": 0.6,
               "stale": false,
               "speculative": true,
@@ -1002,7 +1002,7 @@
               "link": "https://example.com/test-data/test-0028/2",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:26:48Z",
+              "published_at": "2026-10-19T03:27:09Z",
               "age_hours": 0.6,
               "stale": false,
               "speculative": false,
@@ -1047,7 +1047,7 @@
               "link": "https://example.com/test-data/test-0072/0",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:50:45Z",
+              "published_at": "2026-10-19T03:51:05Z",
               "age_hours": 0.2,
               "stale": false,
               "speculative": false,
@@ -1066,7 +1066,7 @@
               "link": "https://example.com/test-data/test-0072/1",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:41:50Z",
+              "published_at": "2026-10-19T03:42:11Z",
               "age_hours": 0.4,
               "stale": false,
               "speculative": true,
@@ -1111,7 +1111,7 @@
               "link": "https://example.com/test-data/test-0094/0",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:52:15Z",
+              "published_at": "2026-10-19T03:52:35Z",
               "age_hours": 0.2,
               "stale": false,
               "speculative": false,
@@ -1130,7 +1130,7 @@
               "link": "https://example.com/test-data/test-0094/1",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:49:17Z",
+              "published_at": "2026-10-19T03:49:37Z",
               "age_hours": 0.3,
               "stale": false,
               "speculative": true,
@@ -1176,7 +1176,7 @@
               "link": "https://example.com/test-data/test-0116/0",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:51:48Z",
+              "published_at": "2026-10-19T03:52:08Z",
               "age_hours": 0.2,
               "stale": false,
               "speculative": false,
@@ -1195,7 +1195,7 @@
               "link": "https://example.com/test-data/test-0116/1",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:52:13Z",
+              "published_at": "2026-10-19T03:52:34Z",
               "age_hours": 0.2,
               "stale": false,
               "speculative": true,
@@ -1214,7 +1214,7 @@
               "link": "https://example.com/test-data/test-0116/2",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:27:45Z",
+              "published_at": "2026-10-19T03:28:05Z",
               "age_hours": 0.6,
               "stale": false,
               "speculative": false,
@@ -1233,7 +1233,7 @@
               "link": "https://example.com/test-data/test-0116/3",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:36:59Z",
+              "published_at": "2026-10-19T03:37:19Z",
               "age_hours": 0.5,
               "stale": false,
               "speculative": false,
@@ -1279,7 +1279,7 @@
               "link": "https://example.com/test-data/test-0138/0",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:56:36Z",
+              "published_at": "2026-10-19T03:56:57Z",
               "age_hours": 0.1,
               "stale": false,
               "speculative": false,
@@ -1298,7 +1298,7 @@
               "link": "https://example.com/test-data/test-0138/1",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:50:36Z",
+              "published_at": "2026-10-19T03:50:57Z",
               "age_hours": 0.2,
               "stale": false,
               "speculative": true,
@@ -1317,7 +1317,7 @@
               "link": "https://example.com/test-data/test-0138/2",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:40:52Z",
+              "published_at": "2026-10-19T03:41:12Z",
               "age_hours": 0.4,
               "stale": false,
               "speculative": false,
@@ -1336,7 +1336,7 @@
               "link": "https://example.com/test-data/test-0138/3",
               "source": "TEST DATA wire (synthetic)",
               "source_url": "https://example.com/test-data",
-              "published_at": "2026-10-19T03:13:08Z",
+              "published_at": "2026-10-19T03:13:29Z",
               "age_hours": 0.9,
               "stale": false,
               "speculative": false,
@@ -1380,7 +1380,7 @@
     "charts": {
       "agent": "charts",
       "label": "CHARTS",
-      "timestamp_utc": "2026-10-19T04:05:19Z",
+      "timestamp_utc": "2026-10-19T04:05:40Z",
       "status": "complete",
       "summary": "Reviewed 10 price series. 6 show a directional trend; 4 carry conflicting signals.",
       "evidence": [
@@ -1580,7 +1580,7 @@
           "data_quality": {
             "points": 96,
             "span_hours": 23.8,
-            "fetched_at": "2026-10-19T04:05:19Z"
+            "fetched_at": "2026-10-19T04:05:40Z"
           },
           "news_flags": [
             "SYNTHETIC_HEADLINES"
@@ -1782,7 +1782,7 @@
           "data_quality": {
             "points": 96,
             "span_hours": 23.8,
-            "fetched_at": "2026-10-19T04:05:19Z"
+            "fetched_at": "2026-10-19T04:05:40Z"
           },
           "news_flags": [
             "SYNTHETIC_HEADLINES"
@@ -1984,7 +1984,7 @@
           "data_quality": {
             "points": 96,
             "span_hours": 23.8,
-            "fetched_at": "2026-10-19T04:05:19Z"
+            "fetched_at": "2026-10-19T04:05:40Z"
           },
           "news_flags": [
             "DUPLICATES_REMOVED",
@@ -2167,7 +2167,7 @@
           "data_quality": {
             "points": 96,
             "span_hours": 23.8,
-            "fetched_at": "2026-10-19T04:05:19Z"
+            "fetched_at": "2026-10-19T04:05:40Z"
           },
           "news_flags": [
             "SYNTHETIC_HEADLINES"
@@ -2359,7 +2359,7 @@
           "data_quality": {
             "points": 96,
             "span_hours": 23.8,
-            "fetched_at": "2026-10-19T04:05:19Z"
+            "fetched_at": "2026-10-19T04:05:40Z"
           },
           "news_flags": [
             "DUPLICATES_REMOVED",
@@ -2562,7 +2562,7 @@
           "data_quality": {
             "points": 96,
             "span_hours": 23.8,
-            "fetched_at": "2026-10-19T04:05:19Z"
+            "fetched_at": "2026-10-19T04:05:40Z"
           },
           "news_flags": [
             "SYNTHETIC_HEADLINES"
@@ -2724,7 +2724,7 @@
           "data_quality": {
             "points": 96,
             "span_hours": 23.8,
-            "fetched_at": "2026-10-19T04:05:19Z"
+            "fetched_at": "2026-10-19T04:05:40Z"
           },
           "news_flags": [
             "SYNTHETIC_HEADLINES"
@@ -2906,7 +2906,7 @@
           "data_quality": {
             "points": 96,
             "span_hours": 23.8,
-            "fetched_at": "2026-10-19T04:05:19Z"
+            "fetched_at": "2026-10-19T04:05:40Z"
           },
           "news_flags": [
             "SYNTHETIC_HEADLINES"
@@ -3108,7 +3108,7 @@
           "data_quality": {
             "points": 96,
             "span_hours": 23.8,
-            "fetched_at": "2026-10-19T04:05:19Z"
+            "fetched_at": "2026-10-19T04:05:40Z"
           },
           "news_flags": [
             "DUPLICATES_REMOVED",
@@ -3311,7 +3311,7 @@
           "data_quality": {
             "points": 96,
             "span_hours": 23.8,
-            "fetched_at": "2026-10-19T04:05:19Z"
+            "fetched_at": "2026-10-19T04:05:40Z"
           },
           "news_flags": [
             "DUPLICATES_REMOVED",
@@ -3332,7 +3332,7 @@
     "strategy": {
       "agent": "strategy",
       "label": "STRATEGY",
-      "timestamp_utc": "2026-10-19T04:05:19Z",
+      "timestamp_utc": "2026-10-19T04:05:40Z",
       "status": "complete",
       "summary": "Wrote 4 rule-based plan(s) from 10 reviewed markets; 6 returned WAIT.",
       "evidence": [
@@ -3359,7 +3359,7 @@
           "risk_per_share": 0.007,
           "reward_per_share": 0.05,
           "gross_rr": 7.14,
-          "time_limit_utc": "2026-10-19T10:05:19Z",
+          "time_limit_utc": "2026-10-19T10:05:40Z",
           "confidence": 100,
           "evidence_used": {
             "scout_score": 79,
@@ -3454,7 +3454,7 @@
           "risk_per_share": 0.007,
           "reward_per_share": 0.05,
           "gross_rr": 7.14,
-          "time_limit_utc": "2026-10-19T10:05:19Z",
+          "time_limit_utc": "2026-10-19T10:05:40Z",
           "confidence": 75,
           "evidence_used": {
             "scout_score": 79,
@@ -3551,7 +3551,7 @@
           "risk_per_share": null,
           "reward_per_share": null,
           "gross_rr": 10.0,
-          "time_limit_utc": "2026-10-19T10:05:19Z",
+          "time_limit_utc": "2026-10-19T10:05:40Z",
           "confidence": 75,
           "evidence_used": {
             "scout_score": 79,
@@ -3648,7 +3648,7 @@
           "risk_per_share": 0.008,
           "reward_per_share": 0.05,
           "gross_rr": 6.25,
-          "time_limit_utc": "2026-10-19T10:05:19Z",
+          "time_limit_utc": "2026-10-19T10:05:40Z",
           "confidence": 100,
           "evidence_used": {
             "scout_score": 78,
@@ -3733,7 +3733,7 @@
           "risk_per_share": null,
           "reward_per_share": null,
           "gross_rr": 10.0,
-          "time_limit_utc": "2026-10-19T10:05:19Z",
+          "time_limit_utc": "2026-10-19T10:05:40Z",
           "confidence": 100,
           "evidence_used": {
             "scout_score": 76,
@@ -3822,7 +3822,7 @@
           "risk_per_share": null,
           "reward_per_share": null,
           "gross_rr": 10.0,
-          "time_limit_utc": "2026-10-19T10:05:19Z",
+          "time_limit_utc": "2026-10-19T10:05:40Z",
           "confidence": 75,
           "evidence_used": {
             "scout_score": 75,
@@ -3918,7 +3918,7 @@
           "risk_per_share": null,
           "reward_per_share": null,
           "gross_rr": 10.0,
-          "time_limit_utc": "2026-10-19T10:05:19Z",
+          "time_limit_utc": "2026-10-19T10:05:40Z",
           "confidence": 100,
           "evidence_used": {
             "scout_score": 75,
@@ -3992,7 +3992,7 @@
           "risk_per_share": null,
           "reward_per_share": null,
           "gross_rr": 10.0,
-          "time_limit_utc": "2026-10-19T10:05:19Z",
+          "time_limit_utc": "2026-10-19T10:05:40Z",
           "confidence": 100,
           "evidence_used": {
             "scout_score": 75,
@@ -4076,7 +4076,7 @@
           "risk_per_share": 0.007,
           "reward_per_share": 0.05,
           "gross_rr": 7.14,
-          "time_limit_utc": "2026-10-19T10:05:19Z",
+          "time_limit_utc": "2026-10-19T10:05:40Z",
           "confidence": 75,
           "evidence_used": {
             "scout_score": 75,
@@ -4172,7 +4172,7 @@
           "risk_per_share": null,
           "reward_per_share": null,
           "gross_rr": 10.0,
-          "time_limit_utc": "2026-10-19T10:05:19Z",
+          "time_limit_utc": "2026-10-19T10:05:40Z",
           "confidence": 100,
           "evidence_used": {
             "scout_score": 75,
@@ -4256,7 +4256,7 @@
     "risk": {
       "agent": "risk",
       "label": "RISK",
-      "timestamp_utc": "2026-10-19T04:05:19Z",
+      "timestamp_utc": "2026-10-19T04:05:40Z",
       "status": "complete",
       "summary": "1 plan(s) cleared the risk gate, 3 rejected, 6 never reached it.",
       "evidence": [
@@ -4421,7 +4421,7 @@
             "risk_per_share": 0.007,
             "reward_per_share": 0.05,
             "gross_rr": 7.14,
-            "time_limit_utc": "2026-10-19T10:05:19Z",
+            "time_limit_utc": "2026-10-19T10:05:40Z",
             "confidence": 100,
             "evidence_used": {
               "scout_score": 79,
@@ -4652,7 +4652,7 @@
             "risk_per_share": 0.007,
             "reward_per_share": 0.05,
             "gross_rr": 7.14,
-            "time_limit_utc": "2026-10-19T10:05:19Z",
+            "time_limit_utc": "2026-10-19T10:05:40Z",
             "confidence": 75,
             "evidence_used": {
               "scout_score": 79,
@@ -4910,7 +4910,7 @@
             "risk_per_share": 0.008,
             "reward_per_share": 0.05,
             "gross_rr": 6.25,
-            "time_limit_utc": "2026-10-19T10:05:19Z",
+            "time_limit_utc": "2026-10-19T10:05:40Z",
             "confidence": 100,
             "evidence_used": {
               "scout_score": 78,
@@ -5237,7 +5237,7 @@
             "risk_per_share": 0.007,
             "reward_per_share": 0.05,
             "gross_rr": 7.14,
-            "time_limit_utc": "2026-10-19T10:05:19Z",
+            "time_limit_utc": "2026-10-19T10:05:40Z",
             "confidence": 75,
             "evidence_used": {
               "scout_score": 75,
@@ -5378,7 +5378,7 @@
     "boss": {
       "agent": "boss",
       "label": "BOSS",
-      "timestamp_utc": "2026-10-19T04:05:19Z",
+      "timestamp_utc": "2026-10-19T04:05:40Z",
       "status": "complete",
       "summary": "1 plan(s) passed every stage with no unresolved disagreement. Approved for paper testing only.",
       "evidence": [
@@ -5392,7 +5392,7 @@
           "entry": 0.632,
           "invalidation": 0.625,
           "target": 0.682,
-          "time_limit_utc": "2026-10-19T10:05:19Z",
+          "time_limit_utc": "2026-10-19T10:05:40Z",
           "shares": 395,
           "notional": 249.64,
           "risk_dollars": 2.77,
@@ -5483,7 +5483,7 @@
             "entry": 0.632,
             "invalidation": 0.625,
             "target": 0.682,
-            "time_limit_utc": "2026-10-19T10:05:19Z",
+            "time_limit_utc": "2026-10-19T10:05:40Z",
             "shares": 395,
             "notional": 249.64,
             "risk_dollars": 2.77,
@@ -5613,7 +5613,7 @@
   "boss": {
     "agent": "boss",
     "label": "BOSS",
-    "timestamp_utc": "2026-10-19T04:05:19Z",
+    "timestamp_utc": "2026-10-19T04:05:40Z",
     "status": "complete",
     "summary": "1 plan(s) passed every stage with no unresolved disagreement. Approved for paper testing only.",
     "evidence": [
@@ -5627,7 +5627,7 @@
         "entry": 0.632,
         "invalidation": 0.625,
         "target": 0.682,
-        "time_limit_utc": "2026-10-19T10:05:19Z",
+        "time_limit_utc": "2026-10-19T10:05:40Z",
         "shares": 395,
         "notional": 249.64,
         "risk_dollars": 2.77,
@@ -5718,7 +5718,7 @@
           "entry": 0.632,
           "invalidation": 0.625,
           "target": 0.682,
-          "time_limit_utc": "2026-10-19T10:05:19Z",
+          "time_limit_utc": "2026-10-19T10:05:40Z",
           "shares": 395,
           "notional": 249.64,
           "risk_dollars": 2.77,
