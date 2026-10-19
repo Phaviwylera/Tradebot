@@ -57,7 +57,7 @@ class ConfigTests(unittest.TestCase):
         subset = safe_load(text)
         self.assertEqual(subset["mode"], "paper")
         self.assertIs(subset["allow_live_orders"], False)
-        self.assertEqual(subset["scan"]["shortlist_size"], 10)
+        self.assertEqual(subset["scan"]["shortlist_size"], 16)
         self.assertEqual(subset["risk"]["bankroll"], 100)
         self.assertEqual(subset["paper"]["starting_cash"], 100)
         self.assertEqual(subset["dashboard"]["public_copy"], True)
