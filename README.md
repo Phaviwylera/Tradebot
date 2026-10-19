@@ -108,10 +108,13 @@ the static deployment demonstrates every reachable outcome: an approve run, a WA
 run.
 
 The page is plain HTML/CSS/JS with **no build step** and no external requests. It can be served by
-the Python server, any static host, or Vercel:
+the Python server or any static host. The included `vercel.json` copies `public/` into `dist/` and
+serves it:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPhaviwylera%2FTradebot&project-name=opus-agent-desk&repository-name=Tradebot)
 
 ```bash
-npx vercel --prod        # or connect the repo; output directory is public/
+npx vercel --prod        # once the CLI is authenticated
 ```
 
 On a static host the Run button is disabled on purpose: running the pipeline needs the Python

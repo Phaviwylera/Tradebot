@@ -1,6 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "outputDirectory": "public",
+  "buildCommand": "rm -rf dist && mkdir -p dist && cp -r public/. dist/",
+  "outputDirectory": "dist",
   "cleanUrls": true,
   "headers": [
     {
@@ -10,11 +11,6 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     },
-    {
-      "source": "/reports/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=60" }
-      ]
-    }
+    { "source": "/reports/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=60" }] }
   ]
 }
