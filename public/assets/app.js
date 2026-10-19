@@ -192,6 +192,21 @@ async function detectApi() {
   }
 }
 
+function newestRun(...candidates) {
+  return candidates
+    .filter(candidate => candidate && candidate.reports && candidate.run_id)
+    .sort((a, b) => String(b.run_id).localeCompare(String(a.run_id)))[0] || null;
+}
+
+function mergeRuns(...payloads) {
+  const seen = new Map();
+  payloads.forEach(payload => arr(payload?.runs).forEach(entry => {
+    if (!entry?.run_id || seen.has(entry.run_id)) return;
+    seen.set(entry.run_id, entry);
+  }));
+  return [...seen.values()].sort((a, b) => String(b.run_id).localeCompare(String(a.run_id)));
+}
+
 async function loadInitial() {
   state.status = 'loading';
   renderAll();
@@ -208,13 +223,23 @@ async function loadInitial() {
   } else {
     state.staticOnly = true;
     state.remote = !/^(localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])$/.test(location.hostname);
+    const bust = `?v=${Date.now().toString(36)}`;
+    const grab = (url) => getJson(url).catch(() => null);
+
     if (state.remote) {
-      const bust = `?v=${Date.now().toString(36)}`;
-      try { run = await getJson(`${REMOTE_BASE}/latest.json${bust}`); } catch { run = null; }
-      try { index = arr((await getJson(`${REMOTE_BASE}/index.json${bust}`)).runs); } catch { index = []; }
+      // Prefer the newest of the raw archive and the copy bundled at deploy time;
+      // a cached raw file must never win over a newer bundled run.
+      const [remoteRun, bundledRun, remoteIndex, bundledIndex] = await Promise.all([
+        grab(`${REMOTE_BASE}/latest.json${bust}`),
+        grab(`/reports/latest.json${bust}`),
+        grab(`${REMOTE_BASE}/index.json${bust}`),
+        grab(`/reports/index.json${bust}`),
+      ]);
+      run = newestRun(remoteRun, bundledRun);
+      index = mergeRuns(remoteIndex, bundledIndex);
     }
-    if (!run) { try { run = await getJson('/reports/latest.json'); } catch { run = null; } }
-    if (!index.length) { try { index = arr((await getJson('/reports/index.json')).runs); } catch { index = []; } }
+    if (!run) run = await grab(`/reports/latest.json${bust}`);
+    if (!index.length) index = mergeRuns(await grab(`/reports/index.json${bust}`));
   }
 
   state.run = run && run.reports ? run : null;
@@ -1191,8 +1216,10 @@ function renderHeroStats() {
       : run.source === 'live' ? 'LIVE · POLYMARKET' : 'FIXTURE BOARD · TEST DATA';
     live.className = `mast-live${run ? (run.source === 'live' ? ' is-live' : ' is-fixture') : ''}`;
   }
+  const clock = String(run?.run_id || '').slice(9, 15);
+  const stamp = /^\d{6}$/.test(clock) ? `${clock.slice(0, 2)}:${clock.slice(2, 4)}:${clock.slice(4, 6)}` : '';
   put('hero-updated', run
-    ? `last run ${String(run.run_id).slice(9, 15)}Z · ${run.source}`
+    ? `last run ${stamp}Z · ${run.source}`
     : 'awaiting the next live run');
 
   put('wall-equity-value', Number.isFinite(equity) ? money(equity, 2) : money(bankroll, 2));
