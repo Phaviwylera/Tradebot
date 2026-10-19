@@ -22,7 +22,7 @@
     "max_drawdown_pct": -2.37,
     "open_positions": [
       {
-        "trade_id": "P1792385071507-001",
+        "trade_id": "P1792385133524-001",
         "market_id": "682708",
         "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
         "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
@@ -38,9 +38,9 @@
         "unrealized_pnl": -2.37,
         "unrealized_pct": -9.66,
         "risk_dollars": 0.24,
-        "opened_utc": "2026-10-19T04:44:31Z",
+        "opened_utc": "2026-10-19T04:45:33Z",
         "time_limit_utc": "2026-10-19T10:43:47Z",
-        "last_mark_utc": "2026-10-19T04:44:31Z"
+        "last_mark_utc": "2026-10-19T04:45:33Z"
       }
     ],
     "working_orders": [],
@@ -67,11 +67,11 @@
         "equity": 100.0
       },
       {
-        "t": "2026-10-19T04:44:31Z",
+        "t": "2026-10-19T04:45:33Z",
         "equity": 97.63
       }
     ],
-    "updated_utc": "2026-10-19T04:44:31Z",
+    "updated_utc": "2026-10-19T04:45:33Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
@@ -79,7 +79,7 @@
   "realized_pnl": 0.0,
   "open_positions": [
     {
-      "trade_id": "P1792385071507-001",
+      "trade_id": "P1792385133524-001",
       "market_id": "682708",
       "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
       "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
@@ -89,13 +89,14 @@
       "entry": 0.522,
       "shares": 47,
       "cost_basis": 24.53,
+      "notional": 24.53,
       "risk_dollars": 0.24,
       "stop": 0.517,
       "target": 0.572,
-      "opened_utc": "2026-10-19T04:44:31Z",
+      "opened_utc": "2026-10-19T04:45:33Z",
       "time_limit_utc": "2026-10-19T10:43:47Z",
       "last_price": 0.4715,
-      "last_mark_utc": "2026-10-19T04:44:31Z",
+      "last_mark_utc": "2026-10-19T04:45:33Z",
       "status": "OPEN",
       "filled_order": "W1792385027179-001"
     }
@@ -124,9 +125,9 @@
       "equity": 100.0
     },
     {
-      "t": "2026-10-19T04:44:31Z",
+      "t": "2026-10-19T04:45:33Z",
       "equity": 97.63
     }
   ],
-  "updated_utc": "2026-10-19T04:44:31Z"
+  "updated_utc": "2026-10-19T04:45:33Z"
 }

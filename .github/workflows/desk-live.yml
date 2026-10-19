@@ -10,7 +10,6 @@ on:
   push:
     branches:
       - main
-      - arena/332e5730-tradebot
     paths:
       - ".github/workflows/desk-live.yml"
       - "agents/**"
