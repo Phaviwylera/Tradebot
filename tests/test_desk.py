@@ -19,7 +19,7 @@ import urllib.request
 from dataclasses import replace
 from pathlib import Path
 
-from tools.desk import agents, data
+from tools.desk import agents, data, ledger
 from tools.desk.config import ConfigError, ROOT, load_config
 from tools.desk.pipeline import (
     PipelineError,
@@ -58,7 +58,8 @@ class ConfigTests(unittest.TestCase):
         self.assertEqual(subset["mode"], "paper")
         self.assertIs(subset["allow_live_orders"], False)
         self.assertEqual(subset["scan"]["shortlist_size"], 10)
-        self.assertEqual(subset["risk"]["bankroll"], 1000)
+        self.assertEqual(subset["risk"]["bankroll"], 100)
+        self.assertEqual(subset["paper"]["starting_cash"], 100)
         self.assertEqual(subset["dashboard"]["public_copy"], True)
         if config_module._yaml is not None:
             self.assertEqual(config_module._yaml.safe_load(text), subset)
@@ -382,18 +383,28 @@ class SafetyTests(unittest.TestCase):
         self.assertIn("assets/style.css", html)
         for anchor in ("hero-decision", "kpis", "exposure", "pipeline", "categories",
                        "scout-table", "news-feed", "charts-grid", "strategy-list",
-                       "risk-list", "journal-list", "terminal-log", "raw-json", "limits"):
+                       "risk-list", "journal-list", "terminal-log", "raw-json", "limits",
+                       "book-summary", "book-body", "book-chip", "equity-chart",
+                       "book-stats", "book-closed"):
             self.assertIn(f'id="{anchor}"', html, f"dashboard anchor missing: {anchor}")
 
     def test_published_snapshots_are_static_browsable(self):
         directory = ROOT / "public" / "reports"
         index = json.loads((directory / "index.json").read_text(encoding="utf-8"))
-        self.assertGreaterEqual(len(index["runs"]), 1)
-        decisions = set()
         for entry in index["runs"]:
-            self.assertEqual(validate_run(json.loads((directory / f"{entry['run_id']}.json").read_text())), [])
-            decisions.add(entry["decision"])
-        # The shipped snapshots demonstrate all three reachable Boss statuses.
+            path = directory / f"{entry['run_id']}.json"
+            self.assertTrue(path.exists(), f"published run missing: {path.name}")
+            self.assertEqual(validate_run(json.loads(path.read_text(encoding="utf-8"))), [])
+        # The demo snapshots demonstrate all three reachable Boss statuses without
+        # relying on the live archive, which the scheduled runner rotates.
+        demo = directory / "demo"
+        decisions = set()
+        for path in demo.glob("*.json"):
+            if path.name == "index.json":
+                continue
+            run = json.loads(path.read_text(encoding="utf-8"))
+            self.assertEqual(validate_run(run), [])
+            decisions.add(run["boss"]["meta"]["decision"])
         self.assertEqual(decisions, {"APPROVE_FOR_PAPER_TEST", "WAIT", "REJECT"})
 
     def test_contract_files_exist(self):
@@ -491,3 +502,96 @@ class ApiTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LedgerTests(unittest.TestCase):
+    """The $100 paper book: fills are simulated, cash is real arithmetic."""
+
+    def setUp(self):
+        self.cfg = load_config()
+        self.now = 1_800_000_000_000  # fixed ms
+        self.book = ledger.new_ledger(self.cfg, self.now)
+
+    def _boss(self, **overrides):
+        plan = {
+            "market_id": "m-1",
+            "question": "Will the test pass?",
+            "url": "https://polymarket.com/market/test",
+            "side": "Yes",
+            "category": "test",
+            "event_id": "e-1",
+            "entry": 0.50,
+            "invalidation": 0.40,
+            "target": 0.70,
+            "shares": 40,
+            "risk_dollars": 4.0,
+            "time_limit_utc": data.iso(self.now + 3_600_000),
+        }
+        plan.update(overrides)
+        return {"meta": {"decision": "APPROVE_FOR_PAPER_TEST", "approved": [plan]}}
+
+    def test_new_book_starts_at_one_hundred_dollars(self):
+        self.assertEqual(self.book["starting_cash"], 100.0)
+        self.assertEqual(self.book["cash"], 100.0)
+        self.assertEqual(ledger.snapshot(self.book, self.now)["equity"], 100.0)
+
+    def test_open_deducts_cash_and_caps_at_available_cash(self):
+        opened = ledger.open_from_run(self.book, self._boss(shares=10_000), self.now)
+        self.assertEqual(len(opened), 1)
+        position = opened[0]
+        self.assertEqual(position["shares"], 200)  # $100 / $0.50
+        self.assertAlmostEqual(position["cost_basis"], 100.0, places=2)
+        self.assertEqual(self.book["cash"], 0.0)
+        self.assertEqual(ledger.snapshot(self.book, self.now)["equity"], 100.0)
+
+    def test_target_exit_books_profit(self):
+        ledger.open_from_run(self.book, self._boss(), self.now)
+        closed = ledger.settle(self.book, [{"id": "m-1", "price": 0.75}], self.now + 60_000)
+        self.assertEqual(len(closed), 1)
+        trade = closed[0]
+        self.assertEqual(trade["exit_reason"], "target")
+        self.assertEqual(trade["exit"], 0.70)
+        self.assertAlmostEqual(trade["pnl"], 8.0, places=2)  # 40 * (0.70 - 0.50)
+        self.assertEqual(self.book["cash"], 108.0)
+        self.assertEqual(self.book["positions"], [])
+
+    def test_stop_exit_books_loss_at_the_gap_price(self):
+        ledger.open_from_run(self.book, self._boss(), self.now)
+        closed = ledger.settle(self.book, [{"id": "m-1", "price": 0.35}], self.now + 60_000)
+        trade = closed[0]
+        self.assertEqual(trade["exit_reason"], "stop")
+        self.assertEqual(trade["exit"], 0.35)  # worse than the stop: honest fill
+        self.assertAlmostEqual(trade["pnl"], -6.0, places=2)
+        self.assertEqual(self.book["cash"], 94.0)
+
+    def test_time_limit_exits_at_the_mark(self):
+        ledger.open_from_run(self.book, self._boss(), self.now)
+        closed = ledger.settle(self.book, [{"id": "m-1", "price": 0.55}], self.now + 4 * 3_600_000)
+        self.assertEqual(closed[0]["exit_reason"], "time_limit")
+        self.assertAlmostEqual(closed[0]["pnl"], 2.0, places=2)
+
+    def test_snapshot_equity_is_cash_plus_positions(self):
+        ledger.open_from_run(self.book, self._boss(), self.now)
+        ledger.settle(self.book, [{"id": "m-1", "price": 0.60}], self.now + 60_000)
+        snap = ledger.snapshot(self.book, self.now + 60_000)
+        self.assertEqual(snap["cash"], 80.0)
+        self.assertEqual(snap["open_count"], 1)
+        self.assertAlmostEqual(snap["unrealized_pnl"], 4.0, places=2)
+        self.assertAlmostEqual(snap["equity"], 104.0, places=2)
+        self.assertAlmostEqual(snap["total_pnl"], 4.0, places=2)
+        self.assertAlmostEqual(snap["return_pct"], 4.0, places=2)
+
+    def test_no_new_fill_without_approval(self):
+        boss = {"meta": {"decision": "WAIT", "approved": []}}
+        self.assertEqual(ledger.open_from_run(self.book, boss, self.now), [])
+        self.assertEqual(self.book["cash"], 100.0)
+
+    def test_closed_trades_are_summarised(self):
+        ledger.open_from_run(self.book, self._boss(), self.now)
+        ledger.settle(self.book, [{"id": "m-1", "price": 0.70}], self.now + 60_000)
+        snap = ledger.snapshot(self.book, self.now + 60_000)
+        self.assertEqual(snap["closed_count"], 1)
+        self.assertEqual(snap["win_count"], 1)
+        self.assertEqual(snap["win_rate"], 100.0)
+        self.assertAlmostEqual(snap["realized_pnl"], 8.0, places=2)
+        self.assertEqual(snap["closed_trades"][0]["exit_reason"], "target")

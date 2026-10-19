@@ -967,6 +967,7 @@ def run_risk(strategy_report: dict[str, Any], news_report: dict[str, Any],
 
     news_by_id = {entry["market_id"]: entry for entry in news_report["evidence"]}
     decisions: list[dict[str, Any]] = []
+    cash = num(context.get("cash"), bankroll)
     exposure = sum(num(position.get("notional"), 0) for position in open_positions)
     risk_committed = sum(num(position.get("risk_dollars"), 0) for position in open_positions)
     category_counts: dict[str, int] = {}
@@ -1067,12 +1068,13 @@ def run_risk(strategy_report: dict[str, Any], news_report: dict[str, Any],
         shares_by_exposure = int(remaining_exposure // plan["entry"]) if plan["entry"] > 0 else 0
         liquidity_cap = max(0.0, scout["metrics"]["liquidity"] * 0.01)
         shares_by_liquidity = int(liquidity_cap // plan["entry"]) if plan["entry"] > 0 else 0
-        shares = max(0, min(shares_by_risk, shares_by_exposure, shares_by_liquidity))
+        shares_by_cash = int(max(cash, 0.0) // plan["entry"]) if plan["entry"] > 0 else 0
+        shares = max(0, min(shares_by_risk, shares_by_exposure, shares_by_liquidity, shares_by_cash))
 
         push("size", shares >= 1,
              f"{shares} share(s)" if shares >= 1
              else f"size rounds to zero (risk budget {money(max(risk_budget, 0))}, "
-                  f"exposure left {money(remaining_exposure)})")
+                  f"exposure left {money(remaining_exposure)}, cash {money(cash)})")
         min_shares = max(1, int(num(scout.get("order_min_size"), 1)))
         push("order_minimum", shares >= min_shares,
              f"{shares} share(s) vs exchange minimum {min_shares}")
@@ -1165,6 +1167,7 @@ def run_risk(strategy_report: dict[str, Any], news_report: dict[str, Any],
             "exposure_used": rnd(exposure, 2),
             "risk_committed": rnd(risk_committed, 2),
             "open_positions": len(open_positions),
+        "cash": rnd(cash, 2),
             "passed": len(passed),
             "rejected": len(rejected),
             "common_checks": common,

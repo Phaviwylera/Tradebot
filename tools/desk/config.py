@@ -79,6 +79,10 @@ class Config:
     watchlist_freshness_minutes: int = 30
     event_risk_high: str = "block"
     event_risk_medium: str = "halve"
+    # paper book
+    paper_enabled: bool = True
+    starting_cash: float = 100.0
+    ledger_file: str = "data/paper-ledger.json"
     # pipeline
     history_limit: int = 10
     report_dir: str = "reports"
@@ -149,6 +153,7 @@ def load_config(path: str | os.PathLike[str] | None = None, overrides: dict[str,
     charts = _section(data, "charts")
     strategy = _section(data, "strategy")
     risk = _section(data, "risk")
+    paper = _section(data, "paper")
     pipeline = _section(data, "pipeline")
     dash = _section(data, "dashboard")
     data_sec = _section(data, "data")
@@ -185,7 +190,7 @@ def load_config(path: str | os.PathLike[str] | None = None, overrides: dict[str,
         max_entry_distance=_pick(strategy, "max_entry_distance", 0.12, float),
         max_pullback_distance=_pick(strategy, "max_pullback_distance", 0.05, float),
         time_limit_hours=_pick(strategy, "time_limit_hours", 6, int),
-        bankroll=_pick(risk, "bankroll", 1000, float),
+        bankroll=_pick(risk, "bankroll", 100, float),
         max_positions=_pick(risk, "max_positions", 5, int),
         max_total_exposure_pct=_pick(risk, "max_total_exposure_pct", 25, float),
         max_position_risk_pct=_pick(risk, "max_position_risk_pct", 2, float),
@@ -197,6 +202,9 @@ def load_config(path: str | os.PathLike[str] | None = None, overrides: dict[str,
         watchlist_freshness_minutes=_pick(risk, "watchlist_freshness_minutes", 30, int),
         event_risk_high=str(risk.get("event_risk_high", "block")),
         event_risk_medium=str(risk.get("event_risk_medium", "halve")),
+        paper_enabled=_pick(paper, "enabled", True, bool),
+        starting_cash=_pick(paper, "starting_cash", 100.0, float),
+        ledger_file=str(paper.get("ledger_file", "data/paper-ledger.json")),
         history_limit=_pick(pipeline, "history_limit", 10, int),
         report_dir=str(pipeline.get("report_dir", "reports")),
         stage_timeout_s=_pick(pipeline, "stage_timeout_s", 120, int),
@@ -234,6 +242,8 @@ def enforce_safety(cfg: Config) -> None:
         raise ConfigError("strategy.min_net_rr must be positive")
     if cfg.bankroll <= 0:
         raise ConfigError("risk.bankroll must be positive")
+    if cfg.starting_cash <= 0:
+        raise ConfigError("paper.starting_cash must be positive")
     if not (0 < cfg.max_position_risk_pct <= 100):
         raise ConfigError("risk.max_position_risk_pct must be between 0 and 100")
 
@@ -243,7 +253,7 @@ def summary_lines(cfg: Config) -> list[str]:
         f"mode: {cfg.mode} (live orders: {cfg.allow_live_orders})",
         f"source: {cfg.source}",
         f"scan cap: {cfg.universe_limit} markets, watchlist {cfg.shortlist_size}",
-        f"bankroll: ${cfg.bankroll:,.0f}",
+        f"paper bankroll: ${cfg.starting_cash:,.0f} (simulated)",
         f"max {cfg.max_positions} positions, {cfg.max_total_exposure_pct:g}% exposure, "
         f"{cfg.max_position_risk_pct:g}% risk per trade",
         f"min liquidity ${cfg.min_liquidity:,.0f}, max spread {cfg.max_spread:g}",

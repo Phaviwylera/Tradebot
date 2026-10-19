@@ -23,7 +23,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from . import __version__
-from . import agents, data
+from . import agents, data, ledger
 from .config import ROOT, Config
 
 PIPELINE_ERROR = "PipelineError"
@@ -206,6 +206,9 @@ def run_index_entry(run: dict[str, Any]) -> dict[str, Any]:
         "synthetic": bool((run.get("universe") or {}).get("synthetic")),
         "decision": meta.get("decision"),
         "approved": len(meta.get("approved") or []),
+        "equity": (run.get("paper") or {}).get("equity"),
+        "paper_pnl": (run.get("paper") or {}).get("total_pnl"),
+        "open_positions": (run.get("paper") or {}).get("open_count"),
         "plans": (meta.get("counts") or {}).get("plans", 0),
         "risk_passed": (meta.get("counts") or {}).get("risk_passed", 0),
         "risk_rejected": (meta.get("counts") or {}).get("risk_rejected", 0),
@@ -482,12 +485,22 @@ def run_pipeline(cfg: Config, *, reference_ms: int | None = None,
         if reports["strategy"]["status"] != "complete" and cfg.stop_on_needs_data:
             halted_at = "strategy"
 
+    book = None
+    if cfg.source == "live" and cfg.paper_enabled:
+        book = ledger.load_ledger(cfg, now())
+        ledger.settle(book, universe, now())
+
     if not halted_at:
         started = stage_start()
+        risk_context = context or {
+            "bankroll": cfg.bankroll,
+            "open_positions": (book or {}).get("positions") or [],
+            "cash": (book or {}).get("cash", cfg.starting_cash),
+        }
         try:
             reports["risk"] = agents.run_risk(
                 reports["strategy"], reports["news"], reports["scout"], reports["charts"],
-                context or {"bankroll": cfg.bankroll, "open_positions": []}, cfg, now())
+                risk_context, cfg, now())
         except Exception as exc:  # noqa: BLE001
             fail_stage("risk", str(exc))
         stage_end("risk", started)
@@ -497,6 +510,26 @@ def run_pipeline(cfg: Config, *, reference_ms: int | None = None,
     started = stage_start()
     reports["boss"] = agents.run_boss(reports, cfg, now(), halted_at=halted_at, source=cfg.source)
     stage_end("boss", started)
+
+    paper = None
+    paper_files: dict[str, str] = {}
+    paper_events: list[dict[str, Any]] = []
+    if book is not None:
+        opened = ledger.open_from_run(book, reports["boss"], now())
+        equity = ledger.record_equity(book, now())
+        paper = ledger.snapshot(book, now())
+        paper["opened_this_run"] = [
+            {"trade_id": entry.get("trade_id"), "market_id": entry.get("market_id"),
+             "question": entry.get("question"), "side": entry.get("side"),
+             "shares": entry.get("shares"), "entry": entry.get("entry"),
+             "cost_basis": entry.get("cost_basis")}
+            for entry in opened
+        ]
+        paper_files = ledger.save_ledger(cfg, book, now())
+        paper_events = [{"stage": "paper", "event": "open", "trade_id": entry.get("trade_id"),
+                         "market_id": entry.get("market_id")} for entry in opened]
+        emit({"stage": "paper", "equity": equity, "cash": paper["cash"],
+              "open_positions": paper["open_count"], "pnl": paper["total_pnl"]})
 
     errors = validate_run({
         "run_id": run_id,
@@ -531,10 +564,14 @@ def run_pipeline(cfg: Config, *, reference_ms: int | None = None,
         "halted_at": halted_at,
         "boss": reports["boss"],
     }
+    if paper is not None:
+        run["paper"] = paper
     run["validation"] = {"ok": True, "errors": []}
 
+    if paper_files:
+        run.setdefault("files", {}).update(paper_files)
     if persist:
-        run["files"] = save_run(run, cfg)
+        run["files"] = {**run.get("files", {}), **save_run(run, cfg)}
         emit({"stage": "saved", **run["files"]})
     emit({"stage": "done", "decision": run["boss"]["meta"]["decision"],
           "run_id": run["run_id"]})

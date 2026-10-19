@@ -34,10 +34,15 @@ const STAGE_TEXT = {
 
 const LS = { journal: 'opus-desk-journal-v1', source: 'opus-desk-source-v1' };
 
+// The scheduled live runner commits its reports to the default branch. Static hosting reads
+// them from the raw file host (CORS-enabled), falling back to the copy shipped with the page.
+const REMOTE_BASE = 'https://raw.githubusercontent.com/Phaviwylera/Tradebot/main/public/reports';
+
 const state = {
   source: 'fixture',
   apiAvailable: false,
   staticOnly: false,
+  remote: false,
   status: 'loading', // loading | idle | running | done | error
   run: null,
   index: [],
@@ -83,6 +88,12 @@ function pct(value, digits = 1, signed = false) {
   const n = Number(value);
   if (!Number.isFinite(n)) return '—';
   return `${signed && n > 0 ? '+' : ''}${(n * 100).toFixed(digits)}%`;
+}
+
+function signedMoney(value) {
+  const n = Number(value);
+  if (!Number.isFinite(n)) return '—';
+  return `${n > 0 ? '+' : n < 0 ? '−' : ''}$${Math.abs(n).toFixed(2)}`;
 }
 
 function cents(value) {
@@ -196,8 +207,14 @@ async function loadInitial() {
     try { index = arr((await getJson('/api/reports')).runs); } catch { index = []; }
   } else {
     state.staticOnly = true;
-    try { run = await getJson('/reports/latest.json'); } catch { run = null; }
-    try { index = arr((await getJson('/reports/index.json')).runs); } catch { index = []; }
+    state.remote = !/^(localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])$/.test(location.hostname);
+    if (state.remote) {
+      const bust = `?v=${Date.now().toString(36)}`;
+      try { run = await getJson(`${REMOTE_BASE}/latest.json${bust}`); } catch { run = null; }
+      try { index = arr((await getJson(`${REMOTE_BASE}/index.json${bust}`)).runs); } catch { index = []; }
+    }
+    if (!run) { try { run = await getJson('/reports/latest.json'); } catch { run = null; } }
+    if (!index.length) { try { index = arr((await getJson('/reports/index.json')).runs); } catch { index = []; } }
   }
 
   state.run = run && run.reports ? run : null;
@@ -215,7 +232,10 @@ async function loadRun(runId) {
     if (state.apiAvailable) {
       payload = await getJson(`/api/reports/${encodeURIComponent(runId)}`);
     } else {
-      payload = await getJson(`/reports/${encodeURIComponent(runId)}.json`);
+      if (state.remote) {
+        try { payload = await getJson(`${REMOTE_BASE}/${encodeURIComponent(runId)}.json?v=${Date.now().toString(36)}`); } catch { payload = null; }
+      }
+      if (!payload) payload = await getJson(`/reports/${encodeURIComponent(runId)}.json`);
     }
     state.run = payload.run || payload;
     state.status = 'done';
@@ -280,7 +300,7 @@ function renderChrome() {
   $('#run-chip').textContent = run ? run.run_id : 'no run';
   $('#rail-status').textContent = state.apiAvailable
     ? `paper mode · source ${state.source}`
-    : 'static snapshot · read-only';
+    : state.remote ? 'live reports · read-only' : 'static snapshot · read-only';
   $('#footer-meta').textContent = run
     ? `${run.source} · ${run.run_id} · ${run.validation?.ok ? 'schema passed' : 'schema unchecked'}`
     : 'no run loaded';
@@ -525,6 +545,99 @@ function renderExposure() {
       <div class="top"><span>Position slots</span><b>${open} / ${slots}</b></div>
       <div class="track"><div class="fill" style="width:${slots ? ((open / slots) * 100).toFixed(1) : 0}%"></div></div>
     </div>`;
+}
+
+
+function renderBook() {
+  const run = state.run;
+  const paper = run?.paper;
+  const chip = $('#book-chip');
+  const source = $('#book-source');
+  const summary = $('#book-summary');
+  const body = $('#book-body');
+  const chart = $('#equity-chart');
+  const stats = $('#book-stats');
+  const closed = $('#book-closed');
+  if (!chip || !summary) return;
+
+  if (!paper) {
+    chip.className = 'chip ghost';
+    chip.textContent = run?.source === 'live' ? 'waiting for first fill' : 'no live book';
+    source.textContent = run?.universe?.synthetic ? 'SYNTHETIC' : (run?.source || '—').toUpperCase();
+    summary.innerHTML = '';
+    chart.innerHTML = '';
+    stats.innerHTML = '';
+    closed.innerHTML = '';
+    body.innerHTML = `<div class="book-empty">
+      <div class="eyebrow">${run?.source === 'live' ? 'live book pending' : 'fixtures never trade'}</div>
+      <p>${run?.source === 'live'
+        ? 'The desk is reading real Polymarket markets, but no plan has cleared the risk gate yet. The $100 book opens its first position on the next APPROVE FOR PAPER TEST.'
+        : 'The paper book only trades live Polymarket data. This snapshot is synthetic, so the $100 balance is untouched and no fill is simulated.'}</p>
+    </div>`;
+    return;
+  }
+
+  const live = run?.source === 'live' && run?.universe?.synthetic === false;
+  chip.className = `chip ${live ? 'good' : 'ghost'}`;
+  chip.textContent = live ? 'LIVE · POLYMARKET' : 'SIMULATED BOOK';
+  source.textContent = `${paper.open_count} open · ${paper.closed_count} closed`;
+
+  const pnlUp = Number(paper.total_pnl) >= 0;
+  summary.innerHTML = `
+    <div class="book-kpi"><div class="k">equity</div><div class="v">${money(paper.equity, 2)}</div><div class="s">from ${money(paper.starting_cash, 2)}</div></div>
+    <div class="book-kpi"><div class="k">cash</div><div class="v">${money(paper.cash, 2)}</div><div class="s">never topped up</div></div>
+    <div class="book-kpi"><div class="k">total P&amp;L</div><div class="v ${pnlUp ? 'up' : 'down'}">${signedMoney(paper.total_pnl)}</div><div class="s">${paper.return_pct >= 0 ? '+' : ''}${num(paper.return_pct, 2)}%</div></div>
+    <div class="book-kpi"><div class="k">realized</div><div class="v ${Number(paper.realized_pnl) >= 0 ? 'up' : 'down'}">${signedMoney(paper.realized_pnl)}</div><div class="s">${paper.closed_count} closed</div></div>
+    <div class="book-kpi"><div class="k">open</div><div class="v">${paper.open_count}</div><div class="s">${paper.win_rate}% win rate</div></div>`;
+
+  const positions = arr(paper.open_positions);
+  body.innerHTML = positions.length ? `
+    <table class="book-table">
+      <thead><tr><th>position</th><th>entry → mark</th><th>shares</th><th>P&amp;L</th><th>stop / target</th><th>expires</th></tr></thead>
+      <tbody>${positions.map(position => `
+        <tr>
+          <td>
+            <div class="bq">${position.url
+              ? `<a href="${esc(position.url)}" target="_blank" rel="noreferrer">${esc(short(position.question, 54))}</a>`
+              : esc(short(position.question, 54))}</div>
+            <div class="bsub">${esc(position.side || '')} · ${esc(position.category || '')} · ${esc(position.trade_id || '')}</div>
+          </td>
+          <td class="mono">${cents(position.entry)} → ${cents(position.last_price)}</td>
+          <td class="mono">${esc(position.shares)}</td>
+          <td class="mono ${Number(position.unrealized_pnl) >= 0 ? 'up' : 'down'}">${signedMoney(position.unrealized_pnl)}<span class="pct">${Number(position.unrealized_pct) >= 0 ? '+' : ''}${num(position.unrealized_pct, 1)}%</span></td>
+          <td class="mono dim">${cents(position.stop)} / ${cents(position.target)}</td>
+          <td class="mono dim">${until(position.time_limit_utc)}</td>
+        </tr>`).join('')}</tbody>
+    </table>
+    <div class="book-note">Fills are simulated at the quoted price. No order, wallet or broker exists; the $100 starting balance is never topped up.</div>`
+    : `<div class="book-empty"><div class="eyebrow">flat</div>
+        <p>No open paper positions. The gate is waiting for a plan it can size inside 2% risk and 25% exposure.</p></div>`;
+
+  const curve = arr(paper.equity_curve).map(point => Number(point.equity)).filter(Number.isFinite);
+  const curveUp = curve.length > 1 && curve[curve.length - 1] >= curve[0];
+  chart.innerHTML = curve.length > 1
+    ? `<div class="equity-head"><span class="equity-value">${money(curve[curve.length - 1], 2)}</span>
+         <span class="equity-delta ${curveUp ? 'up' : 'down'}">${signedMoney(curve[curve.length - 1] - curve[0])}</span></div>
+       <div class="equity-spark ${curveUp ? 'up' : 'down'}">${sparkline(curve)}</div>`
+    : '<div class="book-note">Equity curve starts after the second live run.</div>';
+
+  stats.innerHTML = `
+    <div><span>max drawdown</span><b>${num(paper.max_drawdown_pct, 2)}%</b></div>
+    <div><span>win rate</span><b>${paper.win_rate}%</b></div>
+    <div><span>best trade</span><b class="up">${signedMoney(paper.best_trade)}</b></div>
+    <div><span>worst trade</span><b class="down">${signedMoney(paper.worst_trade)}</b></div>
+    <div><span>gross win / loss</span><b>${signedMoney(paper.gross_win)} / ${signedMoney(paper.gross_loss)}</b></div>
+    <div><span>marks</span><b>${paper.updated_utc ? dateTime(paper.updated_utc) : '—'}</b></div>`;
+
+  const trades = arr(paper.closed_trades);
+  closed.innerHTML = trades.length ? `
+    <div class="closed-title">CLOSED TRADES</div>
+    ${trades.slice(0, 5).map(trade => `
+      <div class="closed-row">
+        <div class="bq">${esc(short(trade.question, 44))}<span class="bsub">${esc(trade.exit_reason || '')} · ${cents(trade.entry)} → ${cents(trade.exit)}</span></div>
+        <div class="mono ${Number(trade.pnl) >= 0 ? 'up' : 'down'}">${signedMoney(trade.pnl)}</div>
+      </div>`).join('')}`
+    : '<div class="book-note">No closed trades yet. Positions exit at the stop, target, resolution or the plan time limit.</div>';
 }
 
 function renderPipeline() {
@@ -1011,6 +1124,7 @@ function renderAll() {
   renderHero();
   renderKpis();
   renderExposure();
+  renderBook();
   renderPipeline();
   renderCategories();
   renderScout();

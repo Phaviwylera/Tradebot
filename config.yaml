@@ -50,7 +50,8 @@ strategy:
   time_limit_hours: 6
 
 risk:
-  bankroll: 1000
+  # Simulated bankroll. Every fill is paper; no brokerage or wallet exists.
+  bankroll: 100
   max_positions: 5
   max_total_exposure_pct: 25
   max_position_risk_pct: 2
@@ -62,6 +63,12 @@ risk:
   watchlist_freshness_minutes: 30
   event_risk_high: block
   event_risk_medium: halve
+
+paper:
+  # The live desk keeps a simulated book. Starting cash is never topped up.
+  enabled: true
+  starting_cash: 100
+  ledger_file: data/paper-ledger.json
 
 pipeline:
   history_limit: 10
