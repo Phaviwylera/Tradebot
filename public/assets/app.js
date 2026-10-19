@@ -350,8 +350,9 @@ function renderBanner() {
     el.innerHTML = '<span><strong>Live public data.</strong> Read-only quotes and headlines. Prices can lag, sources can be thin, no order can be placed.</span>';
   }
   if (state.staticOnly) {
-    el.insertAdjacentHTML('beforeend',
-      '<span class="static-note">Static deployment: showing a saved run. Execute the pipeline locally with <code>python3 main.py --serve</code>.</span>');
+    el.insertAdjacentHTML('beforeend', state.remote
+      ? '<span class="static-note">Read-only hosting: the newest committed run is loaded from the repository. The six agents execute on a 15-minute GitHub Actions schedule; the Run button needs the local server.</span>'
+      : '<span class="static-note">Static deployment: showing a saved run. Execute the pipeline locally with <code>python3 main.py --serve</code>.</span>');
   }
 }
 
@@ -1163,7 +1164,7 @@ function renderHeroStats() {
     live.className = `mast-live${run ? (run.source === 'live' ? ' is-live' : ' is-fixture') : ''}`;
   }
   put('hero-updated', run
-    ? `last run ${String(run.run_id).slice(11, 19)}Z · ${run.source}`
+    ? `last run ${String(run.run_id).slice(9, 15)}Z · ${run.source}`
     : 'awaiting the next live run');
 
   put('wall-equity-value', Number.isFinite(equity) ? money(equity, 2) : money(bankroll, 2));
