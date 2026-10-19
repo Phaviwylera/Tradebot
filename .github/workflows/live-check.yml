@@ -1,5 +1,7 @@
 name: live-connectivity-check
 on:
+  push:
+    branches: [arena/332e5730-tradebot]
   workflow_dispatch:
 jobs:
   probe:
