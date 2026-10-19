@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-10-19T04:04:45Z",
+  "updated_at": "2026-10-19T04:05:19Z",
   "runs": [
     {
-      "run_id": "20261019T040445Z-fixture",
-      "finished_utc": "2026-10-19T04:04:45Z",
+      "run_id": "20261019T040519Z-fixture",
+      "finished_utc": "2026-10-19T04:05:19Z",
       "source": "fixture",
       "synthetic": true,
       "decision": "APPROVE_FOR_PAPER_TEST",
@@ -14,7 +14,7 @@
       "waits": 6,
       "halted_at": null,
       "universe_size": 520,
-      "duration_ms": 75,
+      "duration_ms": 76,
       "risk_reviewed": 4
     }
   ]
