@@ -57,7 +57,7 @@ than required.
 | 2 | **News** | Attaches dated, attributable headlines; flags stale, duplicate, speculative and low-relevance items; estimates event risk. | Summarise an article body it was not given, or invent a source |
 | 3 | **Charts** | 24h of 15-minute closes: trend, momentum, ATR, support/resistance (clustered swing pivots), structure breaks, extension warnings and **conflicts**. Analyses the inverse series too, so both outcomes are treated equally. | Predict a guaranteed outcome or fabricate candle volume |
 | 4 | **Strategy** | Writes at most one conditional plan per market: entry type (pullback / breakout / breakout-retest / reversal), entry zone, trigger, invalidation, target, time limit, gross R:R, confidence. | Force a setup, size a position, or lower a limit |
-| 5 | **Risk** | ~18 named checks per plan: freshness, sources, liquidity, spread, stop vs spread, reward vs spread, cost-adjusted R:R, size, exposure, position caps, category/event concentration, duplicate questions. **Any failure is a veto.** | Relax a rule to make a plan pass, or be overruled by Boss |
+| 5 | **Risk** | 23 named checks per plan: pipeline freshness, paper mode, plan readiness, sources, liquidity, spread, stop vs spread, reward vs spread, cost-adjusted R:R, share count, exposure, position caps, category/event concentration, duplicate questions. **Any failure is a veto.** | Relax a rule to make a plan pass, or be overruled by Boss |
 | 6 | **Boss** | Confirms all five reports exist, are complete and timestamped, then returns one final status. Disagreements are held, never averaged. | Approve on a partial pipeline, resize, or place an order |
 
 ## The report envelope
