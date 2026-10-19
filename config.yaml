@@ -17,13 +17,13 @@ data:
   gamma_base: https://gamma-api.polymarket.com
   clob_base: https://clob.polymarket.com
   news_base: https://news.google.com/rss/search
-  universe_limit: 500
+  universe_limit: 800
   page_size: 100
   request_timeout_s: 15
   retries: 1
 
 scan:
-  shortlist_size: 10
+  shortlist_size: 16
   min_universe_size: 20
   min_liquidity: 2000
   max_spread: 0.05
@@ -71,7 +71,7 @@ paper:
   ledger_file: data/paper-ledger.json
 
 pipeline:
-  history_limit: 10
+  history_limit: 16
   report_dir: reports
   stage_timeout_s: 120
   stop_on_needs_data: true
