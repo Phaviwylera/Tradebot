@@ -6,8 +6,10 @@ ever sent to an exchange. There is no wallet, key, signature or order client her
 
 The book is deliberately simple and auditable:
 
-  * one open position per market,
+  * one open position (or resting order) per market,
   * entries only from the Boss's APPROVE list and the Risk-approved size,
+  * entries at the quote fill now; conditional pullbacks, retests and reversals rest as
+    limit/stop orders and fill only when the market trades to the level,
   * exits at the stop, the target, market resolution or the plan's time limit,
   * cash can never go negative; size is capped by the cash actually available,
   * the starting balance is never topped up, so the equity curve is honest.
@@ -69,9 +71,10 @@ def new_ledger(cfg: Config, now_ms: float) -> dict[str, Any]:
         "updated_utc": data.iso(now_ms),
         "realized_pnl": 0.0,
         "positions": [],
+        "orders": [],
         "trades": [],
         "equity_curve": [{"t": data.iso(now_ms), "equity": start}],
-        "counters": {"next_trade": 1},
+        "counters": {"next_trade": 1, "next_order": 1},
         "policy": "simulated fills at quoted prices; no broker, wallet or order client",
     }
 
@@ -85,9 +88,12 @@ def load_ledger(cfg: Config, now_ms: float) -> dict[str, Any]:
             payload = None
         if isinstance(payload, dict) and payload.get("version") == LEDGER_VERSION:
             payload.setdefault("positions", [])
+            payload.setdefault("orders", [])
             payload.setdefault("trades", [])
             payload.setdefault("equity_curve", [])
-            payload.setdefault("counters", {"next_trade": len(payload.get("trades", [])) + 1})
+            payload.setdefault("counters", {"next_trade": len(payload.get("trades", [])) + 1,
+                                            "next_order": 1})
+            payload["counters"].setdefault("next_order", 1)
             payload.setdefault("realized_pnl", 0.0)
             payload.setdefault("starting_cash", round(float(cfg.starting_cash), 2))
             return payload
@@ -216,27 +222,148 @@ def settle(ledger: dict[str, Any], markets: Iterable[dict[str, Any]], now_ms: fl
     return closed
 
 
+
+def fill_orders(ledger: dict[str, Any], markets: Iterable[dict[str, Any]], now_ms: float) -> list[dict[str, Any]]:
+    """Fill resting paper orders when the market trades through their level.
+
+    A pullback/retest order is a *limit* buy below the quote; it fills only after the quoted
+    price falls to the entry. A reversal order sits above the quote and fills only after the
+    price rises through it. The fill uses the order's level (or the worse gap price for a stop
+    entry), never the optimistic side. Orders expire at the plan's time limit.
+    """
+    quotes = price_map(markets)
+    stamp = data.iso(now_ms)
+    filled: list[dict[str, Any]] = []
+    working: list[dict[str, Any]] = []
+    counter = int((ledger.get("counters") or {}).get("next_trade") or 1)
+
+    for order in ledger.get("orders") or []:
+        limit_ms = _parse_utc(order.get("time_limit_utc"))
+        if limit_ms == limit_ms and now_ms >= limit_ms:
+            continue
+        market = quotes.get(str(order.get("market_id") or ""))
+        entry = float(order.get("entry") or 0)
+        if not market or entry <= 0:
+            working.append(order)
+            continue
+        price = market["price"]
+        order["last_price"] = round(price, 4)
+        order["last_mark_utc"] = stamp
+        trigger = order.get("trigger") or "limit"
+        ready = price <= entry + 1e-9 if trigger == "limit" else price >= entry - 1e-9
+        if not ready:
+            working.append(order)
+            continue
+
+        cash = float(ledger.get("cash") or 0)
+        shares = int(min(int(order.get("shares") or 0), cash // entry)) if entry > 0 else 0
+        if shares < 1:
+            working.append(order)
+            continue
+        fill_price = entry if trigger == "limit" else max(entry, price)
+        cost = round(shares * fill_price, 2)
+        if cost > cash + 1e-9:
+            shares -= 1
+            cost = round(shares * fill_price, 2)
+        if shares < 1 or cost > cash + 1e-9:
+            working.append(order)
+            continue
+
+        ledger["cash"] = round(cash - cost, 2)
+        position = {
+            "trade_id": f"P{int(now_ms)}-{counter:03d}",
+            "market_id": order.get("market_id"),
+            "question": order.get("question") or market.get("question") or "",
+            "url": order.get("url") or market.get("url") or "",
+            "side": order.get("side") or "",
+            "category": order.get("category") or "other",
+            "event_id": order.get("event_id") or order.get("market_id"),
+            "entry": round(fill_price, 4),
+            "shares": shares,
+            "cost_basis": cost,
+            "risk_dollars": round(float(order.get("risk_dollars") or 0), 2),
+            "stop": round(float(order.get("stop") or 0), 4),
+            "target": round(float(order.get("target") or 0), 4),
+            "opened_utc": stamp,
+            "time_limit_utc": order.get("time_limit_utc"),
+            "last_price": round(price, 4),
+            "last_mark_utc": stamp,
+            "status": "OPEN",
+            "filled_order": order.get("order_id"),
+        }
+        ledger.setdefault("positions", []).append(position)
+        filled.append(position)
+        counter += 1
+
+    ledger["orders"] = working
+    ledger.setdefault("counters", {})["next_trade"] = counter
+    return filled
+
+
 def open_from_run(ledger: dict[str, Any], boss_report: dict[str, Any], now_ms: float) -> list[dict[str, Any]]:
-    """Open paper positions from the Boss's approved list, capped by available cash."""
+    """Queue or open paper entries from the Boss's approved list.
+
+    Entries at the current quote fill immediately. Conditional pullbacks, retests and reversals
+    become resting orders and only fill when the market trades to the level (see ``fill_orders``).
+    Size is capped by the cash actually available; the starting balance is never topped up.
+    """
     meta = (boss_report or {}).get("meta") or {}
+    ledger["queued_this_run"] = []
     if meta.get("decision") != "APPROVE_FOR_PAPER_TEST":
         return []
 
     open_ids = {str(position.get("market_id")) for position in ledger.get("positions") or []}
+    order_ids = {str(order.get("market_id")) for order in ledger.get("orders") or []}
     stamp = data.iso(now_ms)
     opened: list[dict[str, Any]] = []
     counter = int((ledger.get("counters") or {}).get("next_trade") or 1)
+    order_counter = int((ledger.get("counters") or {}).get("next_order") or 1)
 
     for item in meta.get("approved") or []:
         market_id = str(item.get("market_id") or "")
         entry = float(item.get("entry") or 0)
-        cash = float(ledger.get("cash") or 0)
-        if not market_id or market_id in open_ids or entry <= 0 or cash < entry:
+        if not market_id or market_id in open_ids or market_id in order_ids or entry <= 0:
             continue
 
+        quote_raw = item.get("quote")
+        quote = float(quote_raw) if quote_raw not in (None, "") else entry
+        entry_type = str(item.get("entry_type") or "breakout")
+        marketable = entry_type == "breakout" or abs(entry - quote) <= 0.0015
+
+        if not marketable:
+            trigger = "limit" if entry < quote else "stop"
+            order = {
+                "order_id": f"W{int(now_ms)}-{order_counter:03d}",
+                "market_id": market_id,
+                "question": item.get("question") or "",
+                "url": item.get("url") or "",
+                "side": item.get("side") or "",
+                "category": item.get("category") or "other",
+                "event_id": item.get("event_id") or market_id,
+                "entry_type": entry_type,
+                "trigger": trigger,
+                "entry": round(entry, 4),
+                "quote_at_approval": round(quote, 4),
+                "stop": round(float(item.get("invalidation") or 0), 4),
+                "target": round(float(item.get("target") or 0), 4),
+                "shares": int(item.get("shares") or 0),
+                "risk_dollars": round(float(item.get("risk_dollars") or 0), 2),
+                "time_limit_utc": item.get("time_limit_utc"),
+                "created_utc": stamp,
+                "last_mark_utc": stamp,
+                "status": "WORKING",
+            }
+            ledger.setdefault("orders", []).append(order)
+            ledger["queued_this_run"].append(order)
+            order_ids.add(market_id)
+            order_counter += 1
+            continue
+
+        cash = float(ledger.get("cash") or 0)
+        if cash < entry:
+            continue
         planned = int(item.get("shares") or 0)
-        affordable = int(cash // entry)
-        shares = max(0, min(planned, affordable))
+        shares = max(0, min(planned, int(cash // entry)))
         if shares < 1:
             continue
         cost = round(shares * entry, 2)
@@ -273,6 +400,7 @@ def open_from_run(ledger: dict[str, Any], boss_report: dict[str, Any], now_ms: f
         counter += 1
 
     ledger.setdefault("counters", {})["next_trade"] = counter
+    ledger["counters"]["next_order"] = order_counter
     return opened
 
 
@@ -349,6 +477,27 @@ def snapshot(ledger: dict[str, Any], now_ms: float) -> dict[str, Any]:
         max_drawdown = min(max_drawdown, drawdown)
         curve.append({"t": point.get("t"), "equity": value})
 
+    working = []
+    for order in ledger.get("orders") or []:
+        working.append({
+            "order_id": order.get("order_id"),
+            "market_id": order.get("market_id"),
+            "question": order.get("question"),
+            "url": order.get("url"),
+            "side": order.get("side"),
+            "entry_type": order.get("entry_type"),
+            "trigger": order.get("trigger"),
+            "entry": order.get("entry"),
+            "quote_at_approval": order.get("quote_at_approval"),
+            "last_price": order.get("last_price", order.get("quote_at_approval")),
+            "stop": order.get("stop"),
+            "target": order.get("target"),
+            "shares": order.get("shares"),
+            "risk_dollars": order.get("risk_dollars"),
+            "time_limit_utc": order.get("time_limit_utc"),
+            "created_utc": order.get("created_utc"),
+        })
+
     closed = []
     for trade in trades[-12:][::-1]:
         closed.append({
@@ -378,6 +527,7 @@ def snapshot(ledger: dict[str, Any], now_ms: float) -> dict[str, Any]:
         "total_pnl": round(equity - starting, 2),
         "return_pct": round((equity / starting - 1) * 100, 2) if starting else 0.0,
         "open_count": len(marked),
+        "working_count": len(working),
         "closed_count": len(trades),
         "win_count": len(wins),
         "loss_count": len(losses),
@@ -388,6 +538,7 @@ def snapshot(ledger: dict[str, Any], now_ms: float) -> dict[str, Any]:
         "worst_trade": worst,
         "max_drawdown_pct": max_drawdown,
         "open_positions": marked,
+        "working_orders": working,
         "closed_trades": closed,
         "equity_curve": curve[-120:],
         "updated_utc": data.iso(now_ms),
@@ -403,6 +554,7 @@ def detail(ledger: dict[str, Any], now_ms: float) -> dict[str, Any]:
         "cash": ledger.get("cash"),
         "realized_pnl": ledger.get("realized_pnl"),
         "open_positions": ledger.get("positions") or [],
+        "working_orders": ledger.get("orders") or [],
         "closed_trades": (ledger.get("trades") or [])[-60:],
         "equity_curve": ledger.get("equity_curve") or [],
         "updated_utc": ledger.get("updated_utc"),

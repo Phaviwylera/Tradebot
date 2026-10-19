@@ -57,7 +57,7 @@ class ConfigTests(unittest.TestCase):
         subset = safe_load(text)
         self.assertEqual(subset["mode"], "paper")
         self.assertIs(subset["allow_live_orders"], False)
-        self.assertEqual(subset["scan"]["shortlist_size"], 16)
+        self.assertEqual(subset["scan"]["shortlist_size"], 30)
         self.assertEqual(subset["risk"]["bankroll"], 100)
         self.assertEqual(subset["paper"]["starting_cash"], 100)
         self.assertEqual(subset["dashboard"]["public_copy"], True)
@@ -162,8 +162,8 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(validate_run(run), [])
 
     def test_wait_and_reject_are_reachable(self):
-        wait_run = run_pipeline(config_for(seed=2), persist=False)
-        reject_run = run_pipeline(config_for(seed=13), persist=False)
+        wait_run = run_pipeline(config_for(seed=15, min_net_rr=99), persist=False)
+        reject_run = run_pipeline(config_for(seed=2), persist=False)
         self.assertEqual(wait_run["boss"]["meta"]["decision"], "WAIT")
         self.assertEqual(reject_run["boss"]["meta"]["decision"], "REJECT")
 
@@ -580,6 +580,46 @@ class LedgerTests(unittest.TestCase):
         self.assertAlmostEqual(snap["equity"], 104.0, places=2)
         self.assertAlmostEqual(snap["total_pnl"], 4.0, places=2)
         self.assertAlmostEqual(snap["return_pct"], 4.0, places=2)
+
+
+    def test_conditional_entry_rests_instead_of_filling(self):
+        ledger.open_from_run(self.book, self._boss(entry=0.45, quote=0.50, entry_type="pullback"), self.now)
+        self.assertEqual(self.book["positions"], [])
+        self.assertEqual(len(self.book["orders"]), 1)
+        order = self.book["orders"][0]
+        self.assertEqual(order["trigger"], "limit")
+        self.assertEqual(order["entry"], 0.45)
+        self.assertEqual(self.book["cash"], 100.0)
+        snap = ledger.snapshot(self.book, self.now)
+        self.assertEqual(snap["working_count"], 1)
+        self.assertEqual(snap["working_orders"][0]["entry"], 0.45)
+
+    def test_working_limit_fills_only_when_price_reaches_it(self):
+        ledger.open_from_run(self.book, self._boss(entry=0.45, quote=0.50, entry_type="pullback"), self.now)
+        self.assertEqual(ledger.fill_orders(self.book, [{"id": "m-1", "price": 0.49}], self.now + 60_000), [])
+        self.assertEqual(len(self.book["orders"]), 1)
+        filled = ledger.fill_orders(self.book, [{"id": "m-1", "price": 0.45}], self.now + 120_000)
+        self.assertEqual(len(filled), 1)
+        self.assertEqual(filled[0]["entry"], 0.45)
+        self.assertEqual(filled[0]["shares"], 40)
+        self.assertEqual(self.book["cash"], 82.0)
+        self.assertEqual(self.book["orders"], [])
+
+    def test_working_order_expires_at_the_plan_limit(self):
+        ledger.open_from_run(self.book, self._boss(entry=0.45, quote=0.50, entry_type="retest",
+                                                   time_limit_utc=data.iso(self.now + 60_000)), self.now)
+        filled = ledger.fill_orders(self.book, [{"id": "m-1", "price": 0.44}], self.now + 120_000)
+        self.assertEqual(filled, [])
+        self.assertEqual(self.book["orders"], [])
+        self.assertEqual(self.book["cash"], 100.0)
+
+    def test_reversal_order_fills_upward_at_the_gap_price(self):
+        ledger.open_from_run(self.book, self._boss(entry=0.55, quote=0.50, entry_type="reversal"), self.now)
+        self.assertEqual(self.book["orders"][0]["trigger"], "stop")
+        filled = ledger.fill_orders(self.book, [{"id": "m-1", "price": 0.57}], self.now + 60_000)
+        self.assertEqual(len(filled), 1)
+        self.assertEqual(filled[0]["entry"], 0.57)  # stop entry pays the gap, not the level
+        self.assertEqual(filled[0]["shares"], 40)
 
     def test_no_new_fill_without_approval(self):
         boss = {"meta": {"decision": "WAIT", "approved": []}}

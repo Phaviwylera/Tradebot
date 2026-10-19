@@ -53,7 +53,7 @@ dashboard banner says so.
 3. **Score (0–100).** Robust z-scores: 1h move up to 24 points, 24h move up to 20, volume up to 22;
    plus 6 for aligned 1h/24h direction, 4 for a tight spread, 3 for event comments.
 4. **Floor and shortlist.** Anything under `activity_floor` (8) is counted as `low_signal`; the
-   remainder is sorted and capped at `shortlist_size` (10).
+   remainder is sorted and capped at `shortlist_size` (30).
 
 The report records the universe size, exclusions by reason, category counts, and every excluded
 market's reason. Scout never returns a direction.
@@ -98,7 +98,10 @@ A market with no fresh, dated source is flagged `NO_SOURCES` and cannot receive 
 Pick a side only when trend and structure agree: primary up / secondary down, or a confirmed upward
 structure break on either side. If neither, WAIT with the reason.
 
-Entry rules, all conditional (never "buy now"):
+Entry rules. A breakout plan enters at the quote and fills in the paper book immediately. Pullbacks,
+retests and reversals are conditional: the approval becomes a **working order** (limit below the
+quote, or stop above it) that fills only when the market trades to the level, and expires at the
+plan's time limit. No fill is ever simulated at a price the market did not reach.
 
 | Setup | Entry | Invalidation | Notes |
 |---|---|---|---|
@@ -112,14 +115,16 @@ Target = the greater of **entry + 4 ATR** and the next strong resistance above e
 
 Rejections (each becomes a WAIT with the exact reason recorded):
 
-- no fresh source, high event risk, or low-relevance headline set;
+- no fresh source, high event risk, or low-relevance headline set; medium event risk is
+  priced by Risk, which halves the position instead of blocking it;
 - average bar range > 12% of price (too noisy for a fixed stop);
 - stop distance > `max_stop_distance` (0.12) or entry not above invalidation;
 - entry > `max_entry_distance` (0.12) away from the quote;
 - pullback/retest entry not below the quote, or a pullback > 0.05 under it;
+- a working order whose level is beyond the max entry distance;
 - target not above the quote + 0.005 (the move may already be priced);
 - gross reward:risk < `min_net_rr` (1.5);
-- extended price with no structure break.
+- extended price with no structure break (the retest is shown, but not filled).
 
 Confidence is a 0–100 sum of six observable conditions (trend, structure, noise, volume z-score,
 fresh sources, tone agreement). It is displayed, not used as a gate.

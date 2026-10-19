@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 100.0,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-10-19T04:37:00Z",
+  "updated_utc": "2026-10-19T04:43:47Z",
   "realized_pnl": 0.0,
   "positions": [],
   "trades": [],
@@ -21,10 +21,65 @@
     {
       "t": "2026-10-19T04:37:00Z",
       "equity": 100.0
+    },
+    {
+      "t": "2026-10-19T04:40:19Z",
+      "equity": 100.0
+    },
+    {
+      "t": "2026-10-19T04:43:47Z",
+      "equity": 100.0
     }
   ],
   "counters": {
-    "next_trade": 1
+    "next_trade": 1,
+    "next_order": 2
   },
-  "policy": "simulated fills at quoted prices; no broker, wallet or order client"
+  "policy": "simulated fills at quoted prices; no broker, wallet or order client",
+  "orders": [
+    {
+      "order_id": "W1792385027179-001",
+      "market_id": "682708",
+      "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
+      "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
+      "side": "No",
+      "category": "politics",
+      "event_id": "81557",
+      "entry_type": "pullback",
+      "trigger": "limit",
+      "entry": 0.522,
+      "quote_at_approval": 0.529,
+      "stop": 0.517,
+      "target": 0.572,
+      "shares": 47,
+      "risk_dollars": 0.24,
+      "time_limit_utc": "2026-10-19T10:43:47Z",
+      "created_utc": "2026-10-19T04:43:47Z",
+      "last_mark_utc": "2026-10-19T04:43:47Z",
+      "status": "WORKING"
+    }
+  ],
+  "queued_this_run": [
+    {
+      "order_id": "W1792385027179-001",
+      "market_id": "682708",
+      "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
+      "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
+      "side": "No",
+      "category": "politics",
+      "event_id": "81557",
+      "entry_type": "pullback",
+      "trigger": "limit",
+      "entry": 0.522,
+      "quote_at_approval": 0.529,
+      "stop": 0.517,
+      "target": 0.572,
+      "shares": 47,
+      "risk_dollars": 0.24,
+      "time_limit_utc": "2026-10-19T10:43:47Z",
+      "created_utc": "2026-10-19T04:43:47Z",
+      "last_mark_utc": "2026-10-19T04:43:47Z",
+      "status": "WORKING"
+    }
+  ]
 }

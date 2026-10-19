@@ -4,9 +4,10 @@ A working implementation of the six-agent setup described in the
 [“Opus 6-Agent Trading System”](https://docs.google.com/document/d/109vLyKr8RFYtZuB3RiQ5PJKu0fM_DPHTwCnSIBaBTdI/edit)
 guide — turned from a prompt outline into a runnable, testable pipeline.
 
-**Live demo:** <https://opus-agent-desk.vercel.app> — static snapshots of three runs (approve,
-wait and reject), browsable from the run selector. The Run button is disabled there on purpose;
-the pipeline itself runs locally with `python3 main.py --serve`.
+**Live demo:** <https://opus-agent-desk.vercel.app> — the real dashboard. The six agents run on
+GitHub Actions every 15 minutes against public Polymarket data, commit the run and the $100 paper
+ledger, and the page reads the newest reports from the default branch. Hosting is read-only: the
+Run button needs the local server (`python3 main.py --serve`).
 
 ```text
 SCOUT ──► NEWS ──► CHARTS ──► STRATEGY ──► RISK ──► BOSS
@@ -18,8 +19,10 @@ Each stage is **deterministic Python**, not a language model. Every stage writes
 report in the shared envelope from the doc; the Boss reads all five and returns exactly one of
 `APPROVE_FOR_PAPER_TEST`, `WAIT` or `REJECT`.
 
-**Paper only.** There is no wallet, key, signature, brokerage link or order endpoint anywhere in
-this repository. `config.yaml` is hard-wired to `mode: paper` and `allow_live_orders: false`, and the
+**Paper only.** The desk keeps a **$100 simulated book**: approved entries either fill at the quote
+or rest as working orders until the market reaches the level, then exit at the stop, target,
+resolution or time limit. There is no wallet, key, signature, brokerage link or order endpoint
+anywhere in this repository. `config.yaml` is hard-wired to `mode: paper` and `allow_live_orders: false`, and the
 runner refuses to start otherwise. A human is required before anything else happens.
 
 ---
@@ -39,7 +42,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python main.py
 ```
 
-Expected first run: **520 markets scanned → 10 on the watchlist → 4 plans → risk clears 1 →
+Expected first run: **520 markets scanned → 30 on the watchlist → 5 plans → risk clears 1 →
 `APPROVE_FOR_PAPER_TEST`**, saved to `reports/`.
 
 ```bash

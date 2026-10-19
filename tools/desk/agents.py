@@ -751,8 +751,6 @@ def run_strategy(scout_report: dict[str, Any], news_report: dict[str, Any],
 
         if (news or {}).get("tone") == "cautious" and view["trend"] == "up":
             disagreements.append("headline tone is cautious while the trade direction is up")
-        if (news or {}).get("event_risk") == "medium":
-            reasons.append("medium event risk")
         disagreements.extend(chart["conflicts"])
         if view["atr_pct"] > 0.12:
             reasons.append(f"average bar range {pct(view['atr_pct'], 1)} is too noisy for a fixed stop")
@@ -818,8 +816,6 @@ def run_strategy(scout_report: dict[str, Any], news_report: dict[str, Any],
                         if resistance_level is not None and resistance_level > entry + 0.008 else None)
         target = rnd(clamp(max(floor_target, level_target or 0), entry + 0.01, 0.985), 3)
 
-        if extended and structure == "up":
-            reasons.append("extended breakout: the plan waits for a retest instead of chasing")
         if entry_type == "pullback" and quote - entry > cfg.max_pullback_distance:
             reasons.append(f"pullback entry is {(quote - entry):.3f} below the quote, "
                            f"beyond the {cfg.max_pullback_distance:g} limit")
@@ -913,7 +909,9 @@ def run_strategy(scout_report: dict[str, Any], news_report: dict[str, Any],
             "plans": len(candidates),
             "waits": len(plans) - len(candidates),
             "policy": ("A plan exists only when trend and structure agree, the stop is inside the max "
-                       "distance, and reward:risk clears the configured floor. Strategy never sizes a "
+                       "distance, and reward:risk clears the configured floor. Entries at the quote "
+                       "fill immediately in the paper book; pullbacks, retests and reversals rest as "
+                       "working orders until the market trades to the level. Strategy never sizes a "
                        "position and never places an order."),
         },
     )
@@ -968,12 +966,19 @@ def run_risk(strategy_report: dict[str, Any], news_report: dict[str, Any],
     news_by_id = {entry["market_id"]: entry for entry in news_report["evidence"]}
     decisions: list[dict[str, Any]] = []
     cash = num(context.get("cash"), bankroll)
-    exposure = sum(num(position.get("notional"), 0) for position in open_positions)
-    risk_committed = sum(num(position.get("risk_dollars"), 0) for position in open_positions)
+    working_orders = context.get("working_orders") or []
+    # Resting orders reserve capacity: count their notional and risk as if they were positions.
+    reserved = [
+        {**order, "notional": round(num(order.get("entry"), 0) * num(order.get("shares"), 0), 2)}
+        for order in working_orders
+    ]
+    book_items = list(open_positions) + reserved
+    exposure = sum(num(position.get("notional"), 0) for position in book_items)
+    risk_committed = sum(num(position.get("risk_dollars"), 0) for position in book_items)
     category_counts: dict[str, int] = {}
     event_counts: dict[str, int] = {}
     question_counts: dict[str, int] = {}
-    for position in open_positions:
+    for position in book_items:
         category = position.get("category") or "other"
         category_counts[category] = category_counts.get(category, 0) + 1
         event_key = position.get("event_id") or position.get("market_id")
@@ -1078,8 +1083,9 @@ def run_risk(strategy_report: dict[str, Any], news_report: dict[str, Any],
         min_shares = max(1, int(num(scout.get("order_min_size"), 1)))
         push("order_minimum", shares >= min_shares,
              f"{shares} share(s) vs exchange minimum {min_shares}")
-        push("position_cap", len(open_positions) + len(approved) < cfg.max_positions,
-             f"{len(open_positions) + len(approved)} of {cfg.max_positions} position slots used")
+        push("position_cap", len(book_items) + len(approved) < cfg.max_positions,
+             f"{len(book_items) + len(approved)} of {cfg.max_positions} position slots used "
+             f"({len(working_orders)} working)")
 
         category = scout.get("category") or "other"
         push("category_concentration", category_counts.get(category, 0) < cfg.max_per_category,
@@ -1295,6 +1301,8 @@ def run_boss(reports: dict[str, Any], cfg: Config, now_ms: int,
                 "category": entry.get("category"),
                 "event_id": entry.get("event_id"),
                 "entry": plan["entry"],
+                "entry_type": plan.get("entry_type"),
+                "quote": plan.get("quote"),
                 "invalidation": plan["invalidation"],
                 "target": plan["target"],
                 "time_limit_utc": plan["time_limit_utc"],
