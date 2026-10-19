@@ -1,254 +1,203 @@
 # How the desk works
 
-This is the method behind the six reports. Everything here is implemented in
-`public/assets/agents.js` and `public/assets/data.js`. There is no language model in the pipeline: each
-agent is a deterministic function, so the same inputs and clock always produce the same reports.
+The method behind the six reports. Everything here is implemented in `tools/desk/` and runs on the
+Python standard library; PyYAML is used when present and a small subset reader is used otherwise.
+There is no language model in the pipeline: each agent is a deterministic function, so the same
+inputs and clock always produce the same reports.
 
-## The shape of a run
+## Shape of a run
 
 ```
 data source ──► SCOUT ──► NEWS ──► CHARTS ──► STRATEGY ──► RISK ──► BOSS
-                 │          │         │           │          │        │
-              watchlist   sources    levels      one plan   veto     one of
+                  │         │         │           │          │        │
+              watchlist  sources    levels      one plan   veto     one of
               (attention) + ages     + trend     or WAIT    /size    3 statuses
 ```
 
-A stage that cannot produce a usable report returns `needs_data`. The pipeline stops there, the Boss
-receives only the completed stages, and the decision is WAIT or REJECT. A single market with a missing
-headline or short history is dropped **inside** the stage with a recorded reason; it does not halt the
-whole desk.
+If a **stage** cannot produce a usable report it returns `needs_data`. The chain stops, missing
+stages are absent from the run, and the Boss can only `WAIT` (or `REJECT` when a stage is missing).
+A single **market** with no quote, too little history or no source is dropped inside its stage with
+the reason recorded; it does not halt the whole desk. That distinction matters at 400+ markets,
+where gaps are normal.
 
 ## Data sources
 
-**Live mode** uses three read-only public feeds:
+**Live mode** (`--source live`) uses three public, read-only feeds:
 
 - **Gamma `/markets`** — active, not closed, ordered by 24h volume, paged 100 at a time up to the scan
-  cap (default 500). Each market is normalised: outcomes, CLOB token ids, mid price, bid/ask, spread,
-  liquidity, 24h volume, 1h/24h/1w price changes, end date, fee schedule, order minimum.
-  If a market has no bid, ask or reported spread, `hasQuote` is false and Scout excludes it. The desk
-  does not invent a book.
-- **CLOB `/prices-history`** — 24 hours of 15-minute closes for the primary outcome token. If that
-  fails, one retry on a 1-week/60-minute window. If both fail, the Charts agent records `needs_data`
-  for that market.
-- **Google News RSS** — up to eight headlines for a query built from the event title and question,
-  with source, link and publication time. Only the title, source and date are used.
+  cap (default 500). Normalised per market: outcomes, CLOB token ids, mid price from bid/ask,
+  spread, liquidity, 24h volume, 1h/24h/1w changes, end date, fee schedule, order minimum. If the
+  feed has no bid, ask or reported spread, the market is marked `has_quote: false` and Scout drops
+  it. The desk never invents a book.
+- **CLOB `/prices-history`** — 24h of 15-minute closes for the primary token. Falls back to `1w` at
+  60-minute fidelity when the short window is empty. Empty history → the market is dropped from
+  Charts, not filled with a synthetic line.
+- **Google News RSS** — up to 8 headlines per market, queried from the event title and question.
+  Titles, links, publishers and publish dates only; no article bodies.
 
-**Test mode** generates 520 markets in the browser from a seeded PRNG (mulberry32), plus a 24-hour
-15-minute series per market and synthetic headlines. It is deterministic for a given seed and clock.
-The series is generated **backwards from the quoted price**, so the last point always equals the
-market quote and the intended regime shape is preserved. Every record is marked `synthetic: true` and
-the page labels it. Test-mode approval rates are not evidence of anything.
+**Fixture mode** (default) uses `data/fixtures.json`: 520 generated markets, a seeded mulberry32
+generator, and relative timestamps (`hours_to_end`, `quote_age_min`) so the snapshot never goes
+stale. Prices are walked backwards from the quoted price so the series ends where the quote is —
+forward-anchored synthetic trends would flatten out. Every record is labelled synthetic, and the
+dashboard banner says so.
 
-## 1. Scout — attention, not advice
+## Scout — attention, not a signal
 
-Universe filters: accepting orders, open, order book enabled, both tokens present, a two-sided quote,
-liquidity ≥ floor, spread within limit, not resolving within the minimum window.
+1. **Quality gate.** Reject if: not accepting orders, closed, no order book, missing token ids, no
+   two-sided quote, liquidity below `min_liquidity`, spread above `max_spread`, spread above 20% of
+   price, no resolution date, or resolving inside `min_minutes_to_resolution`.
+2. **Category normalisation.** Group survivors by category (sports, politics, crypto, econ, culture,
+   weather, other) and compute the median and MAD of `|1h move|`, `|24h move|` and `log1p(24h
+   volume)` inside each group. A 20% move on a 3¢ long-shot is not comparable to 20% on a 50¢
+   contract.
+3. **Score (0–100).** Robust z-scores: 1h move up to 24 points, 24h move up to 20, volume up to 22;
+   plus 6 for aligned 1h/24h direction, 4 for a tight spread, 3 for event comments.
+4. **Floor and shortlist.** Anything under `activity_floor` (8) is counted as `low_signal`; the
+   remainder is sorted and capped at `shortlist_size` (10).
 
-For every market that passes, Scout computes **within-category** statistics:
+The report records the universe size, exclusions by reason, category counts, and every excluded
+market's reason. Scout never returns a direction.
 
-- `z_move_1h`, `z_move_24h` — robust z-scores of the absolute moves. The spread measure is
-  `1.4826 × median absolute deviation`, not the standard deviation, so a single outlier does not
-  flatten the whole category.
-- `z_volume` — robust z-score of `log(1 + volume24h)`.
-- `volume_ratio` — volume divided by the category median.
-- Qualities: tight spread, aligned 1h/24h moves, comment count.
+## News — claims, not facts
 
-The score is a capped sum (0–100), dominated by 1h and 24h move z-scores and volume z-score, with
-smaller weights for aligned moves, tight spread and event comments. Markets below 8 points are
-discarded. The top `shortlistSize` (default 10) become the watchlist.
+For each watchlist market:
 
-Scout reports the universe size, how many passed filters, how many failed quality, the category
-breakdown and its methodology. It never names a side.
+- Build a keyword query from the event title and question, minus stop words.
+- Fetch headlines and record title, publisher, link, publish time and age.
+- Flag: `stale` if older than `max_headline_age_hours` or undated; `speculative` when the title uses
+  words like *may*, *reportedly*, *analysts expect*; `duplicate` for repeated normalised titles.
+- Relevance is `direct` (≥2 query words), `partial` (1), `unclear` (0) — and `pooled` for synthetic
+  headlines that are shared across a category.
+- **Tone** is a crude keyword polarity (beat/pass/wins vs miss/reject/fails). It is reported, but
+  **disabled for rules** on synthetic/pooled headlines and on team-vs-team markets where a
+  "constructive" headline has no Yes/No polarity. It is never treated as a verified outcome.
+- Event risk comes from the category and a fixed keyword list (FOMC, CPI, election, kickoff,
+  deadline), or is `unknown`. Never inferred from price action.
 
-## 2. News — dated claims, with the gaps left visible
+A market with no fresh, dated source is flagged `NO_SOURCES` and cannot receive a plan while
+`require_news` is true.
 
-For each watchlist market, News builds a keyword query (stop words removed), fetches headlines and
-records for each item:
+## Charts — describe, do not predict
 
-- source, URL, publication time, age in hours
-- `stale` if older than the maximum headline age (24h by default)
-- `duplicate` if a normalised title was already seen for that market
-- `relevance`: direct if at least two query tokens appear in the title, partial if one, otherwise unclear
-- `speculative`: true when the title uses words such as *may*, *could*, *reportedly*, *analysts expect*
-- keyword tone (constructive / cautious / neutral)
+- **Trend.** Linear fit of closes in probability points per hour, compared with the average bar
+  range (`atr`). `up` if slope > 1.2 × atr, `down` if below −1.2 × atr, else `range`.
+- **Momentum.** Change over the last hour, and a 3-hour slope for context.
+- **Volatility.** ATR is the mean absolute bar-to-bar change; `atr_pct = atr / last`.
+- **Support / resistance.** Swing pivots (2-bar lookaround), clustered to 0.5¢ buckets, kept only
+  with ≥2 touches. This is context for a rule, not proof of a level.
+- **Structure break.** Last close beyond the prior 1h range by 0.5 × atr. Deliberately measured
+  against the *prior* range, not the next resistance above price, so the plan is not chasing.
+- **Conflicts.** Trend vs last-hour momentum, range vs structure break, chart trend vs direct
+  headline tone, high event risk. Conflicts are surfaced and later block approval.
+- **Both outcomes.** The inverse series (`1 − p`) is analysed with the same code, so no outcome gets
+  a privileged view. Volume is unavailable from the price-history endpoint, so activity is reported
+  as the share of bars that changed; no candle volume is invented.
 
-A market is **covered** only if it has at least one fresh, usable headline. Tone is **not** used for
-team-vs-team markets or synthetic data; for those it is `not_applicable`. Keyword polarity is a crude
-proxy and cannot understand an inverted question, so it may only create a disagreement for the Boss —
-it can never flip a side. Headlines are claims; the desk does not verify them and does not read article
-bodies.
+## Strategy — one plan, or WAIT
 
-Event risk is not guessed from nowhere: it is medium for macro/politics categories, medium when the
-headline text names a scheduled event (FOMC, CPI, vote, hearing, earnings, kickoff), and otherwise
-`unknown`. High risk can only come from a supplied hint (test data) or a headline; it blocks a plan.
+Pick a side only when trend and structure agree: primary up / secondary down, or a confirmed upward
+structure break on either side. If neither, WAIT with the reason.
 
-## 3. Charts — describe, do not predict
+Entry rules, all conditional (never "buy now"):
 
-Input: 24h of 15-minute closes for one outcome. The same function is run on the **inverse** series, so
-both outcomes are analysed symmetrically.
+| Setup | Entry | Invalidation | Notes |
+|---|---|---|---|
+| Pullback | nearest support + 0.25 ATR | support − 0.25 ATR, else recent low − 0.25 ATR, else entry − 2 ATR | must sit under the quote and within `max_pullback_distance` (0.05) |
+| Breakout | current quote (ask) | last swing low − 0.25 ATR, else entry − 2 ATR | only when the quote is above the prior 1h high and not extended |
+| Breakout retest | broken level + 0.25 ATR | broken level − 0.75 ATR | used when the uptrend is already extended |
+| Reversal | reclaim level + 0.25 ATR | same stop logic as a pullback | requires a flat/negative trend plus a reclaim |
 
-For each series:
+Target = the greater of **entry + 4 ATR** and the next strong resistance above entry. Time limit =
+`min(now + 6h, market end − 10min)`.
 
-- **Trend**: a least-squares fit of price against hours. The slope is compared with the average
-  absolute bar change (ATR). `up` if the hourly slope exceeds 1.2× ATR and is positive; `down` if it is
-  below −1.2× ATR; otherwise `range`.
-- **Momentum**: change over the last four bars (1 hour).
-- **ATR / bar range**: mean absolute difference between consecutive closes, absolute and as a
-  percentage of price. This is a volatility proxy, not traded volume.
-- **Support / resistance**: swing pivots (a bar higher or lower than two neighbours each side),
-  clustered at 0.5-cent buckets, with at least two touches. The two nearest levels on each side are
-  reported. Recent 8-bar high/low is also reported.
-- **Structure break**: current price more than 0.5× ATR outside the prior 1-hour range.
-- **Range position**: where the last price sits between the window min and max.
-- **Extension**: last price more than 1.5× ATR above its 8-bar mean while at the top 4% of the range.
-- **Activity**: share of bars whose close changed.
-- **Conflicts**: trend and last-hour momentum pointing opposite ways, or a structure break inside a
-  range. **Warnings** cover extension, very noisy bars and short windows.
+Rejections (each becomes a WAIT with the exact reason recorded):
 
-Charts adds conflicts from news: high event risk, or two or more direct headlines whose keyword tone
-opposes the trend. Conflicts block a plan at Risk; warnings do not.
+- no fresh source, high event risk, or low-relevance headline set;
+- average bar range > 12% of price (too noisy for a fixed stop);
+- stop distance > `max_stop_distance` (0.12) or entry not above invalidation;
+- entry > `max_entry_distance` (0.12) away from the quote;
+- pullback/retest entry not below the quote, or a pullback > 0.05 under it;
+- target not above the quote + 0.005 (the move may already be priced);
+- gross reward:risk < `min_net_rr` (1.5);
+- extended price with no structure break.
 
-## 4. Strategy — one setup or nothing
+Confidence is a 0–100 sum of six observable conditions (trend, structure, noise, volume z-score,
+fresh sources, tone agreement). It is displayed, not used as a gate.
 
-For each chart-reviewed market, Strategy picks a **view** only if the primary and inverse trends agree
-on direction, or a structure break exists. Otherwise it returns WAIT.
+## Risk — the veto
 
-The entry is conditional, based on the setup type:
+Common checks run first: every upstream report present with a parseable timestamp, oldest report
+inside `watchlist_freshness_minutes` (30), and mode/`allow_live_orders` as configured.
 
-| Setup | Entry rule | Invalidation |
-|---|---|---|
-| Pullback (trend up, not extended) | `support + 0.25 ATR` | nearest support / recent low, capped at 2 ATR |
-| Breakout (structure break) | current ask, above the prior 1-hour high | same stop logic |
-| Breakout retest (extended break) | `broken level + 0.25 ATR` | `broken level − 0.75 ATR` |
-| Reversal (range reclaim) | `range high + 0.25 ATR` | same stop logic |
+Per plan (any failure = `REJECTED`):
 
-Stop candidates are filtered to those at least `max(0.5 ATR, 0.006)` below entry; the highest surviving
-candidate is used, so the stop sits at the nearest structural protection rather than a distant pivot.
-Targets use the next resistance if it is above entry, otherwise `entry + max(4 ATR, 0.05)`. Everything
-is clamped inside `(0.005, 0.985)`.
+| Group | Check |
+|---|---|
+| Plan | `plan_ready` |
+| Freshness | `fresh_quote` (≤60 min), `fresh_news`, `news_required` |
+| Market | `event_risk`, `liquidity`, `spread`, `history` |
+| Structure | `chart_conflicts`, `unresolved_disagreements` |
+| Economics | `rr_after_costs`, `stop_vs_spread`, `entry_within_band`, `net_reward_to_spread`, `net_rr` |
+| Sizing | `size`, `order_minimum`, `position_cap` |
+| Concentration | `category_concentration`, `event_concentration`, `duplicate_question` |
 
-The plan is rejected with WAIT when:
+Cost model: `cost = spread / 2 + price × 2%` per share. Net risk is `stop distance + cost`; net
+reward is `reward − cost`; `net_rr` must clear 1.5. A stop inside the spread is noise and is
+rejected outright.
 
-- there is no fresh source and news is required,
-- event risk is high,
-- the headline set does not match the question,
-- the stop is wider than `maxStopDistance` (0.12),
-- the entry is more than `maxEntryDistance` (0.12) from the current quote,
-- a pullback entry is more than `maxPullbackDistance` (0.05) below the quote,
-- a conditional pullback or retest entry is not actually below the quote,
-- the target is not above the current quote (the move has already been priced),
-- the stop is not below entry,
-- gross reward:risk is below `minNetRR` (1.5),
-- the price is stretched in a non-breakout setup.
+Sizing: `shares = floor(risk_budget / net_risk)`, capped by remaining exposure
+(`bankroll × 25% − open notional`), remaining daily risk (`6% − committed`), 1% of quoted liquidity,
+and the exchange's minimum order size. Medium event risk halves the risk budget and labels the
+result `REDUCED` (not `PASSED`). A plan that rounds to zero shares is rejected.
 
-Confidence is a transparent sum of trend, structure, volatility, volume z-score, source count and
-tone alignment. It is shown, but it is not used to override a failed rule.
+The risk report records every check with `pass` plus a factual detail string, so a rejection can be
+read without guessing.
 
-## 5. Risk — the gate
+## Boss — one status
 
-Risk first repeats common checks on every plan: all upstream reports exist with timestamps, the oldest
-report is within the freshness window (30 minutes), and `mode=paper` with `allowLiveOrders=false`.
-Then, per plan:
+| Decision | Condition |
+|---|---|
+| `APPROVE_FOR_PAPER_TEST` | all five upstream reports present and complete; Risk cleared at least one plan; that plan has no unresolved disagreement |
+| `WAIT` | the pipeline halted; strategy produced only WAITs; or every cleared plan carries a conflict |
+| `REJECT` | a report is missing/incomplete, or Risk rejected every plan |
 
-- quote freshness (from the source timestamp, limit 60 minutes)
-- at least one fresh dated source; news required
-- event risk not high
-- liquidity ≥ floor, spread ≤ limit
-- history has at least 12 bars
-- no blocking chart conflicts
-- gross R:R ≥ floor
-- planned entry within the entry band of the quote
-- **net** R:R after costs ≥ floor
-- reward ≥ 3× spread
-- **stop distance ≥ spread** (a stop inside the spread is noise)
-- size ≥ 1 share and ≥ exchange order minimum
-- position slots, category cap, event cap, duplicate-question check
+The Boss never averages disagreements, never resizes, never relaxes a limit and never orders. It
+records integrity checks, the disagreement list, counts and the `final_word`: paper only, no orders,
+human approval required.
 
-**Cost model.** Cost per share = `spread / 2 + price × costBufferPct / 100` (2% of notional by default,
-covering fees and slippage). Net risk = stop distance + cost. Net reward = target distance − cost.
-Net R:R must clear the floor.
+## Reports and validation
 
-**Sizing.** `shares = floor(risk_budget / net_risk_per_share)` where the risk budget is
-`bankroll × maxPositionRiskPct / 100`, halved for medium event risk, capped by the remaining daily risk
-budget. The result is then capped by the remaining exposure allowance and by 1% of quoted liquidity.
-Notional is `shares × entry`. If any cap rounds the size below one share or the exchange minimum, the
-plan is rejected.
+Each stage emits the envelope `{agent, timestamp_utc, status, summary, evidence[], risks[],
+next_step, meta}`. `validate_report` rejects a missing agent, unparseable timestamp, unknown status,
+non-string summary, non-array evidence/risks, or missing next_step. `validate_run` additionally
+requires all six reports, a valid Boss decision, and `mode: paper` with `allow_live_orders: false`.
+A validation failure raises `PipelineError` and **does not save**.
 
-A plan that fails **any** check is `REJECTED`. A passed plan with medium event risk is `REDUCED`.
-Risk never relaxes a limit to let a plan through, and its failed-check names are shown in the UI.
+Saved runs: `reports/<YYYYMMDDTHHMMSSZ>-<source>.json`, a matching `.md`, `latest.json` and
+`index.json` (30 runs). Writes are atomic (temp file, fsync, replace). The newest run is also copied
+to `public/reports/` for static hosting.
 
-## 6. Boss — one decision, no averaging
+## Determinism and testing
 
-The Boss verifies:
+With `--source fixture`, a fixed clock and the same seed, the output is byte-comparable (timestamps
+aside). `tests/test_desk.py` covers config enforcement, data labelling, normalisation without a
+quote, determinism, report persistence, schema failures, missing stages, halted stages, Boss
+restrictions, stale inputs, missing sources, spread veto, event concentration, duplicate questions,
+sizing limits, the HTTP surface, and the absence of wallet/order code.
 
-- all five upstream reports exist,
-- none is `needs_data` or `rejected`,
-- every report carries a valid timestamp,
-- paper mode and the live-order lock are on,
-- Risk actually reviewed something and cleared at least one plan.
+Run them with:
 
-Decision tree:
-
-- missing report → **REJECT**
-- pipeline halted at any stage → **WAIT**
-- no plan cleared Risk →
-  - Risk rejected every plan → **REJECT**
-  - Strategy returned WAIT on everything → **WAIT**
-- plans cleared Risk but every one carries an unresolved disagreement → **WAIT**
-- at least one clean, cleared plan → **APPROVE_FOR_PAPER_TEST**
-
-`meta.approved` contains only clean plans, with entry, invalidation, target, time limit, shares,
-notional, risk dollars and net R:R. The Boss cannot resize a plan, relax a check, or place an order.
-
-## The report schema
-
-Every stage returns:
-
-```json
-{
-  "agent": "risk",
-  "label": "RISK",
-  "timestamp_utc": "2026-10-19T03:30:00.000Z",
-  "status": "complete",
-  "summary": "2 plan(s) cleared the risk gate, 1 rejected, 0 never reached it.",
-  "evidence": [],
-  "risks": [],
-  "next_step": "Boss agent: confirm every stage, then approve, wait or reject.",
-  "meta": {}
-}
+```bash
+python3 -m unittest discover -s tests -v
 ```
-
-`validateReport()` enforces the agent name, timestamp, status, summary, evidence array, risks array,
-next step, and — for the Boss — one of the three allowed decisions. The dashboard validates every stage
-after a run and refuses to display a report that fails.
-
-## Test-mode generator
-
-- 520 markets: sports 175, politics 115, crypto 95, econ 65, culture 40, weather 20, other 10.
-- Per market: price, 1h/24h changes, spread, liquidity, volume, end date, regime
-  (`range`, `up`, `down`, `breakout`), headline count and event-risk hint.
-- Every 22nd market is “hot”: wider price swings, tighter spreads, more liquidity and volume.
-- The price path is a 96-point backward random walk with regime drift and noise, ending at the quote.
-- Headlines are drawn from a small category pool and marked synthetic; keyword tone is not used for rules.
-
-Seeds are selectable with “New day”. Different seeds produce different boards and therefore different
-Boss decisions. This is useful for exercising the workflow, not for evaluating a strategy.
 
 ## Known limits
 
-- No backtester, fill model, scheduler, resolution feed, database, authentication or alerting.
-- Support/resistance and trend rules are weak evidence on event-driven probability markets.
-- Keyword tone is crude and disabled where it would be misleading; no article is read.
-- The cost buffer is a fixed assumption, not a calibrated slippage model.
-- Journal outcomes are manual. The desk does not know how a market resolved.
-- Synthetic data has designed trends; its approval rate is meaningless.
-- Paper results do not prove live profitability. Fees, latency, adverse selection and oracle risk remain.
-
-## Extending it
-
-- Add a category-specific model behind the same envelope and let Risk consume its output.
-- Add a historical replay harness with real quotes before changing any threshold.
-- Add resolution tracking to close journal entries automatically, then compute calibration and net P&L.
-- Add a benchmark comparison (random side, always-YES, buy-and-hold) before drawing conclusions.
-- Keep the invariants: paper mode, no order path, Risk veto, Boss restricted to three statuses, no
-  invented data.
+- The desk sees one quote per market, not a book. Depth beyond 1% of quoted liquidity is unknown.
+- Headlines are titles, not articles; tone is a keyword proxy and is disabled where it is meaningless.
+- Levels are statistical clusters, not psychological levels; they can be noise.
+- The fixture board is generated to be well-behaved. Its approval rate is meaningless as a forecast.
+- There is no fill model, no slippage model and no evaluation of whether the plans would have won.
+  That is deliberate: the journal records outcomes by hand, after the fact.
+- Six stages are not six independent opinions. They share inputs; treat the pipeline as a checklist
+  with a veto, not as an ensemble.

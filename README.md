@@ -1,181 +1,153 @@
 # Opus Agent Desk
 
-A six-stage **paper-trading research desk** for Polymarket, built from the setup described in the
-“Opus 6-Agent Trading System” guide.
+A working implementation of the six-agent setup described in the
+[“Opus 6-Agent Trading System”](https://docs.google.com/document/d/109vLyKr8RFYtZuB3RiQ5PJKu0fM_DPHTwCnSIBaBTdI/edit)
+guide — turned from a prompt outline into a runnable, testable pipeline.
 
-The desk scans up to 500 active markets, finds genuinely unusual moves, attaches dated headlines,
-reads price structure, writes one rule-based plan per candidate, and lets a risk gate veto anything
-that does not clear its limits. The Boss returns exactly one of:
-
-`APPROVE_FOR_PAPER_TEST` · `WAIT` · `REJECT`
-
-There is **no wallet, no private key, no signing code and no order endpoint**. It cannot place a trade.
-Read the full setup review in [`docs/REVIEW.md`](docs/REVIEW.md) and the method notes in
-[`docs/HOW_IT_WORKS.md`](docs/HOW_IT_WORKS.md).
-
----
-
-## Run it locally
-
-```bash
-python3 tools/local-server.py
-# open http://localhost:8765
+```text
+SCOUT ──► NEWS ──► CHARTS ──► STRATEGY ──► RISK ──► BOSS
+scan 400+  dated    trend &    one plan      veto /    approve · wait
+markets   sources  levels     or WAIT       sizing    · reject
 ```
 
-The page opens in **Test data** mode and runs immediately on a deterministic synthetic board
-(“synthetic day 3”). Everything in that mode — questions, prices, headlines — is generated in the
-browser and labelled as such. No network is required for test mode.
+Each stage is **deterministic Python**, not a language model. Every stage writes a timestamped
+report in the shared envelope from the doc; the Boss reads all five and returns exactly one of
+`APPROVE_FOR_PAPER_TEST`, `WAIT` or `REJECT`.
 
-For the Python server, use Python 3.9+ (the app itself is plain HTML/CSS/JS; no build step).
+**Paper only.** There is no wallet, key, signature, brokerage link or order endpoint anywhere in
+this repository. `config.yaml` is hard-wired to `mode: paper` and `allow_live_orders: false`, and the
+runner refuses to start otherwise. A human is required before anything else happens.
 
-### Live mode
+---
 
-Click **Live**. The server proxies three read-only upstreams:
-
-| Path | Upstream |
-|---|---|
-| `/gamma/*` | `https://gamma-api.polymarket.com/*` — markets |
-| `/clob/*` | `https://clob.polymarket.com/*` — price history |
-| `/news?q=` | `https://news.google.com/rss/search?q=` — dated headlines |
-
-If your network cannot reach Polymarket, Live will fail with a relay error. Test mode still works.
-Live mode is read-only; the proxy is `GET`-only and the server answers `POST` with `405`.
-
-### Tests
+## Quick start
 
 ```bash
-npm test        # node --test tests/*.test.mjs  (19 tests, no dependencies)
+python3 main.py                                # run the desk once on the fixture board
+python3 main.py --serve                        # dashboard at http://localhost:8765
 ```
 
-The tests cover the shared report schema, malformed reports, missing timestamps, stale inputs,
-missing sources, risk veto, Boss restrictions, position sizing, event/duplicate concentration,
-determinism, and the absence of order/wallet code in the browser bundle.
+No dependencies and no build step: the runner is standard-library Python, and `config.yaml` is read
+by a small YAML-subset loader when PyYAML is not installed. If you prefer the real parser:
 
----
+```bash
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/python main.py
+```
 
-## Deploy on Vercel
+Expected first run: **520 markets scanned → 10 on the watchlist → 4 plans → risk clears 1 →
+`APPROVE_FOR_PAPER_TEST`**, saved to `reports/`.
 
-1. Import this repository in Vercel (Add New → Project).
-2. Leave the defaults. `vercel.json` publishes `public/` and adds the `/gamma`, `/clob` and `/news`
-   rewrites.
-3. Deploy.
+```bash
+python3 main.py --serve --open        # serve and open a browser
+python3 main.py --source live         # read-only public data
+python3 main.py --json                # print the full run record
+python3 main.py --build-fixtures      # regenerate data/fixtures.json
+python3 -m unittest discover -s tests -v
+```
 
-No environment variables are required. Do not add secrets: there is nothing here that needs one.
+On many distributions `pip install` is blocked by PEP 668; that is why PyYAML is optional rather
+than required.
 
----
+## What each agent actually does
 
-## The six stages
+| # | Agent | Job | Never does |
+|---|-------|-----|-----------|
+| 1 | **Scout** | Ranks unusual movement and volume across the whole universe, normalised inside each category (robust z-scores vs category medians). Excludes closed/illiquid/wide-spread markets. | Recommend a side or invent a quote |
+| 2 | **News** | Attaches dated, attributable headlines; flags stale, duplicate, speculative and low-relevance items; estimates event risk. | Summarise an article body it was not given, or invent a source |
+| 3 | **Charts** | 24h of 15-minute closes: trend, momentum, ATR, support/resistance (clustered swing pivots), structure breaks, extension warnings and **conflicts**. Analyses the inverse series too, so both outcomes are treated equally. | Predict a guaranteed outcome or fabricate candle volume |
+| 4 | **Strategy** | Writes at most one conditional plan per market: entry type (pullback / breakout / breakout-retest / reversal), entry zone, trigger, invalidation, target, time limit, gross R:R, confidence. | Force a setup, size a position, or lower a limit |
+| 5 | **Risk** | ~18 named checks per plan: freshness, sources, liquidity, spread, stop vs spread, reward vs spread, cost-adjusted R:R, size, exposure, position caps, category/event concentration, duplicate questions. **Any failure is a veto.** | Relax a rule to make a plan pass, or be overruled by Boss |
+| 6 | **Boss** | Confirms all five reports exist, are complete and timestamped, then returns one final status. Disagreements are held, never averaged. | Approve on a partial pipeline, resize, or place an order |
 
-| # | Stage | What it does | What it must not do |
-|---|---|---|---|
-| 1 | **Scout** | Pulls up to 500 active markets, filters quality, scores unusual moves within category, returns a 10-market watchlist | Recommend a side or a trade |
-| 2 | **News** | Attaches dated headlines to each watchlist market, flags stale, duplicate, speculative or irrelevant items | Invent an article or a fact |
-| 3 | **Charts** | 24h of 15-minute closes: trend, momentum, ATR, swing levels, structure breaks, conflicts | Predict a guaranteed outcome |
-| 4 | **Strategy** | One plan per candidate: side, conditional entry, invalidation, target, time limit, R:R | Size the position or relax a rule |
-| 5 | **Risk** | Checks freshness, sources, spread, liquidity, R:R after costs, sizing, exposure and concentration. **Can veto any plan.** | Approve a plan by overriding a failed check |
-| 6 | **Boss** | Verifies that all five reports exist and are complete, counts risk-cleared plans, refuses to average disagreements | Approve with a missing stage, resize, or change limits |
+## The report envelope
 
-Every stage returns the same JSON envelope:
+Every stage emits the same shape, validated on every run before anything is saved:
 
 ```json
 {
   "agent": "scout",
-  "timestamp_utc": "2026-10-19T03:30:00.000Z",
+  "timestamp_utc": "2026-10-19T04:02:20Z",
   "status": "complete | needs_data | rejected",
-  "summary": "One factual sentence.",
+  "summary": "one paragraph, plain language",
   "evidence": [],
   "risks": [],
-  "next_step": "What the next stage should review.",
+  "next_step": "what the next stage should do",
   "meta": {}
 }
 ```
 
-A `needs_data` stage halts the pipeline; the Boss can then only WAIT or REJECT.
-A failed market inside a stage is dropped with a recorded reason — it does not stop the whole desk.
+* `needs_data` means the stage could not work with the inputs it had. It halts the chain; Boss can
+  then only return `WAIT` (or `REJECT` if a stage is missing).
+* A stage never fabricates a value to avoid `needs_data`. If a market has no quote it is excluded;
+  if a series is too short it is reported as such.
+* The Boss decision lives at `reports/<run>/boss/meta/decision` and is restricted to the three
+  allowed statuses by the schema validator.
 
-## How a plan is built
+## Outputs
 
-The Strategy agent only acts when charts and structure agree. It then writes **one conditional setup**:
+Each run writes three files, atomically:
 
-- **Pullback** — buy the supported trend at `support + 0.25 ATR`.
-- **Breakout** — buy the quote when the structure break holds.
-- **Breakout retest** — if the move is stretched, wait for a retest of the broken level instead of chasing.
-- **Reversal** — only when a range reclaims its high with momentum.
-
-Every plan carries an **entry zone**, **invalidation**, **target**, **time limit**, **gross R:R** and a
-**confidence score**. There is no “buy now because the model says so”.
-
-## The risk gate
-
-Defaults (all editable in the sidebar, all hard-coded as paper-only):
-
-| Limit | Default |
-|---|---|
-| Mode | `paper` (not editable) |
-| Live orders | `false` (not editable) |
-| Bankroll | $1,000 |
-| Risk per trade | 2% of bankroll, derived from stop distance |
-| Max total exposure | 25% of bankroll |
-| Max open positions | 5 |
-| Max per category / event | 2 / 1 |
-| Min liquidity | $2,000 |
-| Max spread | 0.05 |
-| Min net R:R | 1.5 |
-| Max stop distance | 0.12 |
-| Max entry distance from quote | 0.12 |
-| Max pullback distance | 0.05 |
-| Stop vs spread | stop must be at least as wide as the spread |
-| News | at least one fresh dated source required |
-| High event risk | block |
-| Medium event risk | halve size |
-
-The gate charges half the spread plus a configurable cost buffer on entry, tests **net** R:R, and sizes
-the position from the invalidation distance — not from a fixed notional. It also refuses duplicate
-questions and correlated contracts on the same event.
-
-## Test data disclaimer
-
-Test mode generates 520 markets across sports, politics, crypto, macro, culture and weather. It uses a
-seeded random generator, a 24-hour synthetic price path per market, and synthetic headline titles.
-Every surface says **SYNTHETIC TEST DATA**. The generator produces trends on purpose, so approval rates
-in test mode are **not** evidence of live performance. “New day” advances the seed; different synthetic
-days produce approvals, waits and vetoes.
-
-Paper results do not prove an edge. Real trading adds fees, slippage, latency, oracle/resolution risk
-and competing bots. Judge any strategy on hundreds of logged paper trades, after costs, against a
-benchmark — and even then, past paper results do not guarantee future returns.
-
-## Project layout
-
-```
-Tradebot/
-├── public/
-│   ├── index.html            the desk
-│   ├── assets/
-│   │   ├── app.js            dashboard, journal, run controls
-│   │   ├── data.js           live + synthetic data layer
-│   │   └── agents.js         six agents, risk gate, pipeline, schema
-│   └── legacy/               the original BTC 5-minute paper bot
-├── docs/
-│   ├── REVIEW.md             critical review of the Google Doc setup
-│   ├── HOW_IT_WORKS.md       the model, the rules, the limits
-│   └── LEGACY_BTC_BOT.md     notes for the old single-market bot
-├── tools/local-server.py     static server + read-only proxies
-├── tests/desk.test.mjs       19 pipeline tests
-├── vercel.json               static deploy + read-only relays
-└── package.json              test script only
+```text
+reports/20261019T040220Z-fixture.json   full run record (all six reports + config + contract hashes)
+reports/20261019T040220Z-fixture.md     human-readable Markdown summary
+reports/index.json                      newest 30 runs (id, decision, counts)
+reports/latest.json                     pointer copy of the newest run
+public/reports/latest.json              committed snapshot for static hosting
 ```
 
-## Safety
+The dashboard reads `latest.json` (or `/api/latest` when the Python server is running) and renders
+the six reports: the Scout table, News sources, Chart sparklines, Strategy plans and WAIT reasons,
+the Risk checks and sizes, and the Boss decision with integrity checks. It also has a paper journal
+that you update by hand after a result is known.
 
-- No private keys, API secrets, wallet code or order endpoints exist in this repository.
-- Do not add brokerage credentials or live-trading keys to any file here.
-- Mode and live-order lock are hard-coded; the dashboard cannot enable them.
-- The local server rejects every non-GET request with `405`.
-- Prediction-market access is restricted in some jurisdictions. This is educational software, not
-  financial advice, and not a solicitation to trade.
+## Data sources
 
-## License and origin
+* **fixture** (default) — `data/fixtures.json`, 520 generated markets, clearly labelled
+  `SYNTHETIC TEST DATA`. Timestamps are relative offsets so the snapshot never expires. The board is
+  generated by a seeded mulberry32 PRNG and is not a price forecast.
+* **test** — the same generator, run in memory with a different seed.
+* **live** — public, read-only Polymarket Gamma `/markets` (paged, 100 at a time), CLOB
+  `/prices-history`, and Google News RSS. No key required, no order path.
 
-The original single-market BTC 5-minute paper bot is preserved under `public/legacy/`.
-The six-agent desk, its data layer and tests were added on top of it. No performance claim is made.
+The fixture is intentionally labelled everywhere it appears: the report metadata, the dashboard
+banner, the Markdown summary and every headline record carry the synthetic marker.
+
+## Safety model
+
+* `mode: paper`; `allow_live_orders: false` — enforced in `load_config`, not just documented.
+* No credential handling: the repo contains no signing, wallet, key or order code (a test asserts
+  this).
+* GET-only API plus one mutating endpoint, `POST /api/run`, which merely runs the same pipeline as
+  the CLI. `/api/orders` returns 405.
+* Tests cover: malformed reports, missing timestamps, missing stages, stale inputs, missing sources,
+  risk vetoes (spread, freshness, concentration, duplicate question), Boss restrictions, sizing,
+  determinism, saved-report integrity, and the HTTP surface.
+
+## Repository map
+
+```text
+main.py                  CLI: run once, serve the dashboard, rebuild fixtures
+config.yaml              all thresholds and the two safety switches
+agents/*.md              the six role contracts the runner cites (and hashes per run)
+data/fixtures.json       labelled synthetic market board
+tools/desk/config.py     config loading + paper-only enforcement
+tools/desk/data.py       normalisation, fixtures, seeded generator, read-only live feeds
+tools/desk/agents.py     the six agents
+tools/desk/pipeline.py   runner, schema validation, persistence, Markdown summary
+tools/desk/server.py     static dashboard + read-only JSON API
+public/                  dashboard (HTML/CSS/JS), no build step
+reports/                 local run output (git-ignored)
+public/reports/          committed newest snapshot for static hosting
+tests/test_desk.py       30 tests
+docs/HOW_IT_WORKS.md     method, formulas and limits
+docs/REVIEW.md           what the guide gets right and where it breaks
+```
+
+## Limits worth knowing
+
+This is a **research workflow**, not a trading system and not financial advice. It does not prove an
+edge, it cannot see order books beyond the supplied quote, it reads headlines rather than articles,
+and the fixture board is friendlier than any real market. `WAIT` and `REJECT` are expected outcomes —
+the desk rejects most candidate plans by design. Start with
+[`docs/REVIEW.md`](docs/REVIEW.md) for the failure modes before trusting a green run.

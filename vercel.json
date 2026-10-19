@@ -1,16 +1,19 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "outputDirectory": "public",
-  "rewrites": [
-    { "source": "/gamma/:path*", "destination": "https://gamma-api.polymarket.com/:path*" },
-    { "source": "/clob/:path*", "destination": "https://clob.polymarket.com/:path*" },
-    { "source": "/news", "destination": "https://news.google.com/rss/search" }
-  ],
+  "cleanUrls": true,
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/reports/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=60" }
       ]
     }
   ]

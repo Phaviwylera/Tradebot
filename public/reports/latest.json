@@ -1,0 +1,5850 @@
+{
+  "run_id": "20261019T040445Z-fixture",
+  "desk_version": "1.0.0",
+  "mode": "paper",
+  "source": "fixture",
+  "source_label": "SYNTHETIC TEST DATA",
+  "source_detail": "data/fixtures.json \u00b7 520 synthetic markets \u00b7 TEST DATA",
+  "started_utc": "2026-10-19T04:04:45Z",
+  "finished_utc": "2026-10-19T04:04:45Z",
+  "duration_ms": 75,
+  "universe": {
+    "size": 520,
+    "fetched_at": "2026-10-19T04:04:45Z",
+    "synthetic": true
+  },
+  "config": {
+    "mode": "paper",
+    "allow_live_orders": false,
+    "source": "fixture",
+    "fixture_file": "data/fixtures.json",
+    "gamma_base": "https://gamma-api.polymarket.com",
+    "clob_base": "https://clob.polymarket.com",
+    "news_base": "https://news.google.com/rss/search",
+    "universe_limit": 500,
+    "page_size": 100,
+    "request_timeout_s": 15,
+    "retries": 1,
+    "test_seed": 20261019,
+    "shortlist_size": 10,
+    "min_universe_size": 20,
+    "min_liquidity": 2000.0,
+    "max_spread": 0.05,
+    "min_minutes_to_resolution": 10,
+    "activity_floor": 8,
+    "require_news": true,
+    "max_items": 8,
+    "max_headline_age_hours": 24.0,
+    "news_freshness_minutes": 180,
+    "interval": "1d",
+    "fidelity_minutes": 15,
+    "min_history_points": 12,
+    "chart_freshness_minutes": 60,
+    "min_net_rr": 1.5,
+    "max_stop_distance": 0.12,
+    "max_entry_distance": 0.12,
+    "max_pullback_distance": 0.05,
+    "time_limit_hours": 6,
+    "bankroll": 1000.0,
+    "max_positions": 5,
+    "max_total_exposure_pct": 25.0,
+    "max_position_risk_pct": 2.0,
+    "max_daily_risk_pct": 6.0,
+    "max_per_category": 2,
+    "max_per_event": 1,
+    "cost_buffer_pct": 2.0,
+    "min_reward_to_spread": 3.0,
+    "watchlist_freshness_minutes": 30,
+    "event_risk_high": "block",
+    "event_risk_medium": "halve",
+    "history_limit": 10,
+    "report_dir": "reports",
+    "stage_timeout_s": 120,
+    "stop_on_needs_data": true,
+    "refresh_seconds": 15,
+    "reports_endpoint": "/api/reports",
+    "public_copy": true,
+    "contracts_dir": "agents"
+  },
+  "contracts": {
+    "scout": "b54760b8b64471af",
+    "news": "a3d6be74913f3f41",
+    "charts": "1f2c3ce031521576",
+    "strategy": "49ca4ef8f584bba1",
+    "risk": "d3d8861ef3b69bfe",
+    "boss": "33071461e0c65779"
+  },
+  "stage_ms": {
+    "scout": 48,
+    "news": 1,
+    "charts": 8,
+    "strategy": 0,
+    "risk": 0,
+    "boss": 0
+  },
+  "reports": {
+    "scout": {
+      "agent": "scout",
+      "label": "SCOUT",
+      "timestamp_utc": "2026-10-19T04:04:45Z",
+      "status": "complete",
+      "summary": "Scanned 520 markets, 187 passed quality filters, 10 on the watchlist.",
+      "evidence": [
+        {
+          "market_id": "test-0050",
+          "question": "Bruins vs. Rangers: Bruins to win",
+          "url": "https://polymarket.com/market/test-market-50",
+          "category": "sports",
+          "event_id": "test-event-sports-16",
+          "event_title": "Bruins vs. Rangers",
+          "order_min_size": 5.0,
+          "score": 79,
+          "reasons": [
+            "1h move 15.0% is 4.0\u03c3 vs its category",
+            "24h move 19.9% is 4.0\u03c3 vs its category",
+            "24h volume $200,536.85 is 83.1\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "tight spread relative to price",
+            "113 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": 0.15,
+            "move_24h": 0.1992,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": 3.67,
+            "volume_ratio": 83.15,
+            "spread": 0.005900000000000016,
+            "spread_pct": 0.0094,
+            "liquidity": 438999.84,
+            "volume_24h": 200536.85,
+            "price": 0.6287
+          },
+          "price": 0.6287,
+          "ends_at": "2026-10-19T17:33:18Z",
+          "source_timestamp": "2026-10-19T04:00:04Z",
+          "synthetic": true,
+          "regime": "up"
+        },
+        {
+          "market_id": "test-0314",
+          "question": "Will SOL close below $91.00 on Oct 31?",
+          "url": "https://polymarket.com/market/test-market-314",
+          "category": "crypto",
+          "event_id": "test-event-crypto-104",
+          "event_title": "SOL price on Oct 31",
+          "order_min_size": 5.0,
+          "score": 79,
+          "reasons": [
+            "1h move 11.4% is 4.0\u03c3 vs its category",
+            "24h move 13.6% is 4.0\u03c3 vs its category",
+            "24h volume $105,726.52 is 42.7\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "tight spread relative to price",
+            "397 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": -0.1143,
+            "move_24h": -0.1355,
+            "z_move_1h": 4.0,
+            "z_move_24h": 3.96,
+            "z_volume": 3.56,
+            "volume_ratio": 42.68,
+            "spread": 0.0029000000000000137,
+            "spread_pct": 0.0038,
+            "liquidity": 75344.19,
+            "volume_24h": 105726.52,
+            "price": 0.7693
+          },
+          "price": 0.7693,
+          "ends_at": "2026-10-20T21:50:21Z",
+          "source_timestamp": "2026-10-19T04:02:06Z",
+          "synthetic": true,
+          "regime": "down"
+        },
+        {
+          "market_id": "test-0358",
+          "question": "Will XRP close above $1.00 on Oct 24?",
+          "url": "https://polymarket.com/market/test-market-358",
+          "category": "crypto",
+          "event_id": "test-event-crypto-119",
+          "event_title": "XRP price on Oct 24",
+          "order_min_size": 5.0,
+          "score": 79,
+          "reasons": [
+            "1h move 12.3% is 4.0\u03c3 vs its category",
+            "24h move 26.7% is 4.0\u03c3 vs its category",
+            "24h volume $179,959.85 is 72.6\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "tight spread relative to price",
+            "268 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": -0.1235,
+            "move_24h": -0.2669,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": 4.0,
+            "volume_ratio": 72.64,
+            "spread": 0.0031999999999999806,
+            "spread_pct": 0.0046,
+            "liquidity": 492622.44,
+            "volume_24h": 179959.85,
+            "price": 0.6917
+          },
+          "price": 0.6917,
+          "ends_at": "2026-10-20T07:31:37Z",
+          "source_timestamp": "2026-10-19T03:59:12Z",
+          "synthetic": true,
+          "regime": "down"
+        },
+        {
+          "market_id": "test-0336",
+          "question": "Will BTC close below $112,500 on Nov 6?",
+          "url": "https://polymarket.com/market/test-market-336",
+          "category": "crypto",
+          "event_id": "test-event-crypto-111",
+          "event_title": "BTC price on Nov 6",
+          "order_min_size": 5.0,
+          "score": 78,
+          "reasons": [
+            "1h move 4.5% is 2.6\u03c3 vs its category",
+            "24h move 15.7% is 4.0\u03c3 vs its category",
+            "24h volume $664,853.42 is 268.4\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "tight spread relative to price",
+            "123 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": 0.0447,
+            "move_24h": 0.1567,
+            "z_move_1h": 2.57,
+            "z_move_24h": 4.0,
+            "z_volume": 4.0,
+            "volume_ratio": 268.38,
+            "spread": 0.0046999999999999265,
+            "spread_pct": 0.0067,
+            "liquidity": 662098.1,
+            "volume_24h": 664853.42,
+            "price": 0.6976
+          },
+          "price": 0.6976,
+          "ends_at": "2026-10-21T10:58:27Z",
+          "source_timestamp": "2026-10-19T04:01:08Z",
+          "synthetic": true,
+          "regime": "up"
+        },
+        {
+          "market_id": "test-0248",
+          "question": "Will the nominee be confirmed by Nov 13?",
+          "url": "https://polymarket.com/market/test-market-248",
+          "category": "politics",
+          "event_id": "test-event-politics-82",
+          "event_title": "Politics",
+          "order_min_size": 5.0,
+          "score": 76,
+          "reasons": [
+            "1h move 16.1% is 4.0\u03c3 vs its category",
+            "24h move 23.8% is 4.0\u03c3 vs its category",
+            "24h volume $229,492.64 is 98.1\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "tight spread relative to price"
+          ],
+          "metrics": {
+            "move_1h": 0.1606,
+            "move_24h": 0.2378,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": 3.48,
+            "volume_ratio": 98.07,
+            "spread": 0.005700000000000038,
+            "spread_pct": 0.0076,
+            "liquidity": 313442.38,
+            "volume_24h": 229492.64,
+            "price": 0.7499
+          },
+          "price": 0.7499,
+          "ends_at": "2026-10-20T06:36:40Z",
+          "source_timestamp": "2026-10-19T04:01:34Z",
+          "synthetic": true,
+          "regime": "up"
+        },
+        {
+          "market_id": "test-0028",
+          "question": "Ravens vs. Eagles: Ravens to win",
+          "url": "https://polymarket.com/market/test-market-28",
+          "category": "sports",
+          "event_id": "test-event-sports-9",
+          "event_title": "Ravens vs. Eagles",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 6.1% is 4.0\u03c3 vs its category",
+            "24h move 26.2% is 4.0\u03c3 vs its category",
+            "24h volume $116,027.26 is 48.1\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "133 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": -0.0606,
+            "move_24h": -0.2622,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": 3.22,
+            "volume_ratio": 48.11,
+            "spread": 0.011700000000000016,
+            "spread_pct": 0.054,
+            "liquidity": 76405.82,
+            "volume_24h": 116027.26,
+            "price": 0.2167
+          },
+          "price": 0.2167,
+          "ends_at": "2026-10-21T02:13:19Z",
+          "source_timestamp": "2026-10-19T04:00:08Z",
+          "synthetic": true,
+          "regime": "breakout"
+        },
+        {
+          "market_id": "test-0072",
+          "question": "Bruins vs. Maple Leafs: Bruins to win",
+          "url": "https://polymarket.com/market/test-market-72",
+          "category": "sports",
+          "event_id": "test-event-sports-23",
+          "event_title": "Bruins vs. Maple Leafs",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 5.1% is 3.2\u03c3 vs its category",
+            "24h move 14.2% is 4.0\u03c3 vs its category",
+            "24h volume $482,243.46 is 199.9\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "190 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": 0.0513,
+            "move_24h": 0.1416,
+            "z_move_1h": 3.24,
+            "z_move_24h": 4.0,
+            "z_volume": 4.0,
+            "volume_ratio": 199.95,
+            "spread": 0.010500000000000065,
+            "spread_pct": 0.0175,
+            "liquidity": 534359.0,
+            "volume_24h": 482243.46,
+            "price": 0.6013
+          },
+          "price": 0.6013,
+          "ends_at": "2026-10-21T02:59:03Z",
+          "source_timestamp": "2026-10-19T04:02:00Z",
+          "synthetic": true,
+          "regime": "up"
+        },
+        {
+          "market_id": "test-0094",
+          "question": "Astros vs. Cubs: Astros to win",
+          "url": "https://polymarket.com/market/test-market-94",
+          "category": "sports",
+          "event_id": "test-event-sports-31",
+          "event_title": "Astros vs. Cubs",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 11.3% is 4.0\u03c3 vs its category",
+            "24h move 17.1% is 4.0\u03c3 vs its category",
+            "24h volume $193,894.56 is 80.4\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "150 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": 0.1129,
+            "move_24h": 0.1709,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": 3.64,
+            "volume_ratio": 80.39,
+            "spread": 0.005599999999999994,
+            "spread_pct": 0.0129,
+            "liquidity": 303461.7,
+            "volume_24h": 193894.56,
+            "price": 0.4354
+          },
+          "price": 0.4354,
+          "ends_at": "2026-10-20T10:35:28Z",
+          "source_timestamp": "2026-10-19T04:02:07Z",
+          "synthetic": true,
+          "regime": "breakout"
+        },
+        {
+          "market_id": "test-0116",
+          "question": "Knicks vs. Lakers: Knicks to win",
+          "url": "https://polymarket.com/market/test-market-116",
+          "category": "sports",
+          "event_id": "test-event-sports-38",
+          "event_title": "Knicks vs. Lakers",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 6.9% is 4.0\u03c3 vs its category",
+            "24h move 17.9% is 4.0\u03c3 vs its category",
+            "24h volume $470,048.75 is 194.9\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "228 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": -0.0688,
+            "move_24h": -0.1795,
+            "z_move_1h": 4.0,
+            "z_move_24h": 4.0,
+            "z_volume": 4.0,
+            "volume_ratio": 194.89,
+            "spread": 0.012300000000000033,
+            "spread_pct": 0.0308,
+            "liquidity": 515051.15,
+            "volume_24h": 470048.75,
+            "price": 0.3999
+          },
+          "price": 0.3999,
+          "ends_at": "2026-10-20T12:58:16Z",
+          "source_timestamp": "2026-10-19T04:03:00Z",
+          "synthetic": true,
+          "regime": "down"
+        },
+        {
+          "market_id": "test-0138",
+          "question": "Yankees vs. Dodgers: Yankees to win",
+          "url": "https://polymarket.com/market/test-market-138",
+          "category": "sports",
+          "event_id": "test-event-sports-45",
+          "event_title": "Yankees vs. Dodgers",
+          "order_min_size": 5.0,
+          "score": 75,
+          "reasons": [
+            "1h move 4.8% is 3.0\u03c3 vs its category",
+            "24h move 16.2% is 4.0\u03c3 vs its category",
+            "24h volume $155,263.69 is 64.4\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "199 comments on the event"
+          ],
+          "metrics": {
+            "move_1h": 0.0483,
+            "move_24h": 0.162,
+            "z_move_1h": 2.99,
+            "z_move_24h": 4.0,
+            "z_volume": 3.46,
+            "volume_ratio": 64.38,
+            "spread": 0.008299999999999974,
+            "spread_pct": 0.0212,
+            "liquidity": 170881.02,
+            "volume_24h": 155263.69,
+            "price": 0.3922
+          },
+          "price": 0.3922,
+          "ends_at": "2026-10-20T15:40:59Z",
+          "source_timestamp": "2026-10-19T04:01:09Z",
+          "synthetic": true,
+          "regime": "breakout"
+        }
+      ],
+      "risks": [
+        "Universe is SYNTHETIC TEST DATA. Scores describe generated numbers, not a real market."
+      ],
+      "next_step": "News agent: attach dated sources to each watchlist item.",
+      "meta": {
+        "universe_size": 520,
+        "universe_source": "fixture",
+        "universe_label": "SYNTHETIC TEST DATA",
+        "fetched_at": "2026-10-19T04:04:45Z",
+        "source_note": "data/fixtures.json \u00b7 520 synthetic markets \u00b7 TEST DATA",
+        "scored_count": 187,
+        "shortlist": [
+          {
+            "market_id": "test-0050",
+            "category": "sports",
+            "score": 79
+          },
+          {
+            "market_id": "test-0314",
+            "category": "crypto",
+            "score": 79
+          },
+          {
+            "market_id": "test-0358",
+            "category": "crypto",
+            "score": 79
+          },
+          {
+            "market_id": "test-0336",
+            "category": "crypto",
+            "score": 78
+          },
+          {
+            "market_id": "test-0248",
+            "category": "politics",
+            "score": 76
+          },
+          {
+            "market_id": "test-0028",
+            "category": "sports",
+            "score": 75
+          },
+          {
+            "market_id": "test-0072",
+            "category": "sports",
+            "score": 75
+          },
+          {
+            "market_id": "test-0094",
+            "category": "sports",
+            "score": 75
+          },
+          {
+            "market_id": "test-0116",
+            "category": "sports",
+            "score": 75
+          },
+          {
+            "market_id": "test-0138",
+            "category": "sports",
+            "score": 75
+          }
+        ],
+        "excluded": {
+          "quality": 233,
+          "data": 0,
+          "low_signal": 100,
+          "invalid": 0
+        },
+        "data_gaps": {
+          "missing_price": 0,
+          "missing_volume": 0
+        },
+        "categories": {
+          "sports": 175,
+          "politics": 115,
+          "crypto": 95,
+          "econ": 65,
+          "culture": 40,
+          "weather": 20,
+          "other": 10
+        },
+        "methodology": "Robust z-scores (median/MAD) of |1h move|, |24h move| and log 24h volume against the same category. No forecast is produced; the list is an attention filter only."
+      }
+    },
+    "news": {
+      "agent": "news",
+      "label": "NEWS",
+      "timestamp_utc": "2026-10-19T04:04:45Z",
+      "status": "complete",
+      "summary": "Checked sources for 10 watchlist markets; 10 have at least one usable headline.",
+      "evidence": [
+        {
+          "market_id": "test-0050",
+          "question": "Bruins vs. Rangers: Bruins to win",
+          "query": "Bruins vs. Rangers win",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 2,
+          "fresh_count": 2,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "constructive",
+          "tone_counts": {
+            "constructive": 1,
+            "cautious": 0,
+            "neutral": 1
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "low",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Bruins vs. Rangers: Starting lineup confirmed after a limited practice week",
+              "link": "https://example.com/test-data/test-0050/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:44:49Z",
+              "age_hours": 0.3,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Bruins vs. Rangers: Weather forecast shifts wind direction for kickoff",
+              "link": "https://example.com/test-data/test-0050/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:28:09Z",
+              "age_hours": 0.6,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0314",
+          "question": "Will SOL close below $91.00 on Oct 31?",
+          "query": "SOL price Oct 31 $91.00",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 2,
+          "fresh_count": 2,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "neutral",
+          "tone_counts": {
+            "constructive": 0,
+            "cautious": 0,
+            "neutral": 2
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "low",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "SOL price on Oct 31: Spot flows turn positive as large wallets add exposure",
+              "link": "https://example.com/test-data/test-0314/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:51:13Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 4,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "SOL price on Oct 31: Exchange reserves slip to a fresh monthly low",
+              "link": "https://example.com/test-data/test-0314/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:51:39Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 4,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0358",
+          "question": "Will XRP close above $1.00 on Oct 24?",
+          "query": "XRP price Oct 24 $1.00",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 3,
+          "fresh_count": 3,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "neutral",
+          "tone_counts": {
+            "constructive": 0,
+            "cautious": 0,
+            "neutral": 3
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "low",
+          "flags": [
+            "DUPLICATES_REMOVED",
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "XRP price on Oct 24: Spot flows turn positive as large wallets add exposure",
+              "link": "https://example.com/test-data/test-0358/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:49:03Z",
+              "age_hours": 0.3,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 4,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "XRP price on Oct 24: Exchange reserves slip to a fresh monthly low",
+              "link": "https://example.com/test-data/test-0358/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:34:04Z",
+              "age_hours": 0.5,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 4,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "XRP price on Oct 24: Analysts split on whether the move has confirmation",
+              "link": "https://example.com/test-data/test-0358/2",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:22:59Z",
+              "age_hours": 0.7,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 4,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "XRP price on Oct 24: Spot flows turn positive as large wallets add exposure",
+              "link": "https://example.com/test-data/test-0358/3",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:11:02Z",
+              "age_hours": 0.9,
+              "stale": false,
+              "speculative": false,
+              "duplicate": true,
+              "query_overlap": 4,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0336",
+          "question": "Will BTC close below $112,500 on Nov 6?",
+          "query": "BTC price Nov $112 500",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 2,
+          "fresh_count": 2,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "neutral",
+          "tone_counts": {
+            "constructive": 0,
+            "cautious": 0,
+            "neutral": 2
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "low",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "BTC price on Nov 6: Spot flows turn positive as large wallets add exposure",
+              "link": "https://example.com/test-data/test-0336/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:56:02Z",
+              "age_hours": 0.1,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 3,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "BTC price on Nov 6: Exchange reserves slip to a fresh monthly low",
+              "link": "https://example.com/test-data/test-0336/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:50:02Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 3,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0248",
+          "question": "Will the nominee be confirmed by Nov 13?",
+          "query": "Politics nominee confirmed Nov 13",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 3,
+          "fresh_count": 3,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "neutral",
+          "tone_counts": {
+            "constructive": 0,
+            "cautious": 0,
+            "neutral": 3
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "medium",
+          "flags": [
+            "DUPLICATES_REMOVED",
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Politics: Committee vote scheduled for later this week",
+              "link": "https://example.com/test-data/test-0248/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:55:51Z",
+              "age_hours": 0.1,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Politics: New polling shows the gap narrowing",
+              "link": "https://example.com/test-data/test-0248/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:34:21Z",
+              "age_hours": 0.5,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Politics: Leadership signals the timeline may slip",
+              "link": "https://example.com/test-data/test-0248/2",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:16:11Z",
+              "age_hours": 0.8,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Politics: Committee vote scheduled for later this week",
+              "link": "https://example.com/test-data/test-0248/3",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:11:06Z",
+              "age_hours": 0.9,
+              "stale": false,
+              "speculative": false,
+              "duplicate": true,
+              "query_overlap": 1,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0028",
+          "question": "Ravens vs. Eagles: Ravens to win",
+          "query": "Ravens vs. Eagles win",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 3,
+          "fresh_count": 3,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "constructive",
+          "tone_counts": {
+            "constructive": 1,
+            "cautious": 0,
+            "neutral": 2
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "low",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Ravens vs. Eagles: Starting lineup confirmed after a limited practice week",
+              "link": "https://example.com/test-data/test-0028/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:46:59Z",
+              "age_hours": 0.3,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Ravens vs. Eagles: Weather forecast shifts wind direction for kickoff",
+              "link": "https://example.com/test-data/test-0028/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:27:30Z",
+              "age_hours": 0.6,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Ravens vs. Eagles: Coach says the game plan is unchanged",
+              "link": "https://example.com/test-data/test-0028/2",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:26:14Z",
+              "age_hours": 0.6,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0072",
+          "question": "Bruins vs. Maple Leafs: Bruins to win",
+          "query": "Bruins vs. Maple Leafs win",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 2,
+          "fresh_count": 2,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "constructive",
+          "tone_counts": {
+            "constructive": 1,
+            "cautious": 0,
+            "neutral": 1
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "low",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Bruins vs. Maple Leafs: Starting lineup confirmed after a limited practice week",
+              "link": "https://example.com/test-data/test-0072/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:50:10Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 3,
+              "relevance": "pooled",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Bruins vs. Maple Leafs: Weather forecast shifts wind direction for kickoff",
+              "link": "https://example.com/test-data/test-0072/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:41:16Z",
+              "age_hours": 0.4,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 3,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0094",
+          "question": "Astros vs. Cubs: Astros to win",
+          "query": "Astros vs. Cubs win",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 2,
+          "fresh_count": 2,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "constructive",
+          "tone_counts": {
+            "constructive": 1,
+            "cautious": 0,
+            "neutral": 1
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "medium",
+          "flags": [
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Astros vs. Cubs: Starting lineup confirmed after a limited practice week",
+              "link": "https://example.com/test-data/test-0094/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:51:40Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Astros vs. Cubs: Weather forecast shifts wind direction for kickoff",
+              "link": "https://example.com/test-data/test-0094/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:48:42Z",
+              "age_hours": 0.3,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0116",
+          "question": "Knicks vs. Lakers: Knicks to win",
+          "query": "Knicks vs. Lakers win",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 3,
+          "fresh_count": 3,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "constructive",
+          "tone_counts": {
+            "constructive": 1,
+            "cautious": 0,
+            "neutral": 2
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "low",
+          "flags": [
+            "DUPLICATES_REMOVED",
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Knicks vs. Lakers: Starting lineup confirmed after a limited practice week",
+              "link": "https://example.com/test-data/test-0116/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:51:13Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Knicks vs. Lakers: Weather forecast shifts wind direction for kickoff",
+              "link": "https://example.com/test-data/test-0116/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:51:39Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Knicks vs. Lakers: Coach says the game plan is unchanged",
+              "link": "https://example.com/test-data/test-0116/2",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:27:10Z",
+              "age_hours": 0.6,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Knicks vs. Lakers: Starting lineup confirmed after a limited practice week",
+              "link": "https://example.com/test-data/test-0116/3",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:36:24Z",
+              "age_hours": 0.5,
+              "stale": false,
+              "speculative": false,
+              "duplicate": true,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "market_id": "test-0138",
+          "question": "Yankees vs. Dodgers: Yankees to win",
+          "query": "Yankees vs. Dodgers win",
+          "source_count": 1,
+          "sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "headline_count": 3,
+          "fresh_count": 3,
+          "direct_count": 0,
+          "tone": "not_applicable",
+          "keyword_tone": "constructive",
+          "tone_counts": {
+            "constructive": 1,
+            "cautious": 0,
+            "neutral": 2
+          },
+          "direction_basis": "not used for rules: synthetic pooled headlines have no real polarity",
+          "event_risk": "medium",
+          "flags": [
+            "DUPLICATES_REMOVED",
+            "SYNTHETIC_HEADLINES"
+          ],
+          "items": [
+            {
+              "title": "Yankees vs. Dodgers: Starting lineup confirmed after a limited practice week",
+              "link": "https://example.com/test-data/test-0138/0",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:56:02Z",
+              "age_hours": 0.1,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Yankees vs. Dodgers: Weather forecast shifts wind direction for kickoff",
+              "link": "https://example.com/test-data/test-0138/1",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:50:02Z",
+              "age_hours": 0.2,
+              "stale": false,
+              "speculative": true,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Yankees vs. Dodgers: Coach says the game plan is unchanged",
+              "link": "https://example.com/test-data/test-0138/2",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:40:17Z",
+              "age_hours": 0.4,
+              "stale": false,
+              "speculative": false,
+              "duplicate": false,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "neutral",
+              "tone_counts": [
+                0,
+                0
+              ],
+              "synthetic": true
+            },
+            {
+              "title": "Yankees vs. Dodgers: Starting lineup confirmed after a limited practice week",
+              "link": "https://example.com/test-data/test-0138/3",
+              "source": "TEST DATA wire (synthetic)",
+              "source_url": "https://example.com/test-data",
+              "published_at": "2026-10-19T03:12:34Z",
+              "age_hours": 0.9,
+              "stale": false,
+              "speculative": false,
+              "duplicate": true,
+              "query_overlap": 2,
+              "relevance": "pooled",
+              "tone": "constructive",
+              "tone_counts": [
+                1,
+                0
+              ],
+              "synthetic": true
+            }
+          ]
+        }
+      ],
+      "risks": [
+        "Desk rule: a trade plan requires at least one fresh source. Markets with NO_SOURCES are dropped by Strategy."
+      ],
+      "next_step": "Charts agent: review the price series for the markets that carry sources.",
+      "meta": {
+        "fetched": 10,
+        "failed": 0,
+        "markets_with_sources": 10,
+        "covered_market_ids": [
+          "test-0050",
+          "test-0314",
+          "test-0358",
+          "test-0336",
+          "test-0248",
+          "test-0028",
+          "test-0072",
+          "test-0094",
+          "test-0116",
+          "test-0138"
+        ],
+        "headline_policy": "Headlines are claims, not verified facts. Items are flagged speculative when they use words like may, reportedly or analysts expect. No article is summarised beyond its title, so no detail is invented.",
+        "require_news": true
+      }
+    },
+    "charts": {
+      "agent": "charts",
+      "label": "CHARTS",
+      "timestamp_utc": "2026-10-19T04:04:45Z",
+      "status": "complete",
+      "summary": "Reviewed 10 price series. 6 show a directional trend; 4 carry conflicting signals.",
+      "evidence": [
+        {
+          "market_id": "test-0050",
+          "question": "Bruins vs. Rangers: Bruins to win",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.6287,
+          "primary_outcome": "Bruins",
+          "secondary_outcome": "Rangers",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.6287,
+              "change_pct": 0.3068,
+              "slope_per_hour": 0.0067,
+              "slope_3h": 0.00321,
+              "momentum_1h": 0.0046,
+              "atr": 0.0034,
+              "atr_pct": 0.0054,
+              "window_min": 0.4776,
+              "window_max": 0.6287,
+              "prior_high": 0.6257,
+              "prior_low": 0.4776,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "up",
+              "activity": 1.0,
+              "recent_low": 0.6214,
+              "recent_high": 0.6287,
+              "stretch": 1.41,
+              "extended_up": false,
+              "levels": {
+                "support": [
+                  0.6248,
+                  0.6215
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.6248,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.5243,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5453,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5539,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.5985,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.6215,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.6248,
+                    "touches": 2,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.3713,
+              "change_pct": -0.2844,
+              "slope_per_hour": -0.0067,
+              "slope_3h": -0.00321,
+              "momentum_1h": -0.0046,
+              "atr": 0.0034,
+              "atr_pct": 0.0092,
+              "window_min": 0.3713,
+              "window_max": 0.5224,
+              "prior_high": 0.5224,
+              "prior_low": 0.3743,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "down",
+              "activity": 1.0,
+              "recent_low": 0.3713,
+              "recent_high": 0.3786,
+              "stretch": -1.41,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.3752,
+                  0.3785
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.3752,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.3752,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.3785,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.4015,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.4461,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.4547,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.4757,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.4811,
+            0.4829,
+            0.4875,
+            0.4987,
+            0.4911,
+            0.4988,
+            0.5121,
+            0.5251,
+            0.5278,
+            0.5236,
+            0.5464,
+            0.538,
+            0.5487,
+            0.5546,
+            0.5518,
+            0.5488,
+            0.5495,
+            0.5613,
+            0.5631,
+            0.5781,
+            0.5858,
+            0.5913,
+            0.5975,
+            0.5988,
+            0.6037,
+            0.6102,
+            0.6229,
+            0.6214,
+            0.6177,
+            0.6185,
+            0.6215,
+            0.6214
+          ],
+          "conflicts": [],
+          "warnings": [
+            "uptrend is extended at the top of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:04:45Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0314",
+          "question": "Will SOL close below $91.00 on Oct 31?",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.7693,
+          "primary_outcome": "Yes",
+          "secondary_outcome": "No",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.7693,
+              "change_pct": -0.1087,
+              "slope_per_hour": -0.00318,
+              "slope_3h": -0.00471,
+              "momentum_1h": 0.0028,
+              "atr": 0.0037,
+              "atr_pct": 0.0048,
+              "window_min": 0.7652,
+              "window_max": 0.8631,
+              "prior_high": 0.8631,
+              "prior_low": 0.7754,
+              "range_position": 0.042,
+              "structure_break": "down",
+              "trend": "range",
+              "activity": 1.0,
+              "recent_low": 0.7652,
+              "recent_high": 0.7816,
+              "stretch": -1.21,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.7758,
+                  0.7809
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.7758,
+                  "touches": 3,
+                  "kind": "support"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.7758,
+                    "touches": 3,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.7809,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.7836,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.7911,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.8016,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.806,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [
+                "range-bound series with a down structure break"
+              ],
+              "warnings": []
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.2307,
+              "change_pct": 0.6852,
+              "slope_per_hour": 0.00318,
+              "slope_3h": 0.00471,
+              "momentum_1h": -0.0028,
+              "atr": 0.0037,
+              "atr_pct": 0.0161,
+              "window_min": 0.1369,
+              "window_max": 0.2348,
+              "prior_high": 0.2246,
+              "prior_low": 0.1369,
+              "range_position": 0.958,
+              "structure_break": "up",
+              "trend": "range",
+              "activity": 1.0,
+              "recent_low": 0.2184,
+              "recent_high": 0.2348,
+              "stretch": 1.21,
+              "extended_up": false,
+              "levels": {
+                "support": [
+                  0.2242,
+                  0.2191
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.2242,
+                  "touches": 3,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.185,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.1916,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.194,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.1984,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.2089,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.2164,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [
+                "range-bound series with a up structure break"
+              ],
+              "warnings": []
+            }
+          },
+          "sparkline": [
+            0.8631,
+            0.8602,
+            0.8408,
+            0.8459,
+            0.8419,
+            0.8391,
+            0.8171,
+            0.8149,
+            0.8117,
+            0.8048,
+            0.8068,
+            0.8083,
+            0.7924,
+            0.806,
+            0.8054,
+            0.8094,
+            0.8196,
+            0.8141,
+            0.818,
+            0.8086,
+            0.8056,
+            0.7935,
+            0.7887,
+            0.7839,
+            0.7843,
+            0.778,
+            0.7828,
+            0.7824,
+            0.7802,
+            0.7756,
+            0.7808,
+            0.77
+          ],
+          "conflicts": [
+            "range-bound series with a down structure break"
+          ],
+          "warnings": [],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:04:45Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0358",
+          "question": "Will XRP close above $1.00 on Oct 24?",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.6917,
+          "primary_outcome": "Yes",
+          "secondary_outcome": "No",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.6917,
+              "change_pct": -0.1464,
+              "slope_per_hour": -0.00395,
+              "slope_3h": -0.01208,
+              "momentum_1h": -0.0018,
+              "atr": 0.0043,
+              "atr_pct": 0.0062,
+              "window_min": 0.689,
+              "window_max": 0.8135,
+              "prior_high": 0.8135,
+              "prior_low": 0.6971,
+              "range_position": 0.022,
+              "structure_break": "down",
+              "trend": "range",
+              "activity": 1.0,
+              "recent_low": 0.689,
+              "recent_high": 0.7193,
+              "stretch": -2.16,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.7155,
+                  0.724
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.7155,
+                  "touches": 4,
+                  "kind": "support"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.7155,
+                    "touches": 4,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.724,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.7298,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.7342,
+                    "touches": 4,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.7699,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.7754,
+                    "touches": 2,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [
+                "range-bound series with a down structure break"
+              ],
+              "warnings": []
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.3083,
+              "change_pct": 0.6252,
+              "slope_per_hour": 0.00395,
+              "slope_3h": 0.01208,
+              "momentum_1h": 0.0018,
+              "atr": 0.0043,
+              "atr_pct": 0.0139,
+              "window_min": 0.1865,
+              "window_max": 0.311,
+              "prior_high": 0.3029,
+              "prior_low": 0.1865,
+              "range_position": 0.978,
+              "structure_break": "up",
+              "trend": "range",
+              "activity": 1.0,
+              "recent_low": 0.2807,
+              "recent_high": 0.311,
+              "stretch": 2.16,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.2845,
+                  0.276
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.2845,
+                  "touches": 4,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.2148,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.2188,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.2246,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.2301,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.2658,
+                    "touches": 4,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.2702,
+                    "touches": 3,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [
+                "range-bound series with a up structure break"
+              ],
+              "warnings": []
+            }
+          },
+          "sparkline": [
+            0.8103,
+            0.7985,
+            0.7948,
+            0.7829,
+            0.7797,
+            0.7761,
+            0.7708,
+            0.7836,
+            0.7768,
+            0.7708,
+            0.7676,
+            0.7528,
+            0.7474,
+            0.7411,
+            0.7299,
+            0.7258,
+            0.727,
+            0.7321,
+            0.734,
+            0.7241,
+            0.7249,
+            0.7216,
+            0.7208,
+            0.7278,
+            0.7209,
+            0.7277,
+            0.7338,
+            0.7277,
+            0.7203,
+            0.713,
+            0.7081,
+            0.689
+          ],
+          "conflicts": [
+            "range-bound series with a down structure break"
+          ],
+          "warnings": [],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:04:45Z"
+          },
+          "news_flags": [
+            "DUPLICATES_REMOVED",
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0336",
+          "question": "Will BTC close below $112,500 on Nov 6?",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.6976,
+          "primary_outcome": "Yes",
+          "secondary_outcome": "No",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.6976,
+              "change_pct": 0.3921,
+              "slope_per_hour": 0.00949,
+              "slope_3h": 0.00842,
+              "momentum_1h": 0.01,
+              "atr": 0.0039,
+              "atr_pct": 0.0055,
+              "window_min": 0.4916,
+              "window_max": 0.6976,
+              "prior_high": 0.6942,
+              "prior_low": 0.4916,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "up",
+              "activity": 0.989,
+              "recent_low": 0.6837,
+              "recent_high": 0.6976,
+              "stretch": 1.37,
+              "extended_up": false,
+              "levels": {
+                "support": [
+                  0.6749,
+                  0.6707
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.6749,
+                  "touches": 5,
+                  "kind": "either"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.5502,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.6514,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.6707,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.6749,
+                    "touches": 5,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.3024,
+              "change_pct": -0.3939,
+              "slope_per_hour": -0.00949,
+              "slope_3h": -0.00842,
+              "momentum_1h": -0.01,
+              "atr": 0.0039,
+              "atr_pct": 0.0128,
+              "window_min": 0.3024,
+              "window_max": 0.5084,
+              "prior_high": 0.5084,
+              "prior_low": 0.3058,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "down",
+              "activity": 0.989,
+              "recent_low": 0.3024,
+              "recent_high": 0.3163,
+              "stretch": -1.37,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.3251,
+                  0.3293
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.3251,
+                  "touches": 5,
+                  "kind": "either"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.3251,
+                    "touches": 5,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.3293,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.3486,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.4498,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.5011,
+            0.4979,
+            0.5015,
+            0.5009,
+            0.5154,
+            0.5157,
+            0.5289,
+            0.5436,
+            0.5486,
+            0.5534,
+            0.5559,
+            0.5503,
+            0.5607,
+            0.5648,
+            0.5778,
+            0.5873,
+            0.6042,
+            0.6081,
+            0.6167,
+            0.6341,
+            0.6518,
+            0.6705,
+            0.6677,
+            0.6745,
+            0.6721,
+            0.6716,
+            0.6706,
+            0.6721,
+            0.6741,
+            0.682,
+            0.6928,
+            0.6953
+          ],
+          "conflicts": [],
+          "warnings": [
+            "uptrend is extended at the top of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:04:45Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0248",
+          "question": "Will the nominee be confirmed by Nov 13?",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.7499,
+          "primary_outcome": "Yes",
+          "secondary_outcome": "No",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.7499,
+              "change_pct": 0.3195,
+              "slope_per_hour": 0.00709,
+              "slope_3h": 0.01205,
+              "momentum_1h": 0.0045,
+              "atr": 0.0036,
+              "atr_pct": 0.0048,
+              "window_min": 0.566,
+              "window_max": 0.7519,
+              "prior_high": 0.747,
+              "prior_low": 0.566,
+              "range_position": 0.989,
+              "structure_break": "up",
+              "trend": "up",
+              "activity": 1.0,
+              "recent_low": 0.732,
+              "recent_high": 0.7519,
+              "stretch": 1.88,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.6794,
+                  0.6308
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.6794,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.5813,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.5895,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.6104,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.6308,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.6794,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.2501,
+              "change_pct": -0.4207,
+              "slope_per_hour": -0.00709,
+              "slope_3h": -0.01205,
+              "momentum_1h": -0.0045,
+              "atr": 0.0036,
+              "atr_pct": 0.0145,
+              "window_min": 0.2481,
+              "window_max": 0.434,
+              "prior_high": 0.434,
+              "prior_low": 0.253,
+              "range_position": 0.011,
+              "structure_break": "down",
+              "trend": "down",
+              "activity": 1.0,
+              "recent_low": 0.2481,
+              "recent_high": 0.268,
+              "stretch": -1.88,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.3206,
+                  0.3691
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.3206,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.3206,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.3691,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.3896,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.4105,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.4187,
+                    "touches": 2,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.5683,
+            0.5749,
+            0.5901,
+            0.5888,
+            0.5804,
+            0.5909,
+            0.6066,
+            0.6095,
+            0.6021,
+            0.6117,
+            0.6116,
+            0.6115,
+            0.6253,
+            0.6304,
+            0.6321,
+            0.632,
+            0.6323,
+            0.6373,
+            0.6476,
+            0.6512,
+            0.6565,
+            0.6714,
+            0.659,
+            0.671,
+            0.6781,
+            0.6993,
+            0.6949,
+            0.7042,
+            0.7153,
+            0.7258,
+            0.7417,
+            0.7424
+          ],
+          "conflicts": [],
+          "warnings": [
+            "uptrend is extended at the top of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:04:45Z"
+          },
+          "news_flags": [
+            "DUPLICATES_REMOVED",
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0028",
+          "question": "Ravens vs. Eagles: Ravens to win",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.2167,
+          "primary_outcome": "Ravens",
+          "secondary_outcome": "Eagles",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.2167,
+              "change_pct": 3.6205,
+              "slope_per_hour": 0.00231,
+              "slope_3h": 0.0489,
+              "momentum_1h": 0.0517,
+              "atr": 0.0036,
+              "atr_pct": 0.0166,
+              "window_min": 0.02,
+              "window_max": 0.2167,
+              "prior_high": 0.1506,
+              "prior_low": 0.02,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "range",
+              "activity": 0.758,
+              "recent_low": 0.1136,
+              "recent_high": 0.2167,
+              "stretch": 15.7,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.0539,
+                  0.0491
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.0539,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.02,
+                    "touches": 26,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.0256,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.0285,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.0333,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.0491,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.0539,
+                    "touches": 2,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [
+                "range-bound series with a up structure break"
+              ],
+              "warnings": []
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.7833,
+              "change_pct": -0.1782,
+              "slope_per_hour": -0.00231,
+              "slope_3h": -0.0489,
+              "momentum_1h": -0.0517,
+              "atr": 0.0036,
+              "atr_pct": 0.0046,
+              "window_min": 0.7833,
+              "window_max": 0.98,
+              "prior_high": 0.98,
+              "prior_low": 0.8494,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "range",
+              "activity": 0.758,
+              "recent_low": 0.7833,
+              "recent_high": 0.8864,
+              "stretch": -15.7,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.9461,
+                  0.9508
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.9461,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.9461,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9508,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.9667,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9715,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9744,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.98,
+                    "touches": 26,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [
+                "range-bound series with a down structure break"
+              ],
+              "warnings": []
+            }
+          },
+          "sparkline": [
+            0.0469,
+            0.0539,
+            0.051,
+            0.0523,
+            0.0539,
+            0.0426,
+            0.0413,
+            0.0337,
+            0.02,
+            0.02,
+            0.0276,
+            0.031,
+            0.0245,
+            0.0299,
+            0.0261,
+            0.02,
+            0.0275,
+            0.0216,
+            0.0206,
+            0.025,
+            0.02,
+            0.02,
+            0.02,
+            0.02,
+            0.02,
+            0.02,
+            0.0244,
+            0.0604,
+            0.0788,
+            0.1118,
+            0.1354,
+            0.181
+          ],
+          "conflicts": [
+            "range-bound series with a up structure break"
+          ],
+          "warnings": [],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:04:45Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0072",
+          "question": "Bruins vs. Maple Leafs: Bruins to win",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.6013,
+          "primary_outcome": "Bruins",
+          "secondary_outcome": "Maple Leafs",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.6013,
+              "change_pct": 0.6857,
+              "slope_per_hour": 0.01003,
+              "slope_3h": 0.00994,
+              "momentum_1h": 0.0127,
+              "atr": 0.0042,
+              "atr_pct": 0.0069,
+              "window_min": 0.3549,
+              "window_max": 0.6013,
+              "prior_high": 0.5866,
+              "prior_low": 0.3549,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "up",
+              "activity": 1.0,
+              "recent_low": 0.5816,
+              "recent_high": 0.6013,
+              "stretch": 2.83,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.5134,
+                  0.5043
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.5134,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.5043,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5134,
+                    "touches": 2,
+                    "kind": "support"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.3987,
+              "change_pct": -0.3802,
+              "slope_per_hour": -0.01003,
+              "slope_3h": -0.00994,
+              "momentum_1h": -0.0127,
+              "atr": 0.0042,
+              "atr_pct": 0.0104,
+              "window_min": 0.3987,
+              "window_max": 0.6451,
+              "prior_high": 0.6451,
+              "prior_low": 0.4134,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "down",
+              "activity": 1.0,
+              "recent_low": 0.3987,
+              "recent_high": 0.4184,
+              "stretch": -2.83,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.4866,
+                  0.4957
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.4866,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.4866,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.4957,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.3567,
+            0.3589,
+            0.3697,
+            0.3784,
+            0.391,
+            0.4167,
+            0.4253,
+            0.42,
+            0.4234,
+            0.4364,
+            0.443,
+            0.4545,
+            0.4694,
+            0.4699,
+            0.4857,
+            0.4925,
+            0.5034,
+            0.518,
+            0.5208,
+            0.5243,
+            0.5136,
+            0.5256,
+            0.5343,
+            0.5445,
+            0.5603,
+            0.5519,
+            0.5566,
+            0.5675,
+            0.5645,
+            0.5849,
+            0.5844,
+            0.5923
+          ],
+          "conflicts": [],
+          "warnings": [
+            "uptrend is extended at the top of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:04:45Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0094",
+          "question": "Astros vs. Cubs: Astros to win",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.4354,
+          "primary_outcome": "Astros",
+          "secondary_outcome": "Cubs",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.4354,
+              "change_pct": 2.7927,
+              "slope_per_hour": 0.01109,
+              "slope_3h": 0.03637,
+              "momentum_1h": 0.0255,
+              "atr": 0.0054,
+              "atr_pct": 0.0123,
+              "window_min": 0.1053,
+              "window_max": 0.4354,
+              "prior_high": 0.4,
+              "prior_low": 0.1053,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "up",
+              "activity": 1.0,
+              "recent_low": 0.3674,
+              "recent_high": 0.4354,
+              "stretch": 6.43,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.135,
+                  0.1307
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.135,
+                  "touches": 4,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.1198,
+                    "touches": 4,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.125,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.1307,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.135,
+                    "touches": 4,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.5646,
+              "change_pct": -0.3622,
+              "slope_per_hour": -0.01109,
+              "slope_3h": -0.03637,
+              "momentum_1h": -0.0255,
+              "atr": 0.0054,
+              "atr_pct": 0.0095,
+              "window_min": 0.5646,
+              "window_max": 0.8947,
+              "prior_high": 0.8947,
+              "prior_low": 0.6,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "down",
+              "activity": 1.0,
+              "recent_low": 0.5646,
+              "recent_high": 0.6326,
+              "stretch": -6.43,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.865,
+                  0.8693
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.865,
+                  "touches": 4,
+                  "kind": "support"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.865,
+                    "touches": 4,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.8693,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.875,
+                    "touches": 4,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.8802,
+                    "touches": 4,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.1148,
+            0.1173,
+            0.1198,
+            0.1211,
+            0.1206,
+            0.1211,
+            0.134,
+            0.1332,
+            0.1324,
+            0.1299,
+            0.1247,
+            0.1205,
+            0.1169,
+            0.1053,
+            0.125,
+            0.1286,
+            0.1332,
+            0.1325,
+            0.1287,
+            0.1234,
+            0.1338,
+            0.149,
+            0.1756,
+            0.2006,
+            0.246,
+            0.2594,
+            0.2861,
+            0.3127,
+            0.335,
+            0.3638,
+            0.3872,
+            0.4126
+          ],
+          "conflicts": [],
+          "warnings": [
+            "uptrend is extended at the top of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:04:45Z"
+          },
+          "news_flags": [
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0116",
+          "question": "Knicks vs. Lakers: Knicks to win",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.3999,
+          "primary_outcome": "Knicks",
+          "secondary_outcome": "Lakers",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.3999,
+              "change_pct": -0.1898,
+              "slope_per_hour": -0.00318,
+              "slope_3h": -0.0047,
+              "momentum_1h": 0.0029,
+              "atr": 0.0037,
+              "atr_pct": 0.0093,
+              "window_min": 0.3957,
+              "window_max": 0.4936,
+              "prior_high": 0.4936,
+              "prior_low": 0.4059,
+              "range_position": 0.043,
+              "structure_break": "down",
+              "trend": "range",
+              "activity": 1.0,
+              "recent_low": 0.3957,
+              "recent_high": 0.4121,
+              "stretch": -1.19,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.4063,
+                  0.4114
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.4063,
+                  "touches": 3,
+                  "kind": "support"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.4063,
+                    "touches": 3,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.4114,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.4141,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.421,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.4321,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.4365,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [
+                "range-bound series with a down structure break"
+              ],
+              "warnings": []
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.6001,
+              "change_pct": 0.185,
+              "slope_per_hour": 0.00318,
+              "slope_3h": 0.0047,
+              "momentum_1h": -0.0029,
+              "atr": 0.0037,
+              "atr_pct": 0.0062,
+              "window_min": 0.5064,
+              "window_max": 0.6043,
+              "prior_high": 0.5941,
+              "prior_low": 0.5064,
+              "range_position": 0.957,
+              "structure_break": "up",
+              "trend": "range",
+              "activity": 1.0,
+              "recent_low": 0.5879,
+              "recent_high": 0.6043,
+              "stretch": 1.19,
+              "extended_up": false,
+              "levels": {
+                "support": [
+                  0.5937,
+                  0.5886
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.5937,
+                  "touches": 3,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.5545,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5611,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5635,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5679,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.579,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.5859,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [
+                "range-bound series with a up structure break"
+              ],
+              "warnings": []
+            }
+          },
+          "sparkline": [
+            0.4936,
+            0.4907,
+            0.4713,
+            0.4764,
+            0.4724,
+            0.4696,
+            0.4476,
+            0.4454,
+            0.4422,
+            0.4353,
+            0.4373,
+            0.4388,
+            0.4229,
+            0.4365,
+            0.4359,
+            0.4399,
+            0.4501,
+            0.4446,
+            0.4485,
+            0.4391,
+            0.4361,
+            0.424,
+            0.4192,
+            0.4144,
+            0.4148,
+            0.4085,
+            0.4133,
+            0.4129,
+            0.4107,
+            0.4061,
+            0.4113,
+            0.4005
+          ],
+          "conflicts": [
+            "range-bound series with a down structure break"
+          ],
+          "warnings": [],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:04:45Z"
+          },
+          "news_flags": [
+            "DUPLICATES_REMOVED",
+            "SYNTHETIC_HEADLINES"
+          ]
+        },
+        {
+          "market_id": "test-0138",
+          "question": "Yankees vs. Dodgers: Yankees to win",
+          "status": "complete",
+          "timeframe": "15m bars, 24h window",
+          "series_source": "synthetic 15-minute series",
+          "last_quote": 0.3922,
+          "primary_outcome": "Yankees",
+          "secondary_outcome": "Dodgers",
+          "views": {
+            "primary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.3922,
+              "change_pct": 10.3353,
+              "slope_per_hour": 0.01438,
+              "slope_3h": 0.03722,
+              "momentum_1h": 0.0316,
+              "atr": 0.0053,
+              "atr_pct": 0.0136,
+              "window_min": 0.02,
+              "window_max": 0.3922,
+              "prior_high": 0.36,
+              "prior_low": 0.02,
+              "range_position": 1.0,
+              "structure_break": "up",
+              "trend": "up",
+              "activity": 0.968,
+              "recent_low": 0.3279,
+              "recent_high": 0.3922,
+              "stretch": 5.71,
+              "extended_up": true,
+              "levels": {
+                "support": [
+                  0.056,
+                  0.0442
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.056,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.0203,
+                    "touches": 6,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.0271,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.0317,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.0368,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.0442,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.056,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "uptrend is extended at the top of its range"
+              ]
+            },
+            "secondary": {
+              "points": 96,
+              "span_hours": 23.8,
+              "last": 0.6078,
+              "change_pct": -0.3704,
+              "slope_per_hour": -0.01438,
+              "slope_3h": -0.03722,
+              "momentum_1h": -0.0316,
+              "atr": 0.0053,
+              "atr_pct": 0.0088,
+              "window_min": 0.6078,
+              "window_max": 0.98,
+              "prior_high": 0.98,
+              "prior_low": 0.64,
+              "range_position": 0.0,
+              "structure_break": "down",
+              "trend": "down",
+              "activity": 0.968,
+              "recent_low": 0.6078,
+              "recent_high": 0.6721,
+              "stretch": -5.71,
+              "extended_up": false,
+              "levels": {
+                "support": [],
+                "resistance": [
+                  0.944,
+                  0.9558
+                ],
+                "strong_support": null,
+                "strong_resistance": {
+                  "level": 0.944,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                "all_strong": [
+                  {
+                    "level": 0.944,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.9558,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.9632,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.9683,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.9729,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.9797,
+                    "touches": 6,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "conflicts": [],
+              "warnings": [
+                "downtrend is extended at the bottom of its range"
+              ]
+            }
+          },
+          "sparkline": [
+            0.0346,
+            0.0267,
+            0.0254,
+            0.02,
+            0.0269,
+            0.0225,
+            0.0299,
+            0.0398,
+            0.04,
+            0.04,
+            0.0377,
+            0.0273,
+            0.0329,
+            0.0322,
+            0.0404,
+            0.0451,
+            0.0572,
+            0.0563,
+            0.0601,
+            0.0727,
+            0.0944,
+            0.1347,
+            0.1535,
+            0.1819,
+            0.2011,
+            0.2222,
+            0.2428,
+            0.2659,
+            0.2895,
+            0.319,
+            0.3514,
+            0.3755
+          ],
+          "conflicts": [],
+          "warnings": [
+            "uptrend is extended at the top of its range"
+          ],
+          "data_quality": {
+            "points": 96,
+            "span_hours": 23.8,
+            "fetched_at": "2026-10-19T04:04:45Z"
+          },
+          "news_flags": [
+            "DUPLICATES_REMOVED",
+            "SYNTHETIC_HEADLINES"
+          ]
+        }
+      ],
+      "risks": [],
+      "next_step": "Strategy agent: build one rule-based plan per market, or return WAIT.",
+      "meta": {
+        "reviewed": 10,
+        "needs_data": 0,
+        "methodology": "24h of 15-minute closes. Trend from a linear fit in probability points per hour vs average bar range. Support/resistance are clustered swing pivots with at least two touches. The secondary view is the exact inverse of the primary series, so both outcomes are analysed the same way.",
+        "conflicts_total": 4,
+        "warnings_total": 6
+      }
+    },
+    "strategy": {
+      "agent": "strategy",
+      "label": "STRATEGY",
+      "timestamp_utc": "2026-10-19T04:04:45Z",
+      "status": "complete",
+      "summary": "Wrote 4 rule-based plan(s) from 10 reviewed markets; 6 returned WAIT.",
+      "evidence": [
+        {
+          "market_id": "test-0050",
+          "question": "Bruins vs. Rangers: Bruins to win",
+          "url": "https://polymarket.com/market/test-market-50",
+          "status": "plan",
+          "reason": null,
+          "side_key": "primary",
+          "side": "Bruins",
+          "side_index": 0,
+          "entry_type": "breakout",
+          "entry": 0.632,
+          "quote": 0.632,
+          "entry_distance": 0.0,
+          "entry_zone": [
+            0.626,
+            0.634
+          ],
+          "entry_trigger": "quote holds above 0.626 with the break intact",
+          "invalidation": 0.625,
+          "target": 0.682,
+          "risk_per_share": 0.007,
+          "reward_per_share": 0.05,
+          "gross_rr": 7.14,
+          "time_limit_utc": "2026-10-19T10:04:45Z",
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 79,
+            "scout_reasons": [
+              "1h move 15.0% is 4.0\u03c3 vs its category",
+              "24h move 19.9% is 4.0\u03c3 vs its category",
+              "24h volume $200,536.85 is 83.1\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "tight spread relative to price",
+              "113 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.6248,
+                0.6215
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.6248,
+                "touches": 2,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.5243,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5453,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5539,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.5985,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.6215,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.6248,
+                  "touches": 2,
+                  "kind": "resistance"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 2,
+            "event_risk": "low"
+          },
+          "disagreements": []
+        },
+        {
+          "market_id": "test-0314",
+          "question": "Will SOL close below $91.00 on Oct 31?",
+          "url": "https://polymarket.com/market/test-market-314",
+          "status": "plan",
+          "reason": null,
+          "side_key": "secondary",
+          "side": "No",
+          "side_index": 1,
+          "entry_type": "breakout",
+          "entry": 0.232,
+          "quote": 0.232,
+          "entry_distance": 0.0,
+          "entry_zone": [
+            0.225,
+            0.234
+          ],
+          "entry_trigger": "quote holds above 0.225 with the break intact",
+          "invalidation": 0.225,
+          "target": 0.282,
+          "risk_per_share": 0.007,
+          "reward_per_share": 0.05,
+          "gross_rr": 7.14,
+          "time_limit_utc": "2026-10-19T10:04:45Z",
+          "confidence": 75,
+          "evidence_used": {
+            "scout_score": 79,
+            "scout_reasons": [
+              "1h move 11.4% is 4.0\u03c3 vs its category",
+              "24h move 13.6% is 4.0\u03c3 vs its category",
+              "24h volume $105,726.52 is 42.7\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "tight spread relative to price",
+              "397 comments on the event"
+            ],
+            "chart_trend": "range",
+            "chart_levels": {
+              "support": [
+                0.2242,
+                0.2191
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.2242,
+                "touches": 3,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.185,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.1916,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.194,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.1984,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.2089,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.2164,
+                  "touches": 2,
+                  "kind": "either"
+                }
+              ]
+            },
+            "chart_conflicts": [
+              "range-bound series with a down structure break"
+            ],
+            "chart_warnings": [],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 2,
+            "event_risk": "low"
+          },
+          "disagreements": [
+            "range-bound series with a down structure break"
+          ]
+        },
+        {
+          "market_id": "test-0358",
+          "question": "Will XRP close above $1.00 on Oct 24?",
+          "url": "https://polymarket.com/market/test-market-358",
+          "status": "WAIT",
+          "reason": "extended breakout: the plan waits for a retest instead of chasing",
+          "side_key": "secondary",
+          "side": "No",
+          "side_index": 1,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.31,
+          "entry_distance": 0.006,
+          "entry_zone": [
+            0.302,
+            0.305
+          ],
+          "entry_trigger": "retest of 0.303 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 10.0,
+          "time_limit_utc": "2026-10-19T10:04:45Z",
+          "confidence": 75,
+          "evidence_used": {
+            "scout_score": 79,
+            "scout_reasons": [
+              "1h move 12.3% is 4.0\u03c3 vs its category",
+              "24h move 26.7% is 4.0\u03c3 vs its category",
+              "24h volume $179,959.85 is 72.6\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "tight spread relative to price",
+              "268 comments on the event"
+            ],
+            "chart_trend": "range",
+            "chart_levels": {
+              "support": [
+                0.2845,
+                0.276
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.2845,
+                "touches": 4,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.2148,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.2188,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.2246,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.2301,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.2658,
+                  "touches": 4,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.2702,
+                  "touches": 3,
+                  "kind": "either"
+                }
+              ]
+            },
+            "chart_conflicts": [
+              "range-bound series with a down structure break"
+            ],
+            "chart_warnings": [],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 3,
+            "event_risk": "low"
+          },
+          "disagreements": [
+            "range-bound series with a down structure break"
+          ]
+        },
+        {
+          "market_id": "test-0336",
+          "question": "Will BTC close below $112,500 on Nov 6?",
+          "url": "https://polymarket.com/market/test-market-336",
+          "status": "plan",
+          "reason": null,
+          "side_key": "primary",
+          "side": "Yes",
+          "side_index": 0,
+          "entry_type": "breakout",
+          "entry": 0.7,
+          "quote": 0.7,
+          "entry_distance": 0.0,
+          "entry_zone": [
+            0.694,
+            0.702
+          ],
+          "entry_trigger": "quote holds above 0.694 with the break intact",
+          "invalidation": 0.692,
+          "target": 0.75,
+          "risk_per_share": 0.008,
+          "reward_per_share": 0.05,
+          "gross_rr": 6.25,
+          "time_limit_utc": "2026-10-19T10:04:45Z",
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 78,
+            "scout_reasons": [
+              "1h move 4.5% is 2.6\u03c3 vs its category",
+              "24h move 15.7% is 4.0\u03c3 vs its category",
+              "24h volume $664,853.42 is 268.4\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "tight spread relative to price",
+              "123 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.6749,
+                0.6707
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.6749,
+                "touches": 5,
+                "kind": "either"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.5502,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.6514,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.6707,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.6749,
+                  "touches": 5,
+                  "kind": "either"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 2,
+            "event_risk": "low"
+          },
+          "disagreements": []
+        },
+        {
+          "market_id": "test-0248",
+          "question": "Will the nominee be confirmed by Nov 13?",
+          "url": "https://polymarket.com/market/test-market-248",
+          "status": "WAIT",
+          "reason": "medium event risk; extended breakout: the plan waits for a retest instead of chasing",
+          "side_key": "primary",
+          "side": "Yes",
+          "side_index": 0,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.753,
+          "entry_distance": 0.005,
+          "entry_zone": [
+            0.746,
+            0.749
+          ],
+          "entry_trigger": "retest of 0.747 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 10.0,
+          "time_limit_utc": "2026-10-19T10:04:45Z",
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 76,
+            "scout_reasons": [
+              "1h move 16.1% is 4.0\u03c3 vs its category",
+              "24h move 23.8% is 4.0\u03c3 vs its category",
+              "24h volume $229,492.64 is 98.1\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "tight spread relative to price"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.6794,
+                0.6308
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.6794,
+                "touches": 2,
+                "kind": "either"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.5813,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.5895,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.6104,
+                  "touches": 4,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.6308,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.6794,
+                  "touches": 2,
+                  "kind": "either"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 3,
+            "event_risk": "medium"
+          },
+          "disagreements": []
+        },
+        {
+          "market_id": "test-0028",
+          "question": "Ravens vs. Eagles: Ravens to win",
+          "url": "https://polymarket.com/market/test-market-28",
+          "status": "WAIT",
+          "reason": "extended breakout: the plan waits for a retest instead of chasing; target 0.202 is not above the current quote 0.223; the move may already be priced",
+          "side_key": "primary",
+          "side": "Ravens",
+          "side_index": 0,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.223,
+          "entry_distance": 0.071,
+          "entry_zone": [
+            0.15,
+            0.152
+          ],
+          "entry_trigger": "retest of 0.151 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 10.0,
+          "time_limit_utc": "2026-10-19T10:04:45Z",
+          "confidence": 75,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 6.1% is 4.0\u03c3 vs its category",
+              "24h move 26.2% is 4.0\u03c3 vs its category",
+              "24h volume $116,027.26 is 48.1\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "133 comments on the event"
+            ],
+            "chart_trend": "range",
+            "chart_levels": {
+              "support": [
+                0.0539,
+                0.0491
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.0539,
+                "touches": 2,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.02,
+                  "touches": 26,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.0256,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.0285,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.0333,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.0491,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.0539,
+                  "touches": 2,
+                  "kind": "resistance"
+                }
+              ]
+            },
+            "chart_conflicts": [
+              "range-bound series with a up structure break"
+            ],
+            "chart_warnings": [],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 3,
+            "event_risk": "low"
+          },
+          "disagreements": [
+            "range-bound series with a up structure break"
+          ]
+        },
+        {
+          "market_id": "test-0072",
+          "question": "Bruins vs. Maple Leafs: Bruins to win",
+          "url": "https://polymarket.com/market/test-market-72",
+          "status": "WAIT",
+          "reason": "extended breakout: the plan waits for a retest instead of chasing",
+          "side_key": "primary",
+          "side": "Bruins",
+          "side_index": 0,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.607,
+          "entry_distance": 0.019,
+          "entry_zone": [
+            0.586,
+            0.589
+          ],
+          "entry_trigger": "retest of 0.587 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 10.0,
+          "time_limit_utc": "2026-10-19T10:04:45Z",
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 5.1% is 3.2\u03c3 vs its category",
+              "24h move 14.2% is 4.0\u03c3 vs its category",
+              "24h volume $482,243.46 is 199.9\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "190 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.5134,
+                0.5043
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.5134,
+                "touches": 2,
+                "kind": "support"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.5043,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5134,
+                  "touches": 2,
+                  "kind": "support"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 2,
+            "event_risk": "low"
+          },
+          "disagreements": []
+        },
+        {
+          "market_id": "test-0094",
+          "question": "Astros vs. Cubs: Astros to win",
+          "url": "https://polymarket.com/market/test-market-94",
+          "status": "WAIT",
+          "reason": "medium event risk; extended breakout: the plan waits for a retest instead of chasing",
+          "side_key": "primary",
+          "side": "Astros",
+          "side_index": 0,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.438,
+          "entry_distance": 0.037,
+          "entry_zone": [
+            0.399,
+            0.403
+          ],
+          "entry_trigger": "retest of 0.400 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 10.0,
+          "time_limit_utc": "2026-10-19T10:04:45Z",
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 11.3% is 4.0\u03c3 vs its category",
+              "24h move 17.1% is 4.0\u03c3 vs its category",
+              "24h volume $193,894.56 is 80.4\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "150 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.135,
+                0.1307
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.135,
+                "touches": 4,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.1198,
+                  "touches": 4,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.125,
+                  "touches": 4,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.1307,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.135,
+                  "touches": 4,
+                  "kind": "resistance"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 2,
+            "event_risk": "medium"
+          },
+          "disagreements": []
+        },
+        {
+          "market_id": "test-0116",
+          "question": "Knicks vs. Lakers: Knicks to win",
+          "url": "https://polymarket.com/market/test-market-116",
+          "status": "plan",
+          "reason": null,
+          "side_key": "secondary",
+          "side": "Lakers",
+          "side_index": 1,
+          "entry_type": "breakout",
+          "entry": 0.606,
+          "quote": 0.606,
+          "entry_distance": 0.0,
+          "entry_zone": [
+            0.594,
+            0.608
+          ],
+          "entry_trigger": "quote holds above 0.594 with the break intact",
+          "invalidation": 0.599,
+          "target": 0.656,
+          "risk_per_share": 0.007,
+          "reward_per_share": 0.05,
+          "gross_rr": 7.14,
+          "time_limit_utc": "2026-10-19T10:04:45Z",
+          "confidence": 75,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 6.9% is 4.0\u03c3 vs its category",
+              "24h move 17.9% is 4.0\u03c3 vs its category",
+              "24h volume $470,048.75 is 194.9\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "228 comments on the event"
+            ],
+            "chart_trend": "range",
+            "chart_levels": {
+              "support": [
+                0.5937,
+                0.5886
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.5937,
+                "touches": 3,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.5545,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5611,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5635,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5679,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.579,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.5859,
+                  "touches": 2,
+                  "kind": "either"
+                }
+              ]
+            },
+            "chart_conflicts": [
+              "range-bound series with a down structure break"
+            ],
+            "chart_warnings": [],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 3,
+            "event_risk": "low"
+          },
+          "disagreements": [
+            "range-bound series with a down structure break"
+          ]
+        },
+        {
+          "market_id": "test-0138",
+          "question": "Yankees vs. Dodgers: Yankees to win",
+          "url": "https://polymarket.com/market/test-market-138",
+          "status": "WAIT",
+          "reason": "medium event risk; extended breakout: the plan waits for a retest instead of chasing",
+          "side_key": "primary",
+          "side": "Yankees",
+          "side_index": 0,
+          "entry_type": "breakout_retest",
+          "entry": null,
+          "quote": 0.396,
+          "entry_distance": 0.035,
+          "entry_zone": [
+            0.359,
+            0.363
+          ],
+          "entry_trigger": "retest of 0.360 holds after the structure break",
+          "invalidation": null,
+          "target": null,
+          "risk_per_share": null,
+          "reward_per_share": null,
+          "gross_rr": 10.0,
+          "time_limit_utc": "2026-10-19T10:04:45Z",
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 75,
+            "scout_reasons": [
+              "1h move 4.8% is 3.0\u03c3 vs its category",
+              "24h move 16.2% is 4.0\u03c3 vs its category",
+              "24h volume $155,263.69 is 64.4\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "199 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.056,
+                0.0442
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.056,
+                "touches": 2,
+                "kind": "either"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.0203,
+                  "touches": 6,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.0271,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.0317,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.0368,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.0442,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.056,
+                  "touches": 2,
+                  "kind": "either"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 3,
+            "event_risk": "medium"
+          },
+          "disagreements": []
+        }
+      ],
+      "risks": [],
+      "next_step": "Risk agent: size or veto each plan.",
+      "meta": {
+        "reviewed": 10,
+        "plans": 4,
+        "waits": 6,
+        "policy": "A plan exists only when trend and structure agree, the stop is inside the max distance, and reward:risk clears the configured floor. Strategy never sizes a position and never places an order."
+      }
+    },
+    "risk": {
+      "agent": "risk",
+      "label": "RISK",
+      "timestamp_utc": "2026-10-19T04:04:45Z",
+      "status": "complete",
+      "summary": "1 plan(s) cleared the risk gate, 3 rejected, 6 never reached it.",
+      "evidence": [
+        {
+          "market_id": "test-0050",
+          "question": "Bruins vs. Rangers: Bruins to win",
+          "url": "https://polymarket.com/market/test-market-50",
+          "side": "Bruins",
+          "category": "sports",
+          "event_id": "test-event-sports-16",
+          "verdict": "PASSED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": true,
+              "detail": "strategy returned a complete plan"
+            },
+            {
+              "name": "fresh_quote",
+              "pass": true,
+              "detail": "quote snapshot is 5 min old (limit 60)"
+            },
+            {
+              "name": "fresh_news",
+              "pass": true,
+              "detail": "2 fresh headline(s)"
+            },
+            {
+              "name": "news_required",
+              "pass": true,
+              "detail": "desk requires dated news before a plan"
+            },
+            {
+              "name": "event_risk",
+              "pass": true,
+              "detail": "event risk: low"
+            },
+            {
+              "name": "liquidity",
+              "pass": true,
+              "detail": "liquidity $438,999.84 vs floor $2,000.00"
+            },
+            {
+              "name": "spread",
+              "pass": true,
+              "detail": "spread 0.006 vs limit 0.05"
+            },
+            {
+              "name": "history",
+              "pass": true,
+              "detail": "96 bars, 23.8h span"
+            },
+            {
+              "name": "chart_conflicts",
+              "pass": true,
+              "detail": "no chart conflicts"
+            },
+            {
+              "name": "rr_after_costs",
+              "pass": true,
+              "detail": "gross R:R 7.14 vs floor 1.5"
+            },
+            {
+              "name": "stop_vs_spread",
+              "pass": true,
+              "detail": "stop distance 0.007 vs spread 0.006; a stop inside the spread is noise"
+            },
+            {
+              "name": "entry_within_band",
+              "pass": true,
+              "detail": "planned entry is 0.0 from the quote (limit 0.12)"
+            },
+            {
+              "name": "unresolved_disagreements",
+              "pass": true,
+              "detail": "agents agree"
+            },
+            {
+              "name": "net_reward_to_spread",
+              "pass": true,
+              "detail": "reward 0.050 is 8.5\u00d7 the spread"
+            },
+            {
+              "name": "net_rr",
+              "pass": true,
+              "detail": "net R:R 1.52 after 0.0156/share of costs vs floor 1.5"
+            },
+            {
+              "name": "size",
+              "pass": true,
+              "detail": "395 share(s)"
+            },
+            {
+              "name": "order_minimum",
+              "pass": true,
+              "detail": "395 share(s) vs exchange minimum 5"
+            },
+            {
+              "name": "position_cap",
+              "pass": true,
+              "detail": "0 of 5 position slots used"
+            },
+            {
+              "name": "category_concentration",
+              "pass": true,
+              "detail": "0 of 2 allowed sports positions"
+            },
+            {
+              "name": "event_concentration",
+              "pass": true,
+              "detail": "0 of 1 allowed positions on this event"
+            },
+            {
+              "name": "duplicate_question",
+              "pass": true,
+              "detail": "same question is already in the book or approved in this run"
+            }
+          ],
+          "reasons": [],
+          "risk_notes": [],
+          "size": {
+            "shares": 395,
+            "entry": 0.632,
+            "notional": 249.64,
+            "risk_dollars": 2.77,
+            "max_loss_pct_of_bankroll": 0.28,
+            "net_rr": 1.52,
+            "cost_per_share": 0.0156,
+            "exposure_after": 249.64,
+            "exposure_limit": 250.0
+          },
+          "plan": {
+            "market_id": "test-0050",
+            "question": "Bruins vs. Rangers: Bruins to win",
+            "url": "https://polymarket.com/market/test-market-50",
+            "status": "plan",
+            "reason": null,
+            "side_key": "primary",
+            "side": "Bruins",
+            "side_index": 0,
+            "entry_type": "breakout",
+            "entry": 0.632,
+            "quote": 0.632,
+            "entry_distance": 0.0,
+            "entry_zone": [
+              0.626,
+              0.634
+            ],
+            "entry_trigger": "quote holds above 0.626 with the break intact",
+            "invalidation": 0.625,
+            "target": 0.682,
+            "risk_per_share": 0.007,
+            "reward_per_share": 0.05,
+            "gross_rr": 7.14,
+            "time_limit_utc": "2026-10-19T10:04:45Z",
+            "confidence": 100,
+            "evidence_used": {
+              "scout_score": 79,
+              "scout_reasons": [
+                "1h move 15.0% is 4.0\u03c3 vs its category",
+                "24h move 19.9% is 4.0\u03c3 vs its category",
+                "24h volume $200,536.85 is 83.1\u00d7 the category median",
+                "1h and 24h moves point the same way",
+                "tight spread relative to price",
+                "113 comments on the event"
+              ],
+              "chart_trend": "up",
+              "chart_levels": {
+                "support": [
+                  0.6248,
+                  0.6215
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.6248,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.5243,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5453,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5539,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.5985,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.6215,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.6248,
+                    "touches": 2,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "chart_conflicts": [],
+              "chart_warnings": [
+                "uptrend is extended at the top of its range"
+              ],
+              "news_sources": [
+                "TEST DATA wire (synthetic)"
+              ],
+              "news_direct_count": 0,
+              "news_tone": "not_applicable",
+              "news_count": 2,
+              "event_risk": "low"
+            },
+            "disagreements": []
+          }
+        },
+        {
+          "market_id": "test-0314",
+          "question": "Will SOL close below $91.00 on Oct 31?",
+          "url": "https://polymarket.com/market/test-market-314",
+          "side": "No",
+          "category": "crypto",
+          "event_id": "test-event-crypto-104",
+          "verdict": "REJECTED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": true,
+              "detail": "strategy returned a complete plan"
+            },
+            {
+              "name": "fresh_quote",
+              "pass": true,
+              "detail": "quote snapshot is 3 min old (limit 60)"
+            },
+            {
+              "name": "fresh_news",
+              "pass": true,
+              "detail": "2 fresh headline(s)"
+            },
+            {
+              "name": "news_required",
+              "pass": true,
+              "detail": "desk requires dated news before a plan"
+            },
+            {
+              "name": "event_risk",
+              "pass": true,
+              "detail": "event risk: low"
+            },
+            {
+              "name": "liquidity",
+              "pass": true,
+              "detail": "liquidity $75,344.19 vs floor $2,000.00"
+            },
+            {
+              "name": "spread",
+              "pass": true,
+              "detail": "spread 0.003 vs limit 0.05"
+            },
+            {
+              "name": "history",
+              "pass": true,
+              "detail": "96 bars, 23.8h span"
+            },
+            {
+              "name": "chart_conflicts",
+              "pass": false,
+              "detail": "charts flagged: range-bound series with a down structure break"
+            },
+            {
+              "name": "rr_after_costs",
+              "pass": true,
+              "detail": "gross R:R 7.14 vs floor 1.5"
+            },
+            {
+              "name": "stop_vs_spread",
+              "pass": true,
+              "detail": "stop distance 0.007 vs spread 0.003; a stop inside the spread is noise"
+            },
+            {
+              "name": "entry_within_band",
+              "pass": true,
+              "detail": "planned entry is 0.0 from the quote (limit 0.12)"
+            },
+            {
+              "name": "unresolved_disagreements",
+              "pass": false,
+              "detail": "range-bound series with a down structure break"
+            },
+            {
+              "name": "net_reward_to_spread",
+              "pass": true,
+              "detail": "reward 0.050 is 17.2\u00d7 the spread"
+            },
+            {
+              "name": "net_rr",
+              "pass": true,
+              "detail": "net R:R 3.35 after 0.0061/share of costs vs floor 1.5"
+            },
+            {
+              "name": "size",
+              "pass": true,
+              "detail": "1 share(s)"
+            },
+            {
+              "name": "order_minimum",
+              "pass": false,
+              "detail": "1 share(s) vs exchange minimum 5"
+            },
+            {
+              "name": "position_cap",
+              "pass": true,
+              "detail": "1 of 5 position slots used"
+            },
+            {
+              "name": "category_concentration",
+              "pass": true,
+              "detail": "0 of 2 allowed crypto positions"
+            },
+            {
+              "name": "event_concentration",
+              "pass": true,
+              "detail": "0 of 1 allowed positions on this event"
+            },
+            {
+              "name": "duplicate_question",
+              "pass": true,
+              "detail": "same question is already in the book or approved in this run"
+            }
+          ],
+          "reasons": [
+            "charts flagged: range-bound series with a down structure break",
+            "range-bound series with a down structure break",
+            "1 share(s) vs exchange minimum 5"
+          ],
+          "failed_checks": [
+            "chart_conflicts",
+            "unresolved_disagreements",
+            "order_minimum"
+          ],
+          "plan": {
+            "market_id": "test-0314",
+            "question": "Will SOL close below $91.00 on Oct 31?",
+            "url": "https://polymarket.com/market/test-market-314",
+            "status": "plan",
+            "reason": null,
+            "side_key": "secondary",
+            "side": "No",
+            "side_index": 1,
+            "entry_type": "breakout",
+            "entry": 0.232,
+            "quote": 0.232,
+            "entry_distance": 0.0,
+            "entry_zone": [
+              0.225,
+              0.234
+            ],
+            "entry_trigger": "quote holds above 0.225 with the break intact",
+            "invalidation": 0.225,
+            "target": 0.282,
+            "risk_per_share": 0.007,
+            "reward_per_share": 0.05,
+            "gross_rr": 7.14,
+            "time_limit_utc": "2026-10-19T10:04:45Z",
+            "confidence": 75,
+            "evidence_used": {
+              "scout_score": 79,
+              "scout_reasons": [
+                "1h move 11.4% is 4.0\u03c3 vs its category",
+                "24h move 13.6% is 4.0\u03c3 vs its category",
+                "24h volume $105,726.52 is 42.7\u00d7 the category median",
+                "1h and 24h moves point the same way",
+                "tight spread relative to price",
+                "397 comments on the event"
+              ],
+              "chart_trend": "range",
+              "chart_levels": {
+                "support": [
+                  0.2242,
+                  0.2191
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.2242,
+                  "touches": 3,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.185,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.1916,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.194,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.1984,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.2089,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.2164,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "chart_conflicts": [
+                "range-bound series with a down structure break"
+              ],
+              "chart_warnings": [],
+              "news_sources": [
+                "TEST DATA wire (synthetic)"
+              ],
+              "news_direct_count": 0,
+              "news_tone": "not_applicable",
+              "news_count": 2,
+              "event_risk": "low"
+            },
+            "disagreements": [
+              "range-bound series with a down structure break"
+            ]
+          }
+        },
+        {
+          "market_id": "test-0358",
+          "question": "Will XRP close above $1.00 on Oct 24?",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing"
+          ]
+        },
+        {
+          "market_id": "test-0336",
+          "question": "Will BTC close below $112,500 on Nov 6?",
+          "url": "https://polymarket.com/market/test-market-336",
+          "side": "Yes",
+          "category": "crypto",
+          "event_id": "test-event-crypto-111",
+          "verdict": "REJECTED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": true,
+              "detail": "strategy returned a complete plan"
+            },
+            {
+              "name": "fresh_quote",
+              "pass": true,
+              "detail": "quote snapshot is 4 min old (limit 60)"
+            },
+            {
+              "name": "fresh_news",
+              "pass": true,
+              "detail": "2 fresh headline(s)"
+            },
+            {
+              "name": "news_required",
+              "pass": true,
+              "detail": "desk requires dated news before a plan"
+            },
+            {
+              "name": "event_risk",
+              "pass": true,
+              "detail": "event risk: low"
+            },
+            {
+              "name": "liquidity",
+              "pass": true,
+              "detail": "liquidity $662,098.10 vs floor $2,000.00"
+            },
+            {
+              "name": "spread",
+              "pass": true,
+              "detail": "spread 0.005 vs limit 0.05"
+            },
+            {
+              "name": "history",
+              "pass": true,
+              "detail": "96 bars, 23.8h span"
+            },
+            {
+              "name": "chart_conflicts",
+              "pass": true,
+              "detail": "no chart conflicts"
+            },
+            {
+              "name": "rr_after_costs",
+              "pass": true,
+              "detail": "gross R:R 6.25 vs floor 1.5"
+            },
+            {
+              "name": "stop_vs_spread",
+              "pass": true,
+              "detail": "stop distance 0.008 vs spread 0.005; a stop inside the spread is noise"
+            },
+            {
+              "name": "entry_within_band",
+              "pass": true,
+              "detail": "planned entry is 0.0 from the quote (limit 0.12)"
+            },
+            {
+              "name": "unresolved_disagreements",
+              "pass": true,
+              "detail": "agents agree"
+            },
+            {
+              "name": "net_reward_to_spread",
+              "pass": true,
+              "detail": "reward 0.050 is 10.6\u00d7 the spread"
+            },
+            {
+              "name": "net_rr",
+              "pass": false,
+              "detail": "net R:R 1.38 after 0.0163/share of costs vs floor 1.5"
+            },
+            {
+              "name": "size",
+              "pass": false,
+              "detail": "size rounds to zero (risk budget $20.00, exposure left $0.36)"
+            },
+            {
+              "name": "order_minimum",
+              "pass": false,
+              "detail": "0 share(s) vs exchange minimum 5"
+            },
+            {
+              "name": "position_cap",
+              "pass": true,
+              "detail": "1 of 5 position slots used"
+            },
+            {
+              "name": "category_concentration",
+              "pass": true,
+              "detail": "0 of 2 allowed crypto positions"
+            },
+            {
+              "name": "event_concentration",
+              "pass": true,
+              "detail": "0 of 1 allowed positions on this event"
+            },
+            {
+              "name": "duplicate_question",
+              "pass": true,
+              "detail": "same question is already in the book or approved in this run"
+            }
+          ],
+          "reasons": [
+            "net R:R 1.38 after 0.0163/share of costs vs floor 1.5",
+            "size rounds to zero (risk budget $20.00, exposure left $0.36)",
+            "0 share(s) vs exchange minimum 5"
+          ],
+          "failed_checks": [
+            "net_rr",
+            "size",
+            "order_minimum"
+          ],
+          "plan": {
+            "market_id": "test-0336",
+            "question": "Will BTC close below $112,500 on Nov 6?",
+            "url": "https://polymarket.com/market/test-market-336",
+            "status": "plan",
+            "reason": null,
+            "side_key": "primary",
+            "side": "Yes",
+            "side_index": 0,
+            "entry_type": "breakout",
+            "entry": 0.7,
+            "quote": 0.7,
+            "entry_distance": 0.0,
+            "entry_zone": [
+              0.694,
+              0.702
+            ],
+            "entry_trigger": "quote holds above 0.694 with the break intact",
+            "invalidation": 0.692,
+            "target": 0.75,
+            "risk_per_share": 0.008,
+            "reward_per_share": 0.05,
+            "gross_rr": 6.25,
+            "time_limit_utc": "2026-10-19T10:04:45Z",
+            "confidence": 100,
+            "evidence_used": {
+              "scout_score": 78,
+              "scout_reasons": [
+                "1h move 4.5% is 2.6\u03c3 vs its category",
+                "24h move 15.7% is 4.0\u03c3 vs its category",
+                "24h volume $664,853.42 is 268.4\u00d7 the category median",
+                "1h and 24h moves point the same way",
+                "tight spread relative to price",
+                "123 comments on the event"
+              ],
+              "chart_trend": "up",
+              "chart_levels": {
+                "support": [
+                  0.6749,
+                  0.6707
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.6749,
+                  "touches": 5,
+                  "kind": "either"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.5502,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.6514,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.6707,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.6749,
+                    "touches": 5,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "chart_conflicts": [],
+              "chart_warnings": [
+                "uptrend is extended at the top of its range"
+              ],
+              "news_sources": [
+                "TEST DATA wire (synthetic)"
+              ],
+              "news_direct_count": 0,
+              "news_tone": "not_applicable",
+              "news_count": 2,
+              "event_risk": "low"
+            },
+            "disagreements": []
+          }
+        },
+        {
+          "market_id": "test-0248",
+          "question": "Will the nominee be confirmed by Nov 13?",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: medium event risk; extended breakout: the plan waits for a retest instead of chasing"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: medium event risk; extended breakout: the plan waits for a retest instead of chasing"
+          ]
+        },
+        {
+          "market_id": "test-0028",
+          "question": "Ravens vs. Eagles: Ravens to win",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing; target 0.202 is not above the current quote 0.223; the move may already be priced"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing; target 0.202 is not above the current quote 0.223; the move may already be priced"
+          ]
+        },
+        {
+          "market_id": "test-0072",
+          "question": "Bruins vs. Maple Leafs: Bruins to win",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: extended breakout: the plan waits for a retest instead of chasing"
+          ]
+        },
+        {
+          "market_id": "test-0094",
+          "question": "Astros vs. Cubs: Astros to win",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: medium event risk; extended breakout: the plan waits for a retest instead of chasing"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: medium event risk; extended breakout: the plan waits for a retest instead of chasing"
+          ]
+        },
+        {
+          "market_id": "test-0116",
+          "question": "Knicks vs. Lakers: Knicks to win",
+          "url": "https://polymarket.com/market/test-market-116",
+          "side": "Lakers",
+          "category": "sports",
+          "event_id": "test-event-sports-38",
+          "verdict": "REJECTED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": true,
+              "detail": "strategy returned a complete plan"
+            },
+            {
+              "name": "fresh_quote",
+              "pass": true,
+              "detail": "quote snapshot is 2 min old (limit 60)"
+            },
+            {
+              "name": "fresh_news",
+              "pass": true,
+              "detail": "3 fresh headline(s)"
+            },
+            {
+              "name": "news_required",
+              "pass": true,
+              "detail": "desk requires dated news before a plan"
+            },
+            {
+              "name": "event_risk",
+              "pass": true,
+              "detail": "event risk: low"
+            },
+            {
+              "name": "liquidity",
+              "pass": true,
+              "detail": "liquidity $515,051.15 vs floor $2,000.00"
+            },
+            {
+              "name": "spread",
+              "pass": true,
+              "detail": "spread 0.012 vs limit 0.05"
+            },
+            {
+              "name": "history",
+              "pass": true,
+              "detail": "96 bars, 23.8h span"
+            },
+            {
+              "name": "chart_conflicts",
+              "pass": false,
+              "detail": "charts flagged: range-bound series with a down structure break"
+            },
+            {
+              "name": "rr_after_costs",
+              "pass": true,
+              "detail": "gross R:R 7.14 vs floor 1.5"
+            },
+            {
+              "name": "stop_vs_spread",
+              "pass": false,
+              "detail": "stop distance 0.007 vs spread 0.012; a stop inside the spread is noise"
+            },
+            {
+              "name": "entry_within_band",
+              "pass": true,
+              "detail": "planned entry is 0.0 from the quote (limit 0.12)"
+            },
+            {
+              "name": "unresolved_disagreements",
+              "pass": false,
+              "detail": "range-bound series with a down structure break"
+            },
+            {
+              "name": "net_reward_to_spread",
+              "pass": true,
+              "detail": "reward 0.050 is 4.1\u00d7 the spread"
+            },
+            {
+              "name": "net_rr",
+              "pass": false,
+              "detail": "net R:R 1.26 after 0.0183/share of costs vs floor 1.5"
+            },
+            {
+              "name": "size",
+              "pass": false,
+              "detail": "size rounds to zero (risk budget $20.00, exposure left $0.36)"
+            },
+            {
+              "name": "order_minimum",
+              "pass": false,
+              "detail": "0 share(s) vs exchange minimum 5"
+            },
+            {
+              "name": "position_cap",
+              "pass": true,
+              "detail": "1 of 5 position slots used"
+            },
+            {
+              "name": "category_concentration",
+              "pass": true,
+              "detail": "1 of 2 allowed sports positions"
+            },
+            {
+              "name": "event_concentration",
+              "pass": true,
+              "detail": "0 of 1 allowed positions on this event"
+            },
+            {
+              "name": "duplicate_question",
+              "pass": true,
+              "detail": "same question is already in the book or approved in this run"
+            }
+          ],
+          "reasons": [
+            "charts flagged: range-bound series with a down structure break",
+            "stop distance 0.007 vs spread 0.012; a stop inside the spread is noise",
+            "range-bound series with a down structure break",
+            "net R:R 1.26 after 0.0183/share of costs vs floor 1.5",
+            "size rounds to zero (risk budget $20.00, exposure left $0.36)",
+            "0 share(s) vs exchange minimum 5"
+          ],
+          "failed_checks": [
+            "chart_conflicts",
+            "stop_vs_spread",
+            "unresolved_disagreements",
+            "net_rr",
+            "size",
+            "order_minimum"
+          ],
+          "plan": {
+            "market_id": "test-0116",
+            "question": "Knicks vs. Lakers: Knicks to win",
+            "url": "https://polymarket.com/market/test-market-116",
+            "status": "plan",
+            "reason": null,
+            "side_key": "secondary",
+            "side": "Lakers",
+            "side_index": 1,
+            "entry_type": "breakout",
+            "entry": 0.606,
+            "quote": 0.606,
+            "entry_distance": 0.0,
+            "entry_zone": [
+              0.594,
+              0.608
+            ],
+            "entry_trigger": "quote holds above 0.594 with the break intact",
+            "invalidation": 0.599,
+            "target": 0.656,
+            "risk_per_share": 0.007,
+            "reward_per_share": 0.05,
+            "gross_rr": 7.14,
+            "time_limit_utc": "2026-10-19T10:04:45Z",
+            "confidence": 75,
+            "evidence_used": {
+              "scout_score": 75,
+              "scout_reasons": [
+                "1h move 6.9% is 4.0\u03c3 vs its category",
+                "24h move 17.9% is 4.0\u03c3 vs its category",
+                "24h volume $470,048.75 is 194.9\u00d7 the category median",
+                "1h and 24h moves point the same way",
+                "228 comments on the event"
+              ],
+              "chart_trend": "range",
+              "chart_levels": {
+                "support": [
+                  0.5937,
+                  0.5886
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.5937,
+                  "touches": 3,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.5545,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5611,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5635,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5679,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.579,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.5859,
+                    "touches": 2,
+                    "kind": "either"
+                  }
+                ]
+              },
+              "chart_conflicts": [
+                "range-bound series with a down structure break"
+              ],
+              "chart_warnings": [],
+              "news_sources": [
+                "TEST DATA wire (synthetic)"
+              ],
+              "news_direct_count": 0,
+              "news_tone": "not_applicable",
+              "news_count": 3,
+              "event_risk": "low"
+            },
+            "disagreements": [
+              "range-bound series with a down structure break"
+            ]
+          }
+        },
+        {
+          "market_id": "test-0138",
+          "question": "Yankees vs. Dodgers: Yankees to win",
+          "verdict": "NOT_REVIEWED",
+          "checks": [
+            {
+              "name": "input_freshness",
+              "pass": true,
+              "detail": "oldest upstream report is 0.0 min old (limit 30)"
+            },
+            {
+              "name": "paper_mode",
+              "pass": true,
+              "detail": "mode=paper, allow_live_orders=False"
+            },
+            {
+              "name": "plan_ready",
+              "pass": false,
+              "detail": "strategy returned WAIT: medium event risk; extended breakout: the plan waits for a retest instead of chasing"
+            }
+          ],
+          "reasons": [
+            "strategy returned WAIT: medium event risk; extended breakout: the plan waits for a retest instead of chasing"
+          ]
+        }
+      ],
+      "risks": [
+        "Rejected No on \"Will SOL close below $91.00 on Oct 31?\": charts flagged: range-bound series with a down structure break",
+        "Rejected Yes on \"Will BTC close below $112,500 on Nov 6?\": net R:R 1.38 after 0.0163/share of costs vs floor 1.5",
+        "Rejected Lakers on \"Knicks vs. Lakers: Knicks to win\": charts flagged: range-bound series with a down structure break"
+      ],
+      "next_step": "Boss agent: confirm every stage, then approve, wait or reject.",
+      "meta": {
+        "bankroll": 1000.0,
+        "exposure_limit": 250.0,
+        "exposure_used": 249.64,
+        "risk_committed": 2.77,
+        "open_positions": 0,
+        "passed": 1,
+        "rejected": 3,
+        "common_checks": [
+          {
+            "name": "input_freshness",
+            "pass": true,
+            "detail": "oldest upstream report is 0.0 min old (limit 30)"
+          },
+          {
+            "name": "paper_mode",
+            "pass": true,
+            "detail": "mode=paper, allow_live_orders=False"
+          }
+        ],
+        "limits": {
+          "max_positions": 5,
+          "max_total_exposure_pct": 25.0,
+          "max_position_risk_pct": 2.0,
+          "max_daily_risk_pct": 6.0,
+          "max_per_category": 2,
+          "max_per_event": 1,
+          "min_net_rr": 1.5
+        },
+        "policy": "The gate never relaxes a rule to make a plan pass. Sizes are the smaller of the risk budget, the remaining exposure cap and 1% of quoted liquidity. A failed check is a veto."
+      }
+    },
+    "boss": {
+      "agent": "boss",
+      "label": "BOSS",
+      "timestamp_utc": "2026-10-19T04:04:45Z",
+      "status": "complete",
+      "summary": "1 plan(s) passed every stage with no unresolved disagreement. Approved for paper testing only.",
+      "evidence": [
+        {
+          "market_id": "test-0050",
+          "question": "Bruins vs. Rangers: Bruins to win",
+          "url": "https://polymarket.com/market/test-market-50",
+          "side": "Bruins",
+          "category": "sports",
+          "event_id": "test-event-sports-16",
+          "entry": 0.632,
+          "invalidation": 0.625,
+          "target": 0.682,
+          "time_limit_utc": "2026-10-19T10:04:45Z",
+          "shares": 395,
+          "notional": 249.64,
+          "risk_dollars": 2.77,
+          "net_rr": 1.52,
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 79,
+            "scout_reasons": [
+              "1h move 15.0% is 4.0\u03c3 vs its category",
+              "24h move 19.9% is 4.0\u03c3 vs its category",
+              "24h volume $200,536.85 is 83.1\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "tight spread relative to price",
+              "113 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.6248,
+                0.6215
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.6248,
+                "touches": 2,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.5243,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5453,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5539,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.5985,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.6215,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.6248,
+                  "touches": 2,
+                  "kind": "resistance"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 2,
+            "event_risk": "low"
+          }
+        }
+      ],
+      "risks": [],
+      "next_step": "Log the entry, invalidation, target and time limit in the paper journal before the result is known.",
+      "meta": {
+        "decision": "APPROVE_FOR_PAPER_TEST",
+        "approved": [
+          {
+            "market_id": "test-0050",
+            "question": "Bruins vs. Rangers: Bruins to win",
+            "url": "https://polymarket.com/market/test-market-50",
+            "side": "Bruins",
+            "category": "sports",
+            "event_id": "test-event-sports-16",
+            "entry": 0.632,
+            "invalidation": 0.625,
+            "target": 0.682,
+            "time_limit_utc": "2026-10-19T10:04:45Z",
+            "shares": 395,
+            "notional": 249.64,
+            "risk_dollars": 2.77,
+            "net_rr": 1.52,
+            "confidence": 100,
+            "evidence_used": {
+              "scout_score": 79,
+              "scout_reasons": [
+                "1h move 15.0% is 4.0\u03c3 vs its category",
+                "24h move 19.9% is 4.0\u03c3 vs its category",
+                "24h volume $200,536.85 is 83.1\u00d7 the category median",
+                "1h and 24h moves point the same way",
+                "tight spread relative to price",
+                "113 comments on the event"
+              ],
+              "chart_trend": "up",
+              "chart_levels": {
+                "support": [
+                  0.6248,
+                  0.6215
+                ],
+                "resistance": [],
+                "strong_support": {
+                  "level": 0.6248,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                "strong_resistance": null,
+                "all_strong": [
+                  {
+                    "level": 0.5243,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5453,
+                    "touches": 2,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.5539,
+                    "touches": 2,
+                    "kind": "resistance"
+                  },
+                  {
+                    "level": 0.5985,
+                    "touches": 3,
+                    "kind": "either"
+                  },
+                  {
+                    "level": 0.6215,
+                    "touches": 2,
+                    "kind": "support"
+                  },
+                  {
+                    "level": 0.6248,
+                    "touches": 2,
+                    "kind": "resistance"
+                  }
+                ]
+              },
+              "chart_conflicts": [],
+              "chart_warnings": [
+                "uptrend is extended at the top of its range"
+              ],
+              "news_sources": [
+                "TEST DATA wire (synthetic)"
+              ],
+              "news_direct_count": 0,
+              "news_tone": "not_applicable",
+              "news_count": 2,
+              "event_risk": "low"
+            }
+          }
+        ],
+        "held": [],
+        "integrity": [
+          {
+            "name": "pipeline_present",
+            "pass": true,
+            "detail": "5 report(s) present through boss"
+          },
+          {
+            "name": "stages_complete",
+            "pass": true,
+            "detail": "every stage returned complete"
+          },
+          {
+            "name": "paper_only",
+            "pass": true,
+            "detail": "mode=paper, live orders=False"
+          },
+          {
+            "name": "timestamps",
+            "pass": true,
+            "detail": "every report carries an ISO timestamp"
+          },
+          {
+            "name": "risk_gate_exists",
+            "pass": true,
+            "detail": "10 plan(s) reviewed by risk"
+          },
+          {
+            "name": "risk_not_blanket_veto",
+            "pass": true,
+            "detail": "1 plan(s) cleared"
+          }
+        ],
+        "disagreements": [
+          "Will SOL close below $91.00 on Oct 31?: range-bound series with a down structure break",
+          "Knicks vs. Lakers: Knicks to win: range-bound series with a down structure break"
+        ],
+        "counts": {
+          "plans": 4,
+          "waits": 6,
+          "risk_passed": 1,
+          "risk_rejected": 3,
+          "missing_reports": [],
+          "incomplete_reports": []
+        },
+        "data_source": "SYNTHETIC TEST DATA",
+        "final_word": "Paper only. No order endpoint exists in this project. Manual human approval is required before any action."
+      }
+    }
+  },
+  "halted_at": null,
+  "boss": {
+    "agent": "boss",
+    "label": "BOSS",
+    "timestamp_utc": "2026-10-19T04:04:45Z",
+    "status": "complete",
+    "summary": "1 plan(s) passed every stage with no unresolved disagreement. Approved for paper testing only.",
+    "evidence": [
+      {
+        "market_id": "test-0050",
+        "question": "Bruins vs. Rangers: Bruins to win",
+        "url": "https://polymarket.com/market/test-market-50",
+        "side": "Bruins",
+        "category": "sports",
+        "event_id": "test-event-sports-16",
+        "entry": 0.632,
+        "invalidation": 0.625,
+        "target": 0.682,
+        "time_limit_utc": "2026-10-19T10:04:45Z",
+        "shares": 395,
+        "notional": 249.64,
+        "risk_dollars": 2.77,
+        "net_rr": 1.52,
+        "confidence": 100,
+        "evidence_used": {
+          "scout_score": 79,
+          "scout_reasons": [
+            "1h move 15.0% is 4.0\u03c3 vs its category",
+            "24h move 19.9% is 4.0\u03c3 vs its category",
+            "24h volume $200,536.85 is 83.1\u00d7 the category median",
+            "1h and 24h moves point the same way",
+            "tight spread relative to price",
+            "113 comments on the event"
+          ],
+          "chart_trend": "up",
+          "chart_levels": {
+            "support": [
+              0.6248,
+              0.6215
+            ],
+            "resistance": [],
+            "strong_support": {
+              "level": 0.6248,
+              "touches": 2,
+              "kind": "resistance"
+            },
+            "strong_resistance": null,
+            "all_strong": [
+              {
+                "level": 0.5243,
+                "touches": 2,
+                "kind": "either"
+              },
+              {
+                "level": 0.5453,
+                "touches": 2,
+                "kind": "either"
+              },
+              {
+                "level": 0.5539,
+                "touches": 2,
+                "kind": "resistance"
+              },
+              {
+                "level": 0.5985,
+                "touches": 3,
+                "kind": "either"
+              },
+              {
+                "level": 0.6215,
+                "touches": 2,
+                "kind": "support"
+              },
+              {
+                "level": 0.6248,
+                "touches": 2,
+                "kind": "resistance"
+              }
+            ]
+          },
+          "chart_conflicts": [],
+          "chart_warnings": [
+            "uptrend is extended at the top of its range"
+          ],
+          "news_sources": [
+            "TEST DATA wire (synthetic)"
+          ],
+          "news_direct_count": 0,
+          "news_tone": "not_applicable",
+          "news_count": 2,
+          "event_risk": "low"
+        }
+      }
+    ],
+    "risks": [],
+    "next_step": "Log the entry, invalidation, target and time limit in the paper journal before the result is known.",
+    "meta": {
+      "decision": "APPROVE_FOR_PAPER_TEST",
+      "approved": [
+        {
+          "market_id": "test-0050",
+          "question": "Bruins vs. Rangers: Bruins to win",
+          "url": "https://polymarket.com/market/test-market-50",
+          "side": "Bruins",
+          "category": "sports",
+          "event_id": "test-event-sports-16",
+          "entry": 0.632,
+          "invalidation": 0.625,
+          "target": 0.682,
+          "time_limit_utc": "2026-10-19T10:04:45Z",
+          "shares": 395,
+          "notional": 249.64,
+          "risk_dollars": 2.77,
+          "net_rr": 1.52,
+          "confidence": 100,
+          "evidence_used": {
+            "scout_score": 79,
+            "scout_reasons": [
+              "1h move 15.0% is 4.0\u03c3 vs its category",
+              "24h move 19.9% is 4.0\u03c3 vs its category",
+              "24h volume $200,536.85 is 83.1\u00d7 the category median",
+              "1h and 24h moves point the same way",
+              "tight spread relative to price",
+              "113 comments on the event"
+            ],
+            "chart_trend": "up",
+            "chart_levels": {
+              "support": [
+                0.6248,
+                0.6215
+              ],
+              "resistance": [],
+              "strong_support": {
+                "level": 0.6248,
+                "touches": 2,
+                "kind": "resistance"
+              },
+              "strong_resistance": null,
+              "all_strong": [
+                {
+                  "level": 0.5243,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5453,
+                  "touches": 2,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.5539,
+                  "touches": 2,
+                  "kind": "resistance"
+                },
+                {
+                  "level": 0.5985,
+                  "touches": 3,
+                  "kind": "either"
+                },
+                {
+                  "level": 0.6215,
+                  "touches": 2,
+                  "kind": "support"
+                },
+                {
+                  "level": 0.6248,
+                  "touches": 2,
+                  "kind": "resistance"
+                }
+              ]
+            },
+            "chart_conflicts": [],
+            "chart_warnings": [
+              "uptrend is extended at the top of its range"
+            ],
+            "news_sources": [
+              "TEST DATA wire (synthetic)"
+            ],
+            "news_direct_count": 0,
+            "news_tone": "not_applicable",
+            "news_count": 2,
+            "event_risk": "low"
+          }
+        }
+      ],
+      "held": [],
+      "integrity": [
+        {
+          "name": "pipeline_present",
+          "pass": true,
+          "detail": "5 report(s) present through boss"
+        },
+        {
+          "name": "stages_complete",
+          "pass": true,
+          "detail": "every stage returned complete"
+        },
+        {
+          "name": "paper_only",
+          "pass": true,
+          "detail": "mode=paper, live orders=False"
+        },
+        {
+          "name": "timestamps",
+          "pass": true,
+          "detail": "every report carries an ISO timestamp"
+        },
+        {
+          "name": "risk_gate_exists",
+          "pass": true,
+          "detail": "10 plan(s) reviewed by risk"
+        },
+        {
+          "name": "risk_not_blanket_veto",
+          "pass": true,
+          "detail": "1 plan(s) cleared"
+        }
+      ],
+      "disagreements": [
+        "Will SOL close below $91.00 on Oct 31?: range-bound series with a down structure break",
+        "Knicks vs. Lakers: Knicks to win: range-bound series with a down structure break"
+      ],
+      "counts": {
+        "plans": 4,
+        "waits": 6,
+        "risk_passed": 1,
+        "risk_rejected": 3,
+        "missing_reports": [],
+        "incomplete_reports": []
+      },
+      "data_source": "SYNTHETIC TEST DATA",
+      "final_word": "Paper only. No order endpoint exists in this project. Manual human approval is required before any action."
+    }
+  },
+  "validation": {
+    "ok": true,
+    "errors": []
+  }
+}

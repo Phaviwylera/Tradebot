@@ -5,27 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>Opus Agent Desk — six agents, one paper decision</title>
-<meta name="description" content="A six-agent research desk for Polymarket. Scans 400+ markets, writes rule-based paper plans, and lets a risk gate veto everything. No wallet, no orders.">
+<meta name="description" content="A six-stage paper-trading research desk for Polymarket. Scout, News, Charts, Strategy, Risk and Boss. Reports are saved with timestamps. No wallet, no orders.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b141a'/%3E%3Crect x='7' y='17' width='4' height='9' rx='1' fill='%233ddbc6' opacity='.6'/%3E%3Crect x='14' y='8' width='4' height='18' rx='1' fill='%233ddbc6'/%3E%3Crect x='21' y='13' width='4' height='13' rx='1' fill='%233ddbc6' opacity='.8'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <a class="skip" href="#agents">Skip to agent reports</a>
-<noscript><div class="banner error" style="margin:14px">This desk is JavaScript-only and runs entirely in your browser. Enable JavaScript to use it. No order endpoint exists either way.</div></noscript>
+<noscript><div class="banner error" style="margin:14px">This dashboard needs JavaScript. The pipeline itself runs without a browser: <code>python main.py</code>. No order endpoint exists either way.</div></noscript>
 
 <header class="topbar">
   <div class="brand">
     <div class="mark" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="brand-text">
       <h1>Opus Agent Desk</h1>
-      <p>Six agents. One decision. Paper only.</p>
+      <p>Six stages. One decision. Paper only.</p>
     </div>
   </div>
 
   <div class="topbar-actions">
-    <div class="seg" role="group" aria-label="Data source">
-      <button type="button" class="seg-btn" data-mode="test" aria-pressed="true">Test data</button>
-      <button type="button" class="seg-btn" data-mode="live" aria-pressed="false">Live</button>
+    <div class="seg" role="group" aria-label="Data source for the next run">
+      <button type="button" class="seg-btn" data-source="fixture" aria-pressed="true">Fixture</button>
+      <button type="button" class="seg-btn" data-source="live" aria-pressed="false">Live</button>
     </div>
     <button type="button" id="run" class="btn btn-primary">
       <span class="btn-dot" aria-hidden="true"></span><span id="run-label">Run desk</span>
@@ -37,7 +37,6 @@
 
 <main>
   <section class="statbar" id="statbar" aria-label="Run summary"></section>
-
   <nav class="pipeline" id="pipeline" aria-label="Agent pipeline"></nav>
 
   <div class="layout">
@@ -45,46 +44,48 @@
       <div class="empty" id="empty-state">
         <p class="eyebrow">Ready</p>
         <h2>Scan the board. Let risk say no.</h2>
-        <p class="lead">The desk pulls the most active Polymarket contracts, finds unusual moves,
-          checks dated headlines and price structure, writes one rule-based plan per candidate,
-          and refuses anything that breaks a limit. There is no order button, and never will be.</p>
+        <p class="lead">Scout ranks unusual activity across the market universe. News attaches dated sources.
+          Charts describes trend and structure. Strategy writes one conditional plan per candidate. Risk can veto
+          any plan. Boss returns one status: approve for paper test, wait, or reject.</p>
         <div class="empty-grid">
           <div><strong>1 · Scout</strong><span>unusual price, volume and movement</span></div>
-          <div><strong>2 · News</strong><span>dated sources, facts vs speculation</span></div>
+          <div><strong>2 · News</strong><span>dated sources, claims vs speculation</span></div>
           <div><strong>3 · Charts</strong><span>trend, momentum, support, resistance</span></div>
           <div><strong>4 · Strategy</strong><span>entry, invalidation, target, time limit</span></div>
-          <div><strong>5 · Risk</strong><span>veto power over every plan</span></div>
+          <div><strong>5 · Risk</strong><span>sizing and veto power</span></div>
           <div><strong>6 · Boss</strong><span>approve, wait or reject</span></div>
         </div>
         <button type="button" class="btn btn-primary" data-action="run">Run the desk</button>
+        <p class="fine" id="empty-hint">No saved runs yet. Run the desk to produce six timestamped reports.</p>
       </div>
     </div>
 
     <aside class="side-col">
       <section class="card verdict-card" id="verdict" aria-live="polite"></section>
-      <section class="card" id="config-card"></section>
+      <section class="card" id="limits-card"></section>
+      <section class="card" id="history-card"></section>
       <section class="card" id="journal-card"></section>
       <section class="card about" id="about-card">
-        <h3>What this is not</h3>
+        <h3>Hard rules</h3>
         <ul class="limits">
           <li><strong>No orders.</strong> No wallet, key, signer or execution endpoint exists in this project.</li>
-          <li><strong>No model guessing.</strong> All six agents are deterministic code. There is no language model in the loop.</li>
+          <li><strong>Paper only.</strong> <code>config.yaml</code> sets <code>mode: paper</code> and <code>allow_live_orders: false</code>; the runner refuses anything else.</li>
+          <li><strong>No model guessing.</strong> All six stages are deterministic code, not prompts to a language model.</li>
           <li><strong>No promised edge.</strong> A clean report means the workflow completed safely, not that the trade wins.</li>
-          <li><strong>No hidden fees.</strong> Risk charges spread and a configurable cost buffer before it approves anything.</li>
-          <li><strong>No averaging.</strong> Disagreements go to the Boss as WAIT, not into a blended score.</li>
+          <li><strong>Manual approval.</strong> Nothing acts on a plan without a human.</li>
         </ul>
         <details class="failure-modes">
           <summary>Where this kind of setup usually fails</summary>
           <ul class="limits">
-            <li><strong>Unusual ≠ tradable.</strong> A volume spike is attention, not an edge. Most spikes are already priced in.</li>
-            <li><strong>Headlines are claims.</strong> A keyword feed cannot verify a report or read the body of an article. Missing sources must stop a plan, not be filled in.</li>
-            <li><strong>Levels on thin probability books are noisy.</strong> Support and resistance are treated as context, never as a guarantee.</li>
-            <li><strong>Fees decide marginal trades.</strong> The risk gate charges spread and a cost buffer before it approves; many 1.5:1 setups die there.</li>
-            <li><strong>Synthetic trends are kind.</strong> Test-mode approval rates say nothing about live performance. Paper results do not prove an edge either.</li>
-            <li><strong>Six agents are not independent.</strong> They share inputs and one codebase. Treat the pipeline as a checklist, not a committee of experts.</li>
+            <li><strong>Unusual ≠ tradable.</strong> Most volume spikes are already priced in.</li>
+            <li><strong>Headlines are claims.</strong> The News stage reads titles and timestamps, not article bodies.</li>
+            <li><strong>Levels are noisy.</strong> Support and resistance are context, never a guarantee.</li>
+            <li><strong>Fees decide marginal trades.</strong> The gate charges spread and a cost buffer before approval.</li>
+            <li><strong>Synthetic trends are kind.</strong> Fixture approval rates say nothing about live performance.</li>
+            <li><strong>Six stages are not independent.</strong> They share inputs; treat the pipeline as a checklist.</li>
           </ul>
         </details>
-        <p class="fine">Paper-trading research, not financial advice. The full review and method notes are in <code>docs/REVIEW.md</code> and <code>docs/HOW_IT_WORKS.md</code> in the repository.</p>
+        <p class="fine">Method and limits: <code>docs/HOW_IT_WORKS.md</code>. Setup review: <code>docs/REVIEW.md</code>. Paper-trading research, not financial advice.</p>
       </section>
     </aside>
   </div>
@@ -92,7 +93,7 @@
 
 <footer>
   <span>Opus Agent Desk v1.0 · paper-trading research only · no financial advice</span>
-  <span id="footer-mode"></span>
+  <span id="footer-meta"></span>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>

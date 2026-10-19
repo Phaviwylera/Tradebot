@@ -12,4 +12,7 @@ __pycache__/
 # local artifacts
 .DS_Store
 reports/
+# the published snapshot is committed, even though local runs are not
+!public/reports/
+!public/reports/**
 .tmp-*

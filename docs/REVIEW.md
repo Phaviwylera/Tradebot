@@ -8,7 +8,7 @@ The document is a reasonable **research checklist**: it forces a market, a reaso
 
 It is **not a bot**, and it is not close to one. It is a set of prompts for a chat model, with a build prompt for a local demo. It has no market discovery at scale, no data ingestion, no scheduling, no persistence, no benchmark, no fill model and no evaluation loop. Its numbers are self-reported and explicitly unverifiable. Followed literally, the workflow would stall constantly, because it treats missing data as a reason to stop the whole desk and treats language-model output as evidence.
 
-This repository implements the useful part — the six-stage decision pipeline — as deterministic code with hard risk limits, a live/test data layer, a paper journal and tests. It deliberately contains **no order execution**.
+This repository implements the useful part — the six-stage decision pipeline — as deterministic Python with a schema, hard risk limits, labelled fixture data, saved reports and tests. It deliberately contains **no order execution**.
 
 ## What the document actually specifies
 
@@ -76,7 +76,7 @@ Implementation: treat the pipeline as an ordered checklist with observable rules
 The carousel claim (“$200 to $4,523 in 48 hours”) is self-reported. The document says so. Two things are missing even for paper results:
 
 - **A benchmark.** Without comparing against a trivial baseline (random selection, buy-and-hold, always-YES), a P&L number is noise.
-- **A sample and a cost model.** A 48-hour run is a handful of trades. Fees, spread, latency and adverse selection dominate small samples. The original BTC 5-minute bot in this repo had a similar problem: demo mode had built-in lag and proved nothing.
+- **A sample and a cost model.** A 48-hour run is a handful of trades. Fees, spread, latency and adverse selection dominate small samples. A demo mode with built-in lag would prove nothing either.
 
 Implementation: no performance claim is made anywhere. Test mode is labelled `SYNTHETIC TEST DATA` on the page, in the banner and in every report. The journal records what the plan was **before** the outcome is known. There is no equity curve because there is no defensible basis for one yet.
 
@@ -84,16 +84,17 @@ Implementation: no performance claim is made anywhere. Test mode is labelled `SY
 
 | Document | Implementation |
 |---|---|
-| Six prompt files | `public/assets/agents.js`, six deterministic functions |
+| Six prompt files | `agents/*.md` contracts + six deterministic functions in `tools/desk/agents.py` |
 | “Use only supplied data” | No model; all values computed from normalised inputs |
-| Shared JSON envelope | `baseReport()` + `validateReport()`; tests cover malformed reports |
-| Fixture data | 520 seeded synthetic markets with 24h series and headlines, all labelled |
-| Live data, optional | Gamma markets, CLOB price history, Google News RSS via `/gamma`, `/clob`, `/news` relays |
-| Dashboard | Responsive single page; pipeline, per-stage evidence, raw JSON, Boss verdict |
-| Risk veto | `runRisk()`; every plan gets named checks and a verdict |
+| Shared JSON envelope | `base_report()` + `validate_report()` / `validate_run()`; tests cover malformed and missing reports |
+| Fixture data | `data/fixtures.json`, 520 seeded synthetic markets with 24h series and headlines, all labelled |
+| Live data, optional | Gamma markets, CLOB price history and Google News RSS, fetched server-side and read-only |
+| Timestamped reports | `reports/<run>.json` + `.md` + `index.json`, atomic writes, committed static snapshot |
+| Dashboard | Reads saved reports; pipeline, per-stage evidence, raw JSON, Boss verdict, paper journal |
+| Risk veto | `run_risk()`; every plan gets named checks and a verdict |
 | Boss restricted | Three statuses only; cannot approve with a missing stage; cannot change limits |
-| Paper workflow | Timestamped run report, JSON download, manual paper journal with outcomes, CSV/JSON export |
-| Tests | 19 tests covering schema, staleness, missing sources, veto, concentration, sizing, determinism and absence of order code |
+| Paper workflow | Saved run reports, JSON download, manual paper journal with outcomes, CSV/JSON export |
+| Tests | 30 tests covering config enforcement, schema, missing stages, staleness, missing sources, veto, concentration, sizing, determinism, persistence and absence of order code |
 
 The desk also adds things the document does not specify: cost-aware net R:R, conditional limit entries (pullback / breakout retest), a maximum stop distance, a maximum distance between the planned entry and the quote, duplicate-question rejection, event/category concentration, and an explicit audit trail of every check.
 
@@ -104,7 +105,7 @@ The desk also adds things the document does not specify: cost-aware net R:R, con
 - **No scheduler.** Live mode is a manual button press. Running it every few minutes would require rate-limit handling, storage and alerting that are out of scope here.
 - **No slippage calibration.** The cost buffer is a fixed percentage of notional plus half the spread. Real fills on thin books can be worse.
 - **No qualitative news understanding.** Headlines only. A human still has to read the article before trusting a plan.
-- **No live orders.** Intentionally. There is no wallet, key, signing or POST path in the browser code; the local server rejects POST with 405.
+- **No live orders.** Intentionally. There is no wallet, key or signing code anywhere; the only POST route runs the pipeline, and `/api/orders` answers 405.
 - **No legal review.** Prediction-market access is restricted in some jurisdictions. This project is educational and must not be used where it is not permitted.
 
 ## Minimum bar before risking money
@@ -119,4 +120,4 @@ The desk also adds things the document does not specify: cost-aware net R:R, con
 
 ## Bottom line
 
-Use the document for its **sequence** and its safety posture. Do not use it as a trading system. It is a prompt scaffold: it cannot source 400 markets, cannot verify a headline, cannot enforce a risk limit, and cannot prove an edge. This repo turns the scaffold into an auditable paper desk and keeps the most important sentence in the document: *a successful first run means the workflow completed safely; it does not mean the strategy is profitable.*
+Use the document for its **sequence** and its safety posture. Do not use it as a trading system. As written it is a prompt scaffold: the prompts cannot source 400 markets, verify a headline, enforce a risk limit or prove an edge. This repo turns the scaffold into an auditable paper desk — schema-validated reports, deterministic checks, a real veto — and keeps the most important sentence in the document: *a successful first run means the workflow completed safely; it does not mean the strategy is profitable.*
