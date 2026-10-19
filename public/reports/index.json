@@ -1,6 +1,25 @@
 {
-  "updated_at": "2026-10-19T04:31:10Z",
+  "updated_at": "2026-10-19T04:32:19Z",
   "runs": [
+    {
+      "run_id": "20261019T043211Z-live",
+      "finished_utc": "2026-10-19T04:32:19Z",
+      "source": "live",
+      "synthetic": false,
+      "decision": "WAIT",
+      "approved": 0,
+      "equity": 100.0,
+      "paper_pnl": 0.0,
+      "open_positions": 0,
+      "plans": 0,
+      "risk_passed": 0,
+      "risk_rejected": 0,
+      "waits": 7,
+      "halted_at": null,
+      "universe_size": 800,
+      "duration_ms": 8691,
+      "risk_reviewed": 0
+    },
     {
       "run_id": "20261019T043105Z-live",
       "finished_utc": "2026-10-19T04:31:10Z",
