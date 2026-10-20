@@ -3,48 +3,41 @@
     "mode": "paper",
     "currency": "USD",
     "starting_cash": 100.0,
-    "cash": 72.68,
-    "equity": 97.61,
+    "cash": 97.63,
+    "equity": 97.63,
     "realized_pnl": -2.37,
-    "unrealized_pnl": -0.02,
-    "total_pnl": -2.39,
-    "return_pct": -2.39,
-    "open_count": 1,
+    "unrealized_pnl": 0,
+    "total_pnl": -2.37,
+    "return_pct": -2.37,
+    "open_count": 0,
     "working_count": 0,
-    "closed_count": 1,
+    "closed_count": 2,
     "win_count": 0,
-    "loss_count": 1,
+    "loss_count": 2,
     "win_rate": 0.0,
     "gross_win": 0,
     "gross_loss": -2.37,
-    "best_trade": -2.37,
+    "best_trade": 0.0,
     "worst_trade": -2.37,
     "max_drawdown_pct": -2.39,
-    "open_positions": [
+    "open_positions": [],
+    "working_orders": [],
+    "closed_trades": [
       {
         "trade_id": "P1792456902121-002",
         "market_id": "682708",
         "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
-        "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
         "side": "Yes",
-        "category": "politics",
         "entry": 0.499,
-        "last_price": 0.4985,
-        "stop": 0.494,
-        "target": 0.549,
+        "exit": 0.499,
+        "exit_reason": "time_limit",
         "shares": 50,
         "cost_basis": 24.95,
-        "market_value": 24.93,
-        "unrealized_pnl": -0.02,
-        "unrealized_pct": -0.08,
-        "risk_dollars": 0.25,
-        "opened_utc": "2026-10-20T00:41:42Z",
-        "time_limit_utc": "2026-10-20T03:33:18Z",
-        "last_mark_utc": "2026-10-20T00:41:42Z"
-      }
-    ],
-    "working_orders": [],
-    "closed_trades": [
+        "pnl": 0.0,
+        "return_pct": 0.0,
+        "closed_utc": "2026-10-20T05:22:51Z",
+        "held_hours": 4.69
+      },
       {
         "trade_id": "P1792385133524-001",
         "market_id": "682708",
@@ -105,38 +98,19 @@
       {
         "t": "2026-10-20T00:41:42Z",
         "equity": 97.61
+      },
+      {
+        "t": "2026-10-20T05:22:51Z",
+        "equity": 97.63
       }
     ],
-    "updated_utc": "2026-10-20T00:41:42Z",
+    "updated_utc": "2026-10-20T05:22:51Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
-  "cash": 72.68,
+  "cash": 97.63,
   "realized_pnl": -2.37,
-  "open_positions": [
-    {
-      "trade_id": "P1792456902121-002",
-      "market_id": "682708",
-      "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
-      "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "81557",
-      "entry": 0.499,
-      "shares": 50,
-      "cost_basis": 24.95,
-      "notional": 24.95,
-      "risk_dollars": 0.25,
-      "stop": 0.494,
-      "target": 0.549,
-      "opened_utc": "2026-10-20T00:41:42Z",
-      "time_limit_utc": "2026-10-20T03:33:18Z",
-      "last_price": 0.4985,
-      "last_mark_utc": "2026-10-20T00:41:42Z",
-      "status": "OPEN",
-      "filled_order": "W1792445598938-002"
-    }
-  ],
+  "open_positions": [],
   "working_orders": [],
   "closed_trades": [
     {
@@ -167,6 +141,35 @@
       "pnl": -2.37,
       "return_pct": -9.66,
       "held_hours": 0.02
+    },
+    {
+      "trade_id": "P1792456902121-002",
+      "market_id": "682708",
+      "question": "Will Gadi Eizenkot be the next Prime Minister of Israel?",
+      "url": "https://polymarket.com/market/will-gadi-eizenkot-be-the-next-prime-minister-of-israel",
+      "side": "Yes",
+      "category": "politics",
+      "event_id": "81557",
+      "entry": 0.499,
+      "shares": 50,
+      "cost_basis": 24.95,
+      "notional": 24.95,
+      "risk_dollars": 0.25,
+      "stop": 0.494,
+      "target": 0.549,
+      "opened_utc": "2026-10-20T00:41:42Z",
+      "time_limit_utc": "2026-10-20T03:33:18Z",
+      "last_price": 0.499,
+      "last_mark_utc": "2026-10-20T05:22:51Z",
+      "status": "OPEN",
+      "filled_order": "W1792445598938-002",
+      "exit": 0.499,
+      "exit_reason": "time_limit",
+      "closed_utc": "2026-10-20T05:22:51Z",
+      "proceeds": 24.95,
+      "pnl": 0.0,
+      "return_pct": 0.0,
+      "held_hours": 4.69
     }
   ],
   "equity_curve": [
@@ -213,7 +216,11 @@
     {
       "t": "2026-10-20T00:41:42Z",
       "equity": 97.61
+    },
+    {
+      "t": "2026-10-20T05:22:51Z",
+      "equity": 97.63
     }
   ],
-  "updated_utc": "2026-10-20T00:41:42Z"
+  "updated_utc": "2026-10-20T05:22:51Z"
 }
