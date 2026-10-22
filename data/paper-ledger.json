@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 97.63,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-10-22T07:19:01Z",
+  "updated_utc": "2026-10-22T13:07:22Z",
   "realized_pnl": -2.37,
   "positions": [],
   "trades": [
@@ -164,13 +164,61 @@
     {
       "t": "2026-10-22T07:19:01Z",
       "equity": 97.63
+    },
+    {
+      "t": "2026-10-22T13:07:22Z",
+      "equity": 97.63
     }
   ],
   "counters": {
     "next_trade": 3,
-    "next_order": 3
+    "next_order": 4
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [],
-  "queued_this_run": []
+  "orders": [
+    {
+      "order_id": "W1792674442965-003",
+      "market_id": "5739667",
+      "question": "Will the price of Bitcoin be above $82,000 on October 22?",
+      "url": "https://polymarket.com/market/bitcoin-above-82k-on-october-22-2026",
+      "side": "No",
+      "category": "crypto",
+      "event_id": "1194791",
+      "entry_type": "breakout_retest",
+      "trigger": "limit",
+      "entry": 0.642,
+      "quote_at_approval": 0.676,
+      "stop": 0.623,
+      "target": 0.717,
+      "shares": 30,
+      "risk_dollars": 0.57,
+      "time_limit_utc": "2026-10-22T15:50:00Z",
+      "created_utc": "2026-10-22T13:07:22Z",
+      "last_mark_utc": "2026-10-22T13:07:22Z",
+      "status": "WORKING"
+    }
+  ],
+  "queued_this_run": [
+    {
+      "order_id": "W1792674442965-003",
+      "market_id": "5739667",
+      "question": "Will the price of Bitcoin be above $82,000 on October 22?",
+      "url": "https://polymarket.com/market/bitcoin-above-82k-on-october-22-2026",
+      "side": "No",
+      "category": "crypto",
+      "event_id": "1194791",
+      "entry_type": "breakout_retest",
+      "trigger": "limit",
+      "entry": 0.642,
+      "quote_at_approval": 0.676,
+      "stop": 0.623,
+      "target": 0.717,
+      "shares": 30,
+      "risk_dollars": 0.57,
+      "time_limit_utc": "2026-10-22T15:50:00Z",
+      "created_utc": "2026-10-22T13:07:22Z",
+      "last_mark_utc": "2026-10-22T13:07:22Z",
+      "status": "WORKING"
+    }
+  ]
 }
