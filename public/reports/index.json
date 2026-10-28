@@ -1,6 +1,25 @@
 {
-  "updated_at": "2026-10-27T22:30:40Z",
+  "updated_at": "2026-10-28T01:45:23Z",
   "runs": [
+    {
+      "run_id": "20261028T014506Z-live",
+      "finished_utc": "2026-10-28T01:45:23Z",
+      "source": "live",
+      "synthetic": false,
+      "decision": "REJECT",
+      "approved": 0,
+      "equity": 97.63,
+      "paper_pnl": -2.37,
+      "open_positions": 0,
+      "plans": 4,
+      "risk_passed": 0,
+      "risk_rejected": 4,
+      "waits": 20,
+      "halted_at": null,
+      "universe_size": 800,
+      "duration_ms": 16636,
+      "risk_reviewed": 4
+    },
     {
       "run_id": "20261027T223023Z-live",
       "finished_utc": "2026-10-27T22:30:40Z",
@@ -76,25 +95,6 @@
       "universe_size": 800,
       "duration_ms": 13072,
       "risk_reviewed": 4
-    },
-    {
-      "run_id": "20261027T011756Z-live",
-      "finished_utc": "2026-10-27T01:18:11Z",
-      "source": "live",
-      "synthetic": false,
-      "decision": "REJECT",
-      "approved": 0,
-      "equity": 97.63,
-      "paper_pnl": -2.37,
-      "open_positions": 0,
-      "plans": 3,
-      "risk_passed": 0,
-      "risk_rejected": 3,
-      "waits": 13,
-      "halted_at": null,
-      "universe_size": 800,
-      "duration_ms": 14271,
-      "risk_reviewed": 3
     }
   ]
 }
