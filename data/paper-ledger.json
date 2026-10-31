@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 94.08,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-10-31T19:53:40Z",
+  "updated_utc": "2026-10-31T23:12:07Z",
   "realized_pnl": -5.92,
   "positions": [],
   "trades": [
@@ -396,6 +396,10 @@
     },
     {
       "t": "2026-10-31T19:53:40Z",
+      "equity": 94.08
+    },
+    {
+      "t": "2026-10-31T23:12:07Z",
       "equity": 94.08
     }
   ],
