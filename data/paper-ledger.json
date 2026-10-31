@@ -3,34 +3,11 @@
   "mode": "paper",
   "currency": "USD",
   "starting_cash": 100.0,
-  "cash": 77.93,
+  "cash": 94.08,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-10-31T10:47:00Z",
-  "realized_pnl": -2.37,
-  "positions": [
-    {
-      "trade_id": "P1793443620743-003",
-      "market_id": "679022",
-      "question": "Will David Lisnard win the 2027 French presidential election?",
-      "url": "https://polymarket.com/market/will-david-lisnard-win-the-2027-french-presidential-election",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "79987",
-      "entry": 0.197,
-      "shares": 100,
-      "cost_basis": 19.7,
-      "notional": 19.7,
-      "risk_dollars": 0.5,
-      "stop": 0.192,
-      "target": 0.247,
-      "opened_utc": "2026-10-31T10:47:00Z",
-      "time_limit_utc": "2026-10-31T10:47:07Z",
-      "last_price": 0.185,
-      "last_mark_utc": "2026-10-31T10:47:00Z",
-      "status": "OPEN",
-      "filled_order": "W1793422027704-004"
-    }
-  ],
+  "updated_utc": "2026-10-31T15:59:15Z",
+  "realized_pnl": -5.92,
+  "positions": [],
   "trades": [
     {
       "trade_id": "P1792385133524-001",
@@ -89,6 +66,35 @@
       "pnl": 0.0,
       "return_pct": 0.0,
       "held_hours": 4.69
+    },
+    {
+      "trade_id": "P1793443620743-003",
+      "market_id": "679022",
+      "question": "Will David Lisnard win the 2027 French presidential election?",
+      "url": "https://polymarket.com/market/will-david-lisnard-win-the-2027-french-presidential-election",
+      "side": "Yes",
+      "category": "politics",
+      "event_id": "79987",
+      "entry": 0.197,
+      "shares": 100,
+      "cost_basis": 19.7,
+      "notional": 19.7,
+      "risk_dollars": 0.5,
+      "stop": 0.192,
+      "target": 0.247,
+      "opened_utc": "2026-10-31T10:47:00Z",
+      "time_limit_utc": "2026-10-31T10:47:07Z",
+      "last_price": 0.1615,
+      "last_mark_utc": "2026-10-31T15:59:15Z",
+      "status": "OPEN",
+      "filled_order": "W1793422027704-004",
+      "exit": 0.1615,
+      "exit_reason": "stop",
+      "closed_utc": "2026-10-31T15:59:15Z",
+      "proceeds": 16.15,
+      "pnl": -3.55,
+      "return_pct": -18.02,
+      "held_hours": 5.2
     }
   ],
   "equity_curve": [
@@ -383,6 +389,10 @@
     {
       "t": "2026-10-31T10:47:00Z",
       "equity": 96.43
+    },
+    {
+      "t": "2026-10-31T15:59:15Z",
+      "equity": 94.08
     }
   ],
   "counters": {
