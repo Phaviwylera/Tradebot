@@ -3,11 +3,34 @@
   "mode": "paper",
   "currency": "USD",
   "starting_cash": 100.0,
-  "cash": 97.63,
+  "cash": 77.93,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-10-31T04:47:07Z",
+  "updated_utc": "2026-10-31T10:47:00Z",
   "realized_pnl": -2.37,
-  "positions": [],
+  "positions": [
+    {
+      "trade_id": "P1793443620743-003",
+      "market_id": "679022",
+      "question": "Will David Lisnard win the 2027 French presidential election?",
+      "url": "https://polymarket.com/market/will-david-lisnard-win-the-2027-french-presidential-election",
+      "side": "Yes",
+      "category": "politics",
+      "event_id": "79987",
+      "entry": 0.197,
+      "shares": 100,
+      "cost_basis": 19.7,
+      "notional": 19.7,
+      "risk_dollars": 0.5,
+      "stop": 0.192,
+      "target": 0.247,
+      "opened_utc": "2026-10-31T10:47:00Z",
+      "time_limit_utc": "2026-10-31T10:47:07Z",
+      "last_price": 0.185,
+      "last_mark_utc": "2026-10-31T10:47:00Z",
+      "status": "OPEN",
+      "filled_order": "W1793422027704-004"
+    }
+  ],
   "trades": [
     {
       "trade_id": "P1792385133524-001",
@@ -356,57 +379,17 @@
     {
       "t": "2026-10-31T04:47:07Z",
       "equity": 97.63
+    },
+    {
+      "t": "2026-10-31T10:47:00Z",
+      "equity": 96.43
     }
   ],
   "counters": {
-    "next_trade": 3,
+    "next_trade": 4,
     "next_order": 5
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [
-    {
-      "order_id": "W1793422027704-004",
-      "market_id": "679022",
-      "question": "Will David Lisnard win the 2027 French presidential election?",
-      "url": "https://polymarket.com/market/will-david-lisnard-win-the-2027-french-presidential-election",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "79987",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.197,
-      "quote_at_approval": 0.201,
-      "stop": 0.192,
-      "target": 0.247,
-      "shares": 100,
-      "risk_dollars": 0.5,
-      "time_limit_utc": "2026-10-31T10:47:07Z",
-      "created_utc": "2026-10-31T04:47:07Z",
-      "last_mark_utc": "2026-10-31T04:47:07Z",
-      "status": "WORKING"
-    }
-  ],
-  "queued_this_run": [
-    {
-      "order_id": "W1793422027704-004",
-      "market_id": "679022",
-      "question": "Will David Lisnard win the 2027 French presidential election?",
-      "url": "https://polymarket.com/market/will-david-lisnard-win-the-2027-french-presidential-election",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "79987",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.197,
-      "quote_at_approval": 0.201,
-      "stop": 0.192,
-      "target": 0.247,
-      "shares": 100,
-      "risk_dollars": 0.5,
-      "time_limit_utc": "2026-10-31T10:47:07Z",
-      "created_utc": "2026-10-31T04:47:07Z",
-      "last_mark_utc": "2026-10-31T04:47:07Z",
-      "status": "WORKING"
-    }
-  ]
+  "orders": [],
+  "queued_this_run": []
 }
