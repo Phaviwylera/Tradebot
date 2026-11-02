@@ -393,9 +393,13 @@
       {
         "t": "2026-11-01T23:57:29Z",
         "equity": 94.08
+      },
+      {
+        "t": "2026-11-02T05:47:35Z",
+        "equity": 94.08
       }
     ],
-    "updated_utc": "2026-11-01T23:57:29Z",
+    "updated_utc": "2026-11-02T05:47:35Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
@@ -816,7 +820,11 @@
     {
       "t": "2026-11-01T23:57:29Z",
       "equity": 94.08
+    },
+    {
+      "t": "2026-11-02T05:47:35Z",
+      "equity": 94.08
     }
   ],
-  "updated_utc": "2026-11-01T23:57:29Z"
+  "updated_utc": "2026-11-02T05:47:35Z"
 }
