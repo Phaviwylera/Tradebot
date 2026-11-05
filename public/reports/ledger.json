@@ -32,7 +32,7 @@
         "trigger": "limit",
         "entry": 0.345,
         "quote_at_approval": 0.352,
-        "last_price": 0.352,
+        "last_price": 0.3785,
         "stop": 0.34,
         "target": 0.395,
         "shares": 72,
@@ -464,9 +464,13 @@
       {
         "t": "2026-11-05T16:41:46Z",
         "equity": 94.08
+      },
+      {
+        "t": "2026-11-05T22:22:58Z",
+        "equity": 94.08
       }
     ],
-    "updated_utc": "2026-11-05T16:41:46Z",
+    "updated_utc": "2026-11-05T22:22:58Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
@@ -492,8 +496,9 @@
       "risk_dollars": 0.36,
       "time_limit_utc": "2026-11-05T22:41:46Z",
       "created_utc": "2026-11-05T16:41:46Z",
-      "last_mark_utc": "2026-11-05T16:41:46Z",
-      "status": "WORKING"
+      "last_mark_utc": "2026-11-05T22:22:58Z",
+      "status": "WORKING",
+      "last_price": 0.3785
     }
   ],
   "closed_trades": [
@@ -961,7 +966,11 @@
     {
       "t": "2026-11-05T16:41:46Z",
       "equity": 94.08
+    },
+    {
+      "t": "2026-11-05T22:22:58Z",
+      "equity": 94.08
     }
   ],
-  "updated_utc": "2026-11-05T16:41:46Z"
+  "updated_utc": "2026-11-05T22:22:58Z"
 }
