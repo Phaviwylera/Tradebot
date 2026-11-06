@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 94.08,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-06T02:44:34Z",
+  "updated_utc": "2026-11-06T09:56:23Z",
   "realized_pnl": -5.92,
   "positions": [],
   "trades": [
@@ -481,13 +481,61 @@
     {
       "t": "2026-11-06T02:44:34Z",
       "equity": 94.08
+    },
+    {
+      "t": "2026-11-06T09:56:23Z",
+      "equity": 94.08
     }
   ],
   "counters": {
     "next_trade": 4,
-    "next_order": 6
+    "next_order": 7
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [],
-  "queued_this_run": []
+  "orders": [
+    {
+      "order_id": "W1793958983378-006",
+      "market_id": "561974",
+      "question": "Will J.D. Vance win the 2028 Republican presidential nomination?",
+      "url": "https://polymarket.com/market/will-jd-vance-win-the-2028-republican-presidential-nomination",
+      "side": "Yes",
+      "category": "politics",
+      "event_id": "31875",
+      "entry_type": "pullback",
+      "trigger": "limit",
+      "entry": 0.35,
+      "quote_at_approval": 0.376,
+      "stop": 0.345,
+      "target": 0.4,
+      "shares": 71,
+      "risk_dollars": 0.35,
+      "time_limit_utc": "2026-11-06T15:56:23Z",
+      "created_utc": "2026-11-06T09:56:23Z",
+      "last_mark_utc": "2026-11-06T09:56:23Z",
+      "status": "WORKING"
+    }
+  ],
+  "queued_this_run": [
+    {
+      "order_id": "W1793958983378-006",
+      "market_id": "561974",
+      "question": "Will J.D. Vance win the 2028 Republican presidential nomination?",
+      "url": "https://polymarket.com/market/will-jd-vance-win-the-2028-republican-presidential-nomination",
+      "side": "Yes",
+      "category": "politics",
+      "event_id": "31875",
+      "entry_type": "pullback",
+      "trigger": "limit",
+      "entry": 0.35,
+      "quote_at_approval": 0.376,
+      "stop": 0.345,
+      "target": 0.4,
+      "shares": 71,
+      "risk_dollars": 0.35,
+      "time_limit_utc": "2026-11-06T15:56:23Z",
+      "created_utc": "2026-11-06T09:56:23Z",
+      "last_mark_utc": "2026-11-06T09:56:23Z",
+      "status": "WORKING"
+    }
+  ]
 }
