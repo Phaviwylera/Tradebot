@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 94.08,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-06T09:56:23Z",
+  "updated_utc": "2026-11-06T17:18:11Z",
   "realized_pnl": -5.92,
   "positions": [],
   "trades": [
@@ -485,56 +485,60 @@
     {
       "t": "2026-11-06T09:56:23Z",
       "equity": 94.08
+    },
+    {
+      "t": "2026-11-06T17:18:11Z",
+      "equity": 94.08
     }
   ],
   "counters": {
     "next_trade": 4,
-    "next_order": 7
+    "next_order": 8
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
   "orders": [
     {
-      "order_id": "W1793958983378-006",
-      "market_id": "561974",
-      "question": "Will J.D. Vance win the 2028 Republican presidential nomination?",
-      "url": "https://polymarket.com/market/will-jd-vance-win-the-2028-republican-presidential-nomination",
+      "order_id": "W1793985491363-007",
+      "market_id": "6443537",
+      "question": "Will Elon Musk post 260-279 tweets from November 3 to November 10, 2026?",
+      "url": "https://polymarket.com/market/elon-musk-of-tweets-november-3-november-10-2026-260-279",
       "side": "Yes",
-      "category": "politics",
-      "event_id": "31875",
-      "entry_type": "pullback",
+      "category": "other",
+      "event_id": "1286709",
+      "entry_type": "breakout_retest",
       "trigger": "limit",
-      "entry": 0.35,
-      "quote_at_approval": 0.376,
-      "stop": 0.345,
-      "target": 0.4,
-      "shares": 71,
-      "risk_dollars": 0.35,
-      "time_limit_utc": "2026-11-06T15:56:23Z",
-      "created_utc": "2026-11-06T09:56:23Z",
-      "last_mark_utc": "2026-11-06T09:56:23Z",
+      "entry": 0.198,
+      "quote_at_approval": 0.207,
+      "stop": 0.193,
+      "target": 0.248,
+      "shares": 95,
+      "risk_dollars": 0.48,
+      "time_limit_utc": "2026-11-06T23:18:11Z",
+      "created_utc": "2026-11-06T17:18:11Z",
+      "last_mark_utc": "2026-11-06T17:18:11Z",
       "status": "WORKING"
     }
   ],
   "queued_this_run": [
     {
-      "order_id": "W1793958983378-006",
-      "market_id": "561974",
-      "question": "Will J.D. Vance win the 2028 Republican presidential nomination?",
-      "url": "https://polymarket.com/market/will-jd-vance-win-the-2028-republican-presidential-nomination",
+      "order_id": "W1793985491363-007",
+      "market_id": "6443537",
+      "question": "Will Elon Musk post 260-279 tweets from November 3 to November 10, 2026?",
+      "url": "https://polymarket.com/market/elon-musk-of-tweets-november-3-november-10-2026-260-279",
       "side": "Yes",
-      "category": "politics",
-      "event_id": "31875",
-      "entry_type": "pullback",
+      "category": "other",
+      "event_id": "1286709",
+      "entry_type": "breakout_retest",
       "trigger": "limit",
-      "entry": 0.35,
-      "quote_at_approval": 0.376,
-      "stop": 0.345,
-      "target": 0.4,
-      "shares": 71,
-      "risk_dollars": 0.35,
-      "time_limit_utc": "2026-11-06T15:56:23Z",
-      "created_utc": "2026-11-06T09:56:23Z",
-      "last_mark_utc": "2026-11-06T09:56:23Z",
+      "entry": 0.198,
+      "quote_at_approval": 0.207,
+      "stop": 0.193,
+      "target": 0.248,
+      "shares": 95,
+      "risk_dollars": 0.48,
+      "time_limit_utc": "2026-11-06T23:18:11Z",
+      "created_utc": "2026-11-06T17:18:11Z",
+      "last_mark_utc": "2026-11-06T17:18:11Z",
       "status": "WORKING"
     }
   ]
