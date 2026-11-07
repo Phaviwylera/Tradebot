@@ -10,7 +10,7 @@
     "total_pnl": -5.92,
     "return_pct": -5.92,
     "open_count": 0,
-    "working_count": 2,
+    "working_count": 1,
     "closed_count": 3,
     "win_count": 0,
     "loss_count": 3,
@@ -23,24 +23,6 @@
     "open_positions": [],
     "working_orders": [
       {
-        "order_id": "W1793985491363-007",
-        "market_id": "6443537",
-        "question": "Will Elon Musk post 260-279 tweets from November 3 to November 10, 2026?",
-        "url": "https://polymarket.com/market/elon-musk-of-tweets-november-3-november-10-2026-260-279",
-        "side": "Yes",
-        "entry_type": "breakout_retest",
-        "trigger": "limit",
-        "entry": 0.198,
-        "quote_at_approval": 0.207,
-        "last_price": 0.214,
-        "stop": 0.193,
-        "target": 0.248,
-        "shares": 95,
-        "risk_dollars": 0.48,
-        "time_limit_utc": "2026-11-06T23:18:11Z",
-        "created_utc": "2026-11-06T17:18:11Z"
-      },
-      {
         "order_id": "W1794003345001-008",
         "market_id": "561229",
         "question": "Will JD Vance win the 2028 US Presidential Election?",
@@ -50,7 +32,7 @@
         "trigger": "limit",
         "entry": 0.191,
         "quote_at_approval": 0.201,
-        "last_price": 0.201,
+        "last_price": 0.2005,
         "stop": 0.186,
         "target": 0.241,
         "shares": 32,
@@ -502,9 +484,13 @@
       {
         "t": "2026-11-06T22:15:45Z",
         "equity": 94.08
+      },
+      {
+        "t": "2026-11-07T02:14:16Z",
+        "equity": 94.08
       }
     ],
-    "updated_utc": "2026-11-06T22:15:45Z",
+    "updated_utc": "2026-11-07T02:14:16Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
@@ -512,28 +498,6 @@
   "realized_pnl": -5.92,
   "open_positions": [],
   "working_orders": [
-    {
-      "order_id": "W1793985491363-007",
-      "market_id": "6443537",
-      "question": "Will Elon Musk post 260-279 tweets from November 3 to November 10, 2026?",
-      "url": "https://polymarket.com/market/elon-musk-of-tweets-november-3-november-10-2026-260-279",
-      "side": "Yes",
-      "category": "other",
-      "event_id": "1286709",
-      "entry_type": "breakout_retest",
-      "trigger": "limit",
-      "entry": 0.198,
-      "quote_at_approval": 0.207,
-      "stop": 0.193,
-      "target": 0.248,
-      "shares": 95,
-      "risk_dollars": 0.48,
-      "time_limit_utc": "2026-11-06T23:18:11Z",
-      "created_utc": "2026-11-06T17:18:11Z",
-      "last_mark_utc": "2026-11-06T22:15:45Z",
-      "status": "WORKING",
-      "last_price": 0.214
-    },
     {
       "order_id": "W1794003345001-008",
       "market_id": "561229",
@@ -552,8 +516,9 @@
       "risk_dollars": 0.16,
       "time_limit_utc": "2026-11-07T04:15:44Z",
       "created_utc": "2026-11-06T22:15:45Z",
-      "last_mark_utc": "2026-11-06T22:15:45Z",
-      "status": "WORKING"
+      "last_mark_utc": "2026-11-07T02:14:16Z",
+      "status": "WORKING",
+      "last_price": 0.2005
     }
   ],
   "closed_trades": [
@@ -1041,7 +1006,11 @@
     {
       "t": "2026-11-06T22:15:45Z",
       "equity": 94.08
+    },
+    {
+      "t": "2026-11-07T02:14:16Z",
+      "equity": 94.08
     }
   ],
-  "updated_utc": "2026-11-06T22:15:45Z"
+  "updated_utc": "2026-11-07T02:14:16Z"
 }
