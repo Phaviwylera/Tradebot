@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 94.08,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-07T02:14:16Z",
+  "updated_utc": "2026-11-07T08:55:26Z",
   "realized_pnl": -5.92,
   "positions": [],
   "trades": [
@@ -497,6 +497,10 @@
     {
       "t": "2026-11-07T02:14:16Z",
       "equity": 94.08
+    },
+    {
+      "t": "2026-11-07T08:55:26Z",
+      "equity": 94.08
     }
   ],
   "counters": {
@@ -504,29 +508,6 @@
     "next_order": 9
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [
-    {
-      "order_id": "W1794003345001-008",
-      "market_id": "561229",
-      "question": "Will JD Vance win the 2028 US Presidential Election?",
-      "url": "https://polymarket.com/market/will-jd-vance-win-the-2028-us-presidential-election",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "31552",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.191,
-      "quote_at_approval": 0.201,
-      "stop": 0.186,
-      "target": 0.241,
-      "shares": 32,
-      "risk_dollars": 0.16,
-      "time_limit_utc": "2026-11-07T04:15:44Z",
-      "created_utc": "2026-11-06T22:15:45Z",
-      "last_mark_utc": "2026-11-07T02:14:16Z",
-      "status": "WORKING",
-      "last_price": 0.2005
-    }
-  ],
+  "orders": [],
   "queued_this_run": []
 }
