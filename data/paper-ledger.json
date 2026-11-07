@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 94.08,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-07T08:55:26Z",
+  "updated_utc": "2026-11-07T15:32:02Z",
   "realized_pnl": -5.92,
   "positions": [],
   "trades": [
@@ -501,13 +501,61 @@
     {
       "t": "2026-11-07T08:55:26Z",
       "equity": 94.08
+    },
+    {
+      "t": "2026-11-07T15:32:02Z",
+      "equity": 94.08
     }
   ],
   "counters": {
     "next_trade": 4,
-    "next_order": 9
+    "next_order": 10
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [],
-  "queued_this_run": []
+  "orders": [
+    {
+      "order_id": "W1794065522928-009",
+      "market_id": "561979",
+      "question": "Will Ron DeSantis win the 2028 Republican presidential nomination?",
+      "url": "https://polymarket.com/market/will-ron-desantis-win-the-2028-republican-presidential-nomination",
+      "side": "Yes",
+      "category": "politics",
+      "event_id": "31875",
+      "entry_type": "pullback",
+      "trigger": "limit",
+      "entry": 0.141,
+      "quote_at_approval": 0.143,
+      "stop": 0.136,
+      "target": 0.191,
+      "shares": 113,
+      "risk_dollars": 0.57,
+      "time_limit_utc": "2026-11-07T21:32:02Z",
+      "created_utc": "2026-11-07T15:32:02Z",
+      "last_mark_utc": "2026-11-07T15:32:02Z",
+      "status": "WORKING"
+    }
+  ],
+  "queued_this_run": [
+    {
+      "order_id": "W1794065522928-009",
+      "market_id": "561979",
+      "question": "Will Ron DeSantis win the 2028 Republican presidential nomination?",
+      "url": "https://polymarket.com/market/will-ron-desantis-win-the-2028-republican-presidential-nomination",
+      "side": "Yes",
+      "category": "politics",
+      "event_id": "31875",
+      "entry_type": "pullback",
+      "trigger": "limit",
+      "entry": 0.141,
+      "quote_at_approval": 0.143,
+      "stop": 0.136,
+      "target": 0.191,
+      "shares": 113,
+      "risk_dollars": 0.57,
+      "time_limit_utc": "2026-11-07T21:32:02Z",
+      "created_utc": "2026-11-07T15:32:02Z",
+      "last_mark_utc": "2026-11-07T15:32:02Z",
+      "status": "WORKING"
+    }
+  ]
 }

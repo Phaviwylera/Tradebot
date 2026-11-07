@@ -10,7 +10,7 @@
     "total_pnl": -5.92,
     "return_pct": -5.92,
     "open_count": 0,
-    "working_count": 0,
+    "working_count": 1,
     "closed_count": 3,
     "win_count": 0,
     "loss_count": 3,
@@ -21,7 +21,26 @@
     "worst_trade": -3.55,
     "max_drawdown_pct": -5.92,
     "open_positions": [],
-    "working_orders": [],
+    "working_orders": [
+      {
+        "order_id": "W1794065522928-009",
+        "market_id": "561979",
+        "question": "Will Ron DeSantis win the 2028 Republican presidential nomination?",
+        "url": "https://polymarket.com/market/will-ron-desantis-win-the-2028-republican-presidential-nomination",
+        "side": "Yes",
+        "entry_type": "pullback",
+        "trigger": "limit",
+        "entry": 0.141,
+        "quote_at_approval": 0.143,
+        "last_price": 0.143,
+        "stop": 0.136,
+        "target": 0.191,
+        "shares": 113,
+        "risk_dollars": 0.57,
+        "time_limit_utc": "2026-11-07T21:32:02Z",
+        "created_utc": "2026-11-07T15:32:02Z"
+      }
+    ],
     "closed_trades": [
       {
         "trade_id": "P1793443620743-003",
@@ -473,16 +492,42 @@
       {
         "t": "2026-11-07T08:55:26Z",
         "equity": 94.08
+      },
+      {
+        "t": "2026-11-07T15:32:02Z",
+        "equity": 94.08
       }
     ],
-    "updated_utc": "2026-11-07T08:55:26Z",
+    "updated_utc": "2026-11-07T15:32:02Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
   "cash": 94.08,
   "realized_pnl": -5.92,
   "open_positions": [],
-  "working_orders": [],
+  "working_orders": [
+    {
+      "order_id": "W1794065522928-009",
+      "market_id": "561979",
+      "question": "Will Ron DeSantis win the 2028 Republican presidential nomination?",
+      "url": "https://polymarket.com/market/will-ron-desantis-win-the-2028-republican-presidential-nomination",
+      "side": "Yes",
+      "category": "politics",
+      "event_id": "31875",
+      "entry_type": "pullback",
+      "trigger": "limit",
+      "entry": 0.141,
+      "quote_at_approval": 0.143,
+      "stop": 0.136,
+      "target": 0.191,
+      "shares": 113,
+      "risk_dollars": 0.57,
+      "time_limit_utc": "2026-11-07T21:32:02Z",
+      "created_utc": "2026-11-07T15:32:02Z",
+      "last_mark_utc": "2026-11-07T15:32:02Z",
+      "status": "WORKING"
+    }
+  ],
   "closed_trades": [
     {
       "trade_id": "P1792385133524-001",
@@ -976,7 +1021,11 @@
     {
       "t": "2026-11-07T08:55:26Z",
       "equity": 94.08
+    },
+    {
+      "t": "2026-11-07T15:32:02Z",
+      "equity": 94.08
     }
   ],
-  "updated_utc": "2026-11-07T08:55:26Z"
+  "updated_utc": "2026-11-07T15:32:02Z"
 }
