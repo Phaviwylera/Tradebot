@@ -3,48 +3,41 @@
     "mode": "paper",
     "currency": "USD",
     "starting_cash": 100.0,
-    "cash": 78.15,
-    "equity": 89.73,
-    "realized_pnl": -5.92,
-    "unrealized_pnl": -4.35,
-    "total_pnl": -10.27,
-    "return_pct": -10.27,
-    "open_count": 1,
+    "cash": 92.11,
+    "equity": 92.11,
+    "realized_pnl": -7.89,
+    "unrealized_pnl": 0,
+    "total_pnl": -7.89,
+    "return_pct": -7.89,
+    "open_count": 0,
     "working_count": 0,
-    "closed_count": 3,
+    "closed_count": 4,
     "win_count": 0,
-    "loss_count": 3,
+    "loss_count": 4,
     "win_rate": 0.0,
     "gross_win": 0,
-    "gross_loss": -5.92,
+    "gross_loss": -7.89,
     "best_trade": 0.0,
     "worst_trade": -3.55,
     "max_drawdown_pct": -10.27,
-    "open_positions": [
+    "open_positions": [],
+    "working_orders": [],
+    "closed_trades": [
       {
         "trade_id": "P1794080336637-004",
         "market_id": "561979",
         "question": "Will Ron DeSantis win the 2028 Republican presidential nomination?",
-        "url": "https://polymarket.com/market/will-ron-desantis-win-the-2028-republican-presidential-nomination",
         "side": "Yes",
-        "category": "politics",
         "entry": 0.141,
-        "last_price": 0.1025,
-        "stop": 0.136,
-        "target": 0.191,
+        "exit": 0.1235,
+        "exit_reason": "stop",
         "shares": 113,
         "cost_basis": 15.93,
-        "market_value": 11.58,
-        "unrealized_pnl": -4.35,
-        "unrealized_pct": -27.31,
-        "risk_dollars": 0.57,
-        "opened_utc": "2026-11-07T19:38:56Z",
-        "time_limit_utc": "2026-11-07T21:32:02Z",
-        "last_mark_utc": "2026-11-07T19:38:56Z"
-      }
-    ],
-    "working_orders": [],
-    "closed_trades": [
+        "pnl": -1.97,
+        "return_pct": -12.37,
+        "closed_utc": "2026-11-07T23:04:10Z",
+        "held_hours": 3.42
+      },
       {
         "trade_id": "P1793443620743-003",
         "market_id": "679022",
@@ -503,38 +496,19 @@
       {
         "t": "2026-11-07T19:38:56Z",
         "equity": 89.73
+      },
+      {
+        "t": "2026-11-07T23:04:10Z",
+        "equity": 92.11
       }
     ],
-    "updated_utc": "2026-11-07T19:38:56Z",
+    "updated_utc": "2026-11-07T23:04:10Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
-  "cash": 78.15,
-  "realized_pnl": -5.92,
-  "open_positions": [
-    {
-      "trade_id": "P1794080336637-004",
-      "market_id": "561979",
-      "question": "Will Ron DeSantis win the 2028 Republican presidential nomination?",
-      "url": "https://polymarket.com/market/will-ron-desantis-win-the-2028-republican-presidential-nomination",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "31875",
-      "entry": 0.141,
-      "shares": 113,
-      "cost_basis": 15.93,
-      "notional": 15.93,
-      "risk_dollars": 0.57,
-      "stop": 0.136,
-      "target": 0.191,
-      "opened_utc": "2026-11-07T19:38:56Z",
-      "time_limit_utc": "2026-11-07T21:32:02Z",
-      "last_price": 0.1025,
-      "last_mark_utc": "2026-11-07T19:38:56Z",
-      "status": "OPEN",
-      "filled_order": "W1794065522928-009"
-    }
-  ],
+  "cash": 92.11,
+  "realized_pnl": -7.89,
+  "open_positions": [],
   "working_orders": [],
   "closed_trades": [
     {
@@ -623,6 +597,35 @@
       "pnl": -3.55,
       "return_pct": -18.02,
       "held_hours": 5.2
+    },
+    {
+      "trade_id": "P1794080336637-004",
+      "market_id": "561979",
+      "question": "Will Ron DeSantis win the 2028 Republican presidential nomination?",
+      "url": "https://polymarket.com/market/will-ron-desantis-win-the-2028-republican-presidential-nomination",
+      "side": "Yes",
+      "category": "politics",
+      "event_id": "31875",
+      "entry": 0.141,
+      "shares": 113,
+      "cost_basis": 15.93,
+      "notional": 15.93,
+      "risk_dollars": 0.57,
+      "stop": 0.136,
+      "target": 0.191,
+      "opened_utc": "2026-11-07T19:38:56Z",
+      "time_limit_utc": "2026-11-07T21:32:02Z",
+      "last_price": 0.1235,
+      "last_mark_utc": "2026-11-07T23:04:10Z",
+      "status": "OPEN",
+      "filled_order": "W1794065522928-009",
+      "exit": 0.1235,
+      "exit_reason": "stop",
+      "closed_utc": "2026-11-07T23:04:10Z",
+      "proceeds": 13.96,
+      "pnl": -1.97,
+      "return_pct": -12.37,
+      "held_hours": 3.42
     }
   ],
   "equity_curve": [
@@ -1037,7 +1040,11 @@
     {
       "t": "2026-11-07T19:38:56Z",
       "equity": 89.73
+    },
+    {
+      "t": "2026-11-07T23:04:10Z",
+      "equity": 92.11
     }
   ],
-  "updated_utc": "2026-11-07T19:38:56Z"
+  "updated_utc": "2026-11-07T23:04:10Z"
 }
