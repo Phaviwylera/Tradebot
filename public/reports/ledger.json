@@ -10,7 +10,7 @@
     "total_pnl": -7.89,
     "return_pct": -7.89,
     "open_count": 0,
-    "working_count": 0,
+    "working_count": 1,
     "closed_count": 4,
     "win_count": 0,
     "loss_count": 4,
@@ -21,7 +21,26 @@
     "worst_trade": -3.55,
     "max_drawdown_pct": -10.27,
     "open_positions": [],
-    "working_orders": [],
+    "working_orders": [
+      {
+        "order_id": "W1794154917291-010",
+        "market_id": "561974",
+        "question": "Will J.D. Vance win the 2028 Republican presidential nomination?",
+        "url": "https://polymarket.com/market/will-jd-vance-win-the-2028-republican-presidential-nomination",
+        "side": "No",
+        "entry_type": "breakout_retest",
+        "trigger": "limit",
+        "entry": 0.658,
+        "quote_at_approval": 0.679,
+        "last_price": 0.679,
+        "stop": 0.653,
+        "target": 0.708,
+        "shares": 37,
+        "risk_dollars": 0.18,
+        "time_limit_utc": "2026-11-08T22:21:57Z",
+        "created_utc": "2026-11-08T16:21:57Z"
+      }
+    ],
     "closed_trades": [
       {
         "trade_id": "P1794080336637-004",
@@ -508,16 +527,42 @@
       {
         "t": "2026-11-08T09:31:21Z",
         "equity": 92.11
+      },
+      {
+        "t": "2026-11-08T16:21:57Z",
+        "equity": 92.11
       }
     ],
-    "updated_utc": "2026-11-08T09:31:21Z",
+    "updated_utc": "2026-11-08T16:21:57Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
   "cash": 92.11,
   "realized_pnl": -7.89,
   "open_positions": [],
-  "working_orders": [],
+  "working_orders": [
+    {
+      "order_id": "W1794154917291-010",
+      "market_id": "561974",
+      "question": "Will J.D. Vance win the 2028 Republican presidential nomination?",
+      "url": "https://polymarket.com/market/will-jd-vance-win-the-2028-republican-presidential-nomination",
+      "side": "No",
+      "category": "politics",
+      "event_id": "31875",
+      "entry_type": "breakout_retest",
+      "trigger": "limit",
+      "entry": 0.658,
+      "quote_at_approval": 0.679,
+      "stop": 0.653,
+      "target": 0.708,
+      "shares": 37,
+      "risk_dollars": 0.18,
+      "time_limit_utc": "2026-11-08T22:21:57Z",
+      "created_utc": "2026-11-08T16:21:57Z",
+      "last_mark_utc": "2026-11-08T16:21:57Z",
+      "status": "WORKING"
+    }
+  ],
   "closed_trades": [
     {
       "trade_id": "P1792385133524-001",
@@ -1060,7 +1105,11 @@
     {
       "t": "2026-11-08T09:31:21Z",
       "equity": 92.11
+    },
+    {
+      "t": "2026-11-08T16:21:57Z",
+      "equity": 92.11
     }
   ],
-  "updated_utc": "2026-11-08T09:31:21Z"
+  "updated_utc": "2026-11-08T16:21:57Z"
 }
