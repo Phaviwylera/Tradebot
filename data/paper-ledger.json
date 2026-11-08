@@ -3,11 +3,34 @@
   "mode": "paper",
   "currency": "USD",
   "starting_cash": 100.0,
-  "cash": 92.11,
+  "cash": 67.76,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-08T16:21:57Z",
+  "updated_utc": "2026-11-08T20:41:57Z",
   "realized_pnl": -7.89,
-  "positions": [],
+  "positions": [
+    {
+      "trade_id": "P1794170517951-005",
+      "market_id": "561974",
+      "question": "Will J.D. Vance win the 2028 Republican presidential nomination?",
+      "url": "https://polymarket.com/market/will-jd-vance-win-the-2028-republican-presidential-nomination",
+      "side": "No",
+      "category": "politics",
+      "event_id": "31875",
+      "entry": 0.658,
+      "shares": 37,
+      "cost_basis": 24.35,
+      "notional": 24.35,
+      "risk_dollars": 0.18,
+      "stop": 0.653,
+      "target": 0.708,
+      "opened_utc": "2026-11-08T20:41:57Z",
+      "time_limit_utc": "2026-11-08T22:21:57Z",
+      "last_price": 0.3215,
+      "last_mark_utc": "2026-11-08T20:41:57Z",
+      "status": "OPEN",
+      "filled_order": "W1794154917291-010"
+    }
+  ],
   "trades": [
     {
       "trade_id": "P1792385133524-001",
@@ -554,57 +577,17 @@
     {
       "t": "2026-11-08T16:21:57Z",
       "equity": 92.11
+    },
+    {
+      "t": "2026-11-08T20:41:57Z",
+      "equity": 79.66
     }
   ],
   "counters": {
-    "next_trade": 5,
+    "next_trade": 6,
     "next_order": 11
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [
-    {
-      "order_id": "W1794154917291-010",
-      "market_id": "561974",
-      "question": "Will J.D. Vance win the 2028 Republican presidential nomination?",
-      "url": "https://polymarket.com/market/will-jd-vance-win-the-2028-republican-presidential-nomination",
-      "side": "No",
-      "category": "politics",
-      "event_id": "31875",
-      "entry_type": "breakout_retest",
-      "trigger": "limit",
-      "entry": 0.658,
-      "quote_at_approval": 0.679,
-      "stop": 0.653,
-      "target": 0.708,
-      "shares": 37,
-      "risk_dollars": 0.18,
-      "time_limit_utc": "2026-11-08T22:21:57Z",
-      "created_utc": "2026-11-08T16:21:57Z",
-      "last_mark_utc": "2026-11-08T16:21:57Z",
-      "status": "WORKING"
-    }
-  ],
-  "queued_this_run": [
-    {
-      "order_id": "W1794154917291-010",
-      "market_id": "561974",
-      "question": "Will J.D. Vance win the 2028 Republican presidential nomination?",
-      "url": "https://polymarket.com/market/will-jd-vance-win-the-2028-republican-presidential-nomination",
-      "side": "No",
-      "category": "politics",
-      "event_id": "31875",
-      "entry_type": "breakout_retest",
-      "trigger": "limit",
-      "entry": 0.658,
-      "quote_at_approval": 0.679,
-      "stop": 0.653,
-      "target": 0.708,
-      "shares": 37,
-      "risk_dollars": 0.18,
-      "time_limit_utc": "2026-11-08T22:21:57Z",
-      "created_utc": "2026-11-08T16:21:57Z",
-      "last_mark_utc": "2026-11-08T16:21:57Z",
-      "status": "WORKING"
-    }
-  ]
+  "orders": [],
+  "queued_this_run": []
 }
