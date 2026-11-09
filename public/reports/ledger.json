@@ -10,7 +10,7 @@
     "total_pnl": -20.34,
     "return_pct": -20.34,
     "open_count": 0,
-    "working_count": 0,
+    "working_count": 1,
     "closed_count": 5,
     "win_count": 0,
     "loss_count": 5,
@@ -21,7 +21,26 @@
     "worst_trade": -12.45,
     "max_drawdown_pct": -20.34,
     "open_positions": [],
-    "working_orders": [],
+    "working_orders": [
+      {
+        "order_id": "W1794206141897-011",
+        "market_id": "4397033",
+        "question": "Will Bilibili Gaming win Worlds 2026?",
+        "url": "https://polymarket.com/market/will-bilibili-gaming-win-worlds-2026",
+        "side": "Yes",
+        "entry_type": "pullback",
+        "trigger": "limit",
+        "entry": 0.375,
+        "quote_at_approval": 0.377,
+        "last_price": 0.377,
+        "stop": 0.363,
+        "target": 0.425,
+        "shares": 66,
+        "risk_dollars": 0.79,
+        "time_limit_utc": "2026-11-09T12:35:41Z",
+        "created_utc": "2026-11-09T06:35:41Z"
+      }
+    ],
     "closed_trades": [
       {
         "trade_id": "P1794170517951-005",
@@ -535,16 +554,42 @@
       {
         "t": "2026-11-09T00:05:47Z",
         "equity": 79.66
+      },
+      {
+        "t": "2026-11-09T06:35:41Z",
+        "equity": 79.66
       }
     ],
-    "updated_utc": "2026-11-09T00:05:47Z",
+    "updated_utc": "2026-11-09T06:35:41Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
   "cash": 79.66,
   "realized_pnl": -20.34,
   "open_positions": [],
-  "working_orders": [],
+  "working_orders": [
+    {
+      "order_id": "W1794206141897-011",
+      "market_id": "4397033",
+      "question": "Will Bilibili Gaming win Worlds 2026?",
+      "url": "https://polymarket.com/market/will-bilibili-gaming-win-worlds-2026",
+      "side": "Yes",
+      "category": "other",
+      "event_id": "991810",
+      "entry_type": "pullback",
+      "trigger": "limit",
+      "entry": 0.375,
+      "quote_at_approval": 0.377,
+      "stop": 0.363,
+      "target": 0.425,
+      "shares": 66,
+      "risk_dollars": 0.79,
+      "time_limit_utc": "2026-11-09T12:35:41Z",
+      "created_utc": "2026-11-09T06:35:41Z",
+      "last_mark_utc": "2026-11-09T06:35:41Z",
+      "status": "WORKING"
+    }
+  ],
   "closed_trades": [
     {
       "trade_id": "P1792385133524-001",
@@ -1128,7 +1173,11 @@
     {
       "t": "2026-11-09T00:05:47Z",
       "equity": 79.66
+    },
+    {
+      "t": "2026-11-09T06:35:41Z",
+      "equity": 79.66
     }
   ],
-  "updated_utc": "2026-11-09T00:05:47Z"
+  "updated_utc": "2026-11-09T06:35:41Z"
 }
