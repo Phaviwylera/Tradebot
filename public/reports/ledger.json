@@ -3,48 +3,41 @@
     "mode": "paper",
     "currency": "USD",
     "starting_cash": 100.0,
-    "cash": 67.76,
+    "cash": 79.66,
     "equity": 79.66,
-    "realized_pnl": -7.89,
-    "unrealized_pnl": -12.45,
+    "realized_pnl": -20.34,
+    "unrealized_pnl": 0,
     "total_pnl": -20.34,
     "return_pct": -20.34,
-    "open_count": 1,
+    "open_count": 0,
     "working_count": 0,
-    "closed_count": 4,
+    "closed_count": 5,
     "win_count": 0,
-    "loss_count": 4,
+    "loss_count": 5,
     "win_rate": 0.0,
     "gross_win": 0,
-    "gross_loss": -7.89,
+    "gross_loss": -20.34,
     "best_trade": 0.0,
-    "worst_trade": -3.55,
+    "worst_trade": -12.45,
     "max_drawdown_pct": -20.34,
-    "open_positions": [
+    "open_positions": [],
+    "working_orders": [],
+    "closed_trades": [
       {
         "trade_id": "P1794170517951-005",
         "market_id": "561974",
         "question": "Will J.D. Vance win the 2028 Republican presidential nomination?",
-        "url": "https://polymarket.com/market/will-jd-vance-win-the-2028-republican-presidential-nomination",
         "side": "No",
-        "category": "politics",
         "entry": 0.658,
-        "last_price": 0.3215,
-        "stop": 0.653,
-        "target": 0.708,
+        "exit": 0.3215,
+        "exit_reason": "stop",
         "shares": 37,
         "cost_basis": 24.35,
-        "market_value": 11.9,
-        "unrealized_pnl": -12.45,
-        "unrealized_pct": -51.13,
-        "risk_dollars": 0.18,
-        "opened_utc": "2026-11-08T20:41:57Z",
-        "time_limit_utc": "2026-11-08T22:21:57Z",
-        "last_mark_utc": "2026-11-08T20:41:57Z"
-      }
-    ],
-    "working_orders": [],
-    "closed_trades": [
+        "pnl": -12.45,
+        "return_pct": -51.13,
+        "closed_utc": "2026-11-09T00:05:47Z",
+        "held_hours": 3.4
+      },
       {
         "trade_id": "P1794080336637-004",
         "market_id": "561979",
@@ -538,38 +531,19 @@
       {
         "t": "2026-11-08T20:41:57Z",
         "equity": 79.66
+      },
+      {
+        "t": "2026-11-09T00:05:47Z",
+        "equity": 79.66
       }
     ],
-    "updated_utc": "2026-11-08T20:41:57Z",
+    "updated_utc": "2026-11-09T00:05:47Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
-  "cash": 67.76,
-  "realized_pnl": -7.89,
-  "open_positions": [
-    {
-      "trade_id": "P1794170517951-005",
-      "market_id": "561974",
-      "question": "Will J.D. Vance win the 2028 Republican presidential nomination?",
-      "url": "https://polymarket.com/market/will-jd-vance-win-the-2028-republican-presidential-nomination",
-      "side": "No",
-      "category": "politics",
-      "event_id": "31875",
-      "entry": 0.658,
-      "shares": 37,
-      "cost_basis": 24.35,
-      "notional": 24.35,
-      "risk_dollars": 0.18,
-      "stop": 0.653,
-      "target": 0.708,
-      "opened_utc": "2026-11-08T20:41:57Z",
-      "time_limit_utc": "2026-11-08T22:21:57Z",
-      "last_price": 0.3215,
-      "last_mark_utc": "2026-11-08T20:41:57Z",
-      "status": "OPEN",
-      "filled_order": "W1794154917291-010"
-    }
-  ],
+  "cash": 79.66,
+  "realized_pnl": -20.34,
+  "open_positions": [],
   "working_orders": [],
   "closed_trades": [
     {
@@ -687,6 +661,35 @@
       "pnl": -1.97,
       "return_pct": -12.37,
       "held_hours": 3.42
+    },
+    {
+      "trade_id": "P1794170517951-005",
+      "market_id": "561974",
+      "question": "Will J.D. Vance win the 2028 Republican presidential nomination?",
+      "url": "https://polymarket.com/market/will-jd-vance-win-the-2028-republican-presidential-nomination",
+      "side": "No",
+      "category": "politics",
+      "event_id": "31875",
+      "entry": 0.658,
+      "shares": 37,
+      "cost_basis": 24.35,
+      "notional": 24.35,
+      "risk_dollars": 0.18,
+      "stop": 0.653,
+      "target": 0.708,
+      "opened_utc": "2026-11-08T20:41:57Z",
+      "time_limit_utc": "2026-11-08T22:21:57Z",
+      "last_price": 0.3215,
+      "last_mark_utc": "2026-11-09T00:05:47Z",
+      "status": "OPEN",
+      "filled_order": "W1794154917291-010",
+      "exit": 0.3215,
+      "exit_reason": "stop",
+      "closed_utc": "2026-11-09T00:05:47Z",
+      "proceeds": 11.9,
+      "pnl": -12.45,
+      "return_pct": -51.13,
+      "held_hours": 3.4
     }
   ],
   "equity_curve": [
@@ -1121,7 +1124,11 @@
     {
       "t": "2026-11-08T20:41:57Z",
       "equity": 79.66
+    },
+    {
+      "t": "2026-11-09T00:05:47Z",
+      "equity": 79.66
     }
   ],
-  "updated_utc": "2026-11-08T20:41:57Z"
+  "updated_utc": "2026-11-09T00:05:47Z"
 }
