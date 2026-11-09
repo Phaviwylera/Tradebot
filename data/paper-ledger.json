@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 79.66,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-09T06:35:41Z",
+  "updated_utc": "2026-11-09T16:53:05Z",
   "realized_pnl": -20.34,
   "positions": [],
   "trades": [
@@ -595,6 +595,10 @@
     {
       "t": "2026-11-09T06:35:41Z",
       "equity": 79.66
+    },
+    {
+      "t": "2026-11-09T16:53:05Z",
+      "equity": 79.66
     }
   ],
   "counters": {
@@ -602,50 +606,6 @@
     "next_order": 12
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [
-    {
-      "order_id": "W1794206141897-011",
-      "market_id": "4397033",
-      "question": "Will Bilibili Gaming win Worlds 2026?",
-      "url": "https://polymarket.com/market/will-bilibili-gaming-win-worlds-2026",
-      "side": "Yes",
-      "category": "other",
-      "event_id": "991810",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.375,
-      "quote_at_approval": 0.377,
-      "stop": 0.363,
-      "target": 0.425,
-      "shares": 66,
-      "risk_dollars": 0.79,
-      "time_limit_utc": "2026-11-09T12:35:41Z",
-      "created_utc": "2026-11-09T06:35:41Z",
-      "last_mark_utc": "2026-11-09T06:35:41Z",
-      "status": "WORKING"
-    }
-  ],
-  "queued_this_run": [
-    {
-      "order_id": "W1794206141897-011",
-      "market_id": "4397033",
-      "question": "Will Bilibili Gaming win Worlds 2026?",
-      "url": "https://polymarket.com/market/will-bilibili-gaming-win-worlds-2026",
-      "side": "Yes",
-      "category": "other",
-      "event_id": "991810",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.375,
-      "quote_at_approval": 0.377,
-      "stop": 0.363,
-      "target": 0.425,
-      "shares": 66,
-      "risk_dollars": 0.79,
-      "time_limit_utc": "2026-11-09T12:35:41Z",
-      "created_utc": "2026-11-09T06:35:41Z",
-      "last_mark_utc": "2026-11-09T06:35:41Z",
-      "status": "WORKING"
-    }
-  ]
+  "orders": [],
+  "queued_this_run": []
 }
