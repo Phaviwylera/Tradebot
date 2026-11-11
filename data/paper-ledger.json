@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 79.66,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-11T16:31:53Z",
+  "updated_utc": "2026-11-11T23:05:53Z",
   "realized_pnl": -20.34,
   "positions": [],
   "trades": [
@@ -627,6 +627,10 @@
     {
       "t": "2026-11-11T16:31:53Z",
       "equity": 79.66
+    },
+    {
+      "t": "2026-11-11T23:05:53Z",
+      "equity": 79.66
     }
   ],
   "counters": {
@@ -634,50 +638,6 @@
     "next_order": 13
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [
-    {
-      "order_id": "W1794414713407-012",
-      "market_id": "679022",
-      "question": "Will David Lisnard win the 2027 French presidential election?",
-      "url": "https://polymarket.com/market/will-david-lisnard-win-the-2027-french-presidential-election",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "79987",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.135,
-      "quote_at_approval": 0.154,
-      "stop": 0.13,
-      "target": 0.185,
-      "shares": 108,
-      "risk_dollars": 0.54,
-      "time_limit_utc": "2026-11-11T22:31:53Z",
-      "created_utc": "2026-11-11T16:31:53Z",
-      "last_mark_utc": "2026-11-11T16:31:53Z",
-      "status": "WORKING"
-    }
-  ],
-  "queued_this_run": [
-    {
-      "order_id": "W1794414713407-012",
-      "market_id": "679022",
-      "question": "Will David Lisnard win the 2027 French presidential election?",
-      "url": "https://polymarket.com/market/will-david-lisnard-win-the-2027-french-presidential-election",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "79987",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.135,
-      "quote_at_approval": 0.154,
-      "stop": 0.13,
-      "target": 0.185,
-      "shares": 108,
-      "risk_dollars": 0.54,
-      "time_limit_utc": "2026-11-11T22:31:53Z",
-      "created_utc": "2026-11-11T16:31:53Z",
-      "last_mark_utc": "2026-11-11T16:31:53Z",
-      "status": "WORKING"
-    }
-  ]
+  "orders": [],
+  "queued_this_run": []
 }
