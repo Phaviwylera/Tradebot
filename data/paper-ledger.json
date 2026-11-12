@@ -3,11 +3,33 @@
   "mode": "paper",
   "currency": "USD",
   "starting_cash": 100.0,
-  "cash": 79.66,
+  "cash": 55.18,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-12T12:22:11Z",
+  "updated_utc": "2026-11-12T20:18:04Z",
   "realized_pnl": -20.34,
-  "positions": [],
+  "positions": [
+    {
+      "trade_id": "P1794514684516-006",
+      "market_id": "3128886",
+      "question": "US announces end of Iranian blockade by December 31, 2026?",
+      "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-december-31-2026-20260727171803489-375-949-645-919-269-157-255-857",
+      "side": "No",
+      "category": "other",
+      "event_id": "699735",
+      "entry": 0.72,
+      "shares": 34,
+      "cost_basis": 24.48,
+      "notional": 24.48,
+      "risk_dollars": 0.17,
+      "stop": 0.715,
+      "target": 0.77,
+      "opened_utc": "2026-11-12T20:18:04Z",
+      "time_limit_utc": "2026-11-13T02:18:04Z",
+      "last_price": 0.72,
+      "last_mark_utc": "2026-11-12T20:18:04Z",
+      "status": "OPEN"
+    }
+  ],
   "trades": [
     {
       "trade_id": "P1792385133524-001",
@@ -639,57 +661,17 @@
     {
       "t": "2026-11-12T12:22:11Z",
       "equity": 79.66
+    },
+    {
+      "t": "2026-11-12T20:18:04Z",
+      "equity": 79.66
     }
   ],
   "counters": {
-    "next_trade": 6,
+    "next_trade": 7,
     "next_order": 14
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [
-    {
-      "order_id": "W1794486131474-013",
-      "market_id": "6771174",
-      "question": "Will Elon Musk post 180-199 tweets from November 10 to November 17, 2026?",
-      "url": "https://polymarket.com/market/elon-musk-of-tweets-november-10-november-17-2026-180-199",
-      "side": "Yes",
-      "category": "other",
-      "event_id": "1329688",
-      "entry_type": "breakout_retest",
-      "trigger": "limit",
-      "entry": 0.133,
-      "quote_at_approval": 0.14,
-      "stop": 0.128,
-      "target": 0.183,
-      "shares": 187,
-      "risk_dollars": 0.94,
-      "time_limit_utc": "2026-11-12T18:22:11Z",
-      "created_utc": "2026-11-12T12:22:11Z",
-      "last_mark_utc": "2026-11-12T12:22:11Z",
-      "status": "WORKING"
-    }
-  ],
-  "queued_this_run": [
-    {
-      "order_id": "W1794486131474-013",
-      "market_id": "6771174",
-      "question": "Will Elon Musk post 180-199 tweets from November 10 to November 17, 2026?",
-      "url": "https://polymarket.com/market/elon-musk-of-tweets-november-10-november-17-2026-180-199",
-      "side": "Yes",
-      "category": "other",
-      "event_id": "1329688",
-      "entry_type": "breakout_retest",
-      "trigger": "limit",
-      "entry": 0.133,
-      "quote_at_approval": 0.14,
-      "stop": 0.128,
-      "target": 0.183,
-      "shares": 187,
-      "risk_dollars": 0.94,
-      "time_limit_utc": "2026-11-12T18:22:11Z",
-      "created_utc": "2026-11-12T12:22:11Z",
-      "last_mark_utc": "2026-11-12T12:22:11Z",
-      "status": "WORKING"
-    }
-  ]
+  "orders": [],
+  "queued_this_run": []
 }

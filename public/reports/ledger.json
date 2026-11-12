@@ -3,14 +3,14 @@
     "mode": "paper",
     "currency": "USD",
     "starting_cash": 100.0,
-    "cash": 79.66,
+    "cash": 55.18,
     "equity": 79.66,
     "realized_pnl": -20.34,
-    "unrealized_pnl": 0,
+    "unrealized_pnl": 0.0,
     "total_pnl": -20.34,
     "return_pct": -20.34,
-    "open_count": 0,
-    "working_count": 1,
+    "open_count": 1,
+    "working_count": 0,
     "closed_count": 5,
     "win_count": 0,
     "loss_count": 5,
@@ -20,27 +20,30 @@
     "best_trade": 0.0,
     "worst_trade": -12.45,
     "max_drawdown_pct": -20.34,
-    "open_positions": [],
-    "working_orders": [
+    "open_positions": [
       {
-        "order_id": "W1794486131474-013",
-        "market_id": "6771174",
-        "question": "Will Elon Musk post 180-199 tweets from November 10 to November 17, 2026?",
-        "url": "https://polymarket.com/market/elon-musk-of-tweets-november-10-november-17-2026-180-199",
-        "side": "Yes",
-        "entry_type": "breakout_retest",
-        "trigger": "limit",
-        "entry": 0.133,
-        "quote_at_approval": 0.14,
-        "last_price": 0.14,
-        "stop": 0.128,
-        "target": 0.183,
-        "shares": 187,
-        "risk_dollars": 0.94,
-        "time_limit_utc": "2026-11-12T18:22:11Z",
-        "created_utc": "2026-11-12T12:22:11Z"
+        "trade_id": "P1794514684516-006",
+        "market_id": "3128886",
+        "question": "US announces end of Iranian blockade by December 31, 2026?",
+        "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-december-31-2026-20260727171803489-375-949-645-919-269-157-255-857",
+        "side": "No",
+        "category": "other",
+        "entry": 0.72,
+        "last_price": 0.72,
+        "stop": 0.715,
+        "target": 0.77,
+        "shares": 34,
+        "cost_basis": 24.48,
+        "market_value": 24.48,
+        "unrealized_pnl": 0.0,
+        "unrealized_pct": 0.0,
+        "risk_dollars": 0.17,
+        "opened_utc": "2026-11-12T20:18:04Z",
+        "time_limit_utc": "2026-11-13T02:18:04Z",
+        "last_mark_utc": "2026-11-12T20:18:04Z"
       }
     ],
+    "working_orders": [],
     "closed_trades": [
       {
         "trade_id": "P1794170517951-005",
@@ -119,10 +122,6 @@
       }
     ],
     "equity_curve": [
-      {
-        "t": "2026-10-19T04:32:19Z",
-        "equity": 100.0
-      },
       {
         "t": "2026-10-19T04:37:00Z",
         "equity": 100.0
@@ -598,38 +597,42 @@
       {
         "t": "2026-11-12T12:22:11Z",
         "equity": 79.66
+      },
+      {
+        "t": "2026-11-12T20:18:04Z",
+        "equity": 79.66
       }
     ],
-    "updated_utc": "2026-11-12T12:22:11Z",
+    "updated_utc": "2026-11-12T20:18:04Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
-  "cash": 79.66,
+  "cash": 55.18,
   "realized_pnl": -20.34,
-  "open_positions": [],
-  "working_orders": [
+  "open_positions": [
     {
-      "order_id": "W1794486131474-013",
-      "market_id": "6771174",
-      "question": "Will Elon Musk post 180-199 tweets from November 10 to November 17, 2026?",
-      "url": "https://polymarket.com/market/elon-musk-of-tweets-november-10-november-17-2026-180-199",
-      "side": "Yes",
+      "trade_id": "P1794514684516-006",
+      "market_id": "3128886",
+      "question": "US announces end of Iranian blockade by December 31, 2026?",
+      "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-december-31-2026-20260727171803489-375-949-645-919-269-157-255-857",
+      "side": "No",
       "category": "other",
-      "event_id": "1329688",
-      "entry_type": "breakout_retest",
-      "trigger": "limit",
-      "entry": 0.133,
-      "quote_at_approval": 0.14,
-      "stop": 0.128,
-      "target": 0.183,
-      "shares": 187,
-      "risk_dollars": 0.94,
-      "time_limit_utc": "2026-11-12T18:22:11Z",
-      "created_utc": "2026-11-12T12:22:11Z",
-      "last_mark_utc": "2026-11-12T12:22:11Z",
-      "status": "WORKING"
+      "event_id": "699735",
+      "entry": 0.72,
+      "shares": 34,
+      "cost_basis": 24.48,
+      "notional": 24.48,
+      "risk_dollars": 0.17,
+      "stop": 0.715,
+      "target": 0.77,
+      "opened_utc": "2026-11-12T20:18:04Z",
+      "time_limit_utc": "2026-11-13T02:18:04Z",
+      "last_price": 0.72,
+      "last_mark_utc": "2026-11-12T20:18:04Z",
+      "status": "OPEN"
     }
   ],
+  "working_orders": [],
   "closed_trades": [
     {
       "trade_id": "P1792385133524-001",
@@ -1261,7 +1264,11 @@
     {
       "t": "2026-11-12T12:22:11Z",
       "equity": 79.66
+    },
+    {
+      "t": "2026-11-12T20:18:04Z",
+      "equity": 79.66
     }
   ],
-  "updated_utc": "2026-11-12T12:22:11Z"
+  "updated_utc": "2026-11-12T20:18:04Z"
 }
