@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 79.66,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-12T03:49:38Z",
+  "updated_utc": "2026-11-12T12:22:11Z",
   "realized_pnl": -20.34,
   "positions": [],
   "trades": [
@@ -635,13 +635,61 @@
     {
       "t": "2026-11-12T03:49:38Z",
       "equity": 79.66
+    },
+    {
+      "t": "2026-11-12T12:22:11Z",
+      "equity": 79.66
     }
   ],
   "counters": {
     "next_trade": 6,
-    "next_order": 13
+    "next_order": 14
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [],
-  "queued_this_run": []
+  "orders": [
+    {
+      "order_id": "W1794486131474-013",
+      "market_id": "6771174",
+      "question": "Will Elon Musk post 180-199 tweets from November 10 to November 17, 2026?",
+      "url": "https://polymarket.com/market/elon-musk-of-tweets-november-10-november-17-2026-180-199",
+      "side": "Yes",
+      "category": "other",
+      "event_id": "1329688",
+      "entry_type": "breakout_retest",
+      "trigger": "limit",
+      "entry": 0.133,
+      "quote_at_approval": 0.14,
+      "stop": 0.128,
+      "target": 0.183,
+      "shares": 187,
+      "risk_dollars": 0.94,
+      "time_limit_utc": "2026-11-12T18:22:11Z",
+      "created_utc": "2026-11-12T12:22:11Z",
+      "last_mark_utc": "2026-11-12T12:22:11Z",
+      "status": "WORKING"
+    }
+  ],
+  "queued_this_run": [
+    {
+      "order_id": "W1794486131474-013",
+      "market_id": "6771174",
+      "question": "Will Elon Musk post 180-199 tweets from November 10 to November 17, 2026?",
+      "url": "https://polymarket.com/market/elon-musk-of-tweets-november-10-november-17-2026-180-199",
+      "side": "Yes",
+      "category": "other",
+      "event_id": "1329688",
+      "entry_type": "breakout_retest",
+      "trigger": "limit",
+      "entry": 0.133,
+      "quote_at_approval": 0.14,
+      "stop": 0.128,
+      "target": 0.183,
+      "shares": 187,
+      "risk_dollars": 0.94,
+      "time_limit_utc": "2026-11-12T18:22:11Z",
+      "created_utc": "2026-11-12T12:22:11Z",
+      "last_mark_utc": "2026-11-12T12:22:11Z",
+      "status": "WORKING"
+    }
+  ]
 }

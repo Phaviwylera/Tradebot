@@ -10,7 +10,7 @@
     "total_pnl": -20.34,
     "return_pct": -20.34,
     "open_count": 0,
-    "working_count": 0,
+    "working_count": 1,
     "closed_count": 5,
     "win_count": 0,
     "loss_count": 5,
@@ -21,7 +21,26 @@
     "worst_trade": -12.45,
     "max_drawdown_pct": -20.34,
     "open_positions": [],
-    "working_orders": [],
+    "working_orders": [
+      {
+        "order_id": "W1794486131474-013",
+        "market_id": "6771174",
+        "question": "Will Elon Musk post 180-199 tweets from November 10 to November 17, 2026?",
+        "url": "https://polymarket.com/market/elon-musk-of-tweets-november-10-november-17-2026-180-199",
+        "side": "Yes",
+        "entry_type": "breakout_retest",
+        "trigger": "limit",
+        "entry": 0.133,
+        "quote_at_approval": 0.14,
+        "last_price": 0.14,
+        "stop": 0.128,
+        "target": 0.183,
+        "shares": 187,
+        "risk_dollars": 0.94,
+        "time_limit_utc": "2026-11-12T18:22:11Z",
+        "created_utc": "2026-11-12T12:22:11Z"
+      }
+    ],
     "closed_trades": [
       {
         "trade_id": "P1794170517951-005",
@@ -100,10 +119,6 @@
       }
     ],
     "equity_curve": [
-      {
-        "t": "2026-10-19T04:31:10Z",
-        "equity": 100.0
-      },
       {
         "t": "2026-10-19T04:32:19Z",
         "equity": 100.0
@@ -579,16 +594,42 @@
       {
         "t": "2026-11-12T03:49:38Z",
         "equity": 79.66
+      },
+      {
+        "t": "2026-11-12T12:22:11Z",
+        "equity": 79.66
       }
     ],
-    "updated_utc": "2026-11-12T03:49:38Z",
+    "updated_utc": "2026-11-12T12:22:11Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
   "cash": 79.66,
   "realized_pnl": -20.34,
   "open_positions": [],
-  "working_orders": [],
+  "working_orders": [
+    {
+      "order_id": "W1794486131474-013",
+      "market_id": "6771174",
+      "question": "Will Elon Musk post 180-199 tweets from November 10 to November 17, 2026?",
+      "url": "https://polymarket.com/market/elon-musk-of-tweets-november-10-november-17-2026-180-199",
+      "side": "Yes",
+      "category": "other",
+      "event_id": "1329688",
+      "entry_type": "breakout_retest",
+      "trigger": "limit",
+      "entry": 0.133,
+      "quote_at_approval": 0.14,
+      "stop": 0.128,
+      "target": 0.183,
+      "shares": 187,
+      "risk_dollars": 0.94,
+      "time_limit_utc": "2026-11-12T18:22:11Z",
+      "created_utc": "2026-11-12T12:22:11Z",
+      "last_mark_utc": "2026-11-12T12:22:11Z",
+      "status": "WORKING"
+    }
+  ],
   "closed_trades": [
     {
       "trade_id": "P1792385133524-001",
@@ -1216,7 +1257,11 @@
     {
       "t": "2026-11-12T03:49:38Z",
       "equity": 79.66
+    },
+    {
+      "t": "2026-11-12T12:22:11Z",
+      "equity": 79.66
     }
   ],
-  "updated_utc": "2026-11-12T03:49:38Z"
+  "updated_utc": "2026-11-12T12:22:11Z"
 }
