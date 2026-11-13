@@ -3,48 +3,41 @@
     "mode": "paper",
     "currency": "USD",
     "starting_cash": 100.0,
-    "cash": 55.18,
-    "equity": 79.66,
-    "realized_pnl": -20.34,
-    "unrealized_pnl": 0.0,
-    "total_pnl": -20.34,
-    "return_pct": -20.34,
-    "open_count": 1,
+    "cash": 64.48,
+    "equity": 64.48,
+    "realized_pnl": -35.52,
+    "unrealized_pnl": 0,
+    "total_pnl": -35.52,
+    "return_pct": -35.52,
+    "open_count": 0,
     "working_count": 0,
-    "closed_count": 5,
+    "closed_count": 6,
     "win_count": 0,
-    "loss_count": 5,
+    "loss_count": 6,
     "win_rate": 0.0,
     "gross_win": 0,
-    "gross_loss": -20.34,
+    "gross_loss": -35.52,
     "best_trade": 0.0,
-    "worst_trade": -12.45,
-    "max_drawdown_pct": -20.34,
-    "open_positions": [
+    "worst_trade": -15.18,
+    "max_drawdown_pct": -35.52,
+    "open_positions": [],
+    "working_orders": [],
+    "closed_trades": [
       {
         "trade_id": "P1794514684516-006",
         "market_id": "3128886",
         "question": "US announces end of Iranian blockade by December 31, 2026?",
-        "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-december-31-2026-20260727171803489-375-949-645-919-269-157-255-857",
         "side": "No",
-        "category": "other",
         "entry": 0.72,
-        "last_price": 0.72,
-        "stop": 0.715,
-        "target": 0.77,
+        "exit": 0.2735,
+        "exit_reason": "stop",
         "shares": 34,
         "cost_basis": 24.48,
-        "market_value": 24.48,
-        "unrealized_pnl": 0.0,
-        "unrealized_pct": 0.0,
-        "risk_dollars": 0.17,
-        "opened_utc": "2026-11-12T20:18:04Z",
-        "time_limit_utc": "2026-11-13T02:18:04Z",
-        "last_mark_utc": "2026-11-12T20:18:04Z"
-      }
-    ],
-    "working_orders": [],
-    "closed_trades": [
+        "pnl": -15.18,
+        "return_pct": -62.01,
+        "closed_utc": "2026-11-13T01:23:02Z",
+        "held_hours": 5.08
+      },
       {
         "trade_id": "P1794170517951-005",
         "market_id": "561974",
@@ -122,10 +115,6 @@
       }
     ],
     "equity_curve": [
-      {
-        "t": "2026-10-19T04:37:00Z",
-        "equity": 100.0
-      },
       {
         "t": "2026-10-19T04:40:19Z",
         "equity": 100.0
@@ -601,37 +590,19 @@
       {
         "t": "2026-11-12T20:18:04Z",
         "equity": 79.66
+      },
+      {
+        "t": "2026-11-13T01:23:02Z",
+        "equity": 64.48
       }
     ],
-    "updated_utc": "2026-11-12T20:18:04Z",
+    "updated_utc": "2026-11-13T01:23:02Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
-  "cash": 55.18,
-  "realized_pnl": -20.34,
-  "open_positions": [
-    {
-      "trade_id": "P1794514684516-006",
-      "market_id": "3128886",
-      "question": "US announces end of Iranian blockade by December 31, 2026?",
-      "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-december-31-2026-20260727171803489-375-949-645-919-269-157-255-857",
-      "side": "No",
-      "category": "other",
-      "event_id": "699735",
-      "entry": 0.72,
-      "shares": 34,
-      "cost_basis": 24.48,
-      "notional": 24.48,
-      "risk_dollars": 0.17,
-      "stop": 0.715,
-      "target": 0.77,
-      "opened_utc": "2026-11-12T20:18:04Z",
-      "time_limit_utc": "2026-11-13T02:18:04Z",
-      "last_price": 0.72,
-      "last_mark_utc": "2026-11-12T20:18:04Z",
-      "status": "OPEN"
-    }
-  ],
+  "cash": 64.48,
+  "realized_pnl": -35.52,
+  "open_positions": [],
   "working_orders": [],
   "closed_trades": [
     {
@@ -778,6 +749,34 @@
       "pnl": -12.45,
       "return_pct": -51.13,
       "held_hours": 3.4
+    },
+    {
+      "trade_id": "P1794514684516-006",
+      "market_id": "3128886",
+      "question": "US announces end of Iranian blockade by December 31, 2026?",
+      "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-december-31-2026-20260727171803489-375-949-645-919-269-157-255-857",
+      "side": "No",
+      "category": "other",
+      "event_id": "699735",
+      "entry": 0.72,
+      "shares": 34,
+      "cost_basis": 24.48,
+      "notional": 24.48,
+      "risk_dollars": 0.17,
+      "stop": 0.715,
+      "target": 0.77,
+      "opened_utc": "2026-11-12T20:18:04Z",
+      "time_limit_utc": "2026-11-13T02:18:04Z",
+      "last_price": 0.2735,
+      "last_mark_utc": "2026-11-13T01:23:02Z",
+      "status": "OPEN",
+      "exit": 0.2735,
+      "exit_reason": "stop",
+      "closed_utc": "2026-11-13T01:23:02Z",
+      "proceeds": 9.3,
+      "pnl": -15.18,
+      "return_pct": -62.01,
+      "held_hours": 5.08
     }
   ],
   "equity_curve": [
@@ -1268,7 +1267,11 @@
     {
       "t": "2026-11-12T20:18:04Z",
       "equity": 79.66
+    },
+    {
+      "t": "2026-11-13T01:23:02Z",
+      "equity": 64.48
     }
   ],
-  "updated_utc": "2026-11-12T20:18:04Z"
+  "updated_utc": "2026-11-13T01:23:02Z"
 }
