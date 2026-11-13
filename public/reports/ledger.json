@@ -116,10 +116,6 @@
     ],
     "equity_curve": [
       {
-        "t": "2026-10-19T04:40:19Z",
-        "equity": 100.0
-      },
-      {
         "t": "2026-10-19T04:43:47Z",
         "equity": 100.0
       },
@@ -594,9 +590,13 @@
       {
         "t": "2026-11-13T01:23:02Z",
         "equity": 64.48
+      },
+      {
+        "t": "2026-11-13T08:36:33Z",
+        "equity": 64.48
       }
     ],
-    "updated_utc": "2026-11-13T01:23:02Z",
+    "updated_utc": "2026-11-13T08:36:33Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
@@ -1271,7 +1271,11 @@
     {
       "t": "2026-11-13T01:23:02Z",
       "equity": 64.48
+    },
+    {
+      "t": "2026-11-13T08:36:33Z",
+      "equity": 64.48
     }
   ],
-  "updated_utc": "2026-11-13T01:23:02Z"
+  "updated_utc": "2026-11-13T08:36:33Z"
 }
