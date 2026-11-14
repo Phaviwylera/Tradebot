@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 64.48,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-13T22:15:20Z",
+  "updated_utc": "2026-11-14T02:30:18Z",
   "realized_pnl": -35.52,
   "positions": [],
   "trades": [
@@ -687,13 +687,61 @@
     {
       "t": "2026-11-13T22:15:20Z",
       "equity": 64.48
+    },
+    {
+      "t": "2026-11-14T02:30:18Z",
+      "equity": 64.48
     }
   ],
   "counters": {
     "next_trade": 7,
-    "next_order": 14
+    "next_order": 15
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [],
-  "queued_this_run": []
+  "orders": [
+    {
+      "order_id": "W1794623418652-014",
+      "market_id": "679018",
+      "question": "Will Marine Le Pen win the 2027 French presidential election?",
+      "url": "https://polymarket.com/market/will-marine-le-pen-win-the-2027-french-presidential-election",
+      "side": "Yes",
+      "category": "politics",
+      "event_id": "79987",
+      "entry_type": "pullback",
+      "trigger": "limit",
+      "entry": 0.461,
+      "quote_at_approval": 0.475,
+      "stop": 0.456,
+      "target": 0.511,
+      "shares": 54,
+      "risk_dollars": 0.27,
+      "time_limit_utc": "2026-11-14T08:30:18Z",
+      "created_utc": "2026-11-14T02:30:18Z",
+      "last_mark_utc": "2026-11-14T02:30:18Z",
+      "status": "WORKING"
+    }
+  ],
+  "queued_this_run": [
+    {
+      "order_id": "W1794623418652-014",
+      "market_id": "679018",
+      "question": "Will Marine Le Pen win the 2027 French presidential election?",
+      "url": "https://polymarket.com/market/will-marine-le-pen-win-the-2027-french-presidential-election",
+      "side": "Yes",
+      "category": "politics",
+      "event_id": "79987",
+      "entry_type": "pullback",
+      "trigger": "limit",
+      "entry": 0.461,
+      "quote_at_approval": 0.475,
+      "stop": 0.456,
+      "target": 0.511,
+      "shares": 54,
+      "risk_dollars": 0.27,
+      "time_limit_utc": "2026-11-14T08:30:18Z",
+      "created_utc": "2026-11-14T02:30:18Z",
+      "last_mark_utc": "2026-11-14T02:30:18Z",
+      "status": "WORKING"
+    }
+  ]
 }
