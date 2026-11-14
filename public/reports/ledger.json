@@ -10,7 +10,7 @@
     "total_pnl": -35.52,
     "return_pct": -35.52,
     "open_count": 0,
-    "working_count": 1,
+    "working_count": 0,
     "closed_count": 6,
     "win_count": 0,
     "loss_count": 6,
@@ -21,26 +21,7 @@
     "worst_trade": -15.18,
     "max_drawdown_pct": -35.52,
     "open_positions": [],
-    "working_orders": [
-      {
-        "order_id": "W1794623418652-014",
-        "market_id": "679018",
-        "question": "Will Marine Le Pen win the 2027 French presidential election?",
-        "url": "https://polymarket.com/market/will-marine-le-pen-win-the-2027-french-presidential-election",
-        "side": "Yes",
-        "entry_type": "pullback",
-        "trigger": "limit",
-        "entry": 0.461,
-        "quote_at_approval": 0.475,
-        "last_price": 0.475,
-        "stop": 0.456,
-        "target": 0.511,
-        "shares": 54,
-        "risk_dollars": 0.27,
-        "time_limit_utc": "2026-11-14T08:30:18Z",
-        "created_utc": "2026-11-14T02:30:18Z"
-      }
-    ],
+    "working_orders": [],
     "closed_trades": [
       {
         "trade_id": "P1794514684516-006",
@@ -134,10 +115,6 @@
       }
     ],
     "equity_curve": [
-      {
-        "t": "2026-10-19T10:19:44Z",
-        "equity": 97.63
-      },
       {
         "t": "2026-10-19T17:06:50Z",
         "equity": 97.63
@@ -613,38 +590,20 @@
       {
         "t": "2026-11-14T02:30:18Z",
         "equity": 64.48
+      },
+      {
+        "t": "2026-11-14T09:21:12Z",
+        "equity": 64.48
       }
     ],
-    "updated_utc": "2026-11-14T02:30:18Z",
+    "updated_utc": "2026-11-14T09:21:12Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
   "cash": 64.48,
   "realized_pnl": -35.52,
   "open_positions": [],
-  "working_orders": [
-    {
-      "order_id": "W1794623418652-014",
-      "market_id": "679018",
-      "question": "Will Marine Le Pen win the 2027 French presidential election?",
-      "url": "https://polymarket.com/market/will-marine-le-pen-win-the-2027-french-presidential-election",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "79987",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.461,
-      "quote_at_approval": 0.475,
-      "stop": 0.456,
-      "target": 0.511,
-      "shares": 54,
-      "risk_dollars": 0.27,
-      "time_limit_utc": "2026-11-14T08:30:18Z",
-      "created_utc": "2026-11-14T02:30:18Z",
-      "last_mark_utc": "2026-11-14T02:30:18Z",
-      "status": "WORKING"
-    }
-  ],
+  "working_orders": [],
   "closed_trades": [
     {
       "trade_id": "P1792385133524-001",
@@ -1328,7 +1287,11 @@
     {
       "t": "2026-11-14T02:30:18Z",
       "equity": 64.48
+    },
+    {
+      "t": "2026-11-14T09:21:12Z",
+      "equity": 64.48
     }
   ],
-  "updated_utc": "2026-11-14T02:30:18Z"
+  "updated_utc": "2026-11-14T09:21:12Z"
 }
