@@ -10,7 +10,7 @@
     "total_pnl": -35.52,
     "return_pct": -35.52,
     "open_count": 0,
-    "working_count": 0,
+    "working_count": 1,
     "closed_count": 6,
     "win_count": 0,
     "loss_count": 6,
@@ -21,7 +21,26 @@
     "worst_trade": -15.18,
     "max_drawdown_pct": -35.52,
     "open_positions": [],
-    "working_orders": [],
+    "working_orders": [
+      {
+        "order_id": "W1794753679872-015",
+        "market_id": "6886462",
+        "question": "Pepperdine Waves vs. Oregon Ducks",
+        "url": "https://polymarket.com/market/cbb-pepp-ore-2026-11-15",
+        "side": "Pepperdine Waves",
+        "entry_type": "pullback",
+        "trigger": "limit",
+        "entry": 0.43,
+        "quote_at_approval": 0.476,
+        "last_price": 0.476,
+        "stop": 0.42,
+        "target": 0.506,
+        "shares": 58,
+        "risk_dollars": 0.58,
+        "time_limit_utc": "2026-11-15T20:41:19Z",
+        "created_utc": "2026-11-15T14:41:19Z"
+      }
+    ],
     "closed_trades": [
       {
         "trade_id": "P1794514684516-006",
@@ -115,10 +134,6 @@
       }
     ],
     "equity_curve": [
-      {
-        "t": "2026-10-20T10:19:22Z",
-        "equity": 97.63
-      },
       {
         "t": "2026-10-20T15:18:15Z",
         "equity": 97.63
@@ -594,16 +609,42 @@
       {
         "t": "2026-11-15T07:00:13Z",
         "equity": 64.48
+      },
+      {
+        "t": "2026-11-15T14:41:19Z",
+        "equity": 64.48
       }
     ],
-    "updated_utc": "2026-11-15T07:00:13Z",
+    "updated_utc": "2026-11-15T14:41:19Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
   "cash": 64.48,
   "realized_pnl": -35.52,
   "open_positions": [],
-  "working_orders": [],
+  "working_orders": [
+    {
+      "order_id": "W1794753679872-015",
+      "market_id": "6886462",
+      "question": "Pepperdine Waves vs. Oregon Ducks",
+      "url": "https://polymarket.com/market/cbb-pepp-ore-2026-11-15",
+      "side": "Pepperdine Waves",
+      "category": "sports",
+      "event_id": "1344915",
+      "entry_type": "pullback",
+      "trigger": "limit",
+      "entry": 0.43,
+      "quote_at_approval": 0.476,
+      "stop": 0.42,
+      "target": 0.506,
+      "shares": 58,
+      "risk_dollars": 0.58,
+      "time_limit_utc": "2026-11-15T20:41:19Z",
+      "created_utc": "2026-11-15T14:41:19Z",
+      "last_mark_utc": "2026-11-15T14:41:19Z",
+      "status": "WORKING"
+    }
+  ],
   "closed_trades": [
     {
       "trade_id": "P1792385133524-001",
@@ -1307,7 +1348,11 @@
     {
       "t": "2026-11-15T07:00:13Z",
       "equity": 64.48
+    },
+    {
+      "t": "2026-11-15T14:41:19Z",
+      "equity": 64.48
     }
   ],
-  "updated_utc": "2026-11-15T07:00:13Z"
+  "updated_utc": "2026-11-15T14:41:19Z"
 }
