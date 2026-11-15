@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 64.48,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-15T14:41:19Z",
+  "updated_utc": "2026-11-15T19:58:40Z",
   "realized_pnl": -35.52,
   "positions": [],
   "trades": [
@@ -715,6 +715,10 @@
     {
       "t": "2026-11-15T14:41:19Z",
       "equity": 64.48
+    },
+    {
+      "t": "2026-11-15T19:58:40Z",
+      "equity": 64.48
     }
   ],
   "counters": {
@@ -741,31 +745,10 @@
       "risk_dollars": 0.58,
       "time_limit_utc": "2026-11-15T20:41:19Z",
       "created_utc": "2026-11-15T14:41:19Z",
-      "last_mark_utc": "2026-11-15T14:41:19Z",
-      "status": "WORKING"
+      "last_mark_utc": "2026-11-15T19:58:40Z",
+      "status": "WORKING",
+      "last_price": 0.46
     }
   ],
-  "queued_this_run": [
-    {
-      "order_id": "W1794753679872-015",
-      "market_id": "6886462",
-      "question": "Pepperdine Waves vs. Oregon Ducks",
-      "url": "https://polymarket.com/market/cbb-pepp-ore-2026-11-15",
-      "side": "Pepperdine Waves",
-      "category": "sports",
-      "event_id": "1344915",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.43,
-      "quote_at_approval": 0.476,
-      "stop": 0.42,
-      "target": 0.506,
-      "shares": 58,
-      "risk_dollars": 0.58,
-      "time_limit_utc": "2026-11-15T20:41:19Z",
-      "created_utc": "2026-11-15T14:41:19Z",
-      "last_mark_utc": "2026-11-15T14:41:19Z",
-      "status": "WORKING"
-    }
-  ]
+  "queued_this_run": []
 }
