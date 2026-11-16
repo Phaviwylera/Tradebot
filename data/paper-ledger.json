@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 64.48,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-16T14:01:36Z",
+  "updated_utc": "2026-11-16T23:24:53Z",
   "realized_pnl": -35.52,
   "positions": [],
   "trades": [
@@ -731,13 +731,61 @@
     {
       "t": "2026-11-16T14:01:36Z",
       "equity": 64.48
+    },
+    {
+      "t": "2026-11-16T23:24:53Z",
+      "equity": 64.48
     }
   ],
   "counters": {
     "next_trade": 7,
-    "next_order": 16
+    "next_order": 17
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [],
-  "queued_this_run": []
+  "orders": [
+    {
+      "order_id": "W1794871493021-016",
+      "market_id": "2412744",
+      "question": "Will Anthropic's market cap be less than $1.25T at market close on IPO day?",
+      "url": "https://polymarket.com/market/will-anthropics-market-cap-be-less-than-1pt25t-at-market-close-on-ipo-day",
+      "side": "Yes",
+      "category": "other",
+      "event_id": "548858",
+      "entry_type": "breakout_retest",
+      "trigger": "limit",
+      "entry": 0.32,
+      "quote_at_approval": 0.332,
+      "stop": 0.315,
+      "target": 0.37,
+      "shares": 78,
+      "risk_dollars": 0.39,
+      "time_limit_utc": "2026-11-17T05:24:53Z",
+      "created_utc": "2026-11-16T23:24:53Z",
+      "last_mark_utc": "2026-11-16T23:24:53Z",
+      "status": "WORKING"
+    }
+  ],
+  "queued_this_run": [
+    {
+      "order_id": "W1794871493021-016",
+      "market_id": "2412744",
+      "question": "Will Anthropic's market cap be less than $1.25T at market close on IPO day?",
+      "url": "https://polymarket.com/market/will-anthropics-market-cap-be-less-than-1pt25t-at-market-close-on-ipo-day",
+      "side": "Yes",
+      "category": "other",
+      "event_id": "548858",
+      "entry_type": "breakout_retest",
+      "trigger": "limit",
+      "entry": 0.32,
+      "quote_at_approval": 0.332,
+      "stop": 0.315,
+      "target": 0.37,
+      "shares": 78,
+      "risk_dollars": 0.39,
+      "time_limit_utc": "2026-11-17T05:24:53Z",
+      "created_utc": "2026-11-16T23:24:53Z",
+      "last_mark_utc": "2026-11-16T23:24:53Z",
+      "status": "WORKING"
+    }
+  ]
 }
