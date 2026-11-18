@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 64.48,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-18T03:53:37Z",
+  "updated_utc": "2026-11-18T12:47:38Z",
   "realized_pnl": -35.52,
   "positions": [],
   "trades": [
@@ -751,6 +751,10 @@
     {
       "t": "2026-11-18T03:53:37Z",
       "equity": 64.48
+    },
+    {
+      "t": "2026-11-18T12:47:38Z",
+      "equity": 64.48
     }
   ],
   "counters": {
@@ -758,50 +762,6 @@
     "next_order": 18
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [
-    {
-      "order_id": "W1794974017367-017",
-      "market_id": "679018",
-      "question": "Will Marine Le Pen win the 2027 French presidential election?",
-      "url": "https://polymarket.com/market/will-marine-le-pen-win-the-2027-french-presidential-election",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "79987",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.488,
-      "quote_at_approval": 0.494,
-      "stop": 0.483,
-      "target": 0.538,
-      "shares": 51,
-      "risk_dollars": 0.26,
-      "time_limit_utc": "2026-11-18T09:53:37Z",
-      "created_utc": "2026-11-18T03:53:37Z",
-      "last_mark_utc": "2026-11-18T03:53:37Z",
-      "status": "WORKING"
-    }
-  ],
-  "queued_this_run": [
-    {
-      "order_id": "W1794974017367-017",
-      "market_id": "679018",
-      "question": "Will Marine Le Pen win the 2027 French presidential election?",
-      "url": "https://polymarket.com/market/will-marine-le-pen-win-the-2027-french-presidential-election",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "79987",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.488,
-      "quote_at_approval": 0.494,
-      "stop": 0.483,
-      "target": 0.538,
-      "shares": 51,
-      "risk_dollars": 0.26,
-      "time_limit_utc": "2026-11-18T09:53:37Z",
-      "created_utc": "2026-11-18T03:53:37Z",
-      "last_mark_utc": "2026-11-18T03:53:37Z",
-      "status": "WORKING"
-    }
-  ]
+  "orders": [],
+  "queued_this_run": []
 }
