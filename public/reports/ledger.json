@@ -10,7 +10,7 @@
     "total_pnl": -35.52,
     "return_pct": -35.52,
     "open_count": 0,
-    "working_count": 0,
+    "working_count": 1,
     "closed_count": 6,
     "win_count": 0,
     "loss_count": 6,
@@ -21,7 +21,26 @@
     "worst_trade": -15.18,
     "max_drawdown_pct": -35.52,
     "open_positions": [],
-    "working_orders": [],
+    "working_orders": [
+      {
+        "order_id": "W1795165097368-019",
+        "market_id": "561234",
+        "question": "Will Marco Rubio win the 2028 US Presidential Election?",
+        "url": "https://polymarket.com/market/will-marco-rubio-win-the-2028-us-presidential-election",
+        "side": "Yes",
+        "entry_type": "breakout_retest",
+        "trigger": "limit",
+        "entry": 0.094,
+        "quote_at_approval": 0.097,
+        "last_price": 0.097,
+        "stop": 0.089,
+        "target": 0.144,
+        "shares": 126,
+        "risk_dollars": 0.63,
+        "time_limit_utc": "2026-11-20T14:58:17Z",
+        "created_utc": "2026-11-20T08:58:17Z"
+      }
+    ],
     "closed_trades": [
       {
         "trade_id": "P1794514684516-006",
@@ -115,10 +134,6 @@
       }
     ],
     "equity_curve": [
-      {
-        "t": "2026-10-23T04:53:26Z",
-        "equity": 97.63
-      },
       {
         "t": "2026-10-23T09:48:24Z",
         "equity": 97.63
@@ -594,16 +609,42 @@
       {
         "t": "2026-11-20T01:24:57Z",
         "equity": 64.48
+      },
+      {
+        "t": "2026-11-20T08:58:17Z",
+        "equity": 64.48
       }
     ],
-    "updated_utc": "2026-11-20T01:24:57Z",
+    "updated_utc": "2026-11-20T08:58:17Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
   "cash": 64.48,
   "realized_pnl": -35.52,
   "open_positions": [],
-  "working_orders": [],
+  "working_orders": [
+    {
+      "order_id": "W1795165097368-019",
+      "market_id": "561234",
+      "question": "Will Marco Rubio win the 2028 US Presidential Election?",
+      "url": "https://polymarket.com/market/will-marco-rubio-win-the-2028-us-presidential-election",
+      "side": "Yes",
+      "category": "politics",
+      "event_id": "31552",
+      "entry_type": "breakout_retest",
+      "trigger": "limit",
+      "entry": 0.094,
+      "quote_at_approval": 0.097,
+      "stop": 0.089,
+      "target": 0.144,
+      "shares": 126,
+      "risk_dollars": 0.63,
+      "time_limit_utc": "2026-11-20T14:58:17Z",
+      "created_utc": "2026-11-20T08:58:17Z",
+      "last_mark_utc": "2026-11-20T08:58:17Z",
+      "status": "WORKING"
+    }
+  ],
   "closed_trades": [
     {
       "trade_id": "P1792385133524-001",
@@ -1371,7 +1412,11 @@
     {
       "t": "2026-11-20T01:24:57Z",
       "equity": 64.48
+    },
+    {
+      "t": "2026-11-20T08:58:17Z",
+      "equity": 64.48
     }
   ],
-  "updated_utc": "2026-11-20T01:24:57Z"
+  "updated_utc": "2026-11-20T08:58:17Z"
 }
