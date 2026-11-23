@@ -10,7 +10,7 @@
     "total_pnl": -35.52,
     "return_pct": -35.52,
     "open_count": 0,
-    "working_count": 1,
+    "working_count": 0,
     "closed_count": 6,
     "win_count": 0,
     "loss_count": 6,
@@ -21,26 +21,7 @@
     "worst_trade": -15.18,
     "max_drawdown_pct": -35.52,
     "open_positions": [],
-    "working_orders": [
-      {
-        "order_id": "W1795429765841-020",
-        "market_id": "691340",
-        "question": "AI bubble burst in 2026?",
-        "url": "https://polymarket.com/market/ai-industry-downturn-by-december-31-2026-857",
-        "side": "No",
-        "entry_type": "breakout_retest",
-        "trigger": "limit",
-        "entry": 0.65,
-        "quote_at_approval": 0.666,
-        "last_price": 0.666,
-        "stop": 0.645,
-        "target": 0.7,
-        "shares": 38,
-        "risk_dollars": 0.19,
-        "time_limit_utc": "2026-11-23T16:29:25Z",
-        "created_utc": "2026-11-23T10:29:25Z"
-      }
-    ],
+    "working_orders": [],
     "closed_trades": [
       {
         "trade_id": "P1794514684516-006",
@@ -134,10 +115,6 @@
       }
     ],
     "equity_curve": [
-      {
-        "t": "2026-10-25T00:06:25Z",
-        "equity": 97.63
-      },
       {
         "t": "2026-10-25T04:44:44Z",
         "equity": 97.63
@@ -613,38 +590,20 @@
       {
         "t": "2026-11-23T10:29:25Z",
         "equity": 64.48
+      },
+      {
+        "t": "2026-11-23T22:12:20Z",
+        "equity": 64.48
       }
     ],
-    "updated_utc": "2026-11-23T10:29:25Z",
+    "updated_utc": "2026-11-23T22:12:20Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
   "cash": 64.48,
   "realized_pnl": -35.52,
   "open_positions": [],
-  "working_orders": [
-    {
-      "order_id": "W1795429765841-020",
-      "market_id": "691340",
-      "question": "AI bubble burst in 2026?",
-      "url": "https://polymarket.com/market/ai-industry-downturn-by-december-31-2026-857",
-      "side": "No",
-      "category": "other",
-      "event_id": "85299",
-      "entry_type": "breakout_retest",
-      "trigger": "limit",
-      "entry": 0.65,
-      "quote_at_approval": 0.666,
-      "stop": 0.645,
-      "target": 0.7,
-      "shares": 38,
-      "risk_dollars": 0.19,
-      "time_limit_utc": "2026-11-23T16:29:25Z",
-      "created_utc": "2026-11-23T10:29:25Z",
-      "last_mark_utc": "2026-11-23T10:29:25Z",
-      "status": "WORKING"
-    }
-  ],
+  "working_orders": [],
   "closed_trades": [
     {
       "trade_id": "P1792385133524-001",
@@ -1460,7 +1419,11 @@
     {
       "t": "2026-11-23T10:29:25Z",
       "equity": 64.48
+    },
+    {
+      "t": "2026-11-23T22:12:20Z",
+      "equity": 64.48
     }
   ],
-  "updated_utc": "2026-11-23T10:29:25Z"
+  "updated_utc": "2026-11-23T22:12:20Z"
 }
