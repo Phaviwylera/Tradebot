@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 64.48,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-23T01:45:33Z",
+  "updated_utc": "2026-11-23T10:29:25Z",
   "realized_pnl": -35.52,
   "positions": [],
   "trades": [
@@ -819,13 +819,61 @@
     {
       "t": "2026-11-23T01:45:33Z",
       "equity": 64.48
+    },
+    {
+      "t": "2026-11-23T10:29:25Z",
+      "equity": 64.48
     }
   ],
   "counters": {
     "next_trade": 7,
-    "next_order": 20
+    "next_order": 21
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [],
-  "queued_this_run": []
+  "orders": [
+    {
+      "order_id": "W1795429765841-020",
+      "market_id": "691340",
+      "question": "AI bubble burst in 2026?",
+      "url": "https://polymarket.com/market/ai-industry-downturn-by-december-31-2026-857",
+      "side": "No",
+      "category": "other",
+      "event_id": "85299",
+      "entry_type": "breakout_retest",
+      "trigger": "limit",
+      "entry": 0.65,
+      "quote_at_approval": 0.666,
+      "stop": 0.645,
+      "target": 0.7,
+      "shares": 38,
+      "risk_dollars": 0.19,
+      "time_limit_utc": "2026-11-23T16:29:25Z",
+      "created_utc": "2026-11-23T10:29:25Z",
+      "last_mark_utc": "2026-11-23T10:29:25Z",
+      "status": "WORKING"
+    }
+  ],
+  "queued_this_run": [
+    {
+      "order_id": "W1795429765841-020",
+      "market_id": "691340",
+      "question": "AI bubble burst in 2026?",
+      "url": "https://polymarket.com/market/ai-industry-downturn-by-december-31-2026-857",
+      "side": "No",
+      "category": "other",
+      "event_id": "85299",
+      "entry_type": "breakout_retest",
+      "trigger": "limit",
+      "entry": 0.65,
+      "quote_at_approval": 0.666,
+      "stop": 0.645,
+      "target": 0.7,
+      "shares": 38,
+      "risk_dollars": 0.19,
+      "time_limit_utc": "2026-11-23T16:29:25Z",
+      "created_utc": "2026-11-23T10:29:25Z",
+      "last_mark_utc": "2026-11-23T10:29:25Z",
+      "status": "WORKING"
+    }
+  ]
 }
