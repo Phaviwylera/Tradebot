@@ -5,7 +5,7 @@
   "starting_cash": 100.0,
   "cash": 64.48,
   "created_utc": "2026-10-19T04:31:10Z",
-  "updated_utc": "2026-11-24T17:48:57Z",
+  "updated_utc": "2026-11-25T02:02:28Z",
   "realized_pnl": -35.52,
   "positions": [],
   "trades": [
@@ -835,6 +835,10 @@
     {
       "t": "2026-11-24T17:48:57Z",
       "equity": 64.48
+    },
+    {
+      "t": "2026-11-25T02:02:28Z",
+      "equity": 64.48
     }
   ],
   "counters": {
@@ -842,92 +846,6 @@
     "next_order": 23
   },
   "policy": "simulated fills at quoted prices; no broker, wallet or order client",
-  "orders": [
-    {
-      "order_id": "W1795542537471-021",
-      "market_id": "561231",
-      "question": "Will Alexandria Ocasio-Cortez win the 2028 US Presidential Election?",
-      "url": "https://polymarket.com/market/will-alexandria-ocasio-cortez-win-the-2028-us-presidential-election",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "31552",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.105,
-      "quote_at_approval": 0.107,
-      "stop": 0.1,
-      "target": 0.155,
-      "shares": 123,
-      "risk_dollars": 0.61,
-      "time_limit_utc": "2026-11-24T23:48:57Z",
-      "created_utc": "2026-11-24T17:48:57Z",
-      "last_mark_utc": "2026-11-24T17:48:57Z",
-      "status": "WORKING"
-    },
-    {
-      "order_id": "W1795542537471-022",
-      "market_id": "559653",
-      "question": "Will Alexandria Ocasio-Cortez win the 2028 Democratic presidential nomination?",
-      "url": "https://polymarket.com/market/will-alexandria-ocasio-cortez-win-the-2028-democratic-presidential-nomination-653",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "30829",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.176,
-      "quote_at_approval": 0.179,
-      "stop": 0.171,
-      "target": 0.226,
-      "shares": 68,
-      "risk_dollars": 0.34,
-      "time_limit_utc": "2026-11-24T23:48:57Z",
-      "created_utc": "2026-11-24T17:48:57Z",
-      "last_mark_utc": "2026-11-24T17:48:57Z",
-      "status": "WORKING"
-    }
-  ],
-  "queued_this_run": [
-    {
-      "order_id": "W1795542537471-021",
-      "market_id": "561231",
-      "question": "Will Alexandria Ocasio-Cortez win the 2028 US Presidential Election?",
-      "url": "https://polymarket.com/market/will-alexandria-ocasio-cortez-win-the-2028-us-presidential-election",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "31552",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.105,
-      "quote_at_approval": 0.107,
-      "stop": 0.1,
-      "target": 0.155,
-      "shares": 123,
-      "risk_dollars": 0.61,
-      "time_limit_utc": "2026-11-24T23:48:57Z",
-      "created_utc": "2026-11-24T17:48:57Z",
-      "last_mark_utc": "2026-11-24T17:48:57Z",
-      "status": "WORKING"
-    },
-    {
-      "order_id": "W1795542537471-022",
-      "market_id": "559653",
-      "question": "Will Alexandria Ocasio-Cortez win the 2028 Democratic presidential nomination?",
-      "url": "https://polymarket.com/market/will-alexandria-ocasio-cortez-win-the-2028-democratic-presidential-nomination-653",
-      "side": "Yes",
-      "category": "politics",
-      "event_id": "30829",
-      "entry_type": "pullback",
-      "trigger": "limit",
-      "entry": 0.176,
-      "quote_at_approval": 0.179,
-      "stop": 0.171,
-      "target": 0.226,
-      "shares": 68,
-      "risk_dollars": 0.34,
-      "time_limit_utc": "2026-11-24T23:48:57Z",
-      "created_utc": "2026-11-24T17:48:57Z",
-      "last_mark_utc": "2026-11-24T17:48:57Z",
-      "status": "WORKING"
-    }
-  ]
+  "orders": [],
+  "queued_this_run": []
 }
