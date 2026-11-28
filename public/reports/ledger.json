@@ -32,7 +32,7 @@
         "trigger": "limit",
         "entry": 0.231,
         "quote_at_approval": 0.241,
-        "last_price": 0.241,
+        "last_price": 0.2335,
         "stop": 0.226,
         "target": 0.281,
         "shares": 94,
@@ -134,10 +134,6 @@
       }
     ],
     "equity_curve": [
-      {
-        "t": "2026-10-27T01:18:11Z",
-        "equity": 97.63
-      },
       {
         "t": "2026-10-27T06:41:08Z",
         "equity": 97.63
@@ -613,9 +609,13 @@
       {
         "t": "2026-11-27T22:33:37Z",
         "equity": 64.48
+      },
+      {
+        "t": "2026-11-28T04:17:17Z",
+        "equity": 64.48
       }
     ],
-    "updated_utc": "2026-11-27T22:33:37Z",
+    "updated_utc": "2026-11-28T04:17:17Z",
     "policy": "simulated fills at quoted prices; no broker, wallet or order client"
   },
   "starting_cash": 100.0,
@@ -641,8 +641,9 @@
       "risk_dollars": 0.47,
       "time_limit_utc": "2026-11-28T04:33:37Z",
       "created_utc": "2026-11-27T22:33:37Z",
-      "last_mark_utc": "2026-11-27T22:33:37Z",
-      "status": "WORKING"
+      "last_mark_utc": "2026-11-28T04:17:17Z",
+      "status": "WORKING",
+      "last_price": 0.2335
     }
   ],
   "closed_trades": [
@@ -1508,7 +1509,11 @@
     {
       "t": "2026-11-27T22:33:37Z",
       "equity": 64.48
+    },
+    {
+      "t": "2026-11-28T04:17:17Z",
+      "equity": 64.48
     }
   ],
-  "updated_utc": "2026-11-27T22:33:37Z"
+  "updated_utc": "2026-11-28T04:17:17Z"
 }
